@@ -1,0 +1,43 @@
+package de.dfki.reeti.animation.head;
+
+import de.dfki.reeti.Reeti;
+import de.dfki.reeti.ReetiStageController;
+import de.dfki.reeti.animationlogic.AnimationContentReeti;
+import de.dfki.reeti.animationlogic.AnimationReeti;
+import java.util.ArrayList;
+
+/**
+ * @author Patrick Gebhard
+ */
+public class LookDown extends AnimationReeti {
+
+  public LookDown() {
+    setAnimtype(ANIMTYPE.ON);
+  }
+
+  public LookDown(Reeti sm, int duration, boolean block) {
+    super(sm, duration, block);
+  }
+
+  @Override
+  public void playAnimation() {
+
+    animationContents = new ArrayList<>();
+    animationContents.add(new AnimationContentReeti(getReeti().leftEye, "rotate", 20));
+    animationContents.add(new AnimationContentReeti(getReeti().rightEye, "rotate", 20));
+//        animationContents.add(new AnimationContentReeti(reeti.mRightEyeFX, "shape", "LOOKDOWN"));
+    playAnimationPart(100);
+
+    pauseAnimation(100);
+
+    animationContents = new ArrayList<>();
+    animationContents.add(new AnimationContentReeti(getReeti().leftEye, "rotate", -20));
+    animationContents.add(new AnimationContentReeti(getReeti().rightEye, "rotate", -20));
+//        animationContents.add(new AnimationContentReeti(reeti.mRightEyeFX, "shape", "LOOKDOWNEND"));
+    playAnimationPart(100);
+
+    if (ReetiStageController.currentRadioButton != null) {
+      ReetiStageController.currentRadioButton.setSelected(false);
+    }
+  }
+}
