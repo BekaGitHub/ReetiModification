@@ -33,8 +33,6 @@ public abstract class AReetiStageController {
   @FXML
   public RadioButton WithoutPerlinNoise;
   @FXML
-  public ComboBox<String> reetiComboBox;
-  @FXML
   public ComboBox<String> EmotionExpressionComboBox;
   @FXML
   public Button SaveButton;
@@ -166,7 +164,7 @@ public abstract class AReetiStageController {
   public String mReetiComboBox = null;
   public ToggleGroup perlinNoiseGroup;
   public AgentsOnStage mStickmanOnstage;
-  public Reeti currentReeti;
+  public static Reeti currentReeti;
   public ReetiStage stage3D;
 
 }

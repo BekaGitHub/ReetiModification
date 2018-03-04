@@ -30,13 +30,6 @@ public class ReetiStageController extends AReetiStageController implements ViewC
   @FXML
   public void initialize() {
     //Select a stickmanSwing
-    reetiComboBox.setOnAction((event)
-        ->
-    {
-      mReetiComboBox = reetiComboBox.getSelectionModel().getSelectedItem();
-      currentReeti = (Reeti) mStickmanOnstage.getAgent(mReetiComboBox);
-      setComboboxValue((Reeti) mStickmanOnstage.getAgent(mReetiComboBox));
-    });
 
     fillEmotionScrollPane();
     fillEnvironmentScrollPane();
@@ -327,10 +320,7 @@ public class ReetiStageController extends AReetiStageController implements ViewC
   public void fillComboForStickman() {
     ObservableList<String> stickmanNames = FXCollections.observableArrayList();
     stickmanNames.addAll(mStickmanOnstage.getStickmanNames().stream().collect(Collectors.toList()));
-    reetiComboBox.getItems().clear();
-    reetiComboBox.getItems().addAll(stickmanNames);
     if (!stickmanNames.isEmpty()) {
-      reetiComboBox.setValue(stickmanNames.get(0));
       currentReeti = (Reeti) mStickmanOnstage.getAgent(stickmanNames.get(0));
       setComboboxValue((Reeti) mStickmanOnstage.getAgent(stickmanNames.get(0)));
     }
