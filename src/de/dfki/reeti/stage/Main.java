@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -21,8 +22,8 @@ public class Main extends Application {
   @Override
   public void start(Stage primaryStage) throws Exception {
     FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(getClass().getResource("/de/dfki/reeti/View1.fxml"));
-    HBox root = loader.load();
+    loader.setLocation(getClass().getResource("/de/dfki/reeti/ViewX.fxml"));
+    VBox root = loader.load();
     ViewController controller = loader.getController();
     Screen screen = Screen.getPrimary();
     Rectangle2D bounds = screen.getVisualBounds();
