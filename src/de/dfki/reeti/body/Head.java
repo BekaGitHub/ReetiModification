@@ -5,6 +5,7 @@ import de.dfki.reeti.Reeti;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.net.URL;
+import java.util.logging.Level;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
@@ -46,6 +47,7 @@ public class Head extends ReetiParts {
     init();
     this.getChildren().add(mHeadGroup);
     calculate(0);
+    LOGGER.log(Level.INFO,"Head wurde erzeugt");
   }
 
 

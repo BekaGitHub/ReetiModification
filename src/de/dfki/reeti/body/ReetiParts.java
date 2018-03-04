@@ -8,6 +8,7 @@ package de.dfki.reeti.body;
 import de.dfki.common.parts.FXParts3D;
 import de.dfki.reeti.animationlogic.AnimatorReeti;
 import java.net.URL;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.scene.paint.PhongMaterial;
 
@@ -17,6 +18,7 @@ import javafx.scene.paint.PhongMaterial;
 public abstract class ReetiParts extends FXParts3D {
 
   private static PhongMaterial material = null;
+  public static final Logger LOGGER = Logger.getLogger(ReetiParts.class.getName());
 
   @Override
   public void init() {
