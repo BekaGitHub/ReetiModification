@@ -23,7 +23,7 @@ public class RightEyebrowFX extends StickmanFXParts {
     mLength = 16;
     mSize = new Dimension(mLength, 5);
     mDefaultRotationPoint = mHeadFX.mDefaultRotationPoint;
-    mColor = Color.rgb(0, 0, 0, (64 * 100 / 255) / 100f);
+    color = Color.rgb(0, 0, 0, (64 * 100 / 255) / 100f);
     mPath = new Path();
     this.getChildren().add(mPath);
     init();
@@ -55,7 +55,7 @@ public class RightEyebrowFX extends StickmanFXParts {
     switch (mShape) {
       case DEFAULT:
 //            	if (head.mStickmanSwing.setCharacterInvisible == false)
-//            		mColorRecorder = mColor;
+//            		mColorRecorder = color;
 
         if (mHeadFX.mStickmanFX.setCharacterInvisible == true) {
           if (mHeadFX.mStickmanFX.fadeControler == true) //Added by Robbie
@@ -64,14 +64,14 @@ public class RightEyebrowFX extends StickmanFXParts {
             if (fadeFactor <= 6) {
               fadeFactor = 0;
             }
-            mColor = Color.rgb(0, 0, 0, (fadeFactor * 100 / 255) / 100f);
+            color = Color.rgb(0, 0, 0, (fadeFactor * 100 / 255) / 100f);
           } else {
             int fadeFactor = (int) ((20 - mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep) * 3.2);
 
             if (fadeFactor >= 54) {
-              mColor = mColorRecorder;
+              color = mColorRecorder;
             } else {
-              mColor = Color.rgb(0, 0, 0, (fadeFactor * 100 / 255) / 100f);
+              color = Color.rgb(0, 0, 0, (fadeFactor * 100 / 255) / 100f);
             }
           }
         }
@@ -202,7 +202,7 @@ public class RightEyebrowFX extends StickmanFXParts {
 
   protected void recordColor() {
     if (mHeadFX.mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 

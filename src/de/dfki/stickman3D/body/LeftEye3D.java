@@ -34,9 +34,9 @@ public class LeftEye3D extends Stickman3DParts {
     mHead = head;
 
     if (mHead.getStickman().mType == Gender.TYPE.MALE) {
-      mColor = Color.rgb(0, 0, 0, 1);
+      color = Color.rgb(0, 0, 0, 1);
     } else {
-      mColor = Color.rgb(0, 0, 255, 1);
+      color = Color.rgb(0, 0, 255, 1);
     }
 
     smallPupileColor = Color.rgb(255, 255, 255, 1);
@@ -80,7 +80,7 @@ public class LeftEye3D extends Stickman3DParts {
 
   private void createDefaultEye() {
     border = createBorder(border);
-    bigPupile = createEllipsePath(bigPupile, 0, 0, 3.5, 3.5, 0, mColor, null);
+    bigPupile = createEllipsePath(bigPupile, 0, 0, 3.5, 3.5, 0, color, null);
     smallPupile = createEllipsePath(smallPupile, 0, 0, 1.4, 1.4, 0, smallPupileColor, null);
     smallPupile.setStroke(null);
 
@@ -105,14 +105,14 @@ public class LeftEye3D extends Stickman3DParts {
 
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           smallPupileColor = new Color(smallPupileColor.getRed(), smallPupileColor.getGreen(),
               smallPupileColor.getBlue(), 0.0);
           borderColor = new Color(borderColor.getRed(), borderColor.getGreen(),
               borderColor.getBlue(), 0.0);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           smallPupileColor = new Color(smallPupileColor.getRed(), smallPupileColor.getGreen(),
               smallPupileColor.getBlue(), smallPupileColor.getOpacity() - 0.052);
           borderColor = new Color(borderColor.getRed(), borderColor.getGreen(),
@@ -120,22 +120,22 @@ public class LeftEye3D extends Stickman3DParts {
               borderColor.getOpacity() - 0.052);
         }
         border.setFill(borderColor);
-        bigPupile.setFill(mColor);
+        bigPupile.setFill(color);
         smallPupile.setFill(smallPupileColor);
         border.setStroke(borderColor);
-        bigPupile.setStroke(mColor);
+        bigPupile.setStroke(color);
         break;
 
       case FADEOUT:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           smallPupileColor = new Color(smallPupileColor.getRed(), smallPupileColor.getGreen(),
               smallPupileColor.getBlue(), 1.0);
           borderColor = new Color(borderColor.getRed(), borderColor.getGreen(),
               borderColor.getBlue(), 1.0);
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           smallPupileColor = new Color(smallPupileColor.getRed(), smallPupileColor.getGreen(),
               smallPupileColor.getBlue(), smallPupileColor.getOpacity() + 0.052);
           borderColor = new Color(borderColor.getRed(), borderColor.getGreen(),
@@ -143,10 +143,10 @@ public class LeftEye3D extends Stickman3DParts {
               borderColor.getOpacity() + 0.052);
         }
         border.setFill(borderColor);
-        bigPupile.setFill(mColor);
+        bigPupile.setFill(color);
         smallPupile.setFill(smallPupileColor);
         border.setStroke(Color.BLACK);
-        bigPupile.setStroke(mColor);
+        bigPupile.setStroke(color);
         break;
       case BLINK:
         borderYSize += 0.0450;
@@ -421,12 +421,12 @@ public class LeftEye3D extends Stickman3DParts {
   }
 
   public void update() {
-    bigPupile.setFill(mColor);
+    bigPupile.setFill(color);
   }
 
   protected void recordColor() {
     if (mHead.getStickman().setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 

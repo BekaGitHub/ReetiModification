@@ -44,7 +44,7 @@ public class AnimationStickman3D extends Animation implements XMLParseable, XMLW
   public AnimationStickman3D(Stickman3D sm, int duration, boolean block) {
     name = getClass().getSimpleName();
     mStickman3D = sm;
-    agentName = mStickman3D.mName;
+    agentName = mStickman3D.name;
     setName(agentName + "'s AnimationSwing " + name);
     ID = mStickman3D.getID(); // default ID;
     isBlocked = block;
@@ -54,7 +54,7 @@ public class AnimationStickman3D extends Animation implements XMLParseable, XMLW
   public AnimationStickman3D(Stickman3D sm, int frequent, int actionDuration, boolean block) {
     name = getClass().getSimpleName();
     mStickman3D = sm;
-    agentName = mStickman3D.mName;
+    agentName = mStickman3D.name;
     setName(agentName + "'s AnimationSwing " + name);
     ID = mStickman3D.getID(); // default ID;
     isBlocked = block;
@@ -66,7 +66,7 @@ public class AnimationStickman3D extends Animation implements XMLParseable, XMLW
       HashMap<String, String> extraParams) {
     name = getClass().getSimpleName();
     mStickman3D = sm;
-    agentName = mStickman3D.mName;
+    agentName = mStickman3D.name;
     setName(agentName + "'s AnimationSwing " + name);
     ID = mStickman3D.getID(); // default ID;
     isBlocked = block;

@@ -119,7 +119,7 @@ public class StickmanFX extends Agent2D {
     this.mSize = size;
     this.mScale = scale;
     this.mScaleOriginal = scale;
-    this.mName = name;
+    this.name = name;
     this.mType = gender;
 
     this.init();
@@ -130,7 +130,7 @@ public class StickmanFX extends Agent2D {
   public StickmanFX(String name, Gender.TYPE gender, float scale) {
     this.mScale = scale;
     this.mScaleOriginal = scale;
-    this.mName = name;
+    this.name = name;
     this.mType = gender;
 
     this.init();
@@ -139,7 +139,7 @@ public class StickmanFX extends Agent2D {
   }
 
   public StickmanFX(String name, Gender.TYPE gender) {
-    this.mName = name;
+    this.name = name;
     this.mType = gender;
 
     this.init();
@@ -148,7 +148,7 @@ public class StickmanFX extends Agent2D {
   }
 
   private void init() {
-    this.mName = "StickmanFX";
+    this.name = "StickmanFX";
     this.nameLabel = new Label();
     this.mHeadFX = new HeadFX(this);
     this.mMaleHairFX = new MaleHairFX(this);
@@ -180,10 +180,10 @@ public class StickmanFX extends Agent2D {
     this.mBombeFX = new BombeFX(mHeadFX);
     this.mNose = new NoseFX(mHeadFX);
     this.mSpeechBubbleFX = new SpeechBubbleFX(mHeadFX);
-    this.setPrefHeight(mSize.height);
-    this.setPrefWidth(mSize.width);
-    this.setMinHeight(mSize.height);
-    this.setMinWidth(mSize.width);
+//    this.setPrefHeight(mSize.height);
+//    this.setPrefWidth(mSize.width);
+//    this.setMinHeight(mSize.height);
+//    this.setMinWidth(mSize.width);
     // font stuff
     Map<TextAttribute, Object> map = new HashMap<>();
     map.put(TextAttribute.KERNING, TextAttribute.KERNING_ON);
@@ -324,7 +324,7 @@ public class StickmanFX extends Agent2D {
 
     if (mShowName) {
       nameLabel.setTranslateY(mRightForeLegFX.getLegStartPosition().getY() * 21 / 20);
-      nameLabel.setText(mName);
+      nameLabel.setText(name);
     } else {
       nameLabel.setTranslateY(mRightForeLegFX.getLegStartPosition().getY() * 21 / 20);
       nameLabel.setText("");

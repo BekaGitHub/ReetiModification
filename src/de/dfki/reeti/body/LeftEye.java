@@ -6,7 +6,9 @@
 package de.dfki.reeti.body;
 
 import com.interactivemesh.jfx.importer.col.ColModelImporter;
+import de.dfki.reeti.util.Constants;
 import java.net.URL;
+import java.util.logging.Level;
 import javafx.scene.Group;
 import javafx.scene.transform.Rotate;
 
@@ -15,38 +17,38 @@ import javafx.scene.transform.Rotate;
  */
 public class LeftEye extends ReetiParts {
 
-  private Group mLeftEarMesh;
+  private Group leftEyeGroup;
 
   public LeftEye(Head head) {
-    mXRotation = 5;
-    mStart = head.getLeftEyebrowPostion();
+    xRotation = 5;
 
     URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiEye.dae");
     ColModelImporter importer = new ColModelImporter();
     importer.read(url);
-    mLeftEarMesh = (Group) importer.getImport()[0];
+    leftEyeGroup = (Group) importer.getImport()[0];
 
     init();
 
-    head.getHeadGroup().getChildren().add(mLeftEarMesh);
+    head.getHeadGroup().getChildren().add(leftEyeGroup);
+    LOGGER.log(Level.INFO,"Left Eye wurde erzeugt");
   }
 
   @Override
   public void init() {
     super.init();
-    mLeftEarMesh.setTranslateX(mStart.x + 55);
-    mLeftEarMesh.setTranslateY(mStart.y + 47);
-    mLeftEarMesh.setTranslateZ(-62);
+    leftEyeGroup.setTranslateX(Constants.LEFT_EYE_X_POSITION);
+    leftEyeGroup.setTranslateY(Constants.EYE_Y_POSITION);
+    leftEyeGroup.setTranslateZ(Constants.EYE_Z_TRANSLATION);
   }
 
   @Override
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 
-    mLeftEarMesh.getTransforms().clear();
-    mLeftEarMesh.getTransforms().addAll(rz, ry, rx);
+    leftEyeGroup.getTransforms().clear();
+    leftEyeGroup.getTransforms().addAll(rz, ry, rx);
   }
 }

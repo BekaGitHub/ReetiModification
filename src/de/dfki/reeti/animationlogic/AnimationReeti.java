@@ -40,7 +40,7 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
   public AnimationReeti(Reeti reeti, int duration, boolean block) {
     name = getClass().getSimpleName();
     this.reeti = reeti;
-    agentName = this.reeti.mName;
+    agentName = this.reeti.name;
     setName(agentName + "'s AnimationSwing " + name);
     ID = this.reeti.getID(); // default ID;
     isBlocked = block;
@@ -50,7 +50,7 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
   public AnimationReeti(Reeti reeti, int duration, int pos, boolean block) {
     name = getClass().getSimpleName();
     this.reeti = reeti;
-    agentName = this.reeti.mName;
+    agentName = this.reeti.name;
     setName(agentName + "'s AnimationSwing " + name);
     ID = this.reeti.getID(); // default ID;
     isBlocked = block;
@@ -62,7 +62,7 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
       HashMap<String, String> extraParams) {
     name = getClass().getSimpleName();
     this.reeti = reeti;
-    agentName = this.reeti.mName;
+    agentName = this.reeti.name;
     setName(agentName + "'s AnimationSwing " + name);
     ID = this.reeti.getID(); // default ID;
     isBlocked = block;

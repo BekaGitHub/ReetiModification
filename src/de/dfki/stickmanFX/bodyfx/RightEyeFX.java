@@ -30,7 +30,7 @@ public class RightEyeFX extends StickmanFXParts {
     mLength = 5;
     mSize = new Dimension(5, mLength);
     mDefaultRotationPoint = mHead.mDefaultRotationPoint;
-    mColor = Color.rgb(mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
+    color = Color.rgb(mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
         mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 40 : 0,
         mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 65 : 0, (144 * 100 / 255) / 100f);
 
@@ -65,7 +65,7 @@ public class RightEyeFX extends StickmanFXParts {
     switch (mShape) {
       case DEFAULT:
 //            	if (mHeadGroup.mStickmanSwing.setCharacterInvisible == false)
-//            		mColorRecorder = mColor;
+//            		mColorRecorder = color;
         if (mHead.mStickmanFX.setCharacterInvisible == true) {
           if (mHead.mStickmanFX.fadeControler == true) //Added by Robbie
           {
@@ -73,7 +73,7 @@ public class RightEyeFX extends StickmanFXParts {
             if (fadeFactor <= 14) {
               fadeFactor = 0;
             }
-            mColor = Color.rgb(mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
+            color = Color.rgb(mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
                 mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 40 : 0,
                 mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 65 : 0,
                 (fadeFactor * 100 / 255) / 100f);
@@ -81,9 +81,9 @@ public class RightEyeFX extends StickmanFXParts {
             int fadeFactor = (20 - mHead.mStickmanFX.mMouthFX.mShapeAnimationStep) * 7;
 
             if (fadeFactor >= 119) {
-              mColor = mColorRecorder;
+              color = mColorRecorder;
             } else {
-              mColor = Color.rgb(mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
+              color = Color.rgb(mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
                   mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 40 : 0,
                   mHead.mStickmanFX.mType == Gender.TYPE.FEMALE ? 65 : 0,
                   (fadeFactor * 100 / 255) / 100f);
@@ -355,7 +355,7 @@ public class RightEyeFX extends StickmanFXParts {
 
   protected void recordColor() {
     if (mHead.mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 

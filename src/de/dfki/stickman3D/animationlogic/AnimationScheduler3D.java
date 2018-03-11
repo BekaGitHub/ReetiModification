@@ -17,7 +17,7 @@ public class AnimationScheduler3D extends Thread {
   boolean mRunning = true;
 
   public AnimationScheduler3D(Stickman3D s) {
-    setName(s.mName + "'s AnimationScheduler");
+    setName(s.name + "'s AnimationScheduler");
     mStickmanFX = s;
   }
 

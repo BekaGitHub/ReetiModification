@@ -126,7 +126,7 @@ public class Stickman3D extends Agent3D {
     this.size = size;
     this.mScale = scale;
     this.isFullScreen = true;
-    this.mName = name;
+    this.name = name;
     this.mType = gender;
 
     this.init();
@@ -138,7 +138,7 @@ public class Stickman3D extends Agent3D {
     this.mScale = scale;
     this.isFullScreen = false;
     setStageHeight(height);
-    this.mName = name;
+    this.name = name;
     this.mType = gender;
 
     this.init();
@@ -147,7 +147,7 @@ public class Stickman3D extends Agent3D {
   }
 
   public Stickman3D(String name, Gender.TYPE gender) {
-    this.mName = name;
+    this.name = name;
     this.mType = gender;
     this.isFullScreen = true;
     this.init();
@@ -156,7 +156,7 @@ public class Stickman3D extends Agent3D {
   }
 
   private void init() {
-    this.mName = "Stickman3D";
+    this.name = "Stickman3D";
     this.mHead = new Head3D(this);
     if (this.mType == Gender.TYPE.MALE) {
       this.mMaleHair = new MaleHair3D(this);
@@ -199,10 +199,10 @@ public class Stickman3D extends Agent3D {
     this.mUpperBodyAndHead = new UpperBodyAndHead3D(mHead, mUpperBody, mNeck);
     this.mSpeechBubble = new SpeechBubble3D(mHead);
 
-    this.setPrefHeight(size.height);
-    this.setPrefWidth(size.width);
-    this.setMinHeight(size.height);
-    this.setMinWidth(size.width);
+//    this.setPrefHeight(size.height);
+//    this.setPrefWidth(size.width);
+//    this.setMinHeight(size.height);
+//    this.setMinWidth(size.width);
 
     InnerShadow is = new InnerShadow();
     is.setOffsetX(4.0f);
@@ -211,7 +211,7 @@ public class Stickman3D extends Agent3D {
     this.nameText.setEffect(is);
     this.nameText.setX(20);
     this.nameText.setY(100);
-    this.nameText.setText(mName);
+    this.nameText.setText(name);
     this.nameText.setFill(Color.YELLOW);
     this.nameText.setFont(Font.font(null, FontWeight.BOLD, 30));
 

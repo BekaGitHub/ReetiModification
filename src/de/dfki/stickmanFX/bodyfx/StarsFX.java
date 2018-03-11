@@ -24,7 +24,7 @@ public class StarsFX extends StickmanFXParts {
     mBodyFX = body;
     mLength = 150;
     mSize = new Dimension(120, mLength);
-    mColor = Color.rgb(255, 0, 0, (255 * 100 / 255) / 100f);
+    color = Color.rgb(255, 0, 0, (255 * 100 / 255) / 100f);
     mStroke = new BasicStroke(5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
 
     init();
@@ -82,12 +82,12 @@ public class StarsFX extends StickmanFXParts {
     switch (mShape) {
       case DEFAULT:
         path.getElements().add(new MoveTo(mStart.x, mStart.y));
-        mColor = Color.rgb(0, 0, 0, 0);
+        color = Color.rgb(0, 0, 0, 0);
 
         break;
 
       case SAYBYE:
-        mColor = Color.rgb(80, 80, 80, (128 * 100 / 255) / 100f);
+        color = Color.rgb(80, 80, 80, (128 * 100 / 255) / 100f);
         // B
         path.getElements().add(new MoveTo(mStart.x - 100, mStart.y));
         path.getElements().add(new LineTo(mEnd.x - 100, mEnd.y));
@@ -119,7 +119,7 @@ public class StarsFX extends StickmanFXParts {
         break;
 
       case SAYHI:
-        mColor = new Color(80, 80, 80, (128 * 100 / 255) / 100f);
+        color = new Color(80, 80, 80, (128 * 100 / 255) / 100f);
         // H
         path.getElements().add(new MoveTo(mStart.x - 100, mStart.y));
         path.getElements().add(new LineTo(mEnd.x - 100, mEnd.y));
@@ -142,14 +142,14 @@ public class StarsFX extends StickmanFXParts {
         int movement = mShapeAnimationStep - 1;
         int starColorChange = (int) (movement * 10);
         if (movement <= 1) {
-          mColor = new Color(0, 0, 0, 0);
+          color = new Color(0, 0, 0, 0);
         } else {
-          mColor = Color.rgb(240, 212, 0, (starColorChange * 100 / 255) / 100f);
+          color = Color.rgb(240, 212, 0, (starColorChange * 100 / 255) / 100f);
 
           // STAR 1
 //					mStart = mBodyFX.getLeftLegStartPostion();
           mStart = mBodyFX.mNeckFX.mHeadFX.getLeftEyePostion();
-          path.setFill(mColor);
+          path.setFill(color);
           creatStar(30, mStart, path);
 
           // STAR 2 right side
@@ -169,9 +169,9 @@ public class StarsFX extends StickmanFXParts {
         movement = mShapeAnimationStep - 1;
         starColorChange = (int) (movement * 10);
         if (movement <= 1) {
-          mColor = new Color(0, 0, 0, 0);
+          color = new Color(0, 0, 0, 0);
         } else {
-          mColor = Color.rgb(240, 212, 0, (starColorChange * 100 / 255) / 100f);
+          color = Color.rgb(240, 212, 0, (starColorChange * 100 / 255) / 100f);
 
           mStart = mBodyFX.getLeftLegStartPostion();
           creatStar(15, mStart, path);
@@ -191,9 +191,9 @@ public class StarsFX extends StickmanFXParts {
         movement = 21 - mShapeAnimationStep;
         starColorChange = (int) (movement * 10);
         if (movement >= 20) {
-          mColor = new Color(240, 212, 0, (255 * 100 / 255) / 100f);
+          color = new Color(240, 212, 0, (255 * 100 / 255) / 100f);
         } else {
-          mColor = Color.rgb(240, 212, 0, (starColorChange * 100 / 255) / 100f);
+          color = Color.rgb(240, 212, 0, (starColorChange * 100 / 255) / 100f);
 
           mStart = mBodyFX.getLeftLegStartPostion();
           creatStar(15, mStart, path);

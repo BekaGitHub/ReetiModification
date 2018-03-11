@@ -51,16 +51,16 @@ public class DownBody3D extends Stickman3DParts {
     ColModelImporter importer = new ColModelImporter();
     if (mUpperBody.getNeck().getHead().getStickman().mType == Gender.TYPE.FEMALE) {
       url = getClass().getClassLoader().getResource("BodyParts/Stickman3D/DownFemaleBody.dae");
-      mColor = Color.rgb(154, 83, 198, 1);
+      color = Color.rgb(154, 83, 198, 1);
     } else {
       url = getClass().getClassLoader().getResource("BodyParts/Stickman3D/DownMaleBody.dae");
-      mColor = Color.rgb(14, 134, 122, 1);
+      color = Color.rgb(14, 134, 122, 1);
     }
 
     importer.read(url);
     mBodyMeshView = (MeshView) importer.getImport()[0];
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mBodyMeshView.setMaterial(material);
     this.getChildren().addAll(mBodyMeshView);
   }
@@ -78,7 +78,7 @@ public class DownBody3D extends Stickman3DParts {
 
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 
@@ -90,12 +90,12 @@ public class DownBody3D extends Stickman3DParts {
     switch (mShape) {
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           mBodyMeshView.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           update();
         }
         break;
@@ -104,11 +104,11 @@ public class DownBody3D extends Stickman3DParts {
         mBodyMeshView.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           update();
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           update();
         }
         break;
@@ -116,7 +116,7 @@ public class DownBody3D extends Stickman3DParts {
   }
 
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mBodyMeshView.setMaterial(material);
   }
 

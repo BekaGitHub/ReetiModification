@@ -203,7 +203,7 @@ public class BombeExplosion extends AnimationStickmanFX {
 
     //mStickmanSwing.mBodyFX.currentColor = Color.BLACK;
     Platform.runLater(() -> mStickmanFX.mBodyFX.paintFrontOrientation(Color.BLACK));
-    mStickmanFX.mHeadFX.mColor = Color.BLACK;
+    mStickmanFX.mHeadFX.color = Color.BLACK;
 
     animationContents = new ArrayList<>();
     animationContents.add(new AnimationContentFX(mStickmanFX.mBombeFX, "shape", "DEFAULT"));

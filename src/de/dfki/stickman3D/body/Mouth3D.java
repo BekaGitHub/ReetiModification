@@ -34,7 +34,7 @@ public class Mouth3D extends Stickman3DParts {
   public Mouth3D(Head3D head) {
     mHead = head;
     mSize = new Dimension(mLength * 2, 5);
-    mColor = Color.rgb(230, 174, 161, 1.0);
+    color = Color.rgb(230, 174, 161, 1.0);
 
     currentUpperLipPolygon = new Polygon();
     currentDownLipPolygon = new Polygon();
@@ -81,8 +81,8 @@ public class Mouth3D extends Stickman3DParts {
       case DEFAULT:
         currentUpperLipPolygon = MouthDEFAULT.modifyUpperLip(currentUpperLipPolygon, step);
         currentDownLipPolygon = MouthDEFAULT.modifyDownLip(currentDownLipPolygon, step);
-        currentUpperLipPolygon.setFill(mColor);
-        currentDownLipPolygon.setFill(mColor);
+        currentUpperLipPolygon.setFill(color);
+        currentDownLipPolygon.setFill(color);
         if (mHead.getChildren().size() >= 10) {
           mHead.getChildren().set(9, currentUpperLipPolygon);
           mHead.getChildren().set(10, currentDownLipPolygon);
@@ -92,12 +92,12 @@ public class Mouth3D extends Stickman3DParts {
 
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           currentUpperLipPolygon.setVisible(false);
           currentDownLipPolygon.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
         }
         break;
 
@@ -106,11 +106,11 @@ public class Mouth3D extends Stickman3DParts {
         currentDownLipPolygon.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           isFadeIn = true;
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
         }
         break;
 
@@ -314,14 +314,14 @@ public class Mouth3D extends Stickman3DParts {
         x = mStart.x - 11;
         y = mStart.y + 95;
         upperLip.setStrokeWidth(3);
-        upperLip.setStroke(mColor);
+        upperLip.setStroke(color);
         upperLip.getElements().add(new MoveTo(x, y));
         upperLip.getElements().add(new QuadCurveTo(x + 12, y - 5, x + 24, y));
         upperLip.setTranslateZ(-18);
 
         downLip = new Path();
         downLip.setStrokeWidth(3);
-        downLip.setStroke(mColor);
+        downLip.setStroke(color);
         downLip.getElements().add(new MoveTo(x + 24, y));
         downLip.getElements().add(new QuadCurveTo(x + 12, y + 5, x, y));
         downLip.setTranslateZ(-18);
@@ -338,14 +338,14 @@ public class Mouth3D extends Stickman3DParts {
         x = mStart.x - 11;
         y = mStart.y + 95;
         upperLip.setStrokeWidth(3);
-        upperLip.setStroke(mColor);
+        upperLip.setStroke(color);
         upperLip.getElements().add(new MoveTo(x, y));
         upperLip.getElements().add(new QuadCurveTo(x + 12, y - 15, x + 24, y));
         upperLip.setTranslateZ(-18);
 
         downLip = new Path();
         downLip.setStrokeWidth(3);
-        downLip.setStroke(mColor);
+        downLip.setStroke(color);
         downLip.getElements().add(new MoveTo(x + 24, y));
         downLip.getElements().add(new QuadCurveTo(x + 12, y + 15, x, y));
         downLip.setTranslateZ(-18);
@@ -359,14 +359,14 @@ public class Mouth3D extends Stickman3DParts {
         x = mStart.x - 8;
         y = mStart.y + 95;
         upperLip.setStrokeWidth(3);
-        upperLip.setStroke(mColor);
+        upperLip.setStroke(color);
         upperLip.getElements().add(new MoveTo(x, y));
         upperLip.getElements().add(new QuadCurveTo(x + 9, y - 12, x + 18, y));
         upperLip.setTranslateZ(-18);
 
         downLip = new Path();
         downLip.setStrokeWidth(3);
-        downLip.setStroke(mColor);
+        downLip.setStroke(color);
         downLip.getElements().add(new MoveTo(x + 18, y));
         downLip.getElements().add(new QuadCurveTo(x + 9, y + 12, x, y));
         downLip.setTranslateZ(-18);
@@ -381,14 +381,14 @@ public class Mouth3D extends Stickman3DParts {
         x = mStart.x - 11;
         y = mStart.y + 95;
         upperLip.setStrokeWidth(3);
-        upperLip.setStroke(mColor);
+        upperLip.setStroke(color);
         upperLip.getElements().add(new MoveTo(x, y));
         upperLip.getElements().add(new QuadCurveTo(x + 12, y - 4, x + 24, y));
         upperLip.setTranslateZ(-18);
 
         downLip = new Path();
         downLip.setStrokeWidth(3);
-        downLip.setStroke(mColor);
+        downLip.setStroke(color);
         downLip.getElements().add(new MoveTo(x + 24, y));
         downLip.getElements().add(new QuadCurveTo(x + 12, y + 10, x, y));
         downLip.setTranslateZ(-18);
@@ -402,14 +402,14 @@ public class Mouth3D extends Stickman3DParts {
         x = mStart.x - 11;
         y = mStart.y + 95;
         upperLip.setStrokeWidth(3);
-        upperLip.setStroke(mColor);
+        upperLip.setStroke(color);
         upperLip.getElements().add(new MoveTo(x, y));
         upperLip.getElements().add(new QuadCurveTo(x + 12, y - 10, x + 24, y));
         upperLip.setTranslateZ(-18);
 
         downLip = new Path();
         downLip.setStrokeWidth(3);
-        downLip.setStroke(mColor);
+        downLip.setStroke(color);
         downLip.getElements().add(new MoveTo(x + 24, y));
         downLip.getElements().add(new QuadCurveTo(x + 12, y + 10, x, y));
         downLip.setTranslateZ(-18);
@@ -421,14 +421,14 @@ public class Mouth3D extends Stickman3DParts {
         x = mStart.x - 11;
         y = mStart.y + 95;
         upperLip.setStrokeWidth(3);
-        upperLip.setStroke(mColor);
+        upperLip.setStroke(color);
         upperLip.getElements().add(new MoveTo(x, y));
         upperLip.getElements().add(new QuadCurveTo(x + 12, y - 10, x + 24, y));
         upperLip.setTranslateZ(-18);
 
         downLip = new Path();
         downLip.setStrokeWidth(3);
-        downLip.setStroke(mColor);
+        downLip.setStroke(color);
         downLip.getElements().add(new MoveTo(x + 24, y));
         downLip.getElements().add(new QuadCurveTo(x + 12, y + 10, x, y));
         downLip.setTranslateZ(-18);
@@ -442,14 +442,14 @@ public class Mouth3D extends Stickman3DParts {
         x = mStart.x - 8;
         y = mStart.y + 95;
         upperLip.setStrokeWidth(3);
-        upperLip.setStroke(mColor);
+        upperLip.setStroke(color);
         upperLip.getElements().add(new MoveTo(x, y));
         upperLip.getElements().add(new QuadCurveTo(x + 9, y - 3, x + 18, y));
         upperLip.setTranslateZ(-18);
 
         downLip = new Path();
         downLip.setStrokeWidth(3);
-        downLip.setStroke(mColor);
+        downLip.setStroke(color);
         downLip.getElements().add(new MoveTo(x + 18, y));
         downLip.getElements().add(new QuadCurveTo(x + 9, y + 3, x, y));
         downLip.setTranslateZ(-18);
@@ -471,14 +471,14 @@ public class Mouth3D extends Stickman3DParts {
 
   @Override
   public void update() {
-    currentUpperLipPolygon.setFill(mColor);
-    currentDownLipPolygon.setFill(mColor);
+    currentUpperLipPolygon.setFill(color);
+    currentDownLipPolygon.setFill(color);
   }
 
   @Override
   protected void recordColor() {
     if (mHead.getStickman().setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 

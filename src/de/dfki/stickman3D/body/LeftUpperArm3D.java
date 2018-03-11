@@ -31,7 +31,7 @@ public class LeftUpperArm3D extends Stickman3DParts {
   public LeftUpperArm3D(UpperBody3D bodyFX) {
     mUpperBody = bodyFX;
     mSize = new Dimension(ARMLENGTH, ARMLENGTH);
-    mColor = Color.rgb(242, 227, 217, 1);
+    color = Color.rgb(242, 227, 217, 1);
 
     ColModelImporter importer = new ColModelImporter();
     URL url = getClass().getClassLoader().getResource("BodyParts/Stickman3D/UpperArm.dae");
@@ -50,7 +50,7 @@ public class LeftUpperArm3D extends Stickman3DParts {
     mLeftUpperArmMesh = (MeshView) importer.getImport()[0];
 
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mLeftUpperArmMesh.setMaterial(material);
 
     leftUpperArmGroup = new Group();
@@ -76,7 +76,7 @@ public class LeftUpperArm3D extends Stickman3DParts {
   public void calculate(int step) {
     mStart = mUpperBody.getLeftArmStartPostion();
 
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 
@@ -95,12 +95,12 @@ public class LeftUpperArm3D extends Stickman3DParts {
     switch (mShape) {
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           mLeftUpperArmMesh.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           update();
         }
         break;
@@ -109,11 +109,11 @@ public class LeftUpperArm3D extends Stickman3DParts {
         mLeftUpperArmMesh.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           update();
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           update();
         }
         break;
@@ -122,7 +122,7 @@ public class LeftUpperArm3D extends Stickman3DParts {
 
   @Override
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mLeftUpperArmMesh.setMaterial(material);
   }
 

@@ -40,7 +40,7 @@ public class LeftForeLegFX extends StickmanFXParts {
     mDefaultRotation = -2;
     mRotation = mDefaultRotation;
     mToDegree = mDefaultRotation;
-    mColor = Color.rgb(80, 80, 80);
+    color = Color.rgb(80, 80, 80);
     mLeg = new Path();
     this.getChildren().add(mLeg);
 
@@ -90,7 +90,7 @@ public class LeftForeLegFX extends StickmanFXParts {
   @Override
   public void update() {
     if (mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
     if (mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true) {
       if (mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.fadeControler == true) //Added by Robbie
@@ -100,24 +100,24 @@ public class LeftForeLegFX extends StickmanFXParts {
         if (fadeFactor <= 24) {
           fadeFactor = 0;
         }
-        mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+        color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
             (fadeFactor * 100 / 255) / 100f);
-        //mColor = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);
+        //color = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);
       } else {
         int fadeFactor =
             (20 - mUpperLegFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep)
                 * 12;
         if (fadeFactor >= 216) {
-          mColor = mColorRecorder;
+          color = mColorRecorder;
         } else {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
               (fadeFactor * 100 / 255) / 100f);
         }
-        //mColor = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);
+        //color = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);
       }
     }
 
-    mLeg.setStroke(mColor);
+    mLeg.setStroke(color);
     mLeg.setStrokeWidth(3);
     mLeg.setStrokeLineCap(StrokeLineCap.ROUND);
     mLeg.setStrokeLineJoin(StrokeLineJoin.ROUND);

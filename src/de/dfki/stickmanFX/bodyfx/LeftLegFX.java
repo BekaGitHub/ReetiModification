@@ -23,7 +23,7 @@ public class LeftLegFX extends StickmanFXParts {
     mBodyFX = body;
     mLength = 150;
     mSize = new Dimension(10, mLength);
-    mColor = Color.rgb(80, 80, 80);
+    color = Color.rgb(80, 80, 80);
     init();
   }
 
@@ -35,7 +35,7 @@ public class LeftLegFX extends StickmanFXParts {
     clearDrawObjects();
     clearChildren(this);
 //        if (mBodyFX.mNeck.head.mStickmanSwing.setCharacterInvisible == false)
-//        	mColorRecorder = mColor;
+//        	mColorRecorder = color;
     if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true) {
       if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.fadeControler == true) //Added by Robbie
       {
@@ -43,14 +43,14 @@ public class LeftLegFX extends StickmanFXParts {
         if (fadeFactor <= 24) {
           fadeFactor = 0;
         }
-        mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
+        color = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
       } else {
         int fadeFactor =
             (20 - mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep) * 12;
         if (fadeFactor >= 216) {
-          mColor = mColorRecorder;
+          color = mColorRecorder;
         } else {
-          mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
+          color = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
         }
       }
     }
@@ -72,7 +72,7 @@ public class LeftLegFX extends StickmanFXParts {
 
   protected void recordColor() {
     if (mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 }

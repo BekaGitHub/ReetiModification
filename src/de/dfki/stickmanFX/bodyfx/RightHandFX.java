@@ -28,7 +28,7 @@ public class RightHandFX extends StickmanFXParts {
     mLength = 10;
     mSize = new Dimension(mLength, mLength);
 
-    mColor = Color.rgb(80, 80, 80);
+    color = Color.rgb(80, 80, 80);
     mStroke = new BasicStroke(2.5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
     af = new Affine();
 
@@ -49,7 +49,7 @@ public class RightHandFX extends StickmanFXParts {
     mHand = new Path();
 
 //		if (mRightForeArm.mUpperArmFX.mRightShoulderFX.mBodyFX.mNeck.head.mStickmanSwing.setCharacterInvisible == false)
-//			mColorRecorder = mColor;
+//			mColorRecorder = color;
     if (mRightForeArmFX.mUpperArmFX.mRightShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible
         == true) {
       if (mRightForeArmFX.mUpperArmFX.mRightShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.fadeControler
@@ -61,20 +61,20 @@ public class RightHandFX extends StickmanFXParts {
         if (fadeFactor <= 24) {
           fadeFactor = 0;
         }
-        mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+        color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
             (fadeFactor * 100 / 255) / 100f);
-        //mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
+        //color = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
       } else {
         int fadeFactor = (20
             - mRightForeArmFX.mUpperArmFX.mRightShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep)
             * 12;
         if (fadeFactor >= 216) {
-          mColor = mColorRecorder;
+          color = mColorRecorder;
         } else {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
               (fadeFactor * 100 / 255) / 100f);
         }
-        //mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
+        //color = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
       }
     }
 
@@ -119,7 +119,7 @@ public class RightHandFX extends StickmanFXParts {
   protected void recordColor() {
     if (mRightForeArmFX.mUpperArmFX.mRightShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible
         == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 }

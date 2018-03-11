@@ -17,7 +17,7 @@ public class FaceWrinkle3D extends Stickman3DParts {
 
   public FaceWrinkle3D(Head3D head) {
     mStart = head.getRightEyebrowPostion();
-    mColor = Color.rgb(80, 80, 80, 0);
+    color = Color.rgb(80, 80, 80, 0);
     mSize = new Dimension(mLength, 5);
     mDefaultRotationPoint = head.mDefaultRotationPoint;
 
@@ -65,18 +65,18 @@ public class FaceWrinkle3D extends Stickman3DParts {
         currentRightPolygon = FaceWrinkleANGRY.getRightANGRY(currentRightPolygon, step);
 
         colorOpacity = AnimatorStickman3D.sMAX_ANIM_STEPS - mShapeAnimationStep;
-        mColor = Color.rgb(80, 80, 80, colorOpacity / 19);
-        currentLeftPolygon.setFill(mColor);
-        currentRightPolygon.setFill(mColor);
+        color = Color.rgb(80, 80, 80, colorOpacity / 19);
+        currentLeftPolygon.setFill(color);
+        currentRightPolygon.setFill(color);
 
         break;
 
       case ANGRYEND:
         colorOpacity = AnimatorStickman3D.sMAX_ANIM_STEPS - mShapeAnimationStep;
 
-        mColor = Color.rgb(80, 80, 80, 1 - colorOpacity / 19);
-        currentLeftPolygon.setFill(mColor);
-        currentRightPolygon.setFill(mColor);
+        color = Color.rgb(80, 80, 80, 1 - colorOpacity / 19);
+        currentLeftPolygon.setFill(color);
+        currentRightPolygon.setFill(color);
         break;
 
       case DISGUSTED:

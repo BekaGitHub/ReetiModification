@@ -130,7 +130,7 @@ public abstract class StickmanFXParts extends FXParts2D {
   public void update() {
     recordColor();
     for (Path gp : mGraphicPaths) {
-      gp.setStroke(mColor);
+      gp.setStroke(color);
       gp.setStrokeLineCap(StrokeLineCap.ROUND);
       gp.setStrokeLineJoin(StrokeLineJoin.ROUND);
       gp.setStrokeWidth(3);

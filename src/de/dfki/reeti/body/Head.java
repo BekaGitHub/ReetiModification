@@ -2,7 +2,7 @@ package de.dfki.reeti.body;
 
 import com.interactivemesh.jfx.importer.stl.StlMeshImporter;
 import de.dfki.reeti.Reeti;
-import java.awt.Dimension;
+import de.dfki.reeti.util.Constants;
 import java.awt.Point;
 import java.net.URL;
 import java.util.logging.Level;
@@ -18,46 +18,39 @@ import javafx.scene.transform.Rotate;
 public class Head extends ReetiParts {
 
   private static final int EARWITDH = 10;
-  private Group mHeadGroup;
+  private Group headGroup;
   private int mHalfHeight;
   private int mHalfWidth;
 
   public Head(Reeti reeti) {
-    mSize = new Dimension(120, 100);
-    mHalfHeight = mSize.height / 2;
-    mHalfWidth = mSize.width / 2;
-    mDefaultRotationPoint = new Point(mSize.width / 2, mSize.height);
-    mColor = Color.WHITE;
+    color = Color.WHITE;
 
     URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/v1.stl");
     StlMeshImporter im = new StlMeshImporter();
     im.read(url);
 
-    mHeadGroup = new Group();
-    TriangleMesh mHeadTriangleMesh = im.getImport();
-    MeshView mHeadMeshView = new MeshView(mHeadTriangleMesh);
+    headGroup = new Group();
+    TriangleMesh triangleMesh = im.getImport();
+    MeshView headMeshView = new MeshView(triangleMesh);
 
-    mHeadMeshView.setMaterial(getMaterial());
+    headMeshView.setMaterial(getMaterial());
 
-    mHeadMeshView.setRotationAxis(Rotate.X_AXIS);
-    mHeadMeshView.setRotate(-92);
+    headMeshView.setRotationAxis(Rotate.X_AXIS);
+    headMeshView.setRotate(-92);
 
-    mHeadGroup.getChildren().add(mHeadMeshView);
+    headGroup.getChildren().add(headMeshView);
 
     init();
-    this.getChildren().add(mHeadGroup);
-    calculate(0);
+    getChildren().add(headGroup);
     LOGGER.log(Level.INFO,"Head wurde erzeugt");
   }
 
 
   @Override
   public void init() {
+    headGroup.setTranslateY(Constants.HEAD_Y_POSITION);
+    headGroup.setTranslateZ(Constants.Z_TRANSLATION);
     super.init();
-    int mZTranslate = -105;
-    mHeadGroup.setTranslateX(mHalfWidth + 6);
-    mHeadGroup.setTranslateY(mHalfHeight - 200);
-    mHeadGroup.setTranslateZ(mZTranslate + 28);
   }
 
   public Point getLeftEyebrowPostion() {
@@ -81,16 +74,16 @@ public class Head extends ReetiParts {
   @Override
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(mXRotation, 0, 25, -25, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, 0, 25, -25, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, 0, 25, -25, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, 0, 25, -25, Rotate.Z_AXIS);
 
-    mHeadGroup.getTransforms().clear();
-    mHeadGroup.getTransforms().addAll(rz, ry, rx);
+    headGroup.getTransforms().clear();
+    headGroup.getTransforms().addAll(rz, ry, rx);
   }
 
   public Group getHeadGroup() {
-    return mHeadGroup;
+    return headGroup;
   }
 
 }

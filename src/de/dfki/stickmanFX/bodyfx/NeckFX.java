@@ -24,7 +24,7 @@ public class NeckFX extends StickmanFXParts {
     mHeadFX = head;
     mLength = 8;
     mSize = new Dimension(4, mLength);
-    mColor = Color.rgb(80, 80, 80);
+    color = Color.rgb(80, 80, 80);
     mPath = new Path();
     this.getChildren().add(mPath);
 
@@ -44,7 +44,7 @@ public class NeckFX extends StickmanFXParts {
     clearChildren(this);
     mPath = new Path();
 //		if(head.mStickmanSwing.setCharacterInvisible == false)
-//			mColorRecorder = mColor;
+//			mColorRecorder = color;
     if (mHeadFX.mStickmanFX.setCharacterInvisible == true) {
       if (mHeadFX.mStickmanFX.fadeControler == true) //Added by Robbie
       {
@@ -52,18 +52,18 @@ public class NeckFX extends StickmanFXParts {
         if (fadeFactor <= 24) {
           fadeFactor = 0;
         }
-        mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+        color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
             (fadeFactor * 100 / 255) / 100f);
-        //mColor = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);
+        //color = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);
       } else {
         int fadeFactor = (20 - mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep) * 12;
         if (fadeFactor >= 216) {
-          mColor = mColorRecorder;
+          color = mColorRecorder;
         } else {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
               (fadeFactor * 100 / 255) / 100f);
         }
-        //mColor = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);
+        //color = Color.rgb(80, 80, 80, (fadeFactor*100/255)/100f);
       }
     }
 
@@ -77,7 +77,7 @@ public class NeckFX extends StickmanFXParts {
 
   protected void recordColor() {
     if (mHeadFX.mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 }

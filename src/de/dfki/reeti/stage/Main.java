@@ -42,7 +42,7 @@ public class Main extends Application {
     root.setPickOnBounds(false);
     AReetiStageController.currentReeti = reeti;
     agentStage.getChildren().add(reeti);
-    agentStage.setStyle("-fx-background-color: red");
+//    agentStage.setStyle("-fx-background-color: red");
     scene.getStylesheets().add("de/dfki/reeti/stage/Style.css");
     primaryStage.setScene(scene);
     primaryStage.initStyle(StageStyle.UNDECORATED);

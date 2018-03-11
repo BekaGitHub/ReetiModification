@@ -59,16 +59,16 @@ public class UpperBody3D extends Stickman3DParts {
     URL url;
     if (mNeck.getHead().getStickman().mType == Gender.TYPE.FEMALE) {
       url = getClass().getClassLoader().getResource("BodyParts/Stickman3D/UpperFemaleBody.dae");
-      mColor = Color.rgb(154, 83, 198, 1);
+      color = Color.rgb(154, 83, 198, 1);
     } else {
       url = getClass().getClassLoader().getResource("BodyParts/Stickman3D/UpperMaleBody.dae");
-      mColor = Color.rgb(14, 134, 122, 1);
+      color = Color.rgb(14, 134, 122, 1);
     }
 
     importer.read(url);
     mBodyMeshView = (MeshView) importer.getImport()[0];
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mBodyMeshView.setMaterial(material);
     this.getChildren().addAll(mBodyMeshView);
   }
@@ -92,7 +92,7 @@ public class UpperBody3D extends Stickman3DParts {
   public void calculate(int step) {
 
     // Setze PivotElement entsprechend der Y-Translation
-    Rotate rx = new Rotate(mXRotation, 0, mYTranslation, 0, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, 0, mYTranslation, 0, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, 0, mYTranslation, 0, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, 0, mYTranslation, 0, Rotate.Z_AXIS);
 
@@ -104,12 +104,12 @@ public class UpperBody3D extends Stickman3DParts {
     switch (mShape) {
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           mBodyMeshView.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           update();
         }
         break;
@@ -118,11 +118,11 @@ public class UpperBody3D extends Stickman3DParts {
         mBodyMeshView.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           update();
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           update();
         }
         break;
@@ -163,7 +163,7 @@ public class UpperBody3D extends Stickman3DParts {
 
   @Override
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mBodyMeshView.setMaterial(material);
   }
 

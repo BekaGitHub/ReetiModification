@@ -74,7 +74,7 @@ public abstract class ReetiParts extends FXParts3D {
 
   public void setDefaulRotation(int degree) {
     mDefaultRotation = degree;
-    mXRotation = mDefaultRotation;
+    xRotation = mDefaultRotation;
     mYRotation = mDefaultRotation;
     mZRotation = mDefaultRotation;
 
@@ -84,7 +84,7 @@ public abstract class ReetiParts extends FXParts3D {
 
   @Override
   public void set_X_Rotation(int degree) {
-    mToDegreeX = mXRotation + degree;
+    mToDegreeX = xRotation + degree;
     mXRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
   }
 
@@ -100,14 +100,14 @@ public abstract class ReetiParts extends FXParts3D {
 
   @Override
   public void setTilt(int degree) {
-    mToDegreeX = mXRotation + degree;
+    mToDegreeX = xRotation + degree;
     mXRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
   }
 
   @Override
   public synchronized void calculate_X_Rotation(int step) {
-    mXRotation += mXRotationStep;
-    mXRotation = (double) Math.round(mXRotation * 1000d) / 1000d;
+    xRotation += mXRotationStep;
+    xRotation = (double) Math.round(xRotation * 1000d) / 1000d;
 
     Platform.runLater(() -> calculate(step));
   }
@@ -131,7 +131,7 @@ public abstract class ReetiParts extends FXParts3D {
 
   @Override
   public void reset_X_Rotation() {
-    mXRotation += mXRotationStep;
+    xRotation += mXRotationStep;
     Platform.runLater(() -> calculate(1));
     mXRotationStep = 0;
   }
@@ -178,7 +178,7 @@ public abstract class ReetiParts extends FXParts3D {
       URL imageUrl = getClass().getClassLoader().getResource("Images/difuseMap2.png");
       javafx.scene.image.Image image = new javafx.scene.image.Image(imageUrl.toExternalForm());
       material = new PhongMaterial();
-      material.setDiffuseColor(mColor);
+      material.setDiffuseColor(color);
       material.setDiffuseMap(image);
       material.setSelfIlluminationMap(image);
     }

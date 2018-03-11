@@ -8,17 +8,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-import javafx.scene.layout.Pane;
+import javafx.scene.Group;
 
 /**
  * Created by EmpaT on 14.07.2017.
  */
-public abstract class AgentFX extends Pane implements AgentInterface {
+public abstract class AgentFX extends Group implements AgentInterface {
 
   public final List<AnimationListener> mAnimationListeners = new CopyOnWriteArrayList<AnimationListener>();
   public Gender.TYPE mType = Gender.TYPE.FEMALE;
   public float mScale = 1.0f;
-  public String mName;
+  public String name;
   public ORIENTATION mOrientation = Stickman3D.ORIENTATION.FRONT;
   // Added by Robbie, to control the character to fade out.
   public boolean setCharacterInvisible = false;
@@ -53,7 +53,7 @@ public abstract class AgentFX extends Pane implements AgentInterface {
   }
 
   public String getID() {
-    return (new StringBuffer()).append(mName).append(" AnimationSwing ").append(mID++).toString();
+    return (new StringBuffer()).append(name).append(" AnimationSwing ").append(mID++).toString();
   }
 
   public enum ORIENTATION {

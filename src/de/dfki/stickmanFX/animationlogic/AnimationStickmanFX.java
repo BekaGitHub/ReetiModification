@@ -31,7 +31,7 @@ public class AnimationStickmanFX extends Animation implements XMLParseable, XMLW
   public AnimationStickmanFX(StickmanFX sm, int duration, boolean block) {
     name = getClass().getSimpleName();
     mStickmanFX = sm;
-    agentName = mStickmanFX.mName;
+    agentName = mStickmanFX.name;
     setName(agentName + "'s AnimationSwing " + name);
     ID = mStickmanFX.getID(); // default ID;
     isBlocked = block;

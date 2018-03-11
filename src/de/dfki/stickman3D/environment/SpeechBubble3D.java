@@ -16,7 +16,7 @@ public class SpeechBubble3D extends Stickman3DParts {
   private Label message;
   public SpeechBubble3D(Head3D head) {
     mStart = head.getSpeechBubbleStartPosition();
-    mColor = Color.rgb(255, 255, 255, (192 * 100 / 255) / 100f);
+    color = Color.rgb(255, 255, 255, (192 * 100 / 255) / 100f);
   }
 
   @Override

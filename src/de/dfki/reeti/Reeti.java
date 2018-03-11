@@ -94,7 +94,7 @@ public class Reeti extends Agent3D {
     this.size = size;
     this.mScale = scale;
     this.isFullScreen = true;
-    this.mName = name;
+    this.name = name;
     this.mType = gender;
 
     this.init();
@@ -107,7 +107,7 @@ public class Reeti extends Agent3D {
     this.mScale = scale;
     this.isFullScreen = false;
     setStageHeight(height);
-    this.mName = name;
+    this.name = name;
     this.mType = gender;
 
     this.init();
@@ -117,7 +117,7 @@ public class Reeti extends Agent3D {
   }
 
   public Reeti(String name, Gender.TYPE gender) {
-    this.mName = name;
+    this.name = name;
     this.mType = gender;
 
     this.init();
@@ -200,29 +200,29 @@ public class Reeti extends Agent3D {
   }
 
   private void init() {
-    mName = "Reeti";
-    this.head = new Head(this);
-    this.leftEyelid = new LeftEyelid(head);
-    this.leftEye = new LeftEye(head);
-    this.rightEye = new RightEye(head);
-    this.leftEar = new LeftEar(head);
-    this.rightEar = new RightEar(head);
-    this.rightEyelid = new RightEyelid(head);
-    this.leftCheek = new LeftCheek(head);
-    this.rightCheek = new RightCheek(head);
+    name = "Reeti";
+    head = new Head(this);
+    leftEyelid = new LeftEyelid(head);
+    leftEye = new LeftEye(head);
+    rightEye = new RightEye(head);
+    leftEar = new LeftEar(head);
+    rightEar = new RightEar(head);
+    rightEyelid = new RightEyelid(head);
+//    this.leftCheek = new LeftCheek(head);
+//    this.rightCheek = new RightCheek(head);
     this.mouth = new Mouth(head);
     this.mouthLeftCorner = new MouthLeftCorner(mouth);
     this.mouthRightCorner = new MouthRightCorner(mouth);
     this.mouthUpperLip = new MouthUpperLip(mouth);
     this.mouthDownLip = new MouthDownLip(mouth);
-    this.neck = new Neck(head);
-    this.body = new Body(neck);
-    this.speechBubbleFX = new SpeechBubbleFX(head);
+//    this.neck = new Neck(head);
+    this.body = new Body();
+//    this.speechBubbleFX = new SpeechBubbleFX(head);
 
-    this.setPrefHeight(size.height);
-    this.setPrefWidth(size.width);
-    this.setMinHeight(size.height);
-    this.setMinWidth(size.width);
+//    this.setPrefHeight(size.height);
+//    this.setPrefWidth(size.width);
+//    this.setMinHeight(size.height);
+//    this.setMinWidth(size.width);
 
     InnerShadow is = new InnerShadow();
     is.setOffsetX(4.0f);
@@ -375,7 +375,8 @@ public class Reeti extends Agent3D {
   }
 
   private void addAllParts() {
-    this.getChildren().addAll(neck, head, body, speechBubbleFX);
+    this.getChildren().addAll(head, body);
+//    this.getChildren().addAll(neck, head, body, speechBubbleFX);
   }
 
   /**

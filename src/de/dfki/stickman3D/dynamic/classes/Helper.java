@@ -97,7 +97,7 @@ public class Helper {
   private static int rightWristYOffset = -50;
 
   public static void resetBodyPartRotation(Stickman3DParts bodyPartFX) {
-    bodyPartFX.mXRotation = 0;
+    bodyPartFX.xRotation = 0;
     bodyPartFX.mYRotation = 0;
     bodyPartFX.mZRotation = 0;
     bodyPartFX.calculate(0);
@@ -522,7 +522,7 @@ public class Helper {
   }
 
   private static void reset(Stickman3DParts bodyPartFX) {
-    bodyPartFX.mXRotation = bodyPartFX.mXRotatationRecorder;
+    bodyPartFX.xRotation = bodyPartFX.mXRotatationRecorder;
     bodyPartFX.mYRotation = bodyPartFX.mYRotatationRecorder;
     bodyPartFX.mZRotation = bodyPartFX.mZRotatationRecorder;
     bodyPartFX.calculate(0);

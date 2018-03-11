@@ -28,7 +28,7 @@ public class LeftEyeFX extends StickmanFXParts {
     mHeadFX = head;
     mLength = 5;
     mDefaultRotationPoint = mHeadFX.mDefaultRotationPoint;
-    mColor = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
+    color = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
         mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 40 : 0,
         mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 65 : 0, (144 * 100 / 255) / 100f);
     mPath = new Path();
@@ -62,7 +62,7 @@ public class LeftEyeFX extends StickmanFXParts {
     switch (mShape) {
       case DEFAULT:
 //            	if (head.mStickmanSwing.setCharacterInvisible == false)
-//            		mColorRecorder = mColor;
+//            		mColorRecorder = color;
         if (mHeadFX.mStickmanFX.setCharacterInvisible == true) {
           if (mHeadFX.mStickmanFX.fadeControler == true) //Added by Robbie
           {
@@ -70,7 +70,7 @@ public class LeftEyeFX extends StickmanFXParts {
             if (fadeFactor <= 14) {
               fadeFactor = 0;
             }
-            mColor = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
+            color = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
                 mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 40 : 0,
                 mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 65 : 0,
                 (fadeFactor * 100 / 255) / 100f);
@@ -78,9 +78,9 @@ public class LeftEyeFX extends StickmanFXParts {
             int fadeFactor = (20 - mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep) * 7;
 
             if (fadeFactor >= 118) {
-              mColor = mColorRecorder;
+              color = mColorRecorder;
             } else {
-              mColor = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
+              color = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 22 : 0,
                   mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 40 : 0,
                   mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 65 : 0,
                   (fadeFactor * 100 / 255) / 100f);
@@ -351,7 +351,7 @@ public class LeftEyeFX extends StickmanFXParts {
 
   protected void recordColor() {
     if (mHeadFX.mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 

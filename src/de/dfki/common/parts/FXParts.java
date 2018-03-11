@@ -18,12 +18,12 @@ public abstract class FXParts extends Pane implements PartsInterface {
   public int mDefaultTranslation = 0;
   public int mDefaultRotation = 0;
   public Point mDefaultRotationPoint = new Point(0, 0);
-  public Color mColor = Color.rgb(0, 0, 0);
+  public Color color = Color.rgb(0, 0, 0);
   public String mText = "";
 
   public void init() {
-    this.setPrefHeight(mSize.height);
-    this.setPrefWidth(mSize.width);
+//    this.setPrefHeight(mSize.height);
+//    this.setPrefWidth(mSize.width);
   }
 
   @Override

@@ -6,7 +6,9 @@
 package de.dfki.reeti.body;
 
 import com.interactivemesh.jfx.importer.col.ColModelImporter;
+import de.dfki.reeti.util.Constants;
 import java.net.URL;
+import java.util.logging.Level;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
 import javafx.scene.transform.Rotate;
@@ -21,7 +23,7 @@ public class RightEar extends ReetiParts {
   private int regulator;
 
   public RightEar(Head head) {
-    mColor = Color.WHITE;
+    color = Color.WHITE;
 
     ColModelImporter importer = new ColModelImporter();
     URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiRightEar.dae");
@@ -29,8 +31,6 @@ public class RightEar extends ReetiParts {
     importer.read(url);
     mRightEarMesh = (MeshView) importer.getImport()[0];
     mRightEarMesh.setMaterial(getMaterial());
-
-    mStart = head.getLeftEyebrowPostion();
 
     init();
 
@@ -40,14 +40,14 @@ public class RightEar extends ReetiParts {
   @Override
   public void init() {
     super.init();
-    mRightEarMesh.setTranslateX(mStart.x - 80);
-    mRightEarMesh.setTranslateY(mStart.y + 57);
-    mRightEarMesh.setTranslateZ(0);
+    mRightEarMesh.setTranslateX(Constants.RIGHT_EAR_X_POSITION);
+    mRightEarMesh.setTranslateY(Constants.EAR_Y_POSITION);
+    LOGGER.log(Level.INFO,"Right Ear wurde erzeugt");
   }
 
   @Override
   public void calculate(int step) {
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 

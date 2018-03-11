@@ -27,8 +27,8 @@ public abstract class Stickman3DParts extends FXParts3D {
   @Override
   public void init() {
     super.init();
-    mColorRecorder = mColor;
-    mXRotatationRecorder = mXRotation;
+    mColorRecorder = color;
+    mXRotatationRecorder = xRotation;
     mYRotatationRecorder = mYRotation;
     mZRotatationRecorder = mZRotation;
     calculate(0);
@@ -82,7 +82,7 @@ public abstract class Stickman3DParts extends FXParts3D {
 
   public void setDefaulRotation(int degree) {
     mDefaultRotation = degree;
-    mXRotation = mDefaultRotation;
+    xRotation = mDefaultRotation;
     mYRotation = mDefaultRotation;
     mZRotation = mDefaultRotation;
 
@@ -94,7 +94,7 @@ public abstract class Stickman3DParts extends FXParts3D {
 
   @Override
   public void set_X_Rotation(int degree) {
-    mToDegreeX = mXRotation + degree;
+    mToDegreeX = xRotation + degree;
     mXRotationStep = (double) degree / AnimatorStickman3D.sMAX_ANIM_STEPS;
   }
 
@@ -112,14 +112,14 @@ public abstract class Stickman3DParts extends FXParts3D {
 
   @Override
   public void setTilt(int degree) {
-    mToDegreeX = mXRotation + degree;
+    mToDegreeX = xRotation + degree;
     mXRotationStep = (double) degree / AnimatorStickman3D.sMAX_ANIM_STEPS;
   }
 
   @Override
   public synchronized void calculate_X_Rotation(int step) {
-    mXRotation += mXRotationStep;
-    mXRotation = (double) Math.round(mXRotation * 1000d) / 1000d;
+    xRotation += mXRotationStep;
+    xRotation = (double) Math.round(xRotation * 1000d) / 1000d;
 
     Platform.runLater(() -> calculate(step));
   }
@@ -143,7 +143,7 @@ public abstract class Stickman3DParts extends FXParts3D {
 
   @Override
   public void reset_X_Rotation() {
-    mXRotation += mXRotationStep;
+    xRotation += mXRotationStep;
     Platform.runLater(() -> calculate(1));
     mXRotationStep = 0;
   }

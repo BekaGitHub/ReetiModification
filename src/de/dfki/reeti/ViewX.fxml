@@ -288,7 +288,7 @@
                </tabs>
             </JFXTabPane>
             <Separator prefHeight="42.0" prefWidth="491.0" style="-fx-background-color: black;" />
-            <AnchorPane prefWidth="491.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+            <AnchorPane prefWidth="491.0" style="-fx-background-color: grey;" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
                <children>
                   <JFXToggleButton fx:id="cameraToogleButton" text="Camera" textFill="WHITE">
                      <font>
@@ -408,6 +408,6 @@
             </AnchorPane>
          </children>
       </VBox>
-      <StackPane fx:id="agentStage" />
+      <StackPane fx:id="agentStage" HBox.hgrow="ALWAYS" />
    </children>
 </HBox>

@@ -60,7 +60,7 @@ public class FaceWrinkleFX extends StickmanFXParts {
 
         // Add wrinkle for angry face:
         int angryColorChange = (int) (movement / 4 * 16);
-        mColor = Color.rgb(0, 0, 0, (angryColorChange * 100 / 255) / 100f);
+        color = Color.rgb(0, 0, 0, (angryColorChange * 100 / 255) / 100f);
         mPath.getElements().add(new MoveTo(mStart.x + 14, mStart.y + 7));
         mPath.getElements().add(new LineTo(mStart.x + 14, mStart.y - 1));
         mPath.getElements().add(new MoveTo(mStart.x + 20, mStart.y + 7));
@@ -71,10 +71,10 @@ public class FaceWrinkleFX extends StickmanFXParts {
       case ANGRYEND:
         movement = mShapeAnimationStep - 1;
         if (movement <= 1) {
-          mColor = Color.rgb(0, 0, 0, 0);
+          color = Color.rgb(0, 0, 0, 0);
         } else {
           angryColorChange = (int) (movement / 4 * 16);
-          mColor = Color.rgb(0, 0, 0, (angryColorChange * 100 / 255) / 100f);
+          color = Color.rgb(0, 0, 0, (angryColorChange * 100 / 255) / 100f);
           mPath.getElements().add(new MoveTo(mStart.x + 14, mStart.y + 7));
           mPath.getElements().add(new LineTo(mStart.x + 14, mStart.y - 1));
           mPath.getElements().add(new MoveTo(mStart.x + 20, mStart.y + 7));
@@ -100,7 +100,7 @@ public class FaceWrinkleFX extends StickmanFXParts {
 
         // Add wrinkles for embarrassed face:
         int embarrassedColorChange = (int) (movement / 4 * 16);
-        mColor = new Color(0, 0, 0, (embarrassedColorChange * 100 / 255) / 100f);
+        color = new Color(0, 0, 0, (embarrassedColorChange * 100 / 255) / 100f);
         mPath.getElements().add(new MoveTo(mStart.x - 15, mStart.y));
         mPath.getElements().add(new LineTo(mStart.x - 15, mStart.y + 10));
         mPath.getElements().add(new MoveTo(mStart.x - 25, mStart.y + 5));
@@ -110,11 +110,11 @@ public class FaceWrinkleFX extends StickmanFXParts {
       case EMBARRASSEDEND:
         movement = mShapeAnimationStep - 1;
         if (movement <= 1) {
-          mColor = Color.rgb(0, 0, 0, 0);
+          color = Color.rgb(0, 0, 0, 0);
         } else {
           // Add wrinkles for embarrassed face:
           embarrassedColorChange = (int) (movement / 4 * 16);
-          mColor = new Color(0, 0, 0, (embarrassedColorChange * 100 / 255) / 100f);
+          color = new Color(0, 0, 0, (embarrassedColorChange * 100 / 255) / 100f);
           mPath.getElements().add(new MoveTo(mStart.x - 15, mStart.y));
           mPath.getElements().add(new LineTo(mStart.x - 15, mStart.y + 10));
           mPath.getElements().add(new MoveTo(mStart.x - 25, mStart.y + 5));

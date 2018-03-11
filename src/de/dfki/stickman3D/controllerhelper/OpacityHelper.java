@@ -21,9 +21,9 @@ public class OpacityHelper {
         } else {
           controller.currentStickman.mHead.getHeadMeshView().setVisible(true);
         }
-        Color col = controller.currentStickman.mHead.mColor;
+        Color col = controller.currentStickman.mHead.color;
         col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
-        controller.currentStickman.mHead.mColor = col;
+        controller.currentStickman.mHead.color = col;
         controller.currentStickman.mHead.update();
       }
     });
@@ -52,14 +52,14 @@ public class OpacityHelper {
 
         Color col = null;
         if (controller.currentStickman.mType == Gender.TYPE.FEMALE) {
-          col = controller.currentStickman.mFemaleHair.mColor;
+          col = controller.currentStickman.mFemaleHair.color;
           col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
-          controller.currentStickman.mFemaleHair.mColor = col;
+          controller.currentStickman.mFemaleHair.color = col;
           controller.currentStickman.mFemaleHair.update();
         } else {
-          col = controller.currentStickman.mMaleHair.mColor;
+          col = controller.currentStickman.mMaleHair.color;
           col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
-          controller.currentStickman.mMaleHair.mColor = col;
+          controller.currentStickman.mMaleHair.color = col;
           controller.currentStickman.mMaleHair.update();
         }
 
@@ -82,13 +82,13 @@ public class OpacityHelper {
           controller.currentStickman.mUpperBody.getBodyMeshView().setVisible(true);
         }
 
-        Color col = controller.currentStickman.mDownBody.mColor;
-        Color col1 = controller.currentStickman.mUpperBody.mColor;
+        Color col = controller.currentStickman.mDownBody.color;
+        Color col1 = controller.currentStickman.mUpperBody.color;
         col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
         col1 = new Color(col1.getRed(), col1.getGreen(), col1.getBlue(), newValue.doubleValue());
-        controller.currentStickman.mDownBody.mColor = col;
+        controller.currentStickman.mDownBody.color = col;
         controller.currentStickman.mDownBody.update();
-        controller.currentStickman.mUpperBody.mColor = col1;
+        controller.currentStickman.mUpperBody.color = col1;
         controller.currentStickman.mUpperBody.update();
       }
     });
@@ -155,34 +155,34 @@ public class OpacityHelper {
           controller.currentStickman.mRightFinger4.getRightFinger4().setVisible(true);
         }
 
-        Color col = controller.currentStickman.mNeck.mColor;
+        Color col = controller.currentStickman.mNeck.color;
         col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
 
-        controller.currentStickman.mNeck.mColor = col;
+        controller.currentStickman.mNeck.color = col;
 
-        controller.currentStickman.mLeftUpperLeg.mColor = col;
-        controller.currentStickman.mLeftForeLeg.mColor = col;
+        controller.currentStickman.mLeftUpperLeg.color = col;
+        controller.currentStickman.mLeftForeLeg.color = col;
 
-        controller.currentStickman.mLeftUpperArm.mColor = col;
-        controller.currentStickman.mLeftForeArm.mColor = col;
-        controller.currentStickman.mLeftWrist.mColor = col;
+        controller.currentStickman.mLeftUpperArm.color = col;
+        controller.currentStickman.mLeftForeArm.color = col;
+        controller.currentStickman.mLeftWrist.color = col;
 
-        controller.currentStickman.mLeftFinger1.mColor = col;
-        controller.currentStickman.mLeftFinger2.mColor = col;
-        controller.currentStickman.mLeftFinger3.mColor = col;
-        controller.currentStickman.mLeftFinger4.mColor = col;
+        controller.currentStickman.mLeftFinger1.color = col;
+        controller.currentStickman.mLeftFinger2.color = col;
+        controller.currentStickman.mLeftFinger3.color = col;
+        controller.currentStickman.mLeftFinger4.color = col;
 
-        controller.currentStickman.mRightUpperLeg.mColor = col;
-        controller.currentStickman.mRightForeLeg.mColor = col;
+        controller.currentStickman.mRightUpperLeg.color = col;
+        controller.currentStickman.mRightForeLeg.color = col;
 
-        controller.currentStickman.mRightUpperArm.mColor = col;
-        controller.currentStickman.mRightForeArm.mColor = col;
-        controller.currentStickman.mRightWrist.mColor = col;
+        controller.currentStickman.mRightUpperArm.color = col;
+        controller.currentStickman.mRightForeArm.color = col;
+        controller.currentStickman.mRightWrist.color = col;
 
-        controller.currentStickman.mRightFinger1.mColor = col;
-        controller.currentStickman.mRightFinger2.mColor = col;
-        controller.currentStickman.mRightFinger3.mColor = col;
-        controller.currentStickman.mRightFinger4.mColor = col;
+        controller.currentStickman.mRightFinger1.color = col;
+        controller.currentStickman.mRightFinger2.color = col;
+        controller.currentStickman.mRightFinger3.color = col;
+        controller.currentStickman.mRightFinger4.color = col;
 
         controller.currentStickman.mNeck.update();
 
@@ -228,11 +228,11 @@ public class OpacityHelper {
           controller.currentStickman.mRightFoot.getRightFootMeshView().setVisible(true);
         }
 
-        Color col = controller.currentStickman.mLeftFoot.mColor;
+        Color col = controller.currentStickman.mLeftFoot.color;
         col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
 
-        controller.currentStickman.mLeftFoot.mColor = col;
-        controller.currentStickman.mRightFoot.mColor = col;
+        controller.currentStickman.mLeftFoot.color = col;
+        controller.currentStickman.mRightFoot.color = col;
 
         controller.currentStickman.mLeftFoot.update();
         controller.currentStickman.mRightFoot.update();
@@ -255,10 +255,10 @@ public class OpacityHelper {
           controller.currentStickman.mMouth.currentUpperLipPolygon.setVisible(true);
         }
 
-        Color col = controller.currentStickman.mMouth.mColor;
+        Color col = controller.currentStickman.mMouth.color;
         col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
 
-        controller.currentStickman.mMouth.mColor = col;
+        controller.currentStickman.mMouth.color = col;
 
         controller.currentStickman.mMouth.update();
       }
@@ -290,11 +290,11 @@ public class OpacityHelper {
           controller.currentStickman.mRightEye.border.setVisible(true);
         }
 
-        Color col = controller.currentStickman.mLeftEye.mColor;
+        Color col = controller.currentStickman.mLeftEye.color;
         col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
 
-        controller.currentStickman.mLeftEye.mColor = col;
-        controller.currentStickman.mRightEye.mColor = col;
+        controller.currentStickman.mLeftEye.color = col;
+        controller.currentStickman.mRightEye.color = col;
         controller.currentStickman.mLeftEye.update();
         controller.currentStickman.mRightEye.update();
       }
@@ -309,15 +309,15 @@ public class OpacityHelper {
       public void changed(ObservableValue<? extends Number> observable, Number oldValue,
           Number newValue) {
 
-        Color col = controller.currentStickman.mLeftEyebrow.mColor;
-//                Color col1 = controller.currentStickman.mNose.mColor;
+        Color col = controller.currentStickman.mLeftEyebrow.color;
+//                Color col1 = controller.currentStickman.mNose.color;
         col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
 //                col1 = new Color(col1.getRed(), col1.getGreen(), col1.getBlue(), newValue.doubleValue());
 
-        controller.currentStickman.mLeftEyebrow.mColor = col;
-        controller.currentStickman.mRightEyebrow.mColor = col;
+        controller.currentStickman.mLeftEyebrow.color = col;
+        controller.currentStickman.mRightEyebrow.color = col;
 
-//                controller.currentStickman.mNose.mColor = col1;
+//                controller.currentStickman.mNose.color = col1;
 
         controller.currentStickman.mLeftEyebrow.update();
         controller.currentStickman.mRightEyebrow.update();
@@ -340,10 +340,10 @@ public class OpacityHelper {
         } else {
           controller.currentStickman.mNose.getNose().setVisible(true);
         }
-        Color col = controller.currentStickman.mNose.mColor;
+        Color col = controller.currentStickman.mNose.color;
         col = new Color(col.getRed(), col.getGreen(), col.getBlue(), newValue.doubleValue());
 
-        controller.currentStickman.mNose.mColor = col;
+        controller.currentStickman.mNose.color = col;
         controller.currentStickman.mNose.update();
       }
     });

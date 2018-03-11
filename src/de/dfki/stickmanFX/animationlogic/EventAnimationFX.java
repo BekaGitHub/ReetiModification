@@ -29,7 +29,7 @@ public class EventAnimationFX extends AnimationStickmanFX {
   public EventAnimationFX(StickmanFX sm, int duration, boolean block) {
     super(sm, duration, block);
     name = getClass().getSimpleName();
-    setName(sm.mName + "'s Event AnimationSwing " + name);
+    setName(sm.name + "'s Event AnimationSwing " + name);
   }
 
   public void playEventAnimationPart() {

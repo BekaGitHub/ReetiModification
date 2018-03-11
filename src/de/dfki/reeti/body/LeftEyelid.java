@@ -6,7 +6,9 @@
 package de.dfki.reeti.body;
 
 import com.interactivemesh.jfx.importer.col.ColModelImporter;
+import de.dfki.reeti.util.Constants;
 import java.net.URL;
+import java.util.logging.Level;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
 import javafx.scene.transform.Rotate;
@@ -16,43 +18,43 @@ import javafx.scene.transform.Rotate;
  */
 public class LeftEyelid extends ReetiParts {
 
-  private MeshView mLeftEyeMesh;
+  private MeshView leftEyeLidMesh;
 
   public LeftEyelid(Head head) {
-    mStart = head.getLeftEyebrowPostion();
     mZRotation = 30;
     mYRotation = -10;
-    mColor = Color.WHITE;
+    color = Color.WHITE;
 
     URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiEyelid.dae");
     ColModelImporter importer = new ColModelImporter();
     importer.read(url);
-    mLeftEyeMesh = (MeshView) importer.getImport()[0];
+    leftEyeLidMesh = (MeshView) importer.getImport()[0];
 
-    mLeftEyeMesh.setMaterial(getMaterial());
+    leftEyeLidMesh.setMaterial(getMaterial());
 
     init();
 
-    head.getHeadGroup().getChildren().add(mLeftEyeMesh);
+    head.getHeadGroup().getChildren().add(leftEyeLidMesh);
+    LOGGER.log(Level.INFO,"Left Eyelid wurde erzeugt");
   }
 
   @Override
   public void init() {
     super.init();
-    mLeftEyeMesh.setTranslateX(mStart.x + 55);
-    mLeftEyeMesh.setTranslateY(mStart.y + 45);
-    mLeftEyeMesh.setTranslateZ(-65);
+    leftEyeLidMesh.setTranslateX(Constants.LEFT_EYE_LID_X_POSITION);
+    leftEyeLidMesh.setTranslateY(Constants.EYE_LID_Y_POSITION);
+    leftEyeLidMesh.setTranslateZ(Constants.EYE_LID_Z_TRANSLATION);
   }
 
   @Override
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 
-    mLeftEyeMesh.getTransforms().clear();
-    mLeftEyeMesh.getTransforms().addAll(rz, ry, rx);
+    leftEyeLidMesh.getTransforms().clear();
+    leftEyeLidMesh.getTransforms().addAll(rz, ry, rx);
 
   }
 }

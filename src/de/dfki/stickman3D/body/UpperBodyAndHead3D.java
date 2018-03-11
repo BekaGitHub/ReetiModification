@@ -23,7 +23,7 @@ public class UpperBodyAndHead3D extends Stickman3DParts {
 
   @Override
   public void calculate(int step) {
-    Rotate rx = new Rotate(mXRotation, 65, mYTranslation + 280, -105, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, 65, mYTranslation + 280, -105, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, 65, mYTranslation + 280, -105, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, 65, mYTranslation + 280, -105, Rotate.Z_AXIS);
 

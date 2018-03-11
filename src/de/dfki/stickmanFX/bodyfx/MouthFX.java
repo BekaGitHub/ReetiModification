@@ -25,7 +25,7 @@ public class MouthFX extends StickmanFXParts {
     mLength = 20;
     mSize = new Dimension(mLength * 2, 5);
     mDefaultRotationPoint = mHeadFX.mDefaultRotationPoint;
-    mColor = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 64 : 32, 0, 0,
+    color = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 64 : 32, 0, 0,
         (128 * 100 / 255) / 100f);
     mPath = new Path();
     this.getChildren().add(mPath);
@@ -58,7 +58,7 @@ public class MouthFX extends StickmanFXParts {
     switch (mShape) {
       case DEFAULT:
 //			if (head.mStickmanSwing.setCharacterInvisible == false)
-//				mColorRecorder = mColor;
+//				mColorRecorder = color;
         if (mHeadFX.mStickmanFX.setCharacterInvisible == true) {
           if (mHeadFX.mStickmanFX.fadeControler == true) // Added by Robbie
           {
@@ -66,14 +66,14 @@ public class MouthFX extends StickmanFXParts {
             if (fadeFactor <= 12) {
               fadeFactor = 0;
             }
-            mColor = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 64 : 32, 0, 0,
+            color = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 64 : 32, 0, 0,
                 (fadeFactor * 100 / 255) / 100f);
           } else {
             int fadeFactor = (20 - mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep) * 6;
             if (fadeFactor >= 107) {
-              mColor = mColorRecorder;
+              color = mColorRecorder;
             } else {
-              mColor = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 64 : 32, 0, 0,
+              color = Color.rgb(mHeadFX.mStickmanFX.mType == Gender.TYPE.FEMALE ? 64 : 32, 0, 0,
                   (fadeFactor * 100 / 255) / 100f);
             }
           }
@@ -473,7 +473,7 @@ public class MouthFX extends StickmanFXParts {
 
   protected void recordColor() {
     if (mHeadFX.mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 

@@ -6,7 +6,9 @@
 package de.dfki.reeti.body;
 
 import com.interactivemesh.jfx.importer.col.ColModelImporter;
+import de.dfki.reeti.util.Constants;
 import java.net.URL;
+import java.util.logging.Level;
 import javafx.scene.Group;
 import javafx.scene.transform.Rotate;
 
@@ -18,8 +20,7 @@ public class RightEye extends ReetiParts {
   private Group mRightEarMesh;
 
   public RightEye(Head head) {
-    mXRotation = 5;
-    mStart = head.getLeftEyebrowPostion();
+    xRotation = 5;
 
     URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiEye.dae");
     ColModelImporter importer = new ColModelImporter();
@@ -29,20 +30,21 @@ public class RightEye extends ReetiParts {
     init();
 
     head.getHeadGroup().getChildren().add(mRightEarMesh);
+    LOGGER.log(Level.INFO,"Right Eye wurde erzeugt");
   }
 
   @Override
   public void init() {
     super.init();
-    mRightEarMesh.setTranslateX(mStart.x - 48);
-    mRightEarMesh.setTranslateY(mStart.y + 47);
-    mRightEarMesh.setTranslateZ(-62);
+    mRightEarMesh.setTranslateX(Constants.RIGHT_EYE_X_POSITION);
+    mRightEarMesh.setTranslateY(Constants.EYE_Y_POSITION);
+    mRightEarMesh.setTranslateZ(Constants.EYE_Z_TRANSLATION);
   }
 
   @Override
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 

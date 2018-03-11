@@ -24,9 +24,9 @@ public class LeftCheek extends ReetiParts {
     mStart = head.getLeftEyebrowPostion();
 
     mYRotation = -25;
-    mXRotation = -10;
+    xRotation = -10;
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     mLedGroup.getTransforms().addAll(rx, ry);
 
     mLedGroup.getChildren().add(mLed);

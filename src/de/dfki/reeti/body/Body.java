@@ -1,9 +1,11 @@
 package de.dfki.reeti.body;
 
 import com.interactivemesh.jfx.importer.col.ColModelImporter;
+import de.dfki.reeti.util.Constants;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.net.URL;
+import java.util.logging.Level;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
@@ -19,28 +21,25 @@ import javafx.scene.shape.MeshView;
  */
 public class Body extends ReetiParts {
 
-  public Body(Neck neck) {
-    mStart = neck.getBodyStartPosition();
-    mSize = new Dimension(120, 300);
-    mColor = Color.WHITE;
+  public Body() {
+    color = Color.WHITE;
+
+    ColModelImporter importer = new ColModelImporter();
+    URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiBody.dae");
+
+    importer.read(url);
+    MeshView mBodyMeshView = (MeshView) importer.getImport()[0];
+    mBodyMeshView.setTranslateY(Constants.BODY_Y_POSITION);
+    mBodyMeshView.setTranslateZ(Constants.BODY_Z_TRANSLATION);
+    this.getChildren().addAll(mBodyMeshView);
 
     init();
+    LOGGER.log(Level.INFO,"Body wurde erzeugt");
   }
 
   @Override
   public void init() {
     super.init();
-    ColModelImporter importer = new ColModelImporter();
-    URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiBody.dae");
-
-    importer.read(url);
-    Group mBodyGroup = new Group();
-    MeshView mBodyMeshView = (MeshView) importer.getImport()[0];
-    mBodyGroup.getChildren().add(mBodyMeshView);
-    mBodyGroup.setTranslateX(mStart.x);
-    mBodyGroup.setTranslateY(mStart.y + 290);
-    mBodyGroup.setTranslateZ(-105);
-    this.getChildren().addAll(mBodyGroup);
   }
 
   public Point getUpperBodyPosition() {

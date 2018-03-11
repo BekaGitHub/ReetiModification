@@ -22,7 +22,7 @@ public class Stars3D extends Stickman3DParts {
     mLength = 150;
     mSize = new Dimension(120, mLength);
     mStart = body.getLeftLegStartPostion();
-    mColor = Color.rgb(255, 255, 0, 0.0);
+    color = Color.rgb(255, 255, 0, 0.0);
 
     ColModelImporter imorter = new ColModelImporter();
     URL url = getClass().getClassLoader().getResource("BodyParts/StarBig.dae");
@@ -38,7 +38,7 @@ public class Stars3D extends Stickman3DParts {
     mStarSmall = (MeshView) imorter.getImport()[0];
 
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mStarBig.setMaterial(material);
     mStarMiddle.setMaterial(material);
     mStarSmall.setMaterial(material);
@@ -92,14 +92,14 @@ public class Stars3D extends Stickman3DParts {
       case STARSFADEOUT:
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           mStarBig.setVisible(false);
           mStarMiddle.setVisible(false);
           mStarSmall.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           update();
         }
         break;
@@ -110,11 +110,11 @@ public class Stars3D extends Stickman3DParts {
         mStarSmall.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           update();
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           update();
         }
         break;
@@ -123,7 +123,7 @@ public class Stars3D extends Stickman3DParts {
   }
 
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mStarBig.setMaterial(material);
     mStarMiddle.setMaterial(material);
     mStarSmall.setMaterial(material);

@@ -166,7 +166,7 @@ package de.dfki.stickman3D.animation.environment;///*
 //        
 //        //mStickmanSwing.mBodyFX.currentColor = Color.BLACK;
 ////        Platform.runLater(() -> mStickmanSwing.mBodyFX.paintFrontOrientation(Color.BLACK));
-//        mStickmanSwing.mHeadFX.mColor = Color.BLACK;
+//        mStickmanSwing.mHeadFX.color = Color.BLACK;
 //        
 //        
 //        

@@ -196,21 +196,21 @@ public class StickmanStageController extends AStickmanStageController implements
             String browsColor;
             String nosesColor;
             Stickman3D mStick = getStickmanAs3D(key);
-            bodyColor = toHexCode(mStick.mUpperBody.mColor);
+            bodyColor = toHexCode(mStick.mUpperBody.color);
 
             if (mStick.mType == Gender.TYPE.MALE) {
-              hairColor = toHexCode(mStick.mMaleHair.mColor);
+              hairColor = toHexCode(mStick.mMaleHair.color);
             } else {
-              hairColor = toHexCode(mStick.mFemaleHair.mColor);
+              hairColor = toHexCode(mStick.mFemaleHair.color);
             }
 
-            headColor = toHexCode(mStick.mHead.mColor);
-            shoesColor = toHexCode(mStick.mLeftFoot.mColor);
-            lipsColor = toHexCode(mStick.mMouth.mColor);
-            eyesColor = toHexCode(mStick.mLeftEye.mColor);
-            browsColor = toHexCode(mStick.mLeftEyebrow.mColor);
-            nosesColor = toHexCode(mStick.mNose.mColor);
-            limbsColor = toHexCode(mStick.mLeftUpperArm.mColor);
+            headColor = toHexCode(mStick.mHead.color);
+            shoesColor = toHexCode(mStick.mLeftFoot.color);
+            lipsColor = toHexCode(mStick.mMouth.color);
+            eyesColor = toHexCode(mStick.mLeftEye.color);
+            browsColor = toHexCode(mStick.mLeftEyebrow.color);
+            nosesColor = toHexCode(mStick.mNose.color);
+            limbsColor = toHexCode(mStick.mLeftUpperArm.color);
 
             mStickmanData3D
                 .add(new StickmanData3D(name, hairColor, headColor, bodyColor, limbsColor,
@@ -689,37 +689,37 @@ public class StickmanStageController extends AStickmanStageController implements
 
   // set the setValue of combobox
   private void setComboboxValue(Stickman3D mStick) {
-    bodyColorPicker.setValue(colorWithoutOpacity(mStick.mUpperBody.mColor));
-    bodyOpacitySlider.setValue(mStick.mUpperBody.mColor.getOpacity());
+    bodyColorPicker.setValue(colorWithoutOpacity(mStick.mUpperBody.color));
+    bodyOpacitySlider.setValue(mStick.mUpperBody.color.getOpacity());
 
     if (mStick.mType == Gender.TYPE.MALE) {
-      hairColorPicker.setValue(colorWithoutOpacity(mStick.mMaleHair.mColor));
-      hairOpacitySlider.setValue(mStick.mMaleHair.mColor.getOpacity());
+      hairColorPicker.setValue(colorWithoutOpacity(mStick.mMaleHair.color));
+      hairOpacitySlider.setValue(mStick.mMaleHair.color.getOpacity());
     } else {
-      hairColorPicker.setValue(colorWithoutOpacity(mStick.mFemaleHair.mColor));
-      hairOpacitySlider.setValue(mStick.mFemaleHair.mColor.getOpacity());
+      hairColorPicker.setValue(colorWithoutOpacity(mStick.mFemaleHair.color));
+      hairOpacitySlider.setValue(mStick.mFemaleHair.color.getOpacity());
     }
 
-    headColorPicker.setValue(colorWithoutOpacity(mStick.mHead.mColor));
-    headOpacitySlider.setValue(mStick.mHead.mColor.getOpacity());
+    headColorPicker.setValue(colorWithoutOpacity(mStick.mHead.color));
+    headOpacitySlider.setValue(mStick.mHead.color.getOpacity());
 
-    noseColorPicker.setValue(colorWithoutOpacity(mStick.mNose.mColor));
-    noseOpacitySlider.setValue(mStick.mNose.mColor.getOpacity());
+    noseColorPicker.setValue(colorWithoutOpacity(mStick.mNose.color));
+    noseOpacitySlider.setValue(mStick.mNose.color.getOpacity());
 
-    browColorPicker.setValue(colorWithoutOpacity(mStick.mLeftEyebrow.mColor));
-    browOpacitySlider.setValue(mStick.mLeftEyebrow.mColor.getOpacity());
+    browColorPicker.setValue(colorWithoutOpacity(mStick.mLeftEyebrow.color));
+    browOpacitySlider.setValue(mStick.mLeftEyebrow.color.getOpacity());
 
-    eyeColorPicker.setValue(colorWithoutOpacity(mStick.mLeftEye.mColor));
-    eyeOpacitySlider.setValue(mStick.mLeftEye.mColor.getOpacity());
+    eyeColorPicker.setValue(colorWithoutOpacity(mStick.mLeftEye.color));
+    eyeOpacitySlider.setValue(mStick.mLeftEye.color.getOpacity());
 
-    lipsColorPicker.setValue(colorWithoutOpacity(mStick.mMouth.mColor));
-    lipsOpacitySlider.setValue(mStick.mMouth.mColor.getOpacity());
+    lipsColorPicker.setValue(colorWithoutOpacity(mStick.mMouth.color));
+    lipsOpacitySlider.setValue(mStick.mMouth.color.getOpacity());
 
-    shoesColorPicker.setValue(colorWithoutOpacity(mStick.mLeftFoot.mColor));
-    shoesOpacitySlider.setValue(mStick.mLeftFoot.mColor.getOpacity());
+    shoesColorPicker.setValue(colorWithoutOpacity(mStick.mLeftFoot.color));
+    shoesOpacitySlider.setValue(mStick.mLeftFoot.color.getOpacity());
 
-    limbsColorPicker.setValue(colorWithoutOpacity(mStick.mLeftUpperLeg.mColor));
-    limbsOpacitySlider.setValue(mStick.mLeftUpperLeg.mColor.getOpacity());
+    limbsColorPicker.setValue(colorWithoutOpacity(mStick.mLeftUpperLeg.color));
+    limbsOpacitySlider.setValue(mStick.mLeftUpperLeg.color.getOpacity());
   }
 
   @FXML

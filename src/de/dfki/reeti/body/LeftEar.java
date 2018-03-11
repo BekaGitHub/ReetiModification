@@ -6,7 +6,9 @@
 package de.dfki.reeti.body;
 
 import com.interactivemesh.jfx.importer.col.ColModelImporter;
+import de.dfki.reeti.util.Constants;
 import java.net.URL;
+import java.util.logging.Level;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
 import javafx.scene.transform.Rotate;
@@ -16,40 +18,38 @@ import javafx.scene.transform.Rotate;
  */
 public class LeftEar extends ReetiParts {
 
-  private MeshView mLeftEarMesh;
+  private MeshView leftEarMesh;
 
   public LeftEar(Head head) {
-    mColor = Color.WHITE;
+    color = Color.WHITE;
 
     ColModelImporter importer = new ColModelImporter();
     URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiLeftEar.dae");
 
     importer.read(url);
-    mLeftEarMesh = (MeshView) importer.getImport()[0];
-    mLeftEarMesh.setMaterial(getMaterial());
-
-    mStart = head.getLeftEyebrowPostion();
+    leftEarMesh = (MeshView) importer.getImport()[0];
+    leftEarMesh.setMaterial(getMaterial());
 
     init();
 
-    head.getHeadGroup().getChildren().add(mLeftEarMesh);
+    head.getHeadGroup().getChildren().add(leftEarMesh);
+    LOGGER.log(Level.INFO,"Left Ear wurde erzeugt");
   }
 
   @Override
   public void init() {
     super.init();
-    mLeftEarMesh.setTranslateX(mStart.x + 80);
-    mLeftEarMesh.setTranslateY(mStart.y + 57);
-    mLeftEarMesh.setTranslateZ(0);
+    leftEarMesh.setTranslateX(Constants.LEFT_EAR_X_POSITION);
+    leftEarMesh.setTranslateY(Constants.EAR_Y_POSITION);
   }
 
   @Override
   public void calculate(int step) {
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 
-    mLeftEarMesh.getTransforms().clear();
-    mLeftEarMesh.getTransforms().addAll(rz, ry, rx);
+    leftEarMesh.getTransforms().clear();
+    leftEarMesh.getTransforms().addAll(rz, ry, rx);
   }
 }

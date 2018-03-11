@@ -28,6 +28,6 @@ public abstract class FXParts2D extends FXParts {
   public Color mColorRest = Color.rgb(0, 0, 0);
   public float mColoropacityRest = 1.0f;
 
-  public Color mColorRecorder = mColor;
+  public Color mColorRecorder = color;
   public BasicStroke mStroke = new BasicStroke(3.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
 }

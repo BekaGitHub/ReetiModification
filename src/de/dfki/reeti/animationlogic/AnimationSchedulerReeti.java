@@ -17,7 +17,7 @@ public class AnimationSchedulerReeti extends Thread {
   boolean mRunning = true;
 
   public AnimationSchedulerReeti(Reeti s) {
-    setName(s.mName + "'s AnimationScheduler");
+    setName(s.name + "'s AnimationScheduler");
     mReeti = s;
   }
 

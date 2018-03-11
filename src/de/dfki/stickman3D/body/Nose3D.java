@@ -25,7 +25,7 @@ public class Nose3D extends Stickman3DParts {
   public Nose3D(Head3D head) {
     mHead = head;
     mSize = new Dimension(mLength, mLength);
-    mColor = Color.rgb(242, 227, 217, 1);
+    color = Color.rgb(242, 227, 217, 1);
 
     ColModelImporter importer = new ColModelImporter();
     URL url = getClass().getClassLoader().getResource("BodyParts/Stickman3D/nose.dae");
@@ -33,7 +33,7 @@ public class Nose3D extends Stickman3DParts {
     mNose = (MeshView) importer.getImport()[0];
 
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mNose.setMaterial(material);
 
     mStart = mHead.getLeftEyebrowPostion();
@@ -68,12 +68,12 @@ public class Nose3D extends Stickman3DParts {
     switch (mShape) {
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           mNose.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           update();
         }
         break;
@@ -82,11 +82,11 @@ public class Nose3D extends Stickman3DParts {
         mNose.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           update();
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           update();
         }
         break;
@@ -95,14 +95,14 @@ public class Nose3D extends Stickman3DParts {
 
   @Override
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mNose.setMaterial(material);
   }
 
   @Override
   protected void recordColor() {
     if (mHead.getStickman().setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 

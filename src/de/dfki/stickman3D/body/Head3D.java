@@ -31,7 +31,7 @@ public class Head3D extends Stickman3DParts {
     mHalfHeight = mSize.height / 2;
     mHalfWidth = mSize.width / 2;
     mDefaultRotationPoint = new Point(mSize.width / 2, mSize.height);
-    mColor = Color.rgb(242, 227, 217, 1);
+    color = Color.rgb(242, 227, 217, 1);
 
     init();
     calculate(0);
@@ -52,7 +52,7 @@ public class Head3D extends Stickman3DParts {
 
     mHeadMeshView = new MeshView(mHeadTriangleMesh);
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mHeadMeshView.setMaterial(material);
     mHeadMeshView.setRotationAxis(Rotate.X_AXIS);
     mHeadMeshView.setRotate(90);
@@ -103,7 +103,7 @@ public class Head3D extends Stickman3DParts {
   @Override
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(mXRotation, 0, 60, 0, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, 0, 60, 0, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, 0, 60, 0, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, 0, 60, 0, Rotate.Z_AXIS);
 
@@ -115,12 +115,12 @@ public class Head3D extends Stickman3DParts {
     switch (mShape) {
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           mHeadMeshView.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           update();
         }
         break;
@@ -129,11 +129,11 @@ public class Head3D extends Stickman3DParts {
         mHeadMeshView.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           update();
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           update();
         }
         break;
@@ -142,7 +142,7 @@ public class Head3D extends Stickman3DParts {
 
   @Override
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mHeadMeshView.setMaterial(material);
   }
 

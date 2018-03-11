@@ -22,7 +22,7 @@ public class MaleHair3D extends Stickman3DParts {
   private MeshView maleHairMeshView;
   private PhongMaterial material;
   public MaleHair3D(Stickman3D sm) {
-    mColor = Color.rgb(97, 58, 0, 1);
+    color = Color.rgb(97, 58, 0, 1);
     mSize = new Dimension(120, 100);
     mHalfHeight = mSize.height / 2;
     mHalfWidth = mSize.width / 2;
@@ -33,7 +33,7 @@ public class MaleHair3D extends Stickman3DParts {
     TriangleMesh maleHairTriangleMesh = importer.getImport();
     maleHairMeshView = new MeshView(maleHairTriangleMesh);
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     maleHairMeshView.setMaterial(material);
     maleHairMeshView.setRotationAxis(Rotate.X_AXIS);
     maleHairMeshView.setRotate(-90);
@@ -66,7 +66,7 @@ public class MaleHair3D extends Stickman3DParts {
   }
 
   public void calculate(int step) {
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 
@@ -76,12 +76,12 @@ public class MaleHair3D extends Stickman3DParts {
     switch (mShape) {
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           maleHairMeshView.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           update();
         }
         break;
@@ -90,11 +90,11 @@ public class MaleHair3D extends Stickman3DParts {
         maleHairMeshView.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           update();
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           update();
         }
         break;
@@ -102,7 +102,7 @@ public class MaleHair3D extends Stickman3DParts {
   }
 
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     maleHairMeshView.setMaterial(material);
   }
 

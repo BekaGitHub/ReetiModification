@@ -34,7 +34,7 @@ public class LeftEar3D extends Stickman3DParts {
     initOpacity = 1.0;
 
     ColModelImporter importer = new ColModelImporter();
-    mColor = Color.rgb(242, 227, 217, initOpacity);
+    color = Color.rgb(242, 227, 217, initOpacity);
 
     URL url = getClass().getClassLoader().getResource("BodyParts/Stickman3D/leftEar.dae");
 
@@ -45,7 +45,7 @@ public class LeftEar3D extends Stickman3DParts {
     mLeftEarMesh = (MeshView) importer.getImport()[0];
 
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     material.setDiffuseMap(image);
     mLeftEarMesh.setMaterial(material);
 
@@ -81,12 +81,12 @@ public class LeftEar3D extends Stickman3DParts {
     switch (mShape) {
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           mLeftEarMesh.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - initOpacity / 19);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - initOpacity / 19);
           update();
         }
         break;
@@ -95,11 +95,11 @@ public class LeftEar3D extends Stickman3DParts {
         mLeftEarMesh.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), initOpacity);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), initOpacity);
           update();
-        } else if (mColor.getOpacity() <= initOpacity) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + initOpacity / 19);
+        } else if (color.getOpacity() <= initOpacity) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + initOpacity / 19);
           update();
         }
         break;
@@ -108,7 +108,7 @@ public class LeftEar3D extends Stickman3DParts {
 
   @Override
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
 //        material.setDiffuseMap(image);
     mLeftEarMesh.setMaterial(material);
   }
@@ -116,7 +116,7 @@ public class LeftEar3D extends Stickman3DParts {
   @Override
   protected void recordColor() {
     if (mHead.getStickman().setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 

@@ -29,7 +29,7 @@ public class EventAnimationReeti extends AnimationReeti {
   public EventAnimationReeti(Reeti reet, int duration, boolean block) {
     super(reet, duration, block);
     name = getClass().getSimpleName();
-    setName(reet.mName + "'s Event AnimationSwing " + name);
+    setName(reet.name + "'s Event AnimationSwing " + name);
   }
 
   public void playEventAnimationPart() {

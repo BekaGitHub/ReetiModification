@@ -22,7 +22,7 @@ public class SpeechBubbleFX extends StickmanFXParts {
 
   public SpeechBubbleFX(HeadFX head) {
     mHeadFX = head;
-    mColor = Color.rgb(255, 255, 255, (192 * 100 / 255) / 100f);
+    color = Color.rgb(255, 255, 255, (192 * 100 / 255) / 100f);
   }
 
   @Override

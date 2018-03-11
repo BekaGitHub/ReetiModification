@@ -4,26 +4,17 @@ import com.jfoenix.controls.JFXListView;
 import de.dfki.common.AgentsOnStage;
 import de.dfki.common.commonFX3D.ViewController;
 import de.dfki.reeti.controllerhelper.ColorHelper;
-import de.dfki.reeti.controllerhelper.SliderHelper;
 import de.dfki.reeti.stage.ReetiStage;
 import de.dfki.reeti.timeline.TimelineStart;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.stage.Stage;
 
 /**
  * @author Beka
@@ -323,8 +314,8 @@ public class ReetiStageController extends AReetiStageController implements ViewC
 
   // set the setValue of combobox
   private void setComboboxValue(Reeti mStick) {
-    bothLedColorPicker.setValue(colorWithoutOpacity(mStick.body.mColor));
-    leftLedColorPicker.setValue(colorWithoutOpacity(mStick.head.mColor));
+    bothLedColorPicker.setValue(colorWithoutOpacity(mStick.body.color));
+    leftLedColorPicker.setValue(colorWithoutOpacity(mStick.head.color));
   }
 
 //  @FXML

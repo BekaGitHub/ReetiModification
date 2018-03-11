@@ -32,7 +32,7 @@ public class LeftUpperArmFX extends StickmanFXParts {
 
   public LeftUpperArmFX(LeftShoulderFX shoulder) {
     mLeftShoulderFX = shoulder;
-    mColor = Color.rgb(80, 80, 80);
+    color = Color.rgb(80, 80, 80);
     mDefaultRotation = -23;
     mRotation = mDefaultRotation;
     mToDegree = mDefaultRotation;
@@ -88,7 +88,7 @@ public class LeftUpperArmFX extends StickmanFXParts {
 //        Color currentColor = Color.rgb(80, 80, 80);
     // draw outlines
     if (mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
     if (mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.setCharacterInvisible == true) {
       if (mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.fadeControler
@@ -99,26 +99,26 @@ public class LeftUpperArmFX extends StickmanFXParts {
         if (fadeFactor <= 24) {
           fadeFactor = 0;
         }
-        mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+        color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
             (fadeFactor * 100 / 255) / 100f);
-        //mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
+        //color = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
 
       } else {
         int fadeFactor =
             (20 - mLeftShoulderFX.mBodyFX.mNeckFX.mHeadFX.mStickmanFX.mMouthFX.mShapeAnimationStep)
                 * 12;
         if (fadeFactor >= 216) {
-          mColor = mColorRecorder;
+          color = mColorRecorder;
         } else {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
               (fadeFactor * 100 / 255) / 100f);
         }
-        //mColor = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
+        //color = Color.rgb(80, 80, 80, (fadeFactor * 100 / 255) / 100f);
 
       }
     }
 
-    mArm.setStroke(mColor);
+    mArm.setStroke(color);
     mArm.setStrokeWidth(3);
     mArm.setStrokeLineCap(StrokeLineCap.ROUND);
     mArm.setStrokeLineJoin(StrokeLineJoin.ROUND);

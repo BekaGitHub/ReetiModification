@@ -35,8 +35,8 @@ public class HeadFX extends StickmanFXParts {
     mLeftEar = new Path();
     mRightEar = new Path();
     mColoropacity = 1f;
-    mColor = Color.rgb(242, 227, 217, mColoropacity);
-//        mColor = Color.rgb(242, 227, 217, 1);
+    color = Color.rgb(242, 227, 217, mColoropacity);
+//        color = Color.rgb(242, 227, 217, 1);
     this.getChildren().addAll(mHead, mLeftEar, mRightEar);
 
     init();
@@ -161,7 +161,7 @@ public class HeadFX extends StickmanFXParts {
 
   public void update() {
     if (mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
     // fill
     if (mStickmanFX.setCharacterInvisible == true) {
@@ -172,18 +172,18 @@ public class HeadFX extends StickmanFXParts {
         if (fadeFactor <= 20) {
           fadeFactor = 0;
         }
-        mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+        color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
             (fadeFactor * 100 / 255) / 100f);
-        //mColor = Color.rgb(242, 227, 217, (fadeFactor * 100 / 255) / 100f); //fadeFactor Interval [0 - 1]
+        //color = Color.rgb(242, 227, 217, (fadeFactor * 100 / 255) / 100f); //fadeFactor Interval [0 - 1]
       } else {
         int fadeFactor = (20 - mStickmanFX.mMouthFX.mShapeAnimationStep) * 9;
         if (fadeFactor >= 160) {
-          mColor = mColorRecorder;
+          color = mColorRecorder;
         } else {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
               (fadeFactor * 100 / 255) / 100f);
         }
-        //mColor = Color.rgb(242, 227, 217, (fadeFactor * 100 / 255) / 100f); //fadeFactor Interval [0 - 1]
+        //color = Color.rgb(242, 227, 217, (fadeFactor * 100 / 255) / 100f); //fadeFactor Interval [0 - 1]
       }
 
       //not good. FixMe
@@ -192,18 +192,18 @@ public class HeadFX extends StickmanFXParts {
     }
 
     // head
-    mHead.setFill(mColor);
+    mHead.setFill(color);
     // ears
-    mLeftEar.setFill(mColor);
-    mRightEar.setFill(mColor);
+    mLeftEar.setFill(color);
+    mRightEar.setFill(color);
     // draw outlines
     //head
-    mHead.setStroke(mColor.darker());
+    mHead.setStroke(color.darker());
     mHead.setStrokeWidth(2);
     // ears
-    mLeftEar.setStroke(mColor.darker());
+    mLeftEar.setStroke(color.darker());
     mLeftEar.setStrokeWidth(2);
-    mRightEar.setStroke(mColor.darker());
+    mRightEar.setStroke(color.darker());
     mRightEar.setStrokeWidth(2);
 
   }

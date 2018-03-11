@@ -27,7 +27,7 @@ public class RightFinger1 extends Stickman3DParts {
   public RightFinger1(RightWrist3D rightWrist) {
     mRightWrist = rightWrist;
     mSize = new Dimension(ARMLENGTH, ARMLENGTH);
-    mColor = Color.rgb(242, 227, 217, 1);
+    color = Color.rgb(242, 227, 217, 1);
     mDefaultRotation = -20;
     mZRotation = -20;
     mToDegreeX = mDefaultRotation;
@@ -38,7 +38,7 @@ public class RightFinger1 extends Stickman3DParts {
     mRightFinger1 = (MeshView) importer.getImport()[0];
 
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mRightFinger1.setMaterial(material);
 
     mRightWrist.getRightWristGroup().getChildren().add(mRightFinger1);
@@ -59,7 +59,7 @@ public class RightFinger1 extends Stickman3DParts {
 
   @Override
   public void calculate(int step) {
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 
@@ -73,12 +73,12 @@ public class RightFinger1 extends Stickman3DParts {
     switch (mShape) {
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           mRightFinger1.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           update();
         }
         break;
@@ -87,11 +87,11 @@ public class RightFinger1 extends Stickman3DParts {
         mRightFinger1.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           update();
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           update();
         }
         break;
@@ -100,7 +100,7 @@ public class RightFinger1 extends Stickman3DParts {
 
   @Override
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mRightFinger1.setMaterial(material);
   }
 

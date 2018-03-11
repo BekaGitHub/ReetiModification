@@ -33,9 +33,9 @@ public class LeftEyebrow3D extends Stickman3DParts {
     mSize = new Dimension(mLength, mLength);
 
     if (mHead.getStickman().mType == Gender.TYPE.MALE) {
-      mColor = Color.rgb(88, 44, 13, 1);
+      color = Color.rgb(88, 44, 13, 1);
     } else {
-      mColor = Color.rgb(204, 163, 0, 1);
+      color = Color.rgb(204, 163, 0, 1);
     }
 
     currentPolygon = new Polygon();
@@ -77,27 +77,27 @@ public class LeftEyebrow3D extends Stickman3DParts {
         } else {
           currentPolygon = LeftBrowDEFAULT.createFemaleBrow(currentPolygon, step);
         }
-        currentPolygon.setFill(mColor);
+        currentPolygon.setFill(color);
         break;
 
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
         }
-        currentPolygon.setFill(mColor);
+        currentPolygon.setFill(color);
         break;
 
       case FADEOUT:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
         }
-        currentPolygon.setFill(mColor);
+        currentPolygon.setFill(color);
         break;
 
       case ANGRY:
@@ -218,12 +218,12 @@ public class LeftEyebrow3D extends Stickman3DParts {
   }
 
   public void update() {
-    currentPolygon.setFill(mColor);
+    currentPolygon.setFill(color);
   }
 
   protected void recordColor() {
     if (mHead.getStickman().setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
   }
 

@@ -27,13 +27,13 @@ public class RightFoot3D extends Stickman3DParts {
     mLength = 20;
     if (mRightForeLeg.getUpperLeg().getDownBody().getUpperBody().getNeck().getHead()
         .getStickman().mType == Gender.TYPE.MALE) {
-      mColor = Color.rgb(80, 80, 80, 1);
+      color = Color.rgb(80, 80, 80, 1);
     } else {
-      mColor = Color.rgb(154, 83, 198, 1);
+      color = Color.rgb(154, 83, 198, 1);
     }
     setDefaulRotation(0);
     mYRotation = 130;
-    mXRotation = 0;
+    xRotation = 0;
 
     URL url = getClass().getClassLoader().getResource("BodyParts/Stickman3D/foot.dae");
     ColModelImporter im = new ColModelImporter();
@@ -41,7 +41,7 @@ public class RightFoot3D extends Stickman3DParts {
     mRightFootMeshView = (MeshView) im.getImport()[0];
 
     material = new PhongMaterial();
-    material.setDiffuseColor(mColor.darker());
+    material.setDiffuseColor(color.darker());
     mRightFootMeshView.setMaterial(material);
 
     mRightForeLeg.rightForeLegGroup.getChildren().add(mRightFootMeshView);
@@ -63,7 +63,7 @@ public class RightFoot3D extends Stickman3DParts {
   @Override
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(mXRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
 
@@ -82,12 +82,12 @@ public class RightFoot3D extends Stickman3DParts {
     switch (mShape) {
       case FADEIN:
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 0.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 0.0);
           update();
           mRightFootMeshView.setVisible(false);
-        } else if (mColor.getOpacity() != 0.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() - 0.052);
+        } else if (color.getOpacity() != 0.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() - 0.052);
           update();
         }
         break;
@@ -96,11 +96,11 @@ public class RightFoot3D extends Stickman3DParts {
         mRightFootMeshView.setVisible(true);
 
         if (step == 2) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(), 1.0);
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 1.0);
           update();
-        } else if (mColor.getOpacity() != 1.0) {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
-              mColor.getOpacity() + 0.052);
+        } else if (color.getOpacity() != 1.0) {
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
+              color.getOpacity() + 0.052);
           update();
         }
         break;
@@ -109,7 +109,7 @@ public class RightFoot3D extends Stickman3DParts {
 
   @Override
   public void update() {
-    material.setDiffuseColor(mColor);
+    material.setDiffuseColor(color);
     mRightFootMeshView.setMaterial(material);
   }
 

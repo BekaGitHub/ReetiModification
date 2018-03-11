@@ -1,6 +1,8 @@
 package de.dfki.reeti.body;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import de.dfki.reeti.animationlogic.AnimatorReeti;
+import de.dfki.reeti.util.Constants;
 import java.awt.Dimension;
 import java.awt.geom.Point2D;
 import javafx.scene.paint.Color;
@@ -35,10 +37,8 @@ public class Mouth extends ReetiParts {
   private double recordDownRegulator;
 
   public Mouth(Head head) {
-    mSize = new Dimension(mLength * 2, 5);
-    mColor = Color.DARKGREY;
+    color = Color.DARKGREY;
     mLips = new Path();
-    mStart = head.getMouthPostion();
 
     rightCorner = new Point2D.Double(-9, 35);
     leftCorner = new Point2D.Double(rightCorner.getX() + mouthLength, rightCorner.getY());
@@ -52,9 +52,9 @@ public class Mouth extends ReetiParts {
   @Override
   public void init() {
     super.init();
-    mLips.setTranslateX(mStart.getX() - 7);
-    mLips.setTranslateY(mStart.getY() + 28);
-    mLips.setTranslateZ(-135.5);
+    mLips.setTranslateX(Constants.MOUTH_X_POSITION);
+    mLips.setTranslateY(Constants.MOUTH_Y_POSITION);
+    mLips.setTranslateZ(Constants.MOUTH_Z_TRANSLATION);
   }
 
   @Override
@@ -241,7 +241,7 @@ public class Mouth extends ReetiParts {
     mLips.getElements().clear();
     mLips.setStrokeLineJoin(StrokeLineJoin.ROUND);
     mLips.setStrokeWidth(3);
-    mLips.setStroke(mColor);
+    mLips.setStroke(color);
     mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCorner.getY()));
     mLips.getElements().add(new QuadCurveTo(upperPoint.getX(), upperPoint.getY(), leftCorner.getX(),
         leftCorner.getY()));

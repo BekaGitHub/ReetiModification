@@ -32,7 +32,7 @@ public class FemaleHairFX extends StickmanFXParts {
   public FemaleHairFX(StickmanFX sm) {
     mStickmanFX = sm;
     mDefaultRotationPoint = new Point(mSize.width / 2, mSize.height);
-    mColor = Color.rgb(240, 212, 0, 1);
+    color = Color.rgb(240, 212, 0, 1);
     mFemaleHair = new Path();
     this.getChildren().add(mFemaleHair);
 
@@ -91,7 +91,7 @@ public class FemaleHairFX extends StickmanFXParts {
 
   public void update() {
     if (mStickmanFX.setCharacterInvisible == false) {
-      mColorRecorder = mColor;
+      mColorRecorder = color;
     }
 
     if (mStickmanFX.setCharacterInvisible == true) {
@@ -101,24 +101,24 @@ public class FemaleHairFX extends StickmanFXParts {
         if (fadeFactor <= 20) {
           fadeFactor = 0;
         }
-        mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+        color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
             (fadeFactor * 100 / 255) / 100f);
-        //mColor = Color.rgb(240, 212, 0, (fadeFactor * 100 / 255) / 100f);
+        //color = Color.rgb(240, 212, 0, (fadeFactor * 100 / 255) / 100f);
       } else {
         int fadeFactor = (20 - mStickmanFX.mMouthFX.mShapeAnimationStep) * 9;
         if (fadeFactor >= 160) {
-          mColor = mColorRecorder;
+          color = mColorRecorder;
         } else {
-          mColor = new Color(mColor.getRed(), mColor.getGreen(), mColor.getBlue(),
+          color = new Color(color.getRed(), color.getGreen(), color.getBlue(),
               (fadeFactor * 100 / 255) / 100f);
         }
-        //mColor = Color.rgb(240, 212, 0, (fadeFactor * 100 / 255) / 100f);
+        //color = Color.rgb(240, 212, 0, (fadeFactor * 100 / 255) / 100f);
       }
     }
 
-    mFemaleHair.setFill(mColor);
+    mFemaleHair.setFill(color);
     // draw outlines
-    mFemaleHair.setStroke(mColor.darker());
+    mFemaleHair.setStroke(color.darker());
     mFemaleHair.setStrokeWidth(2);
 
   }
