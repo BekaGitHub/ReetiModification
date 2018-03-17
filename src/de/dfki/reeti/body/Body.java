@@ -41,9 +41,4 @@ public class Body extends ReetiParts {
   public void init() {
     super.init();
   }
-
-  public Point getUpperBodyPosition() {
-    return new Point(mStart.x, mStart.y + 135);
-  }
-
 }

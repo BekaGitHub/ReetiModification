@@ -61,4 +61,6 @@ public class CameraMovement {
     sliders.stream().forEach(e -> e.setValue(0));
   }
 
+
+
 }

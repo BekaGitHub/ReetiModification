@@ -22,12 +22,14 @@ public class Main extends Application {
 
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("/de/dfki/reeti/ViewX.fxml"));
-    HBox root = loader.load();
+
 
 //    Reeti reeti = new Reeti("Reeti",  TYPE.MALE, 1.5f, new Dimension(0,0));
     Reeti reeti = new Reeti("Reeti", TYPE.MALE);
-    ReetiController controller = loader.getController();
+    ReetiController controller = new ReetiController();
     controller.setReeti(reeti);
+    loader.setController(controller);
+    HBox root = loader.load();
 
     Scene scene = new Scene(root, Dimension.getScreenWidth(), Dimension.getScreenHight(), true,
         SceneAntialiasing.BALANCED);

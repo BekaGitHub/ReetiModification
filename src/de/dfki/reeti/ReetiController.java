@@ -10,6 +10,7 @@ import de.dfki.common.commonFX3D.ViewController;
 import de.dfki.reeti.controllerhelper.ColorHelper;
 import de.dfki.reeti.stage.ReetiStage;
 import de.dfki.reeti.timeline.TimelineStart;
+import de.dfki.reeti.util.BodyPartsMovement;
 import de.dfki.reeti.util.CameraMovement;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -202,6 +203,10 @@ public class ReetiController extends AReetiStageController implements ViewContro
     cameraResetButton.setOnAction((event) -> CameraMovement.resetCameraPosition(new ArrayList<>(
         Arrays.asList(camera_X_Rotation, camera_Y_Rotation, camera_Z_Rotation,
         camera_X_Translation, camera_Y_Translation, camera_Z_Translation))));
+
+    BodyPartsMovement.rotateHead(reeti.getHead(), head_X_Slider, Rotate.X_AXIS);
+    BodyPartsMovement.rotateHead(reeti.getHead(), head_Y_Slider, Rotate.Y_AXIS);
+    BodyPartsMovement.rotateHead(reeti.getHead(), head_Z_Slider, Rotate.Z_AXIS);
 
     exitButton.setOnAction((event) -> System.exit(0));
   }

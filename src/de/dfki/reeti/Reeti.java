@@ -342,27 +342,8 @@ public class Reeti extends Agent3D {
   }
 
   public void posOnScreen(float... pos) {
-    float mGeneralXTranslation;
-    float mGeneralYTranslation;
-    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    Affine af = new Affine();
-    int shiftFactor = (int) (REETI_HEIGHT - (REETI_HEIGHT * mScale));
-    if (isFullScreen) {
-      mGeneralYTranslation = (int) ((dim.getHeight() - REETI_HEIGHT) + shiftFactor + 100);
-      if (pos.length != 0) {
-        mGeneralXTranslation = pos[0];
-      } else {
-        mGeneralXTranslation = 0;
-      }
-    } else {
-      mGeneralYTranslation = 350;
-      //mGeneralYTranslation = (int) ((this.stageHeight - REETI_HEIGHT) + shiftFactor - 350);
-      mGeneralXTranslation = 100;
-    }
-    af.appendTranslation(mGeneralXTranslation, mGeneralYTranslation);
-    af.appendScale(mScale, mScale);
-    this.getTransforms().clear();
-    this.getTransforms().add(af);
+    this.setTranslateX(de.dfki.reeti.util.Dimension.getReetiStage_X_Center());
+    this.setTranslateY(de.dfki.reeti.util.Dimension.getScreenHight());
   }
 
   @Override
@@ -920,4 +901,11 @@ public class Reeti extends Agent3D {
     LEFTLED, RIGHTLED, BOTHLED
   }
 
+  public Head getHead() {
+    return head;
+  }
+
+  public void setHead(Head head) {
+    this.head = head;
+  }
 }

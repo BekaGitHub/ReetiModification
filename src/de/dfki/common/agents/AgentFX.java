@@ -9,11 +9,13 @@ import java.util.concurrent.Semaphore;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 import javafx.scene.Group;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * Created by EmpaT on 14.07.2017.
  */
-public abstract class AgentFX extends Group implements AgentInterface {
+public abstract class AgentFX extends Pane implements AgentInterface {
 
   public final List<AnimationListener> mAnimationListeners = new CopyOnWriteArrayList<AnimationListener>();
   public Gender.TYPE mType = Gender.TYPE.FEMALE;
