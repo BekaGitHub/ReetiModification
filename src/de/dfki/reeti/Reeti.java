@@ -956,4 +956,36 @@ public class Reeti extends Agent3D {
   public void setRightEar(RightEar rightEar) {
     this.rightEar = rightEar;
   }
+
+  public MouthLeftCorner getMouthLeftCorner() {
+    return mouthLeftCorner;
+  }
+
+  public void setMouthLeftCorner(MouthLeftCorner mouthLeftCorner) {
+    this.mouthLeftCorner = mouthLeftCorner;
+  }
+
+  public MouthRightCorner getMouthRightCorner() {
+    return mouthRightCorner;
+  }
+
+  public void setMouthRightCorner(MouthRightCorner mouthRightCorner) {
+    this.mouthRightCorner = mouthRightCorner;
+  }
+
+  public MouthUpperLip getMouthUpperLip() {
+    return mouthUpperLip;
+  }
+
+  public void setMouthUpperLip(MouthUpperLip mouthUpperLip) {
+    this.mouthUpperLip = mouthUpperLip;
+  }
+
+  public MouthDownLip getMouthDownLip() {
+    return mouthDownLip;
+  }
+
+  public void setMouthDownLip(MouthDownLip mouthDownLip) {
+    this.mouthDownLip = mouthDownLip;
+  }
 }

@@ -3,7 +3,10 @@ package de.dfki.reeti.util;
 import com.jfoenix.controls.JFXSlider;
 import de.dfki.reeti.body.Head;
 import de.dfki.reeti.body.LeftEye;
-import de.dfki.reeti.body.LeftEyelid;
+import de.dfki.reeti.body.MouthDownLip;
+import de.dfki.reeti.body.MouthLeftCorner;
+import de.dfki.reeti.body.MouthRightCorner;
+import de.dfki.reeti.body.MouthUpperLip;
 import de.dfki.reeti.body.ReetiParts;
 import de.dfki.reeti.body.RightEye;
 import javafx.beans.value.ObservableValue;
@@ -16,7 +19,8 @@ public class BodyPartsMovement {
   private BodyPartsMovement() {
   }
 
-  public static void rotateHead(Head head, JFXSlider headRotationSlider, TextField headRotationTextField, Point3D axis) {
+  public static void rotateHead(Head head, JFXSlider headRotationSlider,
+      TextField headRotationTextField, Point3D axis) {
     headRotationSlider.setMin(0);
     headRotationSlider.setMax(100);
     headRotationSlider.setValue(50);
@@ -24,7 +28,8 @@ public class BodyPartsMovement {
     rotate(headRotationSlider, axis, head, headRotationTextField, 50, 40, 100);
   }
 
-  public static void rotateLeftEye(LeftEye leftEye, TextField leftEyeTextField, JFXSlider leftEyeSlider, Point3D axis) {
+  public static void rotateLeftEye(LeftEye leftEye, TextField leftEyeTextField,
+      JFXSlider leftEyeSlider, Point3D axis) {
     leftEyeSlider.setMin(0);
     leftEyeSlider.setMax(100);
     leftEyeSlider.setValue(42);
@@ -32,7 +37,8 @@ public class BodyPartsMovement {
     rotate(leftEyeSlider, axis, leftEye, leftEyeTextField, 42, 90, 100);
   }
 
-  public static void rotateRightEye(RightEye rightEye, TextField rightEyeTextField, JFXSlider rightEyeSlider, Point3D axis) {
+  public static void rotateRightEye(RightEye rightEye, TextField rightEyeTextField,
+      JFXSlider rightEyeSlider, Point3D axis) {
     rightEyeSlider.setMin(0);
     rightEyeSlider.setMax(100);
     rightEyeSlider.setValue(51);
@@ -40,7 +46,8 @@ public class BodyPartsMovement {
     rotate(rightEyeSlider, axis, rightEye, rightEyeTextField, 51, 90, 100);
   }
 
-  public static void rotateEyeLid(ReetiParts eyeLid, TextField eyeLidTextField, JFXSlider eyeLidSlider, Point3D axis) {
+  public static void rotateEyeLid(ReetiParts eyeLid, TextField eyeLidTextField,
+      JFXSlider eyeLidSlider, Point3D axis) {
     eyeLidSlider.setMin(0);
     eyeLidSlider.setMax(100);
     eyeLidSlider.setValue(100);
@@ -48,7 +55,8 @@ public class BodyPartsMovement {
     rotate(eyeLidSlider, axis, eyeLid, eyeLidTextField, 100, 100, 100);
   }
 
-  public static void rotateEar(ReetiParts ear, TextField earTextField, JFXSlider earSlider, Point3D axis) {
+  public static void rotateEar(ReetiParts ear, TextField earTextField, JFXSlider earSlider,
+      Point3D axis) {
     earSlider.setMin(0);
     earSlider.setMax(100);
     earSlider.setValue(50);
@@ -56,7 +64,71 @@ public class BodyPartsMovement {
     rotate(earSlider, axis, ear, earTextField, 50, 50, 50);
   }
 
-  private static void rotate(JFXSlider slider, Point3D axis, ReetiParts parts, TextField textField, int minusFactor, int multiplicationFactor, int divisionFactor) {
+  public static void moveMouthLeftCorner(MouthLeftCorner mouthLeftCorner,
+      JFXSlider mouthLeftCornerSlider, TextField mouthLeftCornerTextField) {
+    mouthLeftCornerSlider.setMin(-100);
+    mouthLeftCornerSlider.setMax(0);
+    mouthLeftCornerSlider.setValue(-50);
+
+    moveLip(mouthLeftCornerSlider, mouthLeftCorner, mouthLeftCornerTextField, "LEFTCORNERACTION",
+        170, 16, 100);
+  }
+
+  public static void moveMouthRightCorner(MouthRightCorner mouthRightCorner,
+      JFXSlider mouthRightCornerSlider, TextField mouthRightCornerTextField) {
+    mouthRightCornerSlider.setMin(-100);
+    mouthRightCornerSlider.setMax(0);
+    mouthRightCornerSlider.setValue(-50);
+
+    moveLip(mouthRightCornerSlider, mouthRightCorner, mouthRightCornerTextField,
+        "RIGHTCORNERACTION", 170, 16, 100);
+  }
+
+  public static void moveMouthUpperLip(MouthUpperLip mouthUpperLip, JFXSlider mouthUpperLipSlider,
+      TextField mouthUpperLipTextField) {
+    mouthUpperLipSlider.setMin(-100);
+    mouthUpperLipSlider.setMax(0);
+    mouthUpperLipSlider.setValue(-100);
+
+    moveLip(mouthUpperLipSlider, mouthUpperLip, mouthUpperLipTextField, "UPPERLIPACTION", 107, 16,
+        100);
+  }
+
+  public static void moveMouthBottomLip(MouthDownLip mouthDownLip, JFXSlider mouthDownLipSlider,
+      TextField mouthDownLipTextField) {
+    mouthDownLipSlider.setMin(0);
+    mouthDownLipSlider.setMax(100);
+    mouthDownLipSlider.setValue(0);
+
+    moveLip(mouthDownLipSlider, mouthDownLip, mouthDownLipTextField, "DOWNLIPACTION", 217, 16, 100);
+  }
+
+  private static ReetiParts moveLip(JFXSlider lipSlider, ReetiParts lip, TextField lipTextField,
+      String action, int plusFactor, int multiplicationFactor, int divisionFactor) {
+    lipSlider.valueProperty()
+        .addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) ->
+        {
+          double newValue = Math.abs(new_val.doubleValue());
+          lip.setShape(action);
+          double SliderValue = (newValue + plusFactor) * multiplicationFactor / divisionFactor;
+          if (lip instanceof MouthDownLip) {
+            ((MouthDownLip) lip).setDownLipRegulator(SliderValue);
+          } else if (lip instanceof MouthUpperLip) {
+            ((MouthUpperLip) lip).setUpperLipRegulator(SliderValue);
+          } else if (lip instanceof MouthRightCorner) {
+            ((MouthRightCorner) lip).setRightCornerRegulator(SliderValue);
+          } else {
+            ((MouthLeftCorner) lip).setLeftCornerRegulator(SliderValue);
+          }
+          int fieldValue = (int) (newValue);
+          lipTextField.setText(Integer.toString(fieldValue));
+          lip.calculate(0);
+        });
+    return lip;
+  }
+
+  private static void rotate(JFXSlider slider, Point3D axis, ReetiParts parts, TextField textField,
+      int minusFactor, int multiplicationFactor, int divisionFactor) {
     slider.valueProperty()
         .addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) ->
         {
@@ -64,7 +136,7 @@ public class BodyPartsMovement {
           double rotationGrad = (-(newValue - minusFactor) * multiplicationFactor) / divisionFactor;
           if (axis == Rotate.X_AXIS) {
             parts.xRotation = rotationGrad;
-          } else if (axis == Rotate.Y_AXIS){
+          } else if (axis == Rotate.Y_AXIS) {
             parts.mYRotation = rotationGrad;
           } else {
             parts.mZRotation = rotationGrad;
@@ -73,5 +145,4 @@ public class BodyPartsMovement {
           parts.calculate(0);
         });
   }
-
 }

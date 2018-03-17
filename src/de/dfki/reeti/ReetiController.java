@@ -170,17 +170,7 @@ public class ReetiController extends AReetiStageController implements ViewContro
 
 //    fillEmotionScrollPane();
 //    fillEnvironmentScrollPane();
-//
-//
-//    SliderHelper.handleLeftEyeLidXSlider(this);
-//    SliderHelper.handleRightEyeLidXSlider(this);
-//    SliderHelper.handleLeftEarSlider(this);
-//    SliderHelper.handleRightEarSlider(this);
-//    SliderHelper.handleLeftLCSlider(this);
-//    SliderHelper.handleRightLCSlider(this);
-//    SliderHelper.handleTopLipSlider(this);
-//    SliderHelper.handleBottomLipSlider(this);
-//
+    
 //    ledOffButton.setOnAction((event) ->
 //    {
 //      currentReeti.leftCheek.getLedGroup().setVisible(false);
@@ -197,9 +187,12 @@ public class ReetiController extends AReetiStageController implements ViewContro
         Arrays.asList(camera_X_Rotation, camera_Y_Rotation, camera_Z_Rotation,
             camera_X_Translation, camera_Y_Translation, camera_Z_Translation))));
 
-    BodyPartsMovement.rotateHead(reeti.getHead(), head_X_Slider, head_X_RotationField, Rotate.X_AXIS);
-    BodyPartsMovement.rotateHead(reeti.getHead(), head_Y_Slider, head_Y_RotationField, Rotate.Y_AXIS);
-    BodyPartsMovement.rotateHead(reeti.getHead(), head_Z_Slider, head_Z_RotationField, Rotate.Z_AXIS);
+    BodyPartsMovement
+        .rotateHead(reeti.getHead(), head_X_Slider, head_X_RotationField, Rotate.X_AXIS);
+    BodyPartsMovement
+        .rotateHead(reeti.getHead(), head_Y_Slider, head_Y_RotationField, Rotate.Y_AXIS);
+    BodyPartsMovement
+        .rotateHead(reeti.getHead(), head_Z_Slider, head_Z_RotationField, Rotate.Z_AXIS);
 
     BodyPartsMovement.rotateLeftEye(reeti.getLeftEye(), leftEye_X_RotationFiled, leftEye_X_Slider,
         Rotate.X_AXIS);
@@ -212,11 +205,26 @@ public class ReetiController extends AReetiStageController implements ViewContro
         .rotateRightEye(reeti.getRightEye(), rightEye_Y_RotationFiled, rightEye_Y_Slider,
             Rotate.Y_AXIS);
 
-    BodyPartsMovement.rotateEyeLid(reeti.getLeftEyelid(), leftEyeLid_X_RotationField, leftEyeLid_X_Slider, Rotate.X_AXIS);
-    BodyPartsMovement.rotateEyeLid(reeti.getRightEyelid(), rightEyeLid_X_RotationField, rightEyeLid_X_Slider, Rotate.X_AXIS);
+    BodyPartsMovement
+        .rotateEyeLid(reeti.getLeftEyelid(), leftEyeLid_X_RotationField, leftEyeLid_X_Slider,
+            Rotate.X_AXIS);
+    BodyPartsMovement
+        .rotateEyeLid(reeti.getRightEyelid(), rightEyeLid_X_RotationField, rightEyeLid_X_Slider,
+            Rotate.X_AXIS);
 
-    BodyPartsMovement.rotateEar(reeti.getLeftEar(), leftEarRotationField, leftEarSlider, Rotate.Z_AXIS);
-    BodyPartsMovement.rotateEar(reeti.getRightEar(), rightEarRotationField, rightEarSlider, Rotate.Z_AXIS);
+    BodyPartsMovement
+        .rotateEar(reeti.getLeftEar(), leftEarRotationField, leftEarSlider, Rotate.Z_AXIS);
+    BodyPartsMovement
+        .rotateEar(reeti.getRightEar(), rightEarRotationField, rightEarSlider, Rotate.Z_AXIS);
+
+    BodyPartsMovement
+        .moveMouthLeftCorner(reeti.getMouthLeftCorner(), leftLCSlider, leftLCRotationField);
+    BodyPartsMovement
+        .moveMouthRightCorner(reeti.getMouthRightCorner(), rightLCSlider, rightLCRotationField);
+    BodyPartsMovement
+        .moveMouthUpperLip(reeti.getMouthUpperLip(), topLipSlider, topLipRotationField);
+    BodyPartsMovement
+        .moveMouthBottomLip(reeti.getMouthDownLip(), bottomLipSlider, bottomLipRotationField);
 
     exitButton.setOnAction((event) -> System.exit(0));
   }
