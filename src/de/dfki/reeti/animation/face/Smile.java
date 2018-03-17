@@ -1,7 +1,7 @@
 package de.dfki.reeti.animation.face;
 
 import de.dfki.reeti.Reeti;
-import de.dfki.reeti.ReetiStageController;
+import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 /**
@@ -28,8 +28,8 @@ public class Smile extends AnimationReeti {
     reeti.leftEar(100);
     reeti.rightEar(100);
 
-    if (ReetiStageController.currentRadioButton != null) {
-      ReetiStageController.currentRadioButton.setSelected(false);
+    if (ReetiController.currentRadioButton != null) {
+      ReetiController.currentRadioButton.setSelected(false);
     }
   }
 }

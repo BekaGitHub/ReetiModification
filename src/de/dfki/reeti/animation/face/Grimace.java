@@ -6,7 +6,7 @@
 package de.dfki.reeti.animation.face;
 
 import de.dfki.reeti.Reeti;
-import de.dfki.reeti.ReetiStageController;
+import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 /**
@@ -38,8 +38,8 @@ public class Grimace extends AnimationReeti {
     reeti.bottomLip(10);
     reeti.topLip(3);
 
-    if (ReetiStageController.currentRadioButton != null) {
-      ReetiStageController.currentRadioButton.setSelected(false);
+    if (ReetiController.currentRadioButton != null) {
+      ReetiController.currentRadioButton.setSelected(false);
     }
   }
 }

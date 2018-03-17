@@ -1,36 +1,175 @@
 package de.dfki.reeti;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXSlider;
+import com.jfoenix.controls.JFXToggleButton;
 import de.dfki.common.AgentsOnStage;
 import de.dfki.common.commonFX3D.ViewController;
 import de.dfki.reeti.controllerhelper.ColorHelper;
 import de.dfki.reeti.stage.ReetiStage;
 import de.dfki.reeti.timeline.TimelineStart;
+import de.dfki.reeti.util.CameraMovement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
 
 /**
  * @author Beka
  */
-public class ReetiStageController extends AReetiStageController implements ViewController {
+public class ReetiController extends AReetiStageController implements ViewController {
+
+  private static final String PACKAGE_EMOTIONEXPRESSION = "de.dfki.reeti.animation.face";
+  private static final String PACKAGE_ENVIRONMENT = "de.dfki.reeti.animation.environment";
+  public static RadioButton currentRadioButton;
 
   @FXML
+  public HBox root;
+  @FXML
+  public VBox controlPanelBox;
+
+  @FXML
+  public JFXListView<?> expressionListView;
+  @FXML
+  public JFXListView<?> environmentListView;
+
+  @FXML
+  public JFXColorPicker leftLedColorPicker;
+  @FXML
+  public JFXColorPicker rightLedColorPicker;
+  @FXML
+  public JFXColorPicker bothLedColorPicker;
+  @FXML
+  public JFXButton ledOffButton;
+
+  @FXML
+  public JFXSlider head_X_Slider;
+  @FXML
+  public JFXSlider head_Y_Slider;
+  @FXML
+  public JFXSlider head_Z_Slider;
+  @FXML
+  public TextField head_X_RotationField;
+  @FXML
+  public TextField head_Y_RotationField;
+  @FXML
+  public TextField head_Z_RotationField;
+
+  @FXML
+  public JFXSlider leftEye_X_Slider;
+  @FXML
+  public JFXSlider leftEye_Y_Slider;
+  @FXML
+  public TextField leftEye_X_RotationFiled;
+  @FXML
+  public TextField leftEye_Y_RotationFiled;
+
+  @FXML
+  public JFXSlider rightEye_X_Slider;
+  @FXML
+  public JFXSlider rightEye_Y_Slider;
+  @FXML
+  public TextField rightEye_X_RotationFiled;
+  @FXML
+  public TextField rightEye_Y_RotationFiled;
+
+  @FXML
+  public JFXSlider leftEyeLid_X_Slider;
+  @FXML
+  public TextField leftEyeLid_X_RotationField;
+
+  @FXML
+  public JFXSlider rightEyeLid_X_Slider;
+  @FXML
+  public TextField rightEyeLid_X_RotationField;
+
+  @FXML
+  public JFXSlider leftEarSlider;
+  @FXML
+  public TextField leftEarRotationField;
+
+  @FXML
+  public JFXSlider rightEarSlider;
+  @FXML
+  public TextField rightEarRotationField;
+
+  @FXML
+  public TextField leftLCRotationField;
+  @FXML
+  public JFXSlider leftLCSlider;
+
+  @FXML
+  public JFXSlider rightLCSlider;
+  @FXML
+  public TextField rightLCRotationField;
+
+  @FXML
+  public JFXSlider topLipSlider;
+  @FXML
+  public TextField topLipRotationField;
+
+  @FXML
+  public JFXSlider bottomLipSlider;
+  @FXML
+  public TextField bottomLipRotationField;
+
+  @FXML
+  public JFXToggleButton cameraToogleButton;
+  @FXML
+  public JFXSlider camera_X_Rotation;
+  @FXML
+  public JFXSlider camera_Y_Rotation;
+  @FXML
+  public JFXSlider camera_Z_Rotation;
+  @FXML
+  public JFXSlider camera_X_Translation;
+  @FXML
+  public JFXSlider camera_Y_Translation;
+  @FXML
+  public JFXSlider camera_Z_Translation;
+  @FXML
+  public JFXButton nearClipMinus;
+  @FXML
+  public JFXButton nearClipPlus;
+  @FXML
+  public TextField nearClipField;
+  @FXML
+  public JFXButton farClipMinus;
+  @FXML
+  public JFXButton farClipPlus;
+  @FXML
+  public TextField farClipField;
+  @FXML
+  public JFXButton fieldOfViewMinus;
+  @FXML
+  public JFXButton fieldOfViewPlus;
+  @FXML
+  public TextField fieldOfViewField;
+  @FXML
+  public JFXButton cameraResetButton;
+
+  @FXML
+  public JFXButton exitButton;
+
+  private Reeti reeti;
+
   public void initialize() {
     //Select a stickmanSwing
 
 //    fillEmotionScrollPane();
 //    fillEnvironmentScrollPane();
 //
-//    SliderHelper.handleCameraSlider(this, camera_X_Rotation, "X");
-//    SliderHelper.handleCameraSlider(this, camera_Y_Rotation, "Y");
-//    SliderHelper.handleCameraSlider(this, camera_Z_Rotation, "Z");
 //
 //    SliderHelper.handleHeadSlider(this, head_X_Slider, "X");
 //    SliderHelper.handleHeadSlider(this, head_Y_Slider, "Y");
@@ -48,21 +187,22 @@ public class ReetiStageController extends AReetiStageController implements ViewC
 //    SliderHelper.handleTopLipSlider(this);
 //    SliderHelper.handleBottomLipSlider(this);
 //
-//    exitButton.setOnAction((ActionEvent event) ->
-//    {
-//      Stage stage = (Stage) exitButton.getScene().getWindow();
-//      stage.close();
-//      System.exit(0);
-////            CommandReceiver cr = new CommandReceiver(currentReeti, this);
-////            cr.start();
-//
-//    });
-//
 //    ledOffButton.setOnAction((event) ->
 //    {
 //      currentReeti.leftCheek.getLedGroup().setVisible(false);
 //      currentReeti.rightCheek.getLedGroup().setVisible(false);
 //    });
+    CameraMovement.rotateCamera(camera_X_Rotation, Rotate.X_AXIS);
+    CameraMovement.rotateCamera(camera_Y_Rotation, Rotate.Y_AXIS);
+    CameraMovement.rotateCamera(camera_Z_Rotation, Rotate.Z_AXIS);
+    CameraMovement.translateCamera(camera_X_Translation, Rotate.X_AXIS);
+    CameraMovement.translateCamera(camera_Y_Translation, Rotate.Y_AXIS);
+    CameraMovement.translateCamera(camera_Z_Translation, Rotate.Z_AXIS);
+    //Setze Camera Position und alle Camera Sliders auf den Defaultpunkt
+    cameraResetButton.setOnAction((event) -> CameraMovement.resetCameraPosition(new ArrayList<>(
+        Arrays.asList(camera_X_Rotation, camera_Y_Rotation, camera_Z_Rotation,
+        camera_X_Translation, camera_Y_Translation, camera_Z_Translation))));
+
     exitButton.setOnAction((event) -> System.exit(0));
   }
 
@@ -349,11 +489,11 @@ public class ReetiStageController extends AReetiStageController implements ViewC
     return new Color(color.getRed(), color.getGreen(), color.getBlue(), 1);
   }
 
-  public StackPane getAgentStage() {
-    return agentStage;
+  public Reeti getReeti() {
+    return reeti;
   }
 
-  public VBox getControlPanelBox() {
-    return controlPanelBox;
+  public void setReeti(Reeti reeti) {
+    this.reeti = reeti;
   }
 }

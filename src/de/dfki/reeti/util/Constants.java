@@ -20,4 +20,6 @@ public class Constants {
 
   public static final int Z_TRANSLATION = -105;
   public static final int BODY_Z_TRANSLATION = -125;
+
+  public static final int CONTROLPANEL_WIDTH = 491;
 }

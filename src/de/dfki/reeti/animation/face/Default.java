@@ -6,7 +6,7 @@
 package de.dfki.reeti.animation.face;
 
 import de.dfki.reeti.Reeti;
-import de.dfki.reeti.ReetiStageController;
+import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 
 /**
@@ -41,8 +41,8 @@ public class Default extends AnimationReeti {
     reeti.rightEar(50);
     reeti.leftEar(50);
     reeti.setLedColor("stop");
-    if (ReetiStageController.currentRadioButton != null) {
-      ReetiStageController.currentRadioButton.setSelected(false);
+    if (ReetiController.currentRadioButton != null) {
+      ReetiController.currentRadioButton.setSelected(false);
     }
   }
 }

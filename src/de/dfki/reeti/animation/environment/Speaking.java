@@ -6,7 +6,7 @@
 package de.dfki.reeti.animation.environment;
 
 import de.dfki.reeti.Reeti;
-import de.dfki.reeti.ReetiStageController;
+import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 import de.dfki.reeti.environment.SpeechBubbleFX;
@@ -42,8 +42,8 @@ public class Speaking extends AnimationReeti {
             SpeechBubbleFX.SHAPE.DEFAULT.name()));
     playAnimationPart(20);
 
-    if (ReetiStageController.currentRadioButton != null) {
-      ReetiStageController.currentRadioButton.setSelected(false);
+    if (ReetiController.currentRadioButton != null) {
+      ReetiController.currentRadioButton.setSelected(false);
     }
 
   }

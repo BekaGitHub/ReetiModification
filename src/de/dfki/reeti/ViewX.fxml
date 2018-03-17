@@ -17,9 +17,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dfki.reeti.ReetiStageController">
+<HBox fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dfki.reeti.ReetiController">
    <children>
-      <VBox fx:id="controlPanelBox" prefWidth="491.0">
+      <VBox fx:id="controlPanelBox" maxWidth="491.0" minWidth="491.0" prefWidth="491.0">
          <children>
             <JFXTabPane prefHeight="282.0" prefWidth="438.0">
                <tabs>
@@ -408,6 +408,5 @@
             </AnchorPane>
          </children>
       </VBox>
-      <StackPane fx:id="agentStage" HBox.hgrow="ALWAYS" />
    </children>
 </HBox>

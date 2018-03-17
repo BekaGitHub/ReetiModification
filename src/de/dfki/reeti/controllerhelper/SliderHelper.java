@@ -5,7 +5,7 @@
  */
 package de.dfki.reeti.controllerhelper;
 
-import de.dfki.reeti.ReetiStageController;
+import de.dfki.reeti.ReetiController;
 import java.awt.Point;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Slider;
@@ -16,7 +16,7 @@ import javafx.scene.transform.Rotate;
  */
 public class SliderHelper {
 
-  public static void handleHeadSlider(ReetiStageController controller, Slider slider,
+  public static void handleHeadSlider(ReetiController controller, Slider slider,
       String achse) {
     slider.setMin(0);
     slider.setMax(100);
@@ -39,7 +39,7 @@ public class SliderHelper {
         });
   }
 
-  public static void handleLeftEyeXSlider(ReetiStageController controller) {
+  public static void handleLeftEyeXSlider(ReetiController controller) {
 //    controller.leftEyeXSlider.setMin(0);
 //    controller.leftEyeXSlider.setMax(100);
 //    controller.leftEyeXSlider.setValue(42);
@@ -53,7 +53,7 @@ public class SliderHelper {
 //        });
   }
 
-  public static void handleLeftEyeYSlider(ReetiStageController controller) {
+  public static void handleLeftEyeYSlider(ReetiController controller) {
 //    controller.leftEyeYSlider.setMin(0);
 //    controller.leftEyeYSlider.setMax(100);
 //    controller.leftEyeYSlider.setValue(42);
@@ -67,7 +67,7 @@ public class SliderHelper {
 //        });
   }
 
-  public static void handleRightEyeXSlider(ReetiStageController controller) {
+  public static void handleRightEyeXSlider(ReetiController controller) {
 //    controller.rightEyeXSlider.setMin(0);
 //    controller.rightEyeXSlider.setMax(100);
 //    controller.rightEyeXSlider.setValue(47);
@@ -81,7 +81,7 @@ public class SliderHelper {
 //        });
   }
 
-  public static void handleRightEyeYSlider(ReetiStageController controller) {
+  public static void handleRightEyeYSlider(ReetiController controller) {
 //    controller.rightEyeYSlider.setMin(0);
 //    controller.rightEyeYSlider.setMax(100);
 //    controller.rightEyeYSlider.setValue(65);
@@ -95,7 +95,7 @@ public class SliderHelper {
 //        });
   }
 
-  public static void handleLeftEyeLidXSlider(ReetiStageController controller) {
+  public static void handleLeftEyeLidXSlider(ReetiController controller) {
 //    controller.leftEyeLidXSlider.setMin(0);
 //    controller.leftEyeLidXSlider.setMax(100);
 //    controller.leftEyeLidXSlider.setValue(100);
@@ -109,7 +109,7 @@ public class SliderHelper {
 //        });
   }
 
-  public static void handleRightEyeLidXSlider(ReetiStageController controller) {
+  public static void handleRightEyeLidXSlider(ReetiController controller) {
 //    controller.rightEyeLidXSlider.setMin(0);
 //    controller.rightEyeLidXSlider.setMax(100);
 //    controller.rightEyeLidXSlider.setValue(100);
@@ -123,7 +123,7 @@ public class SliderHelper {
 //        });
   }
 
-  public static void handleLeftEarSlider(ReetiStageController controller) {
+  public static void handleLeftEarSlider(ReetiController controller) {
     controller.leftEarSlider.setMin(0);
     controller.leftEarSlider.setMax(100);
     controller.leftEarSlider.setValue(50);
@@ -137,7 +137,7 @@ public class SliderHelper {
         });
   }
 
-  public static void handleRightEarSlider(ReetiStageController controller) {
+  public static void handleRightEarSlider(ReetiController controller) {
     controller.rightEarSlider.setMin(0);
     controller.rightEarSlider.setMax(100);
     controller.rightEarSlider.setValue(50);
@@ -151,7 +151,7 @@ public class SliderHelper {
         });
   }
 
-  public static void handleLeftLCSlider(ReetiStageController controller) {
+  public static void handleLeftLCSlider(ReetiController controller) {
     controller.leftLCSlider.setMin(-100);
     controller.leftLCSlider.setMax(0);
     controller.leftLCSlider.setValue(-50);
@@ -168,7 +168,7 @@ public class SliderHelper {
         });
   }
 
-  public static void handleRightLCSlider(ReetiStageController controller) {
+  public static void handleRightLCSlider(ReetiController controller) {
     controller.rightLCSlider.setMin(-100);
     controller.rightLCSlider.setMax(0);
     controller.rightLCSlider.setValue(-50);
@@ -185,7 +185,7 @@ public class SliderHelper {
         });
   }
 
-  public static void handleTopLipSlider(ReetiStageController controller) {
+  public static void handleTopLipSlider(ReetiController controller) {
     controller.topLipSlider.setMin(-100);
     controller.topLipSlider.setMax(0);
     controller.topLipSlider.setValue(-100);
@@ -202,7 +202,7 @@ public class SliderHelper {
         });
   }
 
-  public static void handleBottomLipSlider(ReetiStageController controller) {
+  public static void handleBottomLipSlider(ReetiController controller) {
     controller.bottomLipSlider.setMin(0);
     controller.bottomLipSlider.setMax(100);
     controller.bottomLipSlider.setValue(0);
@@ -216,36 +216,6 @@ public class SliderHelper {
           int fieldValue = (int) (newValue);
           controller.bottomLipRotationField.setText(Integer.toString(fieldValue));
           controller.currentReeti.mouthDownLip.calculate(0);
-        });
-  }
-
-  public static void handleCameraSlider(ReetiStageController controller, Slider slider,
-      String achse) {
-    slider.setMin(-180);
-    slider.setMax(180);
-    slider.setValue(0);
-    slider.valueProperty()
-        .addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) ->
-        {
-
-          double newValue = new_val.doubleValue();
-          double oldValue = old_val.doubleValue();
-          if (achse.equalsIgnoreCase("X")) {
-            double xRotateFactor = newValue - oldValue;
-            Point pivot = controller.currentReeti.body.getUpperBodyPosition();
-            Rotate rx = new Rotate(xRotateFactor, pivot.x, pivot.y, 1505, Rotate.X_AXIS);
-            controller.getStage3D().getCamera().getTransforms().addAll(rx);
-          } else if (achse.equalsIgnoreCase("Y")) {
-            double yRotateFactor = newValue - oldValue;
-            Point pivot = controller.currentReeti.body.getUpperBodyPosition();
-            Rotate ry = new Rotate(yRotateFactor, pivot.x, pivot.y, 1505, Rotate.Y_AXIS);
-            controller.getStage3D().getCamera().getTransforms().addAll(ry);
-          } else {
-            double zRotateFactor = newValue - oldValue;
-            Point pivot = controller.currentReeti.body.getUpperBodyPosition();
-            Rotate rz = new Rotate(zRotateFactor, pivot.x, pivot.y, 1505, Rotate.Z_AXIS);
-            controller.getStage3D().getCamera().getTransforms().addAll(rz);
-          }
         });
   }
 }

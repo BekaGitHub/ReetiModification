@@ -4,7 +4,7 @@ import de.dfki.common.AgentsOnStage;
 import de.dfki.common.commonFX3D.ApplicationLauncherImpl;
 import de.dfki.common.interfaces.AgentStage;
 import de.dfki.reeti.Reeti;
-import de.dfki.reeti.ReetiStageController;
+import de.dfki.reeti.ReetiController;
 import de.dfki.stickmanFX.stage.StageRoomFX;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -200,7 +200,7 @@ public class ReetiStage extends Application implements AgentStage {
           }
           box.getChildren().add(reeti);
           addStickmanName(key);
-          ((ReetiStageController) generalConfigStageRoot.getReetiStageController())
+          ((ReetiController) generalConfigStageRoot.getReetiStageController())
               .setStage3D(this);
         }
       } catch (Exception e) {

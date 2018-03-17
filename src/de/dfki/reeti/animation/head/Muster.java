@@ -6,7 +6,7 @@
 package de.dfki.reeti.animation.head;
 
 import de.dfki.reeti.Reeti;
-import de.dfki.reeti.ReetiStageController;
+import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 import java.util.ArrayList;
@@ -51,8 +51,8 @@ public class Muster extends AnimationReeti {
     animationContents.add(new AnimationContentReeti(getReeti().mouth, "shape", "MOUTHACTIONEND"));
     playAnimationPart(duration);
 
-    if (ReetiStageController.currentRadioButton != null) {
-      ReetiStageController.currentRadioButton.setSelected(false);
+    if (ReetiController.currentRadioButton != null) {
+      ReetiController.currentRadioButton.setSelected(false);
     }
   }
 }
