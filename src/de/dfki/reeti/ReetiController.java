@@ -172,9 +172,6 @@ public class ReetiController extends AReetiStageController implements ViewContro
 //    fillEnvironmentScrollPane();
 //
 //
-//    SliderHelper.handleHeadSlider(this, head_X_Slider, "X");
-//    SliderHelper.handleHeadSlider(this, head_Y_Slider, "Y");
-//    SliderHelper.handleHeadSlider(this, head_Z_Slider, "Z");
 //    SliderHelper.handleLeftEyeXSlider(this);
 //    SliderHelper.handleLeftEyeYSlider(this);
 //    SliderHelper.handleRightEyeXSlider(this);
@@ -207,6 +204,11 @@ public class ReetiController extends AReetiStageController implements ViewContro
     BodyPartsMovement.rotateHead(reeti.getHead(), head_X_Slider, Rotate.X_AXIS);
     BodyPartsMovement.rotateHead(reeti.getHead(), head_Y_Slider, Rotate.Y_AXIS);
     BodyPartsMovement.rotateHead(reeti.getHead(), head_Z_Slider, Rotate.Z_AXIS);
+
+    BodyPartsMovement.rotateLeftEye(reeti.getLeftEye(), leftEye_X_RotationFiled, leftEye_X_Slider, Rotate.X_AXIS);
+    BodyPartsMovement.rotateLeftEye(reeti.getLeftEye(), leftEye_Y_RotationFiled, leftEye_Y_Slider, Rotate.Y_AXIS);
+    BodyPartsMovement.rotateRightEye(reeti.getRightEye(), rightEye_X_RotationFiled, rightEye_X_Slider, Rotate.X_AXIS);
+    BodyPartsMovement.rotateRightEye(reeti.getRightEye(), rightEye_Y_RotationFiled, rightEye_Y_Slider, Rotate.Y_AXIS);
 
     exitButton.setOnAction((event) -> System.exit(0));
   }
