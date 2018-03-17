@@ -14,16 +14,21 @@ import de.dfki.reeti.util.BodyPartsMovement;
 import de.dfki.reeti.util.CameraMovement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.transform.Rotate;
 
 /**
@@ -31,146 +36,144 @@ import javafx.scene.transform.Rotate;
  */
 public class ReetiController extends AReetiStageController implements ViewController {
 
-  private static final String PACKAGE_EMOTIONEXPRESSION = "de.dfki.reeti.animation.face";
+  private static final String PACKAGE_EXPRESSION = "de.dfki.reeti.animation.face";
   private static final String PACKAGE_ENVIRONMENT = "de.dfki.reeti.animation.environment";
   public static RadioButton currentRadioButton;
 
   @FXML
-  public HBox root;
+  private HBox root;
   @FXML
-  public VBox controlPanelBox;
+  private VBox controlPanelBox;
 
   @FXML
-  public JFXListView<?> expressionListView;
+  private JFXListView<?> expressionListView;
   @FXML
-  public JFXListView<?> environmentListView;
+  private JFXListView<?> environmentListView;
 
   @FXML
-  public JFXColorPicker leftLedColorPicker;
+  private JFXColorPicker leftLedColorPicker;
   @FXML
-  public JFXColorPicker rightLedColorPicker;
+  private JFXColorPicker rightLedColorPicker;
   @FXML
-  public JFXColorPicker bothLedColorPicker;
+  private JFXColorPicker bothLedColorPicker;
   @FXML
-  public JFXButton ledOffButton;
+  private JFXButton ledOffButton;
 
   @FXML
-  public JFXSlider head_X_Slider;
+  private JFXSlider head_X_Slider;
   @FXML
-  public JFXSlider head_Y_Slider;
+  private JFXSlider head_Y_Slider;
   @FXML
-  public JFXSlider head_Z_Slider;
+  private JFXSlider head_Z_Slider;
   @FXML
-  public TextField head_X_RotationField;
+  private TextField head_X_RotationField;
   @FXML
-  public TextField head_Y_RotationField;
+  private TextField head_Y_RotationField;
   @FXML
-  public TextField head_Z_RotationField;
+  private TextField head_Z_RotationField;
 
   @FXML
-  public JFXSlider leftEye_X_Slider;
+  private JFXSlider leftEye_X_Slider;
   @FXML
-  public JFXSlider leftEye_Y_Slider;
+  private JFXSlider leftEye_Y_Slider;
   @FXML
-  public TextField leftEye_X_RotationFiled;
+  private TextField leftEye_X_RotationFiled;
   @FXML
-  public TextField leftEye_Y_RotationFiled;
+  private TextField leftEye_Y_RotationFiled;
 
   @FXML
-  public JFXSlider rightEye_X_Slider;
+  private JFXSlider rightEye_X_Slider;
   @FXML
-  public JFXSlider rightEye_Y_Slider;
+  private JFXSlider rightEye_Y_Slider;
   @FXML
-  public TextField rightEye_X_RotationFiled;
+  private TextField rightEye_X_RotationFiled;
   @FXML
-  public TextField rightEye_Y_RotationFiled;
+  private TextField rightEye_Y_RotationFiled;
 
   @FXML
-  public JFXSlider leftEyeLid_X_Slider;
+  private JFXSlider leftEyeLid_X_Slider;
   @FXML
-  public TextField leftEyeLid_X_RotationField;
+  private TextField leftEyeLid_X_RotationField;
 
   @FXML
-  public JFXSlider rightEyeLid_X_Slider;
+  private JFXSlider rightEyeLid_X_Slider;
   @FXML
-  public TextField rightEyeLid_X_RotationField;
+  private TextField rightEyeLid_X_RotationField;
 
   @FXML
-  public JFXSlider leftEarSlider;
+  private JFXSlider leftEarSlider;
   @FXML
-  public TextField leftEarRotationField;
+  private TextField leftEarRotationField;
 
   @FXML
-  public JFXSlider rightEarSlider;
+  private JFXSlider rightEarSlider;
   @FXML
-  public TextField rightEarRotationField;
+  private TextField rightEarRotationField;
 
   @FXML
-  public TextField leftLCRotationField;
+  private TextField leftLCRotationField;
   @FXML
-  public JFXSlider leftLCSlider;
+  private JFXSlider leftLCSlider;
 
   @FXML
-  public JFXSlider rightLCSlider;
+  private JFXSlider rightLCSlider;
   @FXML
-  public TextField rightLCRotationField;
+  private TextField rightLCRotationField;
 
   @FXML
-  public JFXSlider topLipSlider;
+  private JFXSlider topLipSlider;
   @FXML
-  public TextField topLipRotationField;
+  private TextField topLipRotationField;
 
   @FXML
-  public JFXSlider bottomLipSlider;
+  private JFXSlider bottomLipSlider;
   @FXML
-  public TextField bottomLipRotationField;
+  private TextField bottomLipRotationField;
 
   @FXML
-  public JFXToggleButton cameraToogleButton;
+  private JFXToggleButton cameraToogleButton;
   @FXML
-  public JFXSlider camera_X_Rotation;
+  private JFXSlider camera_X_Rotation;
   @FXML
-  public JFXSlider camera_Y_Rotation;
+  private JFXSlider camera_Y_Rotation;
   @FXML
-  public JFXSlider camera_Z_Rotation;
+  private JFXSlider camera_Z_Rotation;
   @FXML
-  public JFXSlider camera_X_Translation;
+  private JFXSlider camera_X_Translation;
   @FXML
-  public JFXSlider camera_Y_Translation;
+  private JFXSlider camera_Y_Translation;
   @FXML
-  public JFXSlider camera_Z_Translation;
+  private JFXSlider camera_Z_Translation;
   @FXML
-  public JFXButton nearClipMinus;
+  private JFXButton nearClipMinus;
   @FXML
-  public JFXButton nearClipPlus;
+  private JFXButton nearClipPlus;
   @FXML
-  public TextField nearClipField;
+  private TextField nearClipField;
   @FXML
-  public JFXButton farClipMinus;
+  private JFXButton farClipMinus;
   @FXML
-  public JFXButton farClipPlus;
+  private JFXButton farClipPlus;
   @FXML
-  public TextField farClipField;
+  private TextField farClipField;
   @FXML
-  public JFXButton fieldOfViewMinus;
+  private JFXButton fieldOfViewMinus;
   @FXML
-  public JFXButton fieldOfViewPlus;
+  private JFXButton fieldOfViewPlus;
   @FXML
-  public TextField fieldOfViewField;
+  private TextField fieldOfViewField;
   @FXML
-  public JFXButton cameraResetButton;
+  private JFXButton cameraResetButton;
 
   @FXML
-  public JFXButton exitButton;
+  private JFXButton exitButton;
 
   private Reeti reeti;
 
   public void initialize() {
-    //Select a stickmanSwing
+    fillExpressionListView();
+    fillEnvironmentListView();
 
-//    fillEmotionScrollPane();
-//    fillEnvironmentScrollPane();
-    
 //    ledOffButton.setOnAction((event) ->
 //    {
 //      currentReeti.leftCheek.getLedGroup().setVisible(false);
@@ -226,7 +229,13 @@ public class ReetiController extends AReetiStageController implements ViewContro
     BodyPartsMovement
         .moveMouthBottomLip(reeti.getMouthDownLip(), bottomLipSlider, bottomLipRotationField);
 
-    exitButton.setOnAction((event) -> System.exit(0));
+    expressionListView.getStylesheets()
+        .add(this.getClass().getResource("listView.css").toExternalForm());
+    environmentListView.getStylesheets()
+        .add(this.getClass().getResource("listView.css").toExternalForm());
+    exitButton.setOnAction((event) -> {
+      System.exit(0);
+    });
   }
 
   public Reeti getStickmanAs3D(String mStickmancombobox) {
@@ -408,60 +417,41 @@ public class ReetiController extends AReetiStageController implements ViewContro
     ColorHelper.bothLedColorChanger(this);
   }
 
-  private void fillEmotionScrollPane() {
-    ArrayList<String> getClassesNames;
-    Packageparser parser = new Packageparser(PACKAGE_EMOTIONEXPRESSION);
-    getClassesNames = parser.getClassNameList();
-    ObservableList<String> classNames = FXCollections.observableArrayList();
-    classNames.addAll(getClassesNames.stream().collect(Collectors.toList()));
-
-    createAndHandleRadioButtons(getClassesNames, expressionListView);
+  private void fillExpressionListView() {
+    createAndHandleRadioButtons(getClassNames(PACKAGE_EXPRESSION), expressionListView);
   }
 
-  private void fillEnvironmentScrollPane() {
-    ArrayList<String> getClassesNames;
-    Packageparser parser = new Packageparser(PACKAGE_ENVIRONMENT);
-    getClassesNames = parser.getClassNameList();
-    ObservableList<String> classNames = FXCollections.observableArrayList();
-    classNames.addAll(getClassesNames.stream().collect(Collectors.toList()));
-
-    createAndHandleRadioButtons(getClassesNames, environmentListView);
+  private void fillEnvironmentListView() {
+    createAndHandleRadioButtons(getClassNames(PACKAGE_ENVIRONMENT), environmentListView);
   }
 
-  private void createAndHandleRadioButtons(ArrayList<String> getClassesNames,
-      JFXListView container) {
-//    GridPane gridPane = new GridPane();
-//    container.setContent(gridPane);
-//    ToggleGroup toggleGroup = new ToggleGroup();
-//
-//    int startIndex = 0;
-//    int endIndex = 0;
-//
-//    gridPane.setHgap(10);
-//    gridPane.setVgap(10);
-//    gridPane.setPadding(new Insets(10, 10, 10, 10));
-//
-//    for (int i = 0; i < getClassesNames.size(); i++) {
-//      RadioButton button = new RadioButton(getClassesNames.get(i));
-//      button.setToggleGroup(toggleGroup);
-//      button.getStylesheets()
-//          .add(this.getClass().getResource("RadioButtonCSS.css").toExternalForm());
-//      button.setFont(Font.font("Arial", 15));
-//
-//      button.setOnAction((event) ->
-//      {
-//        currentRadioButton = (RadioButton) event.getSource();
-//        currentReeti.doAnimation(button.getText(), 500, true);
-//      });
-//      if (i % 3 == 2) {
-//        gridPane.add(button, startIndex, endIndex);
-//        endIndex++;
-//        startIndex = 0;
-//      } else {
-//        gridPane.add(button, startIndex, endIndex);
-//        startIndex++;
-//      }
-//    }
+  private List<String> getClassNames(String packageName) {
+    Packageparser packageparser = new Packageparser(packageName);
+    ArrayList<String> classNamesList = packageparser.getClassNameList();
+    ObservableList<String> classNamesObservableList = FXCollections.observableArrayList();
+    classNamesObservableList.addAll(classNamesList.stream().collect(Collectors.toList()));
+    return classNamesList;
+  }
+
+  private void createAndHandleRadioButtons(List<String> classNamesList,
+      JFXListView listView) {
+
+    for (int i = 0; i < classNamesList.size(); i++) {
+      Label label = new Label(classNamesList.get(i));
+
+      DropShadow ds = new DropShadow();
+      ds.setOffsetY(3.0f);
+      ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
+
+      label.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
+      label.setEffect(ds);
+      label.setCache(true);
+      listView.getItems().add(label);
+      listView.setOnMouseClicked(event -> {
+            int index = listView.getSelectionModel().getSelectedIndex();
+            reeti.doAnimation(classNamesList.get(index), 500, true);
+          });
+    }
   }
 
   public void fillComboForStickman() {

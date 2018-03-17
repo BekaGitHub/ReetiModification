@@ -173,11 +173,11 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
     // send event that AnimationReeti is ended
 
     // API or TCP-Interface
-    if (!reeti.getStageController().ismNetwork()) {
-      reeti.notifyListeners(getmID());
-    } else {
-      reeti.getStageController().sendAnimationUpdate("end", getmID());
-    }
+//    if (!reeti.getStageController().ismNetwork()) {
+//      reeti.notifyListeners(getmID());
+//    } else {
+//      reeti.getStageController().sendAnimationUpdate("end", getmID());
+//    }
   }
 
   @Override

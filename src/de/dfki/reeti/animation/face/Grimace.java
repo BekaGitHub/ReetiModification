@@ -38,8 +38,5 @@ public class Grimace extends AnimationReeti {
     reeti.bottomLip(10);
     reeti.topLip(3);
 
-    if (ReetiController.currentRadioButton != null) {
-      ReetiController.currentRadioButton.setSelected(false);
-    }
   }
 }
