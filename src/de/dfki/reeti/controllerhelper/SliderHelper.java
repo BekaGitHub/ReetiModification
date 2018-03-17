@@ -16,34 +16,6 @@ import javafx.scene.transform.Rotate;
  */
 public class SliderHelper {
 
-  public static void handleLeftEyeLidXSlider(ReetiController controller) {
-//    controller.leftEyeLidXSlider.setMin(0);
-//    controller.leftEyeLidXSlider.setMax(100);
-//    controller.leftEyeLidXSlider.setValue(100);
-//    controller.leftEyeLidXSlider.valueProperty()
-//        .addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) ->
-//        {
-//          double newValue = new_val.doubleValue();
-//          controller.currentReeti.leftEyelid.xRotation = (-(newValue - 100));
-//          controller.leftEyeLidXRotationField.setText(Integer.toString((int) newValue));
-//          controller.currentReeti.leftEyelid.calculate(0);
-//        });
-  }
-
-  public static void handleRightEyeLidXSlider(ReetiController controller) {
-//    controller.rightEyeLidXSlider.setMin(0);
-//    controller.rightEyeLidXSlider.setMax(100);
-//    controller.rightEyeLidXSlider.setValue(100);
-//    controller.rightEyeLidXSlider.valueProperty()
-//        .addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) ->
-//        {
-//          double newValue = new_val.doubleValue();
-//          controller.currentReeti.rightEyelid.xRotation = (-(newValue - 100));
-//          controller.rightEyeLidXRotationField.setText(Integer.toString((int) newValue));
-//          controller.currentReeti.rightEyelid.calculate(0);
-//        });
-  }
-
   public static void handleLeftEarSlider(ReetiController controller) {
     controller.leftEarSlider.setMin(0);
     controller.leftEarSlider.setMax(100);

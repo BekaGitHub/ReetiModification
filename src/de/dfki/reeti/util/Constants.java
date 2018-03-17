@@ -11,7 +11,7 @@ public class Constants {
   public static final int RIGHT_EYE_LID_X_POSITION = -LEFT_EYE_LID_X_POSITION;
   public static final int EYE_LID_Y_POSITION = -60;
   public static final int EYE_LID_Z_TRANSLATION = -65;
-  public static final int LEFT_EAR_X_POSITION = 90;
+  public static final int LEFT_EAR_X_POSITION = 80;
   public static final int EAR_Y_POSITION = -50;
   public static final int RIGHT_EAR_X_POSITION = -LEFT_EAR_X_POSITION;
   public static final int MOUTH_X_POSITION = -7;

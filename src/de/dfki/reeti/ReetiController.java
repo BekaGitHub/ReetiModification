@@ -214,6 +214,10 @@ public class ReetiController extends AReetiStageController implements ViewContro
 
     BodyPartsMovement.rotateEyeLid(reeti.getLeftEyelid(), leftEyeLid_X_RotationField, leftEyeLid_X_Slider, Rotate.X_AXIS);
     BodyPartsMovement.rotateEyeLid(reeti.getRightEyelid(), rightEyeLid_X_RotationField, rightEyeLid_X_Slider, Rotate.X_AXIS);
+
+    BodyPartsMovement.rotateEar(reeti.getLeftEar(), leftEarRotationField, leftEarSlider, Rotate.Z_AXIS);
+    BodyPartsMovement.rotateEar(reeti.getRightEar(), rightEarRotationField, rightEarSlider, Rotate.Z_AXIS);
+
     exitButton.setOnAction((event) -> System.exit(0));
   }
 

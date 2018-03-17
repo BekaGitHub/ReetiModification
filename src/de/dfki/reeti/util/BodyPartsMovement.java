@@ -40,12 +40,20 @@ public class BodyPartsMovement {
     rotate(rightEyeSlider, axis, rightEye, rightEyeTextField, 51, 90, 100);
   }
 
-  public static void rotateEyeLid(ReetiParts eyeLid, TextField leftEyeLidTextField, JFXSlider leftEyeLidSlider, Point3D axis) {
-    leftEyeLidSlider.setMin(0);
-    leftEyeLidSlider.setMax(100);
-    leftEyeLidSlider.setValue(100);
+  public static void rotateEyeLid(ReetiParts eyeLid, TextField eyeLidTextField, JFXSlider eyeLidSlider, Point3D axis) {
+    eyeLidSlider.setMin(0);
+    eyeLidSlider.setMax(100);
+    eyeLidSlider.setValue(100);
 
-    rotate(leftEyeLidSlider, axis, eyeLid, leftEyeLidTextField, 100, 100, 100);
+    rotate(eyeLidSlider, axis, eyeLid, eyeLidTextField, 100, 100, 100);
+  }
+
+  public static void rotateEar(ReetiParts ear, TextField earTextField, JFXSlider earSlider, Point3D axis) {
+    earSlider.setMin(0);
+    earSlider.setMax(100);
+    earSlider.setValue(50);
+
+    rotate(earSlider, axis, ear, earTextField, 50, 50, 50);
   }
 
   private static void rotate(JFXSlider slider, Point3D axis, ReetiParts parts, TextField textField, int minusFactor, int multiplicationFactor, int divisionFactor) {
