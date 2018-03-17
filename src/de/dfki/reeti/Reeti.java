@@ -924,4 +924,20 @@ public class Reeti extends Agent3D {
   public void setRightEye(RightEye rightEye) {
     this.rightEye = rightEye;
   }
+
+  public LeftEyelid getLeftEyelid() {
+    return leftEyelid;
+  }
+
+  public void setLeftEyelid(LeftEyelid leftEyelid) {
+    this.leftEyelid = leftEyelid;
+  }
+
+  public RightEyelid getRightEyelid() {
+    return rightEyelid;
+  }
+
+  public void setRightEyelid(RightEyelid rightEyelid) {
+    this.rightEyelid = rightEyelid;
+  }
 }

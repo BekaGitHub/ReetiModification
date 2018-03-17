@@ -7,7 +7,7 @@ public class Constants {
   public static final int RIGHT_EYE_X_POSITION = -LEFT_EYE_X_POSITION;
   public static final int EYE_Y_POSITION = -60;
   public static final int EYE_Z_TRANSLATION = -62;
-  public static final int LEFT_EYE_LID_X_POSITION = 50;
+  public static final int LEFT_EYE_LID_X_POSITION = 54;
   public static final int RIGHT_EYE_LID_X_POSITION = -LEFT_EYE_LID_X_POSITION;
   public static final int EYE_LID_Y_POSITION = -60;
   public static final int EYE_LID_Z_TRANSLATION = -65;
