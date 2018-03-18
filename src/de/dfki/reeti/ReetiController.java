@@ -5,8 +5,6 @@ import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXToggleButton;
-import de.dfki.common.AgentsOnStage;
-import de.dfki.common.commonFX3D.ViewController;
 import de.dfki.reeti.Reeti.LED;
 import de.dfki.reeti.controllerhelper.LedColor;
 import de.dfki.reeti.stage.ReetiStage;
@@ -16,7 +14,6 @@ import de.dfki.reeti.util.CameraMovement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -34,7 +31,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka
  */
-public class ReetiController extends AReetiStageController implements ViewController {
+public class ReetiController extends AReetiStageController {
 
   private static final String PACKAGE_EXPRESSION = "de.dfki.reeti.animation.face";
   private static final String PACKAGE_ENVIRONMENT = "de.dfki.reeti.animation.environment";
@@ -46,9 +43,9 @@ public class ReetiController extends AReetiStageController implements ViewContro
   private VBox controlPanelBox;
 
   @FXML
-  private JFXListView<?> expressionListView;
+  private JFXListView<Label> expressionListView;
   @FXML
-  private JFXListView<?> environmentListView;
+  private JFXListView<Label> environmentListView;
 
   @FXML
   private JFXColorPicker leftLedColorPicker;
@@ -174,11 +171,6 @@ public class ReetiController extends AReetiStageController implements ViewContro
     fillExpressionListView();
     fillEnvironmentListView();
 
-//    ledOffButton.setOnAction((event) ->
-//    {
-//      currentReeti.leftCheek.getLedGroup().setVisible(false);
-//      currentReeti.rightCheek.getLedGroup().setVisible(false);
-//    });
     cameraToogleButton.selectedProperty().addListener((p, o, n) -> {
       if (p.getValue()) {
         CameraMovement.startCamera();
@@ -241,34 +233,22 @@ public class ReetiController extends AReetiStageController implements ViewContro
     environmentListView.getStylesheets()
         .add(this.getClass().getResource("listView.css").toExternalForm());
 
-    leftLedColorPicker.setOnAction(event -> LedColor.setLedColor(leftLedColorPicker, reeti, LED.LEFTLED));
-    rightLedColorPicker.setOnAction(event -> LedColor.setLedColor(rightLedColorPicker, reeti, LED.RIGHTLED));
-    bothLedColorPicker.setOnAction(event -> LedColor.setLedColor(bothLedColorPicker, reeti, LED.BOTHLED));
+    leftLedColorPicker
+        .setOnAction(event -> LedColor.setLedColor(leftLedColorPicker, reeti, LED.LEFTLED));
+    rightLedColorPicker
+        .setOnAction(event -> LedColor.setLedColor(rightLedColorPicker, reeti, LED.RIGHTLED));
+    bothLedColorPicker
+        .setOnAction(event -> LedColor.setLedColor(bothLedColorPicker, reeti, LED.BOTHLED));
     ledOffButton.setOnAction(event -> reeti.ledOFF("B"));
 
-    exitButton.setOnAction((event) -> {
-      System.exit(0);
-    });
-  }
-
-
-  public Reeti getStickmanAs3D(String mStickmancombobox) {
-    return (Reeti) mStickmanOnstage.getAgent(mStickmancombobox);
-  }
-
-  /**
-   * @param commonStickmansOnStage
-   */
-  @Override
-  public void setStickamnOnStage(AgentsOnStage commonStickmansOnStage) {
-    this.mStickmanOnstage = commonStickmansOnStage;
-    fillComboForStickman();
+    exitButton.setOnAction((event) -> System.exit(0));
 
   }
 
+  private ReetiStage stage3D;
   @FXML
   private void handleTimelineButton() {
-    TimelineStart timelineStart = new TimelineStart(this.currentReeti);
+    TimelineStart timelineStart = new TimelineStart(reeti);
     timelineStart.setOwnerStage(this.stage3D.getMainStage());
     try {
       timelineStart.show();
@@ -278,88 +258,49 @@ public class ReetiController extends AReetiStageController implements ViewContro
   }
 
   private void fillExpressionListView() {
-    createAndHandleRadioButtons(getClassNames(PACKAGE_EXPRESSION), expressionListView);
+    handleClickedLabels(getClassNames(PACKAGE_EXPRESSION), expressionListView);
   }
 
   private void fillEnvironmentListView() {
-    createAndHandleRadioButtons(getClassNames(PACKAGE_ENVIRONMENT), environmentListView);
+    handleClickedLabels(getClassNames(PACKAGE_ENVIRONMENT), environmentListView);
   }
 
   private List<String> getClassNames(String packageName) {
     Packageparser packageparser = new Packageparser(packageName);
-    ArrayList<String> classNamesList = packageparser.getClassNameList();
+    List<String> classNamesList = packageparser.getClassNameList();
     ObservableList<String> classNamesObservableList = FXCollections.observableArrayList();
-    classNamesObservableList.addAll(classNamesList.stream().collect(Collectors.toList()));
+    classNamesObservableList.addAll(new ArrayList<>(classNamesList));
     return classNamesList;
   }
 
-  private void createAndHandleRadioButtons(List<String> classNamesList,
+  @SuppressWarnings("unchecked")
+  private void handleClickedLabels(List<String> classNamesList,
       JFXListView listView) {
 
     for (int i = 0; i < classNamesList.size(); i++) {
       Label label = new Label(classNamesList.get(i));
-
-      DropShadow ds = new DropShadow();
-      ds.setOffsetY(3.0f);
-      ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
-
-      label.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
-      label.setEffect(ds);
-      label.setCache(true);
-      listView.getItems().add(label);
+      listView.getItems().add(getDecoratedLabel(label));
       listView.setOnMouseClicked(event -> {
-            int index = listView.getSelectionModel().getSelectedIndex();
-            reeti.doAnimation(classNamesList.get(index), 500, true);
-          });
+        int index = listView.getSelectionModel().getSelectedIndex();
+        reeti.doAnimation(classNamesList.get(index), 500, true);
+      });
     }
   }
 
-  public void fillComboForStickman() {
-    ObservableList<String> stickmanNames = FXCollections.observableArrayList();
-    stickmanNames.addAll(mStickmanOnstage.getStickmanNames().stream().collect(Collectors.toList()));
-    if (!stickmanNames.isEmpty()) {
-      currentReeti = (Reeti) mStickmanOnstage.getAgent(stickmanNames.get(0));
-      setComboboxValue((Reeti) mStickmanOnstage.getAgent(stickmanNames.get(0)));
-    }
-//    mReetiComboList.clear();
-//    mReetiComboList.addAll(stickmanNames);
-  }
+  private Label getDecoratedLabel(Label label) {
+    DropShadow ds = new DropShadow();
+    ds.setOffsetY(3.0f);
+    ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
 
-  // set the setValue of combobox
-  private void setComboboxValue(Reeti mStick) {
-    bothLedColorPicker.setValue(colorWithoutOpacity(mStick.body.color));
-    leftLedColorPicker.setValue(colorWithoutOpacity(mStick.head.color));
-  }
+    label.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
+    label.setEffect(ds);
+    label.setCache(true);
 
-//  @FXML
-//  private void handleWithPerlinNoise() {
-//
-//    currentReeti.doAnimation("StartIdle", 1000, true);
-//  }
-
-//  @FXML
-//  private void handleWithoutPerlinNoise() {
-//
-//    currentReeti.doAnimation("StopIdle", 1000, true);
-//  }
-
-  public ReetiStage getStage3D() {
-    return stage3D;
+    return label;
   }
 
   public void setStage3D(ReetiStage stage3D) {
     this.stage3D = stage3D;
-  }
-
-  // convert color to hex
-  private String toHexCode(Color color) {
-    return String
-        .format("#%02X%02X%02X%02X", (int) (color.getRed() * 255), (int) (color.getGreen() * 255),
-            (int) (color.getBlue() * 255), (int) (color.getOpacity() * 100));
-  }
-
-  private Color colorWithoutOpacity(Color color) {
-    return new Color(color.getRed(), color.getGreen(), color.getBlue(), 1);
   }
 
   public Reeti getReeti() {

@@ -33,11 +33,6 @@ public abstract class AReetiStageController {
 
 
 
-  public boolean isCameraStarted = false;
-  public String mReetiComboBox = null;
-  public ToggleGroup perlinNoiseGroup;
-  public AgentsOnStage mStickmanOnstage;
-  public static Reeti currentReeti;
-  public ReetiStage stage3D;
+
 
 }
