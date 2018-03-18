@@ -123,9 +123,9 @@ public class Stickman3D extends Agent3D {
   private StageRoom stageController = null;
 
   public Stickman3D(String name, Gender.TYPE gender, float scale, Dimension size) {
-    this.size = size;
+//    this.size = size;
     this.mScale = scale;
-    this.isFullScreen = true;
+//    this.isFullScreen = true;
     this.name = name;
     this.mType = gender;
 
@@ -136,8 +136,8 @@ public class Stickman3D extends Agent3D {
 
   public Stickman3D(String name, Gender.TYPE gender, float scale, double height) {
     this.mScale = scale;
-    this.isFullScreen = false;
-    setStageHeight(height);
+//    this.isFullScreen = false;
+//    setStageHeight(height);
     this.name = name;
     this.mType = gender;
 
@@ -149,7 +149,7 @@ public class Stickman3D extends Agent3D {
   public Stickman3D(String name, Gender.TYPE gender) {
     this.name = name;
     this.mType = gender;
-    this.isFullScreen = true;
+//    this.isFullScreen = true;
     this.init();
     this.addAllParts();
     this.update();
@@ -351,14 +351,14 @@ public class Stickman3D extends Agent3D {
 
     Affine af = new Affine();
     int shiftFactor = (int) (StickmanHeight - (StickmanHeight * mScale));
-    if (isFullScreen) {
-      mGeneralYTranslation = (int) ((dim.getHeight() - StickmanHeight) + shiftFactor + 40);
-      mGeneralXTranslation = 50;
-    } else {
-      mGeneralYTranslation = (int) ((getStageHeight() - StickmanHeight) + shiftFactor - 350);
-      mGeneralXTranslation = 100;
-    }
-    af.appendTranslation(mGeneralXTranslation, mGeneralYTranslation);
+//    if (isFullScreen) {
+//      mGeneralYTranslation = (int) ((dim.getHeight() - StickmanHeight) + shiftFactor + 40);
+//      mGeneralXTranslation = 50;
+//    } else {
+////      mGeneralYTranslation = (int) ((getStageHeight() - StickmanHeight) + shiftFactor - 350);
+//      mGeneralXTranslation = 100;
+//    }
+//    af.appendTranslation(mGeneralXTranslation, mGeneralYTranslation);
     af.appendScale(mScale, mScale);
     af.appendTranslation(0, leaveSpeed); // Added by Robbie, GoDown
     this.getTransforms().clear();

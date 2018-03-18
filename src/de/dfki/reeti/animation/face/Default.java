@@ -40,7 +40,7 @@ public class Default extends AnimationReeti {
     reeti.rightEyeLid(100);
     reeti.rightEar(50);
     reeti.leftEar(50);
-    reeti.setLedColor("stop");
+    reeti.ledOFF();
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);
     }

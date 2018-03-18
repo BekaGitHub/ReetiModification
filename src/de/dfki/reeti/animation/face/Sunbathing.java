@@ -8,6 +8,8 @@ package de.dfki.reeti.animation.face;
 import de.dfki.reeti.Reeti;
 import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.reeti.util.LED;
+import javafx.scene.paint.Color;
 
 /**
  * @author Beka
@@ -27,7 +29,7 @@ public class Sunbathing extends AnimationReeti {
     Reeti reeti = getReeti();
     reeti.leftEyeLid(0);
     reeti.rightEyeLid(0);
-    reeti.setLedColor("red");
+    reeti.ledON(Color.RED, LED.BOTHLED);
     reeti.leftEar(0);
     reeti.rightEar(0);
     reeti.rightLC(40);

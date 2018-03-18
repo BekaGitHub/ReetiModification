@@ -192,8 +192,8 @@ public class ReetiStage extends Application implements AgentStage {
           Reeti reeti = (Reeti) agentsOnStage.getStickmanByKey(key);
 
           if (isShowControlPanel()) {
-            reeti.setScale(1.35f);
-            reeti.isFullScreen = true;
+//            reeti.setScale(1.35f);
+//            reeti.isFullScreen = true;
             reeti.posOnScreen();
           } else {
             reeti.posOnScreen(150);

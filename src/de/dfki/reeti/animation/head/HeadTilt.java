@@ -28,11 +28,11 @@ public class HeadTilt extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().head, "zrotate", -10));
+    animationContents.add(new AnimationContentReeti(getReeti().getHead(), "zrotate", -10));
     playAnimationPart(200);
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().head, "zrotate", 10));
+    animationContents.add(new AnimationContentReeti(getReeti().getHead(), "zrotate", 10));
     playAnimationPart(200);
 
     if (ReetiController.currentRadioButton != null) {

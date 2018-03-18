@@ -23,11 +23,11 @@ public class EventAnimationSchedulerReeti extends Thread {
 
   public void introduce(AnimationReeti a) {
     try {
-      mReeti.mLogger.info("AnimationSwing " + a + " added to event animation scheduler");
+      mReeti.logger.info("AnimationSwing " + a + " added to event animation scheduler");
 
       mAnimationQueue.put(a);
     } catch (InterruptedException ex) {
-      mReeti.mLogger.severe(ex.getMessage());
+      mReeti.logger.severe(ex.getMessage());
     }
   }
 
@@ -71,7 +71,7 @@ public class EventAnimationSchedulerReeti extends Thread {
           removeAnimation(animation);
         }
       } catch (InterruptedException ex) {
-        mReeti.mLogger.severe(ex.getMessage());
+        mReeti.logger.severe(ex.getMessage());
       }
     }
   }

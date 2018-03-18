@@ -27,7 +27,7 @@ public class BlinkLeftEyelid extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().leftEyelid, "rotate", rot));
+    animationContents.add(new AnimationContentReeti(getReeti().getLeftEyelid(), "rotate", rot));
     playAnimationPart(duration);
 
   }

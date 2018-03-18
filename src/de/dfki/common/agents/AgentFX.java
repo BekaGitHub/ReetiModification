@@ -8,16 +8,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-import javafx.scene.Group;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 
 /**
  * Created by EmpaT on 14.07.2017.
  */
 public abstract class AgentFX extends Pane implements AgentInterface {
 
-  public final List<AnimationListener> mAnimationListeners = new CopyOnWriteArrayList<AnimationListener>();
+  public final List<AnimationListener> animationListeners = new CopyOnWriteArrayList<AnimationListener>();
   public Gender.TYPE mType = Gender.TYPE.FEMALE;
   public float mScale = 1.0f;
   public String name;
@@ -37,20 +35,20 @@ public abstract class AgentFX extends Pane implements AgentInterface {
   public Semaphore mAnimationLaunchControl = new Semaphore(1);
 
   public void addListener(AnimationListener al) {
-    mAnimationListeners.add(al);
+    animationListeners.add(al);
   }
 
   public void removeListener(AnimationListener al) {
-    synchronized (mAnimationListeners) {
-      if (mAnimationListeners.contains(al)) {
-        mAnimationListeners.remove(al);
+    synchronized (animationListeners) {
+      if (animationListeners.contains(al)) {
+        animationListeners.remove(al);
       }
     }
   }
 
   public void notifyListeners(String animationId) {
-    synchronized (mAnimationListeners) {
-      mAnimationListeners.stream().forEach((al) -> al.update(animationId));
+    synchronized (animationListeners) {
+      animationListeners.stream().forEach((al) -> al.update(animationId));
     }
   }
 

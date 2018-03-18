@@ -122,10 +122,10 @@ public class AnimationSwing extends Animation implements XMLParseable, XMLWritea
   }
 
   public void finalizeAnimation() {
-    //mStickmanSwing.mLogger.info(mStickmanSwing.name + "'s AnimationSwing " + getClass().getSimpleName() + " with id " + ID + " has ended - notify Listeners!");
+    //mStickmanSwing.logger.info(mStickmanSwing.name + "'s AnimationSwing " + getClass().getSimpleName() + " with id " + ID + " has ended - notify Listeners!");
     // unblock AnimationScheduler if animation is a blocking animation
     if (isBlocked) {
-      //mStickmanSwing.mLogger.info("unblocking AnimationScheduler");
+      //mStickmanSwing.logger.info("unblocking AnimationScheduler");
       mStickmanSwing.mAnimationScheduler.proceed(this);
     } else {
       mStickmanSwing.mAnimationScheduler.removeAnimation(this);
@@ -191,13 +191,13 @@ public class AnimationSwing extends Animation implements XMLParseable, XMLWritea
 
   @Override
   public void run() {
-    //mStickmanSwing.mLogger.info(mStickmanSwing.name + "'s AnimationSwing " + getClass().getSimpleName() + " wait for clearance.");
+    //mStickmanSwing.logger.info(mStickmanSwing.name + "'s AnimationSwing " + getClass().getSimpleName() + " wait for clearance.");
     waitForClearance();
 
-    //mStickmanSwing.mLogger.info(mStickmanSwing.name + "'s AnimationSwing " + getClass().getSimpleName() + " play.");
+    //mStickmanSwing.logger.info(mStickmanSwing.name + "'s AnimationSwing " + getClass().getSimpleName() + " play.");
     play();
 
-    //mStickmanSwing.mLogger.info(mStickmanSwing.name + "'s AnimationSwing " + getClass().getSimpleName() + " finalize.");
+    //mStickmanSwing.logger.info(mStickmanSwing.name + "'s AnimationSwing " + getClass().getSimpleName() + " finalize.");
     finalizeAnimation();
   }
 

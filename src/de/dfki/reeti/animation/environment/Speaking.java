@@ -28,17 +28,17 @@ public class Speaking extends AnimationReeti {
   @Override
   public void playAnimation() {
     if (parameter instanceof String) {
-      getReeti().speechBubbleFX.mText = (String) parameter;
+      getReeti().getSpeechBubbleFX().mText = (String) parameter;
     }
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(getReeti().speechBubbleFX, "shape",
+        .add(new AnimationContentReeti(getReeti().getSpeechBubbleFX(), "shape",
             SpeechBubbleFX.SHAPE.SPEAK.name()));
     playAnimationPart(duration);
 
     animationContents
-        .add(new AnimationContentReeti(getReeti().speechBubbleFX, "shape",
+        .add(new AnimationContentReeti(getReeti().getSpeechBubbleFX(), "shape",
             SpeechBubbleFX.SHAPE.DEFAULT.name()));
     playAnimationPart(20);
 

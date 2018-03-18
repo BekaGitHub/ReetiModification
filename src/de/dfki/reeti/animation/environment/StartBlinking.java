@@ -37,7 +37,7 @@ public class StartBlinking extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    getReeti().mBlinking = new Blinking(getReeti(), frequent, actionDuration);
+    getReeti().blinking = new Blinking(getReeti(), frequent, actionDuration);
 
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);

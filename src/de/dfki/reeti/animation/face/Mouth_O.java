@@ -23,7 +23,7 @@ public class Mouth_O extends AnimationReeti {
   public void playAnimation() {
     // smile
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().mouth, "shape", "O"));
+    animationContents.add(new AnimationContentReeti(getReeti().getMouth(), "shape", "O"));
     playAnimationPart(20);
   }
 }

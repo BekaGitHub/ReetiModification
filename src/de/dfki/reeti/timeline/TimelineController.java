@@ -232,7 +232,7 @@ public class TimelineController implements Initializable {
         pose.getDuration().getTimeToReachPose() + sOffset);
     reeti.neckTilt((int) motorMovement.getNeckTilt(),
         pose.getDuration().getTimeToReachPose() + sOffset);
-    reeti.setLedColor(motorMovement.getColor());
+//    reeti.ledON(motorMovement.getColor());
     reeti
         .leftLC((int) motorMovement.getLeftLC(), pose.getDuration().getTimeToReachPose() + sOffset);
     reeti.rightLC((int) motorMovement.getRightLC(),

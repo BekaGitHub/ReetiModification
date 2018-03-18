@@ -22,7 +22,7 @@ public class AnimationPauseReeti {
     try {
       mPauseEnd.acquire(1);
     } catch (InterruptedException ex) {
-      mReeti.mLogger.severe(ex.getMessage());
+      mReeti.logger.severe(ex.getMessage());
     }
 
     // tell animation to proceed
@@ -43,7 +43,7 @@ public class AnimationPauseReeti {
       try {
         sleep(mSleepTime);
       } catch (InterruptedException ex) {
-        mReeti.mLogger.severe(ex.getMessage());
+        mReeti.logger.severe(ex.getMessage());
       }
       mPauseEnd.release();
     }

@@ -33,13 +33,13 @@ public class Speaking extends EventAnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents.add(
-        new AnimationContentReeti(getReeti().speechBubbleFX, "shape",
+        new AnimationContentReeti(getReeti().getSpeechBubbleFX(), "shape",
             SpeechBubbleFX.SHAPE.SPEAK.name(),
             mWTS));
 
     playEventAnimationPart();
 
-    animationContents.add(new AnimationContentReeti(getReeti().speechBubbleFX, "shape",
+    animationContents.add(new AnimationContentReeti(getReeti().getSpeechBubbleFX(), "shape",
         SpeechBubbleFX.SHAPE.DEFAULT.name()));
     playAnimationPart(20);
 

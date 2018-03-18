@@ -3,6 +3,7 @@ package de.dfki.reeti;
 import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.Gender;
 import de.dfki.common.agents.Agent3D;
+import de.dfki.common.agents.AgentFX;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.common.parts.FXParts;
 import de.dfki.reeti.animation.environment.Blinking;
@@ -27,9 +28,8 @@ import de.dfki.reeti.body.RightEar;
 import de.dfki.reeti.body.RightEye;
 import de.dfki.reeti.body.RightEyelid;
 import de.dfki.reeti.environment.SpeechBubbleFX;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.util.logging.ConsoleHandler;
+import de.dfki.reeti.util.LED;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
@@ -38,40 +38,29 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.RadialGradient;
 import javafx.scene.paint.Stop;
-import javafx.scene.transform.Affine;
 
-/**
- * @author Beka Aptsiauri <p> This work is inspired by the stickmans drawn by Sarah Johnson
- * (www.sarah-johnson.com) in the Valentine music video from Kina Grannis shot by Ross Ching in
- * 2012
- */
-public class Reeti extends Agent3D {
+public class Reeti extends AgentFX {
 
-  private static final double REETI_HEIGHT = 480;
-  private static Reeti sReeti;
-  // logging
-  public final Logger mLogger = Logger.getAnonymousLogger();
-  public Blinking mBlinking;
-  public AnimationSchedulerReeti mAnimationSchedulerReeti;
+  public final Logger logger = Logger.getAnonymousLogger();
+  public Blinking blinking;
+  public AnimationSchedulerReeti animationSchedulerReeti;
   // body parts
-  public Head head;
-  public LeftEyelid leftEyelid;
-  public LeftEye leftEye;
-  public RightEye rightEye;
-  public LeftEar leftEar;
-  public RightEar rightEar;
-  public RightEyelid rightEyelid;
-  public LeftCheek leftCheek;
-  public RightCheek rightCheek;
-  public Mouth mouth;
-  public MouthLeftCorner mouthLeftCorner;
-  public MouthRightCorner mouthRightCorner;
-  public MouthUpperLip mouthUpperLip;
-  public MouthDownLip mouthDownLip;
-  public Neck neck;
-  public Body body;
-  // environment
-  public SpeechBubbleFX speechBubbleFX;
+  private Head head;
+  private LeftEyelid leftEyelid;
+  private LeftEye leftEye;
+  private RightEye rightEye;
+  private LeftEar leftEar;
+  private RightEar rightEar;
+  private RightEyelid rightEyelid;
+  private LeftCheek leftCheek;
+  private RightCheek rightCheek;
+  private Mouth mouth;
+  private MouthLeftCorner mouthLeftCorner;
+  private MouthRightCorner mouthRightCorner;
+  private MouthUpperLip mouthUpperLip;
+  private MouthDownLip mouthDownLip;
+  private Body body;
+  private SpeechBubbleFX speechBubbleFX;
   private StageRoom stageController = null;
   //Movement
   private double upperLipOldPos = 0;
@@ -90,152 +79,34 @@ public class Reeti extends Agent3D {
   private double neckPanOldPos = 50;
   private double neckTiltOldPos = 50;
 
-  public Reeti(String name, Gender.TYPE gender, float scale, Dimension size) {
-    this.size = size;
-    this.mScale = scale;
-    this.isFullScreen = true;
-    this.name = name;
-    this.mType = gender;
 
+  public Reeti() {
     this.init();
     this.addAllParts();
     this.posOnScreen();
-    sReeti = this;
-  }
-
-  public Reeti(String name, Gender.TYPE gender, float scale, double height) {
-    this.mScale = scale;
-    this.isFullScreen = false;
-    setStageHeight(height);
-    this.name = name;
-    this.mType = gender;
-
-    this.init();
-    this.addAllParts();
-    this.posOnScreen();
-    sReeti = this;
-  }
-
-  public Reeti(String name, Gender.TYPE gender) {
-    this.name = name;
-    this.mType = gender;
-
-    this.init();
-    this.addAllParts();
-    this.posOnScreen();
-    sReeti = this;
-  }
-
-  //VSM static stuff
-  public static void vsm_ledOn(String color) {
-    sReeti.setLedColor(color);
-  }
-
-  public static void vsm_ledOf() {
-    sReeti.ledOFF("B");
-  }
-
-  public static void vsm_rightLC(int pos, int duration) {
-    sReeti.rightLC(pos, duration);
-  }
-
-  public static void vsm_leftLC(int pos, int duration) {
-    sReeti.leftLC(pos, duration);
-  }
-
-  public static void vsm_topLip(int pos, int duration) {
-    sReeti.topLip(pos, duration);
-  }
-
-  public static void vsm_bottomLip(int pos, int duration) {
-    sReeti.bottomLip(pos, duration);
-  }
-
-  public static void vsm_leftEyeTilt(int pos, int duration) {
-    sReeti.leftEyeTilt(pos, duration);
-  }
-
-  public static void vsm_rightEyeTilt(int pos, int duration) {
-    sReeti.rightEyeTilt(pos, duration);
-  }
-
-  public static void vsm_leftEyePan(int pos, int duration) {
-    sReeti.leftEyePan(pos, duration);
-  }
-
-  public static void vsm_rightEyePan(int pos, int duration) {
-    sReeti.rightEyePan(pos, duration);
-  }
-
-  public static void vsm_leftEyeLid(int pos, int duration) {
-    sReeti.leftEyeLid(pos, duration);
-  }
-
-  public static void vsm_rightEyeLid(int pos, int duration) {
-    sReeti.rightEyeLid(pos, duration);
-  }
-
-  public static void vsm_leftEar(int pos, int duration) {
-    sReeti.leftEar(pos, duration);
-  }
-
-  public static void vsm_rightEar(int pos, int duration) {
-    sReeti.rightEar(pos, duration);
-  }
-
-  public static void vsm_neckRotat(int pos, int duration) {
-    sReeti.neckRotat(pos, duration);
-  }
-
-  public static void vsm_neckPan(int pos, int duration) {
-    sReeti.neckPan(pos, duration);
-  }
-
-  public static void vsm_neckTilt(int pos, int duration) {
-    sReeti.neckTilt(pos, duration);
-  }
-
-  public static void vsm_defaultPose() {
-    sReeti.defaultPose();
+    logger.log(Level.INFO, "Reeti wurde erzeugt");
   }
 
   private void init() {
-    name = "Reeti";
-    head = new Head(this);
-    leftEyelid = new LeftEyelid(head);
-    leftEye = new LeftEye(head);
-    rightEye = new RightEye(head);
-    leftEar = new LeftEar(head);
-    rightEar = new RightEar(head);
-    rightEyelid = new RightEyelid(head);
-    this.leftCheek = new LeftCheek(head);
-    this.rightCheek = new RightCheek(head);
-    this.mouth = new Mouth(head);
-    this.mouthLeftCorner = new MouthLeftCorner(mouth);
-    this.mouthRightCorner = new MouthRightCorner(mouth);
-    this.mouthUpperLip = new MouthUpperLip(mouth);
-    this.mouthDownLip = new MouthDownLip(mouth);
-//    this.neck = new Neck(head);
-    this.body = new Body();
+    setHead(new Head(this));
+    setLeftEyelid(new LeftEyelid(getHead()));
+    setLeftEye(new LeftEye(getHead()));
+    setRightEye(new RightEye(getHead()));
+    setLeftEar(new LeftEar(getHead()));
+    setRightEar(new RightEar(getHead()));
+    setRightEyelid(new RightEyelid(getHead()));
+    setLeftCheek(new LeftCheek(getHead()));
+    setRightCheek(new RightCheek(getHead()));
+    setMouth(new Mouth(getHead()));
+    setMouthLeftCorner(new MouthLeftCorner(getMouth()));
+    setMouthRightCorner(new MouthRightCorner(getMouth()));
+    setMouthUpperLip(new MouthUpperLip(getMouth()));
+    setMouthDownLip(new MouthDownLip(getMouth()));
+    setBody(new Body());
 //    this.speechBubbleFX = new SpeechBubbleFX(head);
 
-//    this.setPrefHeight(size.height);
-//    this.setPrefWidth(size.width);
-//    this.setMinHeight(size.height);
-//    this.setMinWidth(size.width);
-
-    InnerShadow is = new InnerShadow();
-    is.setOffsetX(4.0f);
-    is.setOffsetY(4.0f);
-
-    ConsoleHandler ch = new ConsoleHandler();
-    ch.setFormatter(new logFormatter());
-
-    this.mLogger.addHandler(ch);
-    this.mLogger.setUseParentHandlers(false);
-
-    this.mAnimationSchedulerReeti = new AnimationSchedulerReeti(this);
-    this.mAnimationSchedulerReeti.start();
+    animationSchedulerReeti = new AnimationSchedulerReeti(this);
+    animationSchedulerReeti.start();
   }
 
   @Override
@@ -250,7 +121,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
 
     return a;
@@ -300,7 +171,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
 
     return a;
@@ -326,7 +197,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
 
     return a;
@@ -337,7 +208,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -348,85 +219,40 @@ public class Reeti extends Agent3D {
 
   @Override
   public FXParts getSpeechBubble() {
-    return this.speechBubbleFX;
-  }
-
-  public void setScale(float scale) {
-    mScale = scale;
+    return this.getSpeechBubbleFX();
   }
 
   private void addAllParts() {
-    this.getChildren().addAll(head, body);
+    this.getChildren().addAll(getHead(), getBody());
 //    this.getChildren().addAll(neck, head, body, speechBubbleFX);
   }
 
-  /**
-   * @param color red, green, lightGreen, blue, darkBlue, turquoise, yellow, violer, white, swop
-   */
-  public void setLedColor(String color) {
-    Color ledColor = checkColor(color);
-    if (ledColor.equals(Color.BLACK)) {
-      ledOFF("B");
-    } else {
-      ledON(ledColor, ledColor, ledColor, 0.3f, 0.9f, 0.1f, "B");
-    }
-  }
-
-  /**
-   * @param color red, green, lightGreen, blue, darkBlue, turquoise, yellow, violer, white, swop
-   * @param led left, right, both
-   */
-  public void setLedColor(String color, LED led) {
-    Color ledColor = checkColor(color);
-    if (ledColor.equals(Color.BLACK)) {
-      switch (led) {
-        case LEFTLED:
-          ledOFF("L");
-          break;
-        case RIGHTLED:
-          ledOFF("R");
-          break;
-        default:
-          ledOFF("B");
-          break;
-      }
-    } else {
-      switch (led) {
-        case LEFTLED:
-          ledON(ledColor, ledColor, ledColor, 0.3f, 0.9f, 0.1f, "L");
-          break;
-        case RIGHTLED:
-          ledON(ledColor, ledColor, ledColor, 0.3f, 0.9f, 0.1f, "R");
-          break;
-        default:
-          ledON(ledColor, ledColor, ledColor, 0.3f, 0.9f, 0.1f, "B");
-          break;
-      }
-    }
-
-  }
-
-  public void setLedColor(Color color, LED led) {
+  public void ledON(Color color, LED led) {
     switch (led) {
       case LEFTLED:
-        ledON(color, color, color, 0.3f, 0.9f, 0.1f, "L");
+        setLedColor(color, color, color, 0.3f, 0.9f, 0.1f, "L");
         break;
       case RIGHTLED:
-        ledON(color, color, color, 0.3f, 0.9f, 0.1f, "R");
+        setLedColor(color, color, color, 0.3f, 0.9f, 0.1f, "R");
         break;
       default:
-        ledON(color, color, color, 0.3f, 0.9f, 0.1f, "B");
+        setLedColor(color, color, color, 0.3f, 0.9f, 0.1f, "B");
         break;
     }
   }
 
-  public void ledON(Color color1, Color color2, Color color3,
+  public void ledOFF() {
+    getRightCheek().getLedGroup().setVisible(false);
+    getLeftCheek().getLedGroup().setVisible(false);
+  }
+
+  private void setLedColor(Color color1, Color color2, Color color3,
       float intensityForColor1,
       float intensityForColor2,
       float intensitiForColor3,
       String cheek) {
 
-    int size = leftCheek.getSize();
+    int size = getLeftCheek().getSize();
 
     InnerShadow ledOnShadow = new InnerShadow(BlurType.TWO_PASS_BOX, color3, 0.05 * size,
         intensityForColor1, 0, 0);
@@ -441,31 +267,20 @@ public class Reeti extends Agent3D {
         new Stop(1.0, Color.TRANSPARENT));
 
     if (cheek.equalsIgnoreCase("L")) {
-      leftCheek.getLed().setEffect(ledOnShadow);
-      leftCheek.getLed().setFill(highlightGradient);
-      leftCheek.getLedGroup().setVisible(true);
+      getLeftCheek().getLed().setEffect(ledOnShadow);
+      getLeftCheek().getLed().setFill(highlightGradient);
+      getLeftCheek().getLedGroup().setVisible(true);
     } else if (cheek.equalsIgnoreCase("R")) {
-      rightCheek.getLed().setEffect(ledOnShadow);
-      rightCheek.getLed().setFill(highlightGradient);
-      rightCheek.getLedGroup().setVisible(true);
+      getRightCheek().getLed().setEffect(ledOnShadow);
+      getRightCheek().getLed().setFill(highlightGradient);
+      getRightCheek().getLedGroup().setVisible(true);
     } else if (cheek.equalsIgnoreCase("B")) {
-      leftCheek.getLed().setEffect(ledOnShadow);
-      leftCheek.getLed().setFill(highlightGradient);
-      rightCheek.getLed().setEffect(ledOnShadow);
-      rightCheek.getLed().setFill(highlightGradient);
-      leftCheek.getLedGroup().setVisible(true);
-      rightCheek.getLedGroup().setVisible(true);
-    }
-  }
-
-  public void ledOFF(String cheek) {
-    if (cheek.equalsIgnoreCase("R")) {
-      rightCheek.getLedGroup().setVisible(false);
-    } else if (cheek.equalsIgnoreCase("L")) {
-      leftCheek.getLedGroup().setVisible(false);
-    } else if (cheek.equalsIgnoreCase("B")) {
-      rightCheek.getLedGroup().setVisible(false);
-      leftCheek.getLedGroup().setVisible(false);
+      getLeftCheek().getLed().setEffect(ledOnShadow);
+      getLeftCheek().getLed().setFill(highlightGradient);
+      getRightCheek().getLed().setEffect(ledOnShadow);
+      getRightCheek().getLed().setFill(highlightGradient);
+      getLeftCheek().getLedGroup().setVisible(true);
+      getRightCheek().getLedGroup().setVisible(true);
     }
   }
 
@@ -480,7 +295,7 @@ public class Reeti extends Agent3D {
     }
     pos = (pos * 16) / 100;
     double distance = rightCornerOldPos - pos;
-    this.mouthRightCorner.setRightCornerRegulator(distance);
+    this.getMouthRightCorner().setRightCornerRegulator(distance);
     rightCornerOldPos = pos;
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "RightLC", (int) dur, pos, false);
@@ -488,7 +303,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -505,7 +320,7 @@ public class Reeti extends Agent3D {
     }
     pos = (pos * 16) / 100;
     double distance = leftCornerOldPos - pos;
-    this.mouthLeftCorner.setLeftCornerRegulator(distance);
+    this.getMouthLeftCorner().setLeftCornerRegulator(distance);
     leftCornerOldPos = pos;
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "LeftLC", (int) dur, pos, false);
@@ -513,7 +328,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -532,7 +347,7 @@ public class Reeti extends Agent3D {
     pos = (pos * 25) / 100;
 
     double distance = upperLipOldPos - pos;
-    this.mouthUpperLip.setUpperLipRegulator(distance);
+    this.getMouthUpperLip().setUpperLipRegulator(distance);
     upperLipOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
@@ -541,7 +356,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -560,7 +375,7 @@ public class Reeti extends Agent3D {
     pos = (pos * 20) / 100;
 
     double distance = pos - downLipOldPos;
-    this.mouthDownLip.setDownLipRegulator(-distance);
+    this.getMouthDownLip().setDownLipRegulator(-distance);
     downLipOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
@@ -569,7 +384,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -597,7 +412,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -621,7 +436,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -649,7 +464,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -673,7 +488,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -697,7 +512,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -721,7 +536,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -745,7 +560,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -769,7 +584,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -793,7 +608,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -820,7 +635,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -845,7 +660,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -856,7 +671,7 @@ public class Reeti extends Agent3D {
       mAnimationLaunchControl.acquire();
       a.start();
     } catch (InterruptedException ex) {
-      mLogger.severe(ex.getMessage());
+      logger.severe(ex.getMessage());
     }
   }
 
@@ -897,10 +712,6 @@ public class Reeti extends Agent3D {
     return ledColor;
   }
 
-  public enum LED {
-    LEFTLED, RIGHTLED, BOTHLED
-  }
-
   public Head getHead() {
     return head;
   }
@@ -913,32 +724,16 @@ public class Reeti extends Agent3D {
     return leftEye;
   }
 
-  public void setLeftEye(LeftEye leftEye) {
-    this.leftEye = leftEye;
-  }
-
   public RightEye getRightEye() {
     return rightEye;
-  }
-
-  public void setRightEye(RightEye rightEye) {
-    this.rightEye = rightEye;
   }
 
   public LeftEyelid getLeftEyelid() {
     return leftEyelid;
   }
 
-  public void setLeftEyelid(LeftEyelid leftEyelid) {
-    this.leftEyelid = leftEyelid;
-  }
-
   public RightEyelid getRightEyelid() {
     return rightEyelid;
-  }
-
-  public void setRightEyelid(RightEyelid rightEyelid) {
-    this.rightEyelid = rightEyelid;
   }
 
   public LeftEar getLeftEar() {
@@ -961,31 +756,87 @@ public class Reeti extends Agent3D {
     return mouthLeftCorner;
   }
 
-  public void setMouthLeftCorner(MouthLeftCorner mouthLeftCorner) {
-    this.mouthLeftCorner = mouthLeftCorner;
-  }
-
   public MouthRightCorner getMouthRightCorner() {
     return mouthRightCorner;
-  }
-
-  public void setMouthRightCorner(MouthRightCorner mouthRightCorner) {
-    this.mouthRightCorner = mouthRightCorner;
   }
 
   public MouthUpperLip getMouthUpperLip() {
     return mouthUpperLip;
   }
 
-  public void setMouthUpperLip(MouthUpperLip mouthUpperLip) {
-    this.mouthUpperLip = mouthUpperLip;
-  }
-
   public MouthDownLip getMouthDownLip() {
     return mouthDownLip;
   }
 
+  public void setLeftEyelid(LeftEyelid leftEyelid) {
+    this.leftEyelid = leftEyelid;
+  }
+
+  public void setLeftEye(LeftEye leftEye) {
+    this.leftEye = leftEye;
+  }
+
+  public void setRightEye(RightEye rightEye) {
+    this.rightEye = rightEye;
+  }
+
+  public void setRightEyelid(RightEyelid rightEyelid) {
+    this.rightEyelid = rightEyelid;
+  }
+
+  public LeftCheek getLeftCheek() {
+    return leftCheek;
+  }
+
+  public void setLeftCheek(LeftCheek leftCheek) {
+    this.leftCheek = leftCheek;
+  }
+
+  public RightCheek getRightCheek() {
+    return rightCheek;
+  }
+
+  public void setRightCheek(RightCheek rightCheek) {
+    this.rightCheek = rightCheek;
+  }
+
+  public Mouth getMouth() {
+    return mouth;
+  }
+
+  public void setMouth(Mouth mouth) {
+    this.mouth = mouth;
+  }
+
+  public void setMouthLeftCorner(MouthLeftCorner mouthLeftCorner) {
+    this.mouthLeftCorner = mouthLeftCorner;
+  }
+
+  public void setMouthRightCorner(MouthRightCorner mouthRightCorner) {
+    this.mouthRightCorner = mouthRightCorner;
+  }
+
+  public void setMouthUpperLip(MouthUpperLip mouthUpperLip) {
+    this.mouthUpperLip = mouthUpperLip;
+  }
+
   public void setMouthDownLip(MouthDownLip mouthDownLip) {
     this.mouthDownLip = mouthDownLip;
+  }
+
+  public Body getBody() {
+    return body;
+  }
+
+  public void setBody(Body body) {
+    this.body = body;
+  }
+
+  public SpeechBubbleFX getSpeechBubbleFX() {
+    return speechBubbleFX;
+  }
+
+  public void setSpeechBubbleFX(SpeechBubbleFX speechBubbleFX) {
+    this.speechBubbleFX = speechBubbleFX;
   }
 }

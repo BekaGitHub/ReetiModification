@@ -38,7 +38,7 @@ public class EventAnimationReeti extends AnimationReeti {
     try {
       animationPartStartSemaphore.acquire();
     } catch (InterruptedException ex) {
-      getReeti().mLogger.severe(ex.getMessage());
+      getReeti().logger.severe(ex.getMessage());
     }
   }
 

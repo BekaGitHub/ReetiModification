@@ -25,7 +25,7 @@ public class Main extends Application {
 
 
 //    Reeti reeti = new Reeti("Reeti",  TYPE.MALE, 1.5f, new Dimension(0,0));
-    Reeti reeti = new Reeti("Reeti", TYPE.MALE);
+    Reeti reeti = new Reeti();
     ReetiController controller = new ReetiController();
     controller.setReeti(reeti);
     loader.setController(controller);

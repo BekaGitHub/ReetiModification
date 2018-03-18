@@ -25,7 +25,7 @@ public class UpperLip extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(getReeti().mouthUpperLip, "shape", "UPPERLIPACTION"));
+        .add(new AnimationContentReeti(getReeti().getMouthUpperLip(), "shape", "UPPERLIPACTION"));
     playAnimationPart(duration);
 
   }

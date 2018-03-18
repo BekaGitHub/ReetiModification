@@ -28,7 +28,7 @@ public class RightEarMovement extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().rightEar, "zrotate", rot));
+    animationContents.add(new AnimationContentReeti(getReeti().getRightEar(), "zrotate", rot));
     playAnimationPart(duration);
 
   }

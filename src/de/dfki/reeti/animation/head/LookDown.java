@@ -23,16 +23,16 @@ public class LookDown extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().leftEye, "rotate", 20));
-    animationContents.add(new AnimationContentReeti(getReeti().rightEye, "rotate", 20));
+    animationContents.add(new AnimationContentReeti(getReeti().getLeftEye(), "rotate", 20));
+    animationContents.add(new AnimationContentReeti(getReeti().getRightEye(), "rotate", 20));
 //        animationContents.add(new AnimationContentReeti(reeti.mRightEyeFX, "shape", "LOOKDOWN"));
     playAnimationPart(100);
 
     pauseAnimation(100);
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().leftEye, "rotate", -20));
-    animationContents.add(new AnimationContentReeti(getReeti().rightEye, "rotate", -20));
+    animationContents.add(new AnimationContentReeti(getReeti().getLeftEye(), "rotate", -20));
+    animationContents.add(new AnimationContentReeti(getReeti().getRightEye(), "rotate", -20));
 //        animationContents.add(new AnimationContentReeti(reeti.mRightEyeFX, "shape", "LOOKDOWNEND"));
     playAnimationPart(100);
 

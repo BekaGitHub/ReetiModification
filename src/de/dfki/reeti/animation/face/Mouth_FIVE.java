@@ -23,7 +23,7 @@ public class Mouth_FIVE extends AnimationReeti {
   public void playAnimation() {
     // smile
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().mouth, "shape", "FIVE"));
+    animationContents.add(new AnimationContentReeti(getReeti().getMouth(), "shape", "FIVE"));
     playAnimationPart(20);
   }
 }

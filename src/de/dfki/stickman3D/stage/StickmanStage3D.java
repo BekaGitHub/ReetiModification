@@ -204,7 +204,7 @@ public class StickmanStage3D extends Application implements AgentStage {
 
           if (isShowControlPanel()) {
             sman3D.setScale(1.35f);
-            sman3D.isFullScreen = true;
+//            sman3D.isFullScreen = true;
             sman3D.update();
           }
           box.getChildren().add((Node) sman3D);

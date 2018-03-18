@@ -115,12 +115,12 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
   }
 
   public void waitForClearance() {
-    reeti.mAnimationSchedulerReeti.introduce(this);
+    reeti.animationSchedulerReeti.introduce(this);
     // block this animation for animation - AnimationSheduler will unblock
     try {
       animationStartSemaphore.acquire(1);
     } catch (InterruptedException ex) {
-      reeti.mLogger.severe(ex.getMessage());
+      reeti.logger.severe(ex.getMessage());
     }
 
     // tell Agent this animation has been scheduled and a next one can come
@@ -132,7 +132,7 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
     try {
       animationStartSemaphore.acquire(1);
     } catch (InterruptedException ex) {
-      reeti.mLogger.severe(ex.getMessage());
+      reeti.logger.severe(ex.getMessage());
     }
 
     playAnimation();
@@ -148,7 +148,7 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
     try {
       animationPartStartSemaphore.acquire();
     } catch (InterruptedException ex) {
-      reeti.mLogger.severe(ex.getMessage());
+      reeti.logger.severe(ex.getMessage());
     }
 
   }
@@ -159,16 +159,16 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
     try {
       animationPartStartSemaphore.acquire();
     } catch (InterruptedException ex) {
-      reeti.mLogger.severe(ex.getMessage());
+      reeti.logger.severe(ex.getMessage());
     }
   }
 
   public void finalizeAnimation() {
     // unblock AnimationScheduler if animation is a blocking animation
     if (isBlocked) {
-      reeti.mAnimationSchedulerReeti.proceed(this);
+      reeti.animationSchedulerReeti.proceed(this);
     } else {
-      reeti.mAnimationSchedulerReeti.removeAnimation(this);
+      reeti.animationSchedulerReeti.removeAnimation(this);
     }
     // send event that AnimationReeti is ended
 

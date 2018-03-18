@@ -102,7 +102,7 @@ public class AnimationLoaderReeti {
 
       }
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-      ((Reeti) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
+      ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
     }
 
     if (a != null) {
@@ -131,7 +131,7 @@ public class AnimationLoaderReeti {
 
       }
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-      ((Reeti) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
+      ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
     }
 
     if (a != null) {
@@ -164,7 +164,7 @@ public class AnimationLoaderReeti {
 
       }
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-      ((Reeti) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
+      ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
     }
 
     if (a != null) {
@@ -196,7 +196,7 @@ public class AnimationLoaderReeti {
         }
       }
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-      ((Reeti) sm).mLogger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
+      ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
     }
 
     a.ID = getNextID();

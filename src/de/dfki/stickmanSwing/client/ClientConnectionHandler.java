@@ -57,7 +57,7 @@ public class ClientConnectionHandler extends Thread implements CommonClientConne
   }
 
   public void sendToServer(String message) {
-    //StickmanStageSwing.mLogger.info("Sending " + message);
+    //StickmanStageSwing.logger.info("Sending " + message);
 
     if (mSocket.isConnected()) {
       mOut.println(message);

@@ -34,9 +34,9 @@ public class ReetiOnStage extends AgentsOnStage {
   @Override
   protected void addAgentToStage(String name, boolean fullScreen, Gender.TYPE gender) {
     if (fullScreen) {
-      AgentInterface stickman = new Reeti(name, gender, agentStage.getFullScreenScale(),
-          agentStage.getFullScreenDimension());
-      putFullAgentOnStage(name, stickman);
+//      AgentInterface stickman = new Reeti(name, gender, agentStage.getFullScreenScale(),
+//          agentStage.getFullScreenDimension());
+//      putFullAgentOnStage(name, stickman);
     } else {
 
       createNonFullAgent(name, gender, DEFAULT_SCALE);
@@ -47,9 +47,9 @@ public class ReetiOnStage extends AgentsOnStage {
   protected void addAgentToStage(String name, boolean fullScreen, Gender.TYPE gender,
       boolean onlyFace) {
     if (fullScreen) {
-      AgentInterface agent = new Reeti(name, gender, agentStage.getFullScreenScale(),
-          agentStage.getFullScreenDimension());
-      putFullAgentOnStage(name, agent);
+//      AgentInterface agent = new Reeti(name, gender, agentStage.getFullScreenScale(),
+//          agentStage.getFullScreenDimension());
+//      putFullAgentOnStage(name, agent);
     } else {
       float scale = DEFAULT_SCALE;
       if (onlyFace) {
@@ -65,8 +65,8 @@ public class ReetiOnStage extends AgentsOnStage {
       try {
         HBox h = agentStage.getAgentBox(identifier);
 
-        AgentInterface agent = new Reeti(name, gender, scale, h.getPrefHeight());
-        putFullAgentOnStage(name, agent);
+//        AgentInterface agent = new Reeti(name, gender, scale, h.getPrefHeight());
+//        putFullAgentOnStage(name, agent);
       } catch (Exception ex) {
         Logger.getLogger(ReetiOnStage.class.getName()).log(Level.SEVERE, null, ex);
       }

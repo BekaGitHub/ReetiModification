@@ -3,6 +3,8 @@ package de.dfki.reeti.animation.face;
 import de.dfki.reeti.Reeti;
 import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.reeti.util.LED;
+import javafx.scene.paint.Color;
 
 /**
  * @author Beka
@@ -23,8 +25,8 @@ public class Smile extends AnimationReeti {
     reeti.bottomLip(50);
     reeti.leftLC(70);
     reeti.rightLC(70);
-    reeti.setLedColor("green", Reeti.LED.LEFTLED);
-    reeti.setLedColor("red", Reeti.LED.RIGHTLED);
+    reeti.ledON(Color.GREEN, LED.LEFTLED);
+    reeti.ledON(Color.RED, LED.RIGHTLED);
     reeti.leftEar(100);
     reeti.rightEar(100);
 

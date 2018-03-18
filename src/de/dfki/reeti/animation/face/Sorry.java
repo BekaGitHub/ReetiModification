@@ -8,6 +8,8 @@ package de.dfki.reeti.animation.face;
 import de.dfki.reeti.Reeti;
 import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.reeti.util.LED;
+import javafx.scene.paint.Color;
 
 /**
  * @author Beka
@@ -31,7 +33,7 @@ public class Sorry extends AnimationReeti {
     reeti.rightEyeLid(30);
     reeti.leftEyeTilt(20);
     reeti.rightEyeTilt(20);
-    reeti.setLedColor("lightGreen");
+    reeti.ledON(Color.VIOLET.GREEN.brighter(), LED.BOTHLED);
     reeti.leftEar(20);
     reeti.rightEar(30);
     reeti.rightLC(10);

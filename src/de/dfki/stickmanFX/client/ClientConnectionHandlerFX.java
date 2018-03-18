@@ -53,7 +53,7 @@ public class ClientConnectionHandlerFX extends Thread implements CommonClientCon
 
   @Override
   public void sendToServer(String message) {
-    //StickmanStageSwing.mLogger.info("Sending " + message);
+    //StickmanStageSwing.logger.info("Sending " + message);
 
     if (mSocket.isConnected()) {
       mOut.println(message);

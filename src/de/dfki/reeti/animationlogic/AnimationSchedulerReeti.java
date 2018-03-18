@@ -25,7 +25,7 @@ public class AnimationSchedulerReeti extends Thread {
     try {
       mAnimationQueue.put(a);
     } catch (InterruptedException ex) {
-      mReeti.mLogger.severe(ex.getMessage());
+      mReeti.logger.severe(ex.getMessage());
     }
   }
 
@@ -69,7 +69,7 @@ public class AnimationSchedulerReeti extends Thread {
           removeAnimation(animation);
         }
       } catch (InterruptedException ex) {
-        mReeti.mLogger.severe(ex.getMessage());
+        mReeti.logger.severe(ex.getMessage());
       }
     }
   }

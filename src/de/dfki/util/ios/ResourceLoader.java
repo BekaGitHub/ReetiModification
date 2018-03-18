@@ -36,7 +36,7 @@ public class ResourceLoader {
 //              e.printStackTrace();
 //          }
 //      } else {
-//          mLogger.warning(String.format("Could not find resource '%s'.", resource));
+//          logger.warning(String.format("Could not find resource '%s'.", resource));
 //      }
 //      return file;
 //  }

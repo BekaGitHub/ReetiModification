@@ -391,9 +391,9 @@ public class StickmanSwing extends JComponent implements AgentInterface {
 
   public void playAnimation(AnimationSwing a) {
     try {
-      //mLogger.info("Waiting for allowance to play animation " + a.toString());
+      //logger.info("Waiting for allowance to play animation " + a.toString());
       mAnimationLaunchControl.acquire();
-      //mLogger.info("\tgranted!");
+      //logger.info("\tgranted!");
       a.start();
     } catch (InterruptedException ex) {
       mLogger.severe(ex.getMessage());

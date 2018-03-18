@@ -19,8 +19,8 @@ public class StopBlinking extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    if (getReeti().mBlinking != null) {
-      getReeti().mBlinking.stopBlinkAktion();
+    if (getReeti().blinking != null) {
+      getReeti().blinking.stopBlinkAktion();
     }
 
     if (ReetiController.currentRadioButton != null) {

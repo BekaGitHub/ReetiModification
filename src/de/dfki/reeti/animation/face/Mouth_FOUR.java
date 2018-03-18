@@ -24,7 +24,7 @@ public class Mouth_FOUR extends AnimationReeti {
   public void playAnimation() {
     // smile
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().mouth, "shape", "FOUR"));
+    animationContents.add(new AnimationContentReeti(getReeti().getMouth(), "shape", "FOUR"));
     playAnimationPart(20);
   }
 }
