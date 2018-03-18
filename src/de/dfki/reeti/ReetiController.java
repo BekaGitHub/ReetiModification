@@ -6,7 +6,6 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXToggleButton;
 import de.dfki.reeti.Reeti.LED;
-import de.dfki.reeti.controllerhelper.LedColor;
 import de.dfki.reeti.stage.ReetiStage;
 import de.dfki.reeti.timeline.TimelineStart;
 import de.dfki.reeti.util.BodyPartsMovement;
@@ -31,7 +30,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka
  */
-public class ReetiController extends AReetiStageController {
+public class ReetiController {
 
   private static final String PACKAGE_EXPRESSION = "de.dfki.reeti.animation.face";
   private static final String PACKAGE_ENVIRONMENT = "de.dfki.reeti.animation.environment";
@@ -234,11 +233,11 @@ public class ReetiController extends AReetiStageController {
         .add(this.getClass().getResource("listView.css").toExternalForm());
 
     leftLedColorPicker
-        .setOnAction(event -> LedColor.setLedColor(leftLedColorPicker, reeti, LED.LEFTLED));
+        .setOnAction(event -> reeti.setLedColor(leftLedColorPicker.getValue(), LED.LEFTLED));
     rightLedColorPicker
-        .setOnAction(event -> LedColor.setLedColor(rightLedColorPicker, reeti, LED.RIGHTLED));
+        .setOnAction(event -> reeti.setLedColor(rightLedColorPicker.getValue(), LED.RIGHTLED));
     bothLedColorPicker
-        .setOnAction(event -> LedColor.setLedColor(bothLedColorPicker, reeti, LED.BOTHLED));
+        .setOnAction(event -> reeti.setLedColor(bothLedColorPicker.getValue(), LED.BOTHLED));
     ledOffButton.setOnAction(event -> reeti.ledOFF("B"));
 
     exitButton.setOnAction((event) -> System.exit(0));
