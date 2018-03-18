@@ -4,12 +4,15 @@ import com.jfoenix.controls.JFXSlider;
 import de.dfki.reeti.stage.ReetiCamera;
 import java.util.List;
 import javafx.beans.value.ObservableValue;
+import javafx.fxml.FXML;
 import javafx.geometry.Point3D;
 import javafx.scene.PerspectiveCamera;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 
 public class CameraMovement {
+
+  private static PerspectiveCamera perspectiveCamera;
 
   private CameraMovement() {
   }
@@ -26,7 +29,8 @@ public class CameraMovement {
           double rotationFactor = newValue - oldValue;
           Rotate rotation = new Rotate(rotationFactor, Dimension.getReetiStage_X_Center(),
               Dimension.getReetiStage_Y_Center(), 0, axis);
-          ReetiCamera.createCamera().getTransforms().add(rotation);
+          if (perspectiveCamera != null)
+            perspectiveCamera.getTransforms().add(rotation);
         });
   }
 
@@ -50,17 +54,23 @@ public class CameraMovement {
           else
             translate = new Translate(0, 0, translationFactor);
 
-          ReetiCamera.createCamera().getTransforms().add(translate);
+          if (perspectiveCamera != null)
+            perspectiveCamera.getTransforms().add(translate);
         });
   }
 
   public static void resetCameraPosition(List<JFXSlider> sliders) {
-    PerspectiveCamera perspectiveCamera = ReetiCamera.createCamera();
-    perspectiveCamera.getTransforms().clear();
+    if (perspectiveCamera != null)
+      perspectiveCamera.getTransforms().clear();
 
     sliders.stream().forEach(e -> e.setValue(0));
   }
 
+  public static void stopCamera() {
+    perspectiveCamera = null;
+  }
 
-
+  public static void startCamera() {
+    perspectiveCamera = ReetiCamera.getCameraInstance();
+  }
 }

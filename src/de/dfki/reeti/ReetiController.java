@@ -179,6 +179,13 @@ public class ReetiController extends AReetiStageController implements ViewContro
 //      currentReeti.leftCheek.getLedGroup().setVisible(false);
 //      currentReeti.rightCheek.getLedGroup().setVisible(false);
 //    });
+    cameraToogleButton.selectedProperty().addListener((p, o, n) -> {
+      if (p.getValue()) {
+        CameraMovement.startCamera();
+      } else {
+        CameraMovement.stopCamera();
+      }
+    });
     CameraMovement.rotateCamera(camera_X_Rotation, Rotate.X_AXIS);
     CameraMovement.rotateCamera(camera_Y_Rotation, Rotate.Y_AXIS);
     CameraMovement.rotateCamera(camera_Z_Rotation, Rotate.Z_AXIS);
@@ -261,145 +268,6 @@ public class ReetiController extends AReetiStageController implements ViewContro
     } catch (Exception e) {
       e.printStackTrace();
     }
-  }
-
-  @FXML
-  public void handleStopCamera() {
-    if (isCameraStarted) {
-      stage3D.getSubScene().setCamera(null);
-      isCameraStarted = false;
-    }
-  }
-
-  @FXML
-  public void handleStartCamera() {
-    if (!isCameraStarted) {
-      stage3D.getSubScene().setCamera(stage3D.getCamera());
-      isCameraStarted = true;
-    }
-  }
-
-  @FXML
-  public void handleResetCamera() {
-
-    stage3D.getCamera().setTranslateX(stage3D.getRecordCameraXPosition());
-    stage3D.getCamera().setTranslateY(stage3D.getRecordCameraYPosition());
-    stage3D.getCamera().setTranslateZ(stage3D.getRecordCameraZPosition());
-
-    camera_X_Rotation.setValue(0);
-    camera_Y_Rotation.setValue(0);
-    camera_Z_Rotation.setValue(0);
-    stage3D.getCamera().setNearClip(0.8);
-    stage3D.getCamera().setFarClip(3000);
-    stage3D.getCamera().setFieldOfView(30);
-    nearClipField.setText("0.8");
-    farClipField.setText("3000");
-    fieldOfViewField.setText("30");
-    stage3D.getCamera().getTransforms().clear();
-  }
-
-  @FXML
-  public void handleCameraXTranslation(MouseEvent event) {
-//    if (event.getSource().equals(cameraXPlusTranslationButton)) {
-//      double currentValue = Double.parseDouble(cameraXTranslationField.getText());
-//      currentValue += 50;
-//      stage3D.getCamera().setTranslateX(stage3D.getCamera().getTranslateX() + 50);
-//      cameraXTranslationField.setText(Double.toString(currentValue));
-//    } else if (event.getSource().equals(cameraXMinusTranslationButton)) {
-//      double currentValue = Double.parseDouble(cameraXTranslationField.getText());
-//      currentValue -= 50;
-//      stage3D.getCamera().setTranslateX(stage3D.getCamera().getTranslateX() - 50);
-//      cameraXTranslationField.setText(Double.toString(currentValue));
-//    }
-  }
-
-  @FXML
-  public void handleCameraYTranslation(MouseEvent event) {
-//    if (event.getSource().equals(cameraYPlusTranslationButton)) {
-//      double currentValue = Double.parseDouble(cameraYTranslationField.getText());
-//      currentValue += 50;
-//      stage3D.getCamera().setTranslateY(stage3D.getCamera().getTranslateY() + 50);
-//      cameraYTranslationField.setText(Double.toString(currentValue));
-//    } else if (event.getSource().equals(cameraYMinusTranslationButton)) {
-//      double currentValue = Double.parseDouble(cameraYTranslationField.getText());
-//      currentValue -= 50;
-//      stage3D.getCamera().setTranslateY(stage3D.getCamera().getTranslateY() - 50);
-//      cameraYTranslationField.setText(Double.toString(currentValue));
-//    }
-  }
-
-  @FXML
-  public void handleCameraZTranslation(MouseEvent event) {
-//    if (event.getSource().equals(cameraZPlusTranslationButton)) {
-//      double currentValue = Double.parseDouble(cameraZTranslationField.getText());
-//      currentValue += 10;
-//      stage3D.getCamera().setTranslateZ(stage3D.getCamera().getTranslateZ() + 10);
-//      cameraZTranslationField.setText(Double.toString(currentValue));
-//    } else if (event.getSource().equals(cameraZMinusTranslationButton)) {
-//      double currentValue = Double.parseDouble(cameraZTranslationField.getText());
-//      currentValue -= 10;
-//      stage3D.getCamera().setTranslateZ(stage3D.getCamera().getTranslateZ() - 10);
-//      cameraZTranslationField.setText(Double.toString(currentValue));
-//    }
-  }
-
-  @FXML
-  public void handleNearClip(MouseEvent event) {
-//    if (event.getSource().equals(nearClipPlusButton)) {
-//      double currentValue = Double.parseDouble(nearClipField.getText());
-//      if (currentValue >= 1.0) {
-//        currentValue = 1.0;
-//      } else {
-//        currentValue += 0.1;
-//        currentValue = Math.round(currentValue * 100.0) / 100.0;
-//      }
-//      stage3D.getCamera().setNearClip(currentValue);
-//      nearClipField.setText(Double.toString(currentValue));
-//    } else if (event.getSource().equals(nearClipMinusButton)) {
-//      double currentValue = Double.parseDouble(nearClipField.getText());
-//      if (currentValue <= 0.0) {
-//        currentValue = 0.0;
-//      } else {
-//        currentValue -= 0.1;
-//        currentValue = Math.round(currentValue * 100.0) / 100.0;
-//      }
-//      stage3D.getCamera().setNearClip(currentValue);
-//      nearClipField.setText(Double.toString(currentValue));
-//    }
-  }
-
-  @FXML
-  public void handleFarClip(MouseEvent event) {
-//    if (event.getSource().equals(farClipPlusButton)) {
-//      double currentValue = Double.parseDouble(farClipField.getText());
-//      currentValue += 50;
-//
-//      stage3D.getCamera().setFarClip(currentValue);
-//      farClipField.setText(Double.toString(currentValue));
-//    } else if (event.getSource().equals(farClipMinusButton)) {
-//      double currentValue = Double.parseDouble(farClipField.getText());
-//      currentValue -= 50;
-//
-//      stage3D.getCamera().setFarClip(currentValue);
-//      farClipField.setText(Double.toString(currentValue));
-//    }
-  }
-
-  @FXML
-  public void handleFieldOfView(MouseEvent event) {
-//    if (event.getSource().equals(fieldOfViewPlusButton)) {
-//      double currentValue = Double.parseDouble(fieldOfViewField.getText());
-//      currentValue += 1;
-//
-//      stage3D.getCamera().setFieldOfView(currentValue);
-//      fieldOfViewField.setText(Double.toString(currentValue));
-//    } else if (event.getSource().equals(fieldOfViewMinusButton)) {
-//      double currentValue = Double.parseDouble(fieldOfViewField.getText());
-//      currentValue -= 1;
-//
-//      stage3D.getCamera().setFieldOfView(currentValue);
-//      fieldOfViewField.setText(Double.toString(currentValue));
-//    }
   }
 
   @FXML

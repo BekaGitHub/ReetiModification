@@ -14,7 +14,7 @@ public class ReetiSubScene {
     SubScene subScene = new SubScene(stackPane, Dimension.getScreenWidth() - Constants.CONTROLPANEL_WIDTH,
         Dimension.getScreenHight(),
         true, SceneAntialiasing.BALANCED);
-    subScene.setCamera(ReetiCamera.createCamera());
+    subScene.setCamera(ReetiCamera.getCameraInstance());
     return subScene;
   }
 }
