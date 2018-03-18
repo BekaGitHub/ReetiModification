@@ -5,6 +5,7 @@
  */
 package de.dfki.reeti.body;
 
+import de.dfki.reeti.util.Constants;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
@@ -15,34 +16,33 @@ import javafx.scene.transform.Rotate;
 public class LeftCheek extends ReetiParts {
 
   private static final int SIZE = 70;
-  private final Circle mLed;
-  private final Group mLedGroup;
+  private final Circle led;
+  private final Group ledGroup;
 
   public LeftCheek(Head head) {
-    mLed = new Circle(SIZE);
-    mLedGroup = new Group();
-    mStart = head.getLeftEyebrowPostion();
+    led = new Circle(SIZE);
+    led.setStyle("-fx-background-color: black");
+    ledGroup = new Group();
 
     mYRotation = -25;
     xRotation = -10;
     Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
     Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
-    mLedGroup.getTransforms().addAll(rx, ry);
+    ledGroup.getTransforms().addAll(rx, ry);
 
-    mLedGroup.getChildren().add(mLed);
+    ledGroup.getChildren().add(led);
 
-    mLedGroup.setVisible(false);
+    ledGroup.setVisible(false);
     init();
 
-    head.getHeadGroup().getChildren().add(mLedGroup);
+    head.getHeadGroup().getChildren().add(ledGroup);
   }
 
   @Override
   public void init() {
     super.init();
-    mLed.setTranslateX(mStart.x - 28);
-    mLed.setTranslateY(mStart.y + 106.5);
-    mLed.setTranslateZ(-133.6);
+    led.setTranslateX(Constants.LED_X_POSITION);
+    led.setTranslateZ(Constants.LEFT_LED_Z_POSITION);
   }
 
   public int getSize() {
@@ -50,10 +50,10 @@ public class LeftCheek extends ReetiParts {
   }
 
   public Circle getLed() {
-    return mLed;
+    return led;
   }
 
   public Group getLedGroup() {
-    return mLedGroup;
+    return ledGroup;
   }
 }

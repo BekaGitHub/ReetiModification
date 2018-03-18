@@ -15,8 +15,10 @@ public class Constants {
   public static final int EAR_Y_POSITION = -50;
   public static final int RIGHT_EAR_X_POSITION = -LEFT_EAR_X_POSITION;
   public static final int MOUTH_X_POSITION = -7;
-  public static final int MOUTH_Y_POSITION = -22;
-  public static final int MOUTH_Z_TRANSLATION = -140;
+  public static final int MOUTH_Y_POSITION = -25;
+  public static final int MOUTH_Z_POSITION = -137;
+  public static final int LED_X_POSITION = -20;
+  public static final double LEFT_LED_Z_POSITION = -132.4;
 
   public static final int Z_TRANSLATION = -105;
   public static final int BODY_Z_TRANSLATION = -125;

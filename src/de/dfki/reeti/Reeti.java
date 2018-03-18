@@ -208,8 +208,8 @@ public class Reeti extends Agent3D {
     leftEar = new LeftEar(head);
     rightEar = new RightEar(head);
     rightEyelid = new RightEyelid(head);
-//    this.leftCheek = new LeftCheek(head);
-//    this.rightCheek = new RightCheek(head);
+    this.leftCheek = new LeftCheek(head);
+    this.rightCheek = new RightCheek(head);
     this.mouth = new Mouth(head);
     this.mouthLeftCorner = new MouthLeftCorner(mouth);
     this.mouthRightCorner = new MouthRightCorner(mouth);

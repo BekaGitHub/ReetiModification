@@ -5,6 +5,7 @@
  */
 package de.dfki.reeti.body;
 
+import de.dfki.reeti.util.Constants;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
@@ -40,9 +41,8 @@ public class RightCheek extends ReetiParts {
   @Override
   public void init() {
     super.init();
-    mLed.setTranslateX(mStart.x - 14);
-    mLed.setTranslateY(mStart.y + 106.5);
-    mLed.setTranslateZ(-133.6);
+    mLed.setTranslateX(Constants.LED_X_POSITION);
+    mLed.setTranslateZ(Constants.LEFT_LED_Z_POSITION);
   }
 
   public Circle getLed() {

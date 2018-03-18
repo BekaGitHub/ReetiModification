@@ -1,9 +1,7 @@
 package de.dfki.reeti.body;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import de.dfki.reeti.animationlogic.AnimatorReeti;
 import de.dfki.reeti.util.Constants;
-import java.awt.Dimension;
 import java.awt.geom.Point2D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ClosePath;
@@ -54,7 +52,7 @@ public class Mouth extends ReetiParts {
     super.init();
     mLips.setTranslateX(Constants.MOUTH_X_POSITION);
     mLips.setTranslateY(Constants.MOUTH_Y_POSITION);
-    mLips.setTranslateZ(Constants.MOUTH_Z_TRANSLATION);
+    mLips.setTranslateZ(Constants.MOUTH_Z_POSITION);
   }
 
   @Override

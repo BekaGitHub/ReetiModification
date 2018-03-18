@@ -7,7 +7,8 @@ import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXToggleButton;
 import de.dfki.common.AgentsOnStage;
 import de.dfki.common.commonFX3D.ViewController;
-import de.dfki.reeti.controllerhelper.ColorHelper;
+import de.dfki.reeti.Reeti.LED;
+import de.dfki.reeti.controllerhelper.LedColor;
 import de.dfki.reeti.stage.ReetiStage;
 import de.dfki.reeti.timeline.TimelineStart;
 import de.dfki.reeti.util.BodyPartsMovement;
@@ -23,7 +24,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -240,10 +240,17 @@ public class ReetiController extends AReetiStageController implements ViewContro
         .add(this.getClass().getResource("listView.css").toExternalForm());
     environmentListView.getStylesheets()
         .add(this.getClass().getResource("listView.css").toExternalForm());
+
+    leftLedColorPicker.setOnAction(event -> LedColor.setLedColor(leftLedColorPicker, reeti, LED.LEFTLED));
+    rightLedColorPicker.setOnAction(event -> LedColor.setLedColor(rightLedColorPicker, reeti, LED.RIGHTLED));
+    bothLedColorPicker.setOnAction(event -> LedColor.setLedColor(bothLedColorPicker, reeti, LED.BOTHLED));
+    ledOffButton.setOnAction(event -> reeti.ledOFF("B"));
+
     exitButton.setOnAction((event) -> {
       System.exit(0);
     });
   }
+
 
   public Reeti getStickmanAs3D(String mStickmancombobox) {
     return (Reeti) mStickmanOnstage.getAgent(mStickmancombobox);
@@ -268,21 +275,6 @@ public class ReetiController extends AReetiStageController implements ViewContro
     } catch (Exception e) {
       e.printStackTrace();
     }
-  }
-
-  @FXML
-  public void handleLeftLedColor() {
-    ColorHelper.leftLedColorChanger(this);
-  }
-
-  @FXML
-  public void handleRightLedColor() {
-    ColorHelper.rightLedColorChanger(this);
-  }
-
-  @FXML
-  public void handleBothLedColor() {
-    ColorHelper.bothLedColorChanger(this);
   }
 
   private void fillExpressionListView() {

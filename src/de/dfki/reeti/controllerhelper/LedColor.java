@@ -1,10 +1,12 @@
 package de.dfki.reeti.controllerhelper;
 
+import com.jfoenix.controls.JFXColorPicker;
 import de.dfki.reeti.Reeti;
+import de.dfki.reeti.Reeti.LED;
 import de.dfki.reeti.ReetiController;
 import javafx.scene.paint.Color;
 
-public class ColorHelper {
+public class LedColor {
 
   public static void leftLedColorChanger(ReetiController controller) {
     if (controller.currentReeti != null) {
@@ -25,5 +27,10 @@ public class ColorHelper {
 //      Color color = controller.bothLedColorPicker.getValue();
 //      controller.currentReeti.setLedColor(color, Reeti.LED.BOTHLED);
     }
+  }
+
+  public static void setLedColor(JFXColorPicker colorPicker, Reeti reeti, LED led) {
+    Color color = colorPicker.getValue();
+    reeti.setLedColor(color, led);
   }
 }
