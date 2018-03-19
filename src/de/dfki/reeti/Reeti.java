@@ -22,7 +22,7 @@ import de.dfki.reeti.body.RightEar;
 import de.dfki.reeti.body.RightEye;
 import de.dfki.reeti.body.RightEyelid;
 import de.dfki.reeti.environment.SpeechBubbleFX;
-import de.dfki.reeti.util.LED;
+import de.dfki.reeti.util.Led;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -146,12 +146,12 @@ public class Reeti extends Pane implements Agent {
 //    this.getChildren().addAll(neck, head, body, speechBubbleFX);
   }
 
-  public void ledON(Color color, LED led) {
+  public void ledON(Color color, Led led) {
     switch (led) {
-      case LEFTLED:
+      case LEFT:
         setLedColor(color, color, color, 0.3f, 0.9f, 0.1f, "L");
         break;
-      case RIGHTLED:
+      case RIGHT:
         setLedColor(color, color, color, 0.3f, 0.9f, 0.1f, "R");
         break;
       default:

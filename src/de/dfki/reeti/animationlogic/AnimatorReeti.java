@@ -1,6 +1,5 @@
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.animationlogic.AnimationContent;
 import de.dfki.common.animationlogic.Animator3D;
 import de.dfki.reeti.Reeti;
@@ -34,17 +33,5 @@ public class AnimatorReeti extends Animator3D {
     mRenderPauseDuration =
         (mRenderPauseDuration < 1) ? 1 : mRenderPauseDuration; // minimum delay is 1 millisecond
     render();
-  }
-
-  public AnimatorReeti(Reeti reeti, AnimationReeti a, ArrayList<AnimationContent> animComps,
-      WordTimeMarkSequence wts) {
-    agent = reeti;
-    mAnimation = a;
-    mAnimationComponents = animComps;
-    mWTS = wts;
-    mDescription = mAnimation.getClass().getSimpleName() + " (" + mAnimation.ID + "), " + mAnimation
-        .toString();
-
-    renderEventAnimation();
   }
 }

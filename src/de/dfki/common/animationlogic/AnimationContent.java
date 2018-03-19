@@ -1,6 +1,5 @@
 package de.dfki.common.animationlogic;
 
-import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.parts.PartsInterface;
 
 /**
@@ -12,5 +11,4 @@ public abstract class AnimationContent {
   public String mAction;
   public int mParam;
   public String mParamString;
-  public WordTimeMarkSequence mWTS;
 }

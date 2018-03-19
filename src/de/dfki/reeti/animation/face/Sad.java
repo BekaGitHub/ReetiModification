@@ -8,7 +8,7 @@ package de.dfki.reeti.animation.face;
 import de.dfki.reeti.Reeti;
 import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
-import de.dfki.reeti.util.LED;
+import de.dfki.reeti.util.Led;
 import javafx.scene.paint.Color;
 
 /**
@@ -31,7 +31,7 @@ public class Sad extends AnimationReeti {
     reeti.rightEyeLid(60);
     reeti.leftEyeTilt(15);
     reeti.rightEyeTilt(15);
-    reeti.ledON(Color.VIOLET, LED.BOTHLED);
+    reeti.ledON(Color.VIOLET, Led.BOTH);
     reeti.leftEar(0);
     reeti.rightEar(0);
     reeti.rightLC(0);

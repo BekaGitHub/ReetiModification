@@ -5,21 +5,10 @@
  */
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.animationlogic.Animation;
 import de.dfki.common.interfaces.AnimationInterface;
 import de.dfki.reeti.Reeti;
-import de.dfki.util.ios.IOSIndentWriter;
-import de.dfki.util.xml.XMLParseAction;
-import de.dfki.util.xml.XMLParseError;
-import de.dfki.util.xml.XMLParseable;
-import de.dfki.util.xml.XMLWriteError;
-import de.dfki.util.xml.XMLWriteable;
 import java.util.HashMap;
-import java.util.Map;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 /**
  * @author Patrick Gebhard
@@ -39,9 +28,7 @@ public class AnimationReeti extends Animation implements AnimationInterface {
   public AnimationReeti(Reeti reeti, int duration, boolean block) {
     name = getClass().getSimpleName();
     this.reeti = reeti;
-//    agentName = this.reeti.name;
     setName(agentName + "'s AnimationSwing " + name);
-//    ID = this.reeti.getID(); // default ID;
     isBlocked = block;
     this.duration = duration;
   }
@@ -49,9 +36,7 @@ public class AnimationReeti extends Animation implements AnimationInterface {
   public AnimationReeti(Reeti reeti, int duration, int pos, boolean block) {
     name = getClass().getSimpleName();
     this.reeti = reeti;
-//    agentName = this.reeti.name;
     setName(agentName + "'s AnimationSwing " + name);
-//    ID = this.reeti.getID(); // default ID;
     isBlocked = block;
     this.duration = duration;
     this.actionDuration = actionDuration;
@@ -61,9 +46,7 @@ public class AnimationReeti extends Animation implements AnimationInterface {
       HashMap<String, String> extraParams) {
     name = getClass().getSimpleName();
     this.reeti = reeti;
-//    agentName = this.reeti.name;
     setName(agentName + "'s AnimationSwing " + name);
-//    ID = this.reeti.getID(); // default ID;
     isBlocked = block;
     duration = frequent;
     this.actionDuration = actionDuration;
@@ -75,37 +58,9 @@ public class AnimationReeti extends Animation implements AnimationInterface {
     parameter = p;
   }
 
-  public void setID(String id) {
-    ID = id;
-  }
-
-  public boolean hasExtraParams() {
-    return extraParams.size() > 0;
-  }
-
-  public HashMap<String, String> getExtraParams() {
-    return extraParams;
-  }
-
-  public void setExtraParams(HashMap<String, String> extraParams) {
-    this.extraParams = extraParams;
-  }
-
-  public void setReetiName(String stickmanName) {
-    agentName = stickmanName;
-    setName(agentName + "'s AnimationSwing " + name);
-  }
-
-  public void setAnimationName(String animationName) {
-    name = animationName;
-  }
 
   public void setDuration(int duration) {
     this.duration = duration;
-  }
-
-  public void setBlocking(boolean blocking) {
-    isBlocked = blocking;
   }
 
   public void waitForClearance() {
@@ -164,43 +119,6 @@ public class AnimationReeti extends Animation implements AnimationInterface {
     } else {
       reeti.animationSchedulerReeti.removeAnimation(this);
     }
-    // send event that AnimationReeti is ended
-
-    // API or TCP-Interface
-//    if (!reeti.getStageController().ismNetwork()) {
-//      reeti.notifyListeners(getmID());
-//    } else {
-//      reeti.getStageController().sendAnimationUpdate("end", getmID());
-//    }
-  }
-
-  @Override
-  public void writeXML(IOSIndentWriter out) throws XMLWriteError {
-    out.println(
-        "<StickmanAnimation stickmanname = \"" + agentName + "\" name=\"" + name + "\" id=\"" + ID
-            + "\" duration=\"" + duration + "\" blocking=\"" + isBlocked + "\">").push();
-    if (parameter != null) {
-      if (parameter instanceof WordTimeMarkSequence) {
-        ((WordTimeMarkSequence) parameter).writeXML(out);
-      }
-
-      if (parameter instanceof String) {
-        out.println((String) parameter);
-      }
-    }
-    addExtraParamsToXML(out);
-    out.pop().println("</StickmanAnimation>");
-  }
-
-  private void addExtraParamsToXML(IOSIndentWriter out) {
-    if (extraParams.size() > 0) {
-      out.println("<Params>").push();
-      for (Map.Entry<String, String> entry : extraParams.entrySet()) {
-        out.println("<Param key=\"" + entry.getKey() + "\">" + entry.getValue() + "</Param>")
-            .push();
-      }
-      out.pop().println("</Params>");
-    }
   }
 
   @Override
@@ -210,36 +128,12 @@ public class AnimationReeti extends Animation implements AnimationInterface {
     finalizeAnimation();
   }
 
-  public AnimatorReeti getAnimatorReeti() {
-    return animatorReeti;
-  }
-
-  public void setAnimatorReeti(AnimatorReeti animatorReeti) {
-    this.animatorReeti = animatorReeti;
-  }
-
-  public AnimationPauseReeti getAnimationPauseReeti() {
-    return animationPauseReeti;
-  }
-
-  public void setAnimationPauseReeti(AnimationPauseReeti animationPauseReeti) {
-    this.animationPauseReeti = animationPauseReeti;
-  }
-
   public Reeti getReeti() {
     return reeti;
   }
 
   public void setReeti(Reeti reeti) {
     this.reeti = reeti;
-  }
-
-  public int getActionDuration() {
-    return actionDuration;
-  }
-
-  public void setActionDuration(int actionDuration) {
-    this.actionDuration = actionDuration;
   }
 
   public ANIMTYPE getAnimtype() {

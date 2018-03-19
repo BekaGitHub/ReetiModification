@@ -5,10 +5,9 @@ import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXToggleButton;
-import de.dfki.reeti.timeline.TimelineStart;
 import de.dfki.reeti.util.BodyPartsMovement;
 import de.dfki.reeti.util.CameraMovement;
-import de.dfki.reeti.util.LED;
+import de.dfki.reeti.util.Led;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -232,11 +231,11 @@ public class ReetiController {
         .add(this.getClass().getResource("listView.css").toExternalForm());
 
     leftLedColorPicker
-        .setOnAction(event -> reeti.ledON(leftLedColorPicker.getValue(), LED.LEFTLED));
+        .setOnAction(event -> reeti.ledON(leftLedColorPicker.getValue(), Led.LEFT));
     rightLedColorPicker
-        .setOnAction(event -> reeti.ledON(rightLedColorPicker.getValue(), LED.RIGHTLED));
+        .setOnAction(event -> reeti.ledON(rightLedColorPicker.getValue(), Led.RIGHT));
     bothLedColorPicker
-        .setOnAction(event -> reeti.ledON(bothLedColorPicker.getValue(), LED.BOTHLED));
+        .setOnAction(event -> reeti.ledON(bothLedColorPicker.getValue(), Led.BOTH));
     ledOffButton.setOnAction(event -> reeti.ledOFF());
 
     exitButton.setOnAction((event) -> System.exit(0));

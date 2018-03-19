@@ -8,7 +8,7 @@ package de.dfki.reeti.animation.face;
 import de.dfki.reeti.Reeti;
 import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationReeti;
-import de.dfki.reeti.util.LED;
+import de.dfki.reeti.util.Led;
 import javafx.scene.paint.Color;
 
 /**
@@ -33,7 +33,7 @@ public class Relaxed extends AnimationReeti {
     reeti.rightEyeLid(25);
     reeti.leftEyeTilt(15);
     reeti.rightEyeTilt(20);
-    reeti.ledON(Color.GREEN, LED.BOTHLED);
+    reeti.ledON(Color.GREEN, Led.BOTH);
     reeti.leftEar(0);
     reeti.rightEar(0);
     reeti.leftLC(75);
