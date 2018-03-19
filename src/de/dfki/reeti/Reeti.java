@@ -1,7 +1,6 @@
 package de.dfki.reeti;
 
 import de.dfki.common.agents.Agent;
-import de.dfki.common.parts.FXParts;
 import de.dfki.reeti.animation.environment.Blinking;
 import de.dfki.reeti.animationlogic.AnimationLoaderReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
@@ -21,7 +20,6 @@ import de.dfki.reeti.body.RightCheek;
 import de.dfki.reeti.body.RightEar;
 import de.dfki.reeti.body.RightEye;
 import de.dfki.reeti.body.RightEyelid;
-import de.dfki.reeti.environment.SpeechBubbleFX;
 import de.dfki.reeti.util.Led;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
@@ -57,7 +55,6 @@ public class Reeti extends Pane implements Agent {
   private MouthUpperLip mouthUpperLip;
   private MouthDownLip mouthDownLip;
   private Body body;
-  private SpeechBubbleFX speechBubbleFX;
   //Movement
   private double upperLipOldPos = 0;
   private double downLipOldPos = 20;
@@ -134,11 +131,6 @@ public class Reeti extends Pane implements Agent {
   private void setReetiOnScreen() {
     this.setTranslateX(de.dfki.reeti.util.Dimension.getReetiStage_X_Center());
     this.setTranslateY(de.dfki.reeti.util.Dimension.getScreenHight());
-  }
-
-  @Override
-  public FXParts getSpeechBubble() {
-    return this.getSpeechBubbleFX();
   }
 
   private void addAllParts() {
@@ -712,13 +704,5 @@ public class Reeti extends Pane implements Agent {
 
   public void setBody(Body body) {
     this.body = body;
-  }
-
-  public SpeechBubbleFX getSpeechBubbleFX() {
-    return speechBubbleFX;
-  }
-
-  public void setSpeechBubbleFX(SpeechBubbleFX speechBubbleFX) {
-    this.speechBubbleFX = speechBubbleFX;
   }
 }

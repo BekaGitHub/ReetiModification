@@ -24,9 +24,9 @@ public class LeftCheek extends ReetiParts {
     led.setStyle("-fx-background-color: black");
     ledGroup = new Group();
 
-    mYRotation = -25;
+    y_Rotation = -25;
     xRotation = -10;
-    Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
+    Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
     Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     ledGroup.getTransforms().addAll(rx, ry);
 

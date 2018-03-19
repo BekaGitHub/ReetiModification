@@ -29,11 +29,6 @@ public class MouthLeftCorner extends ReetiParts {
   }
 
   @Override
-  public void resetShape() {
-    mShape = MouthLeftCorner.SHAPE.DEFAULT;
-  }
-
-  @Override
   public void calculate(int step) {
     switch (mShape) {
       case DEFAULT:

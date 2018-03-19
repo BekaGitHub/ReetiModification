@@ -137,9 +137,9 @@ public class BodyPartsMovement {
           if (axis == Rotate.X_AXIS) {
             parts.xRotation = rotationGrad;
           } else if (axis == Rotate.Y_AXIS) {
-            parts.mYRotation = rotationGrad;
+            parts.y_Rotation = rotationGrad;
           } else {
-            parts.mZRotation = rotationGrad;
+            parts.z_Rotation = rotationGrad;
           }
           textField.setText(Integer.toString((int) newValue));
           parts.calculate(0);

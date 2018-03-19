@@ -26,85 +26,75 @@ public abstract class ReetiParts extends FXParts3D {
 
   @Override
   public void set_X_Translation(int length) {
-    mXTranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
+    x_TranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
   }
 
   @Override
   public void set_Y_Translation(int length) {
-    mYTranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
+    y_TranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
   }
 
   @Override
   public void set_Z_Translation(int length) {
-    mZTranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
+    z_TranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
   }
 
   @Override
   public synchronized void calculate_X_Translation(int step) {
-    mXTranslation += mXTranslationStep;
-    mXTranslation = Math.round(mXTranslation * 1000d) / 1000d;
+    x_Translation += x_TranslationStep;
+    x_Translation = Math.round(x_Translation * 1000d) / 1000d;
 
     Platform.runLater(() -> calculate(step));
   }
 
   @Override
   public synchronized void calculate_Y_Translation(int step) {
-    mYTranslation += mYTranslationStep;
-    mYTranslation = Math.round(mYTranslation * 1000d) / 1000d;
+    y_Translation += y_TranslationStep;
+    y_Translation = Math.round(y_Translation * 1000d) / 1000d;
 
     Platform.runLater(() -> calculate(step));
   }
 
   @Override
   public synchronized void calculate_Z_Translation(int step) {
-    mZTranslation += mZTranslationStep;
-    mZTranslation = Math.round(mZTranslation * 1000d) / 1000d;
+    z_Translation += z_TranslationStep;
+    z_Translation = Math.round(z_Translation * 1000d) / 1000d;
 
     Platform.runLater(() -> calculate(step));
   }
 
   @Override
   public void resetTranslation() {
-    mXTranslationStep = 0.0d;
-    mYTranslationStep = 0.0d;
-    mZTranslationStep = 0.0d;
-  }
-
-  public void setDefaulRotation(int degree) {
-    mDefaultRotation = degree;
-    xRotation = mDefaultRotation;
-    mYRotation = mDefaultRotation;
-    mZRotation = mDefaultRotation;
-
-    mToDegreeX = mDefaultRotation;
-    mXRotationStep = 0.0f;
+    x_TranslationStep = 0.0d;
+    y_TranslationStep = 0.0d;
+    z_TranslationStep = 0.0d;
   }
 
   @Override
   public void set_X_Rotation(int degree) {
-    mToDegreeX = xRotation + degree;
-    mXRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+    toDegree = xRotation + degree;
+    x_RotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
   }
 
   @Override
   public void set_Y_Rotation(int degree) {
-    mYRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+    y_RotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
   }
 
   @Override
   public void set_Z_Rotation(int degree) {
-    mZRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+    z_RotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
   }
 
   @Override
   public void setTilt(int degree) {
-    mToDegreeX = xRotation + degree;
-    mXRotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+    toDegree = xRotation + degree;
+    x_RotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
   }
 
   @Override
   public synchronized void calculate_X_Rotation(int step) {
-    xRotation += mXRotationStep;
+    xRotation += x_RotationStep;
     xRotation = (double) Math.round(xRotation * 1000d) / 1000d;
 
     Platform.runLater(() -> calculate(step));
@@ -112,16 +102,16 @@ public abstract class ReetiParts extends FXParts3D {
 
   @Override
   public synchronized void calculate_Y_Rotation(int step) {
-    mYRotation += mYRotationStep;
-    mYRotation = (double) Math.round(mYRotation * 1000d) / 1000d;
+    y_Rotation += y_RotationStep;
+    y_Rotation = (double) Math.round(y_Rotation * 1000d) / 1000d;
 
     Platform.runLater(() -> calculate(step));
   }
 
   @Override
   public synchronized void calculate_Z_Rotation(int step) {
-    mZRotation += mZRotationStep;
-    mZRotation = (double) Math.round(mZRotation * 1000d) / 1000d;
+    z_Rotation += z_RotationStep;
+    z_Rotation = (double) Math.round(z_Rotation * 1000d) / 1000d;
 
     Platform.runLater(() -> calculate(step));
 
@@ -129,23 +119,23 @@ public abstract class ReetiParts extends FXParts3D {
 
   @Override
   public void reset_X_Rotation() {
-    xRotation += mXRotationStep;
+    xRotation += x_RotationStep;
     Platform.runLater(() -> calculate(1));
-    mXRotationStep = 0;
+    x_RotationStep = 0;
   }
 
   @Override
   public void reset_Y_Rotation() {
-    mYRotation += mYRotationStep;
+    y_Rotation += y_RotationStep;
     Platform.runLater(() -> calculate(1));
-    mYRotationStep = 0;
+    y_RotationStep = 0;
   }
 
   @Override
   public void reset_Z_Rotation() {
-    mZRotation += mZRotationStep;
+    z_Rotation += z_RotationStep;
     Platform.runLater(() -> calculate(1));
-    mZRotationStep = 0;
+    z_RotationStep = 0;
   }
 
   public void createShape() {
@@ -157,14 +147,6 @@ public abstract class ReetiParts extends FXParts3D {
     mShapeAnimationStep = step;
 
     Platform.runLater(() -> calculate(step));
-  }
-
-  public void resetShape() {
-    mShapeAnimationStep = 0;
-  }
-
-  public void clearChildren(ReetiParts bodyPartFX) {
-    bodyPartFX.getChildren().clear();
   }
 
   public synchronized void calculate(int step) {

@@ -21,8 +21,8 @@ public class RightEyelid extends ReetiParts {
   private MeshView mLeftEyeMesh;
 
   public RightEyelid(Head head) {
-    mZRotation = -30;
-    mYRotation = 15;
+    z_Rotation = -30;
+    y_Rotation = 15;
     color = Color.WHITE;
 
     URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiEyelid.dae");
@@ -50,8 +50,8 @@ public class RightEyelid extends ReetiParts {
   public void calculate(int step) {
 
     Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
-    Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
-    Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
+    Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
+    Rotate rz = new Rotate(z_Rotation, Rotate.Z_AXIS);
 
     mLeftEyeMesh.getTransforms().clear();
     mLeftEyeMesh.getTransforms().addAll(rz, ry, rx);

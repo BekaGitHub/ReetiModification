@@ -5,9 +5,6 @@ package de.dfki.common.parts;
  */
 public interface PartsInterface {
 
-   default void setText(String text) {
-  }
-
   default void set_X_Rotation(int degree) {
   }
 
@@ -30,12 +27,6 @@ public interface PartsInterface {
   }
 
   default void setShape(String s) {
-  }
-
-  default void setRotation(int degree) {
-  }
-
-  default void setTranslation(int length) {
   }
 
   default void calculate_X_Rotation(int step) {
@@ -72,11 +63,5 @@ public interface PartsInterface {
   }
 
   default void resetTranslation() {
-  }
-
-  default void calculateRotation(int step) {
-  }
-
-  default void calculateTranslation(int step) {
   }
 }

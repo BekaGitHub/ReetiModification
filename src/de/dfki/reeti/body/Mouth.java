@@ -61,10 +61,6 @@ public class Mouth extends ReetiParts {
     mShape = (shape != null) ? shape : Mouth.SHAPE.DEFAULT;
   }
 
-  @Override
-  public void resetShape() {
-    mShape = Mouth.SHAPE.DEFAULT;
-  }
 
   @Override
   public void calculate(int step) {

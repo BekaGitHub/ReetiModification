@@ -69,8 +69,8 @@ public class Head extends ReetiParts {
   public void calculate(int step) {
 
     Rotate rx = new Rotate(xRotation, 0, 25, -25, Rotate.X_AXIS);
-    Rotate ry = new Rotate(mYRotation, 0, 25, -25, Rotate.Y_AXIS);
-    Rotate rz = new Rotate(mZRotation, 0, 25, -25, Rotate.Z_AXIS);
+    Rotate ry = new Rotate(y_Rotation, 0, 25, -25, Rotate.Y_AXIS);
+    Rotate rz = new Rotate(z_Rotation, 0, 25, -25, Rotate.Z_AXIS);
 
     headGroup.getTransforms().clear();
     headGroup.getTransforms().addAll(rz, ry, rx);

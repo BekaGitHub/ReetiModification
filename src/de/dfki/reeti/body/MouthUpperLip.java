@@ -28,10 +28,6 @@ public class MouthUpperLip extends ReetiParts {
     mShape = (shape != null) ? shape : MouthUpperLip.SHAPE.DEFAULT;
   }
 
-  @Override
-  public void resetShape() {
-    mShape = MouthUpperLip.SHAPE.DEFAULT;
-  }
 
   @Override
   public void calculate(int step) {

@@ -46,8 +46,8 @@ public class LeftEar extends ReetiParts {
   @Override
   public void calculate(int step) {
     Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
-    Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
-    Rotate rz = new Rotate(mZRotation, Rotate.Z_AXIS);
+    Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
+    Rotate rz = new Rotate(z_Rotation, Rotate.Z_AXIS);
 
     leftEarMesh.getTransforms().clear();
     leftEarMesh.getTransforms().addAll(rz, ry, rx);

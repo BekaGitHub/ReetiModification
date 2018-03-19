@@ -23,9 +23,9 @@ public class RightCheek extends ReetiParts {
     mLed = new Circle(SIZE);
     mLedGroup = new Group();
 
-    mYRotation = 25;
+    y_Rotation = 25;
     xRotation = -10;
-    Rotate ry = new Rotate(mYRotation, Rotate.Y_AXIS);
+    Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
     Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
     mLedGroup.getTransforms().addAll(rx, ry);
 
