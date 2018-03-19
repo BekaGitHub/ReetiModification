@@ -20,8 +20,8 @@ import java.util.Set;
  */
 public class AnimationLoaderReeti {
 
-  private final static String sANIMATIONPATH = "de.dfki.reeti";
-  private static final Set<String> sAnimationSubPackages = new HashSet<>(
+  private final static String ANIMATIONPATH = "de.dfki.reeti";
+  private static final Set<String> animationPackageNames = new HashSet<>(
       Arrays.asList("head", "face", "gesture", "environment", "posture"));
   private static AnimationLoaderReeti sInstance = null;
   private static long sID = 0;
@@ -42,17 +42,17 @@ public class AnimationLoaderReeti {
     return "a" + sID;
   }
 
-  private String getAnimationClasspath(Gender.TYPE type, String name) {
+  private String getAnimationClasspath(String animationName) {
     String classPath = "";
 
-    for (String s : sAnimationSubPackages) {
-      classPath = sANIMATIONPATH + ".animation." + s + "." + name;
+    for (String s : animationPackageNames) {
+      classPath = ANIMATIONPATH + ".animation." + s + "." + animationName;
 
       try {
         Class.forName(classPath);
         break;
       } catch (ClassNotFoundException ex) {
-        //nothing
+        //Wenn die erstellte classPath ignoriere und mache for-Schleife weiter
       }
     }
     return classPath;
@@ -61,8 +61,8 @@ public class AnimationLoaderReeti {
   private String getEventAnimationClasspath(Gender.TYPE type, String name) {
     String classPath = "";
 
-    for (String s : sAnimationSubPackages) {
-      classPath = sANIMATIONPATH + ".animation." + s + ".event." + name;
+    for (String s : animationPackageNames) {
+      classPath = ANIMATIONPATH + ".animation." + s + ".event." + name;
 
       try {
         Class.forName(classPath);
@@ -74,11 +74,11 @@ public class AnimationLoaderReeti {
     return classPath;
   }
 
-  public AnimationReeti loadAnimation(AgentInterface sm, String name, int duration, boolean block,
+  public AnimationReeti loadAnimation(AgentInterface sm, String animationName, int duration, boolean block,
       HashMap<String, String> extraParams) {
     AnimationReeti a = null;
 
-    String cp = getAnimationClasspath(((Reeti) sm).mType, name);
+    String cp = getAnimationClasspath(animationName);
     try {
       Class c = Class.forName(cp);
       Constructor[] constructors = c.getConstructors();
@@ -102,7 +102,7 @@ public class AnimationLoaderReeti {
 
       }
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-      ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
+      ((Reeti) sm).logger.severe("AnimationInterface \"" + animationName + "\" cannot be found in " + cp);
     }
 
     if (a != null) {
@@ -112,12 +112,12 @@ public class AnimationLoaderReeti {
   }
 
   public AnimationReeti loadAnimation(AgentInterface sm, String name, int duration, boolean block) {
-    AnimationReeti a = null;
+    AnimationReeti animationReeti = null;
 
-    String cp = getAnimationClasspath(((Reeti) sm).mType, name);
+    String classPath = getAnimationClasspath(name);
     try {
-      Class c = Class.forName(cp);
-      Constructor[] constructors = c.getConstructors();
+      Class animationClass = Class.forName(classPath);
+      Constructor[] constructors = animationClass.getConstructors();
       for (Constructor con : constructors) {
         Class[] params = con.getParameterTypes();
 
@@ -125,27 +125,27 @@ public class AnimationLoaderReeti {
           if (params[0].getSimpleName().equalsIgnoreCase("reeti")
               && params[1].getSimpleName().equalsIgnoreCase("int")
               && params[2].getSimpleName().equalsIgnoreCase("boolean")) {
-            a = (AnimationReeti) c.getDeclaredConstructor(params).newInstance(sm, duration, block);
+            animationReeti = (AnimationReeti) animationClass.getDeclaredConstructor(params).newInstance(sm, duration, block);
           }
         }
 
       }
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-      ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
+      ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + classPath);
     }
 
-    if (a != null) {
-      a.ID = getNextID();
+    if (animationReeti != null) {
+      animationReeti.ID = getNextID();
     }
 
-    return a;
+    return animationReeti;
   }
 
   public AnimationReeti loadAnimation(AgentInterface sm, String name, int frequent, int pos,
       boolean block) {
     AnimationReeti a = null;
 
-    String cp = getAnimationClasspath(((Reeti) sm).mType, name);
+    String cp = getAnimationClasspath(name);
     try {
       Class c = Class.forName(cp);
       Constructor[] constructors = c.getConstructors();

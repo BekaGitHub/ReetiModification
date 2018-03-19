@@ -34,7 +34,7 @@ public abstract class StageRoomImpl implements StageRoom {
   @Override
   public void animate(String agentName, String name, int duration, String text, boolean block) {
     AgentInterface agent = getCommonAgentsOnStage().getAgent(agentName);
-    agent.doAnimation(name, duration, text, block);
+//    agent.doAnimation(name, duration, text, block);
   }
 
   @Override

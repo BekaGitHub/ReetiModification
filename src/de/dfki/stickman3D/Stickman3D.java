@@ -272,7 +272,7 @@ public class Stickman3D extends Agent3D {
     a.setParameter(wts);
 
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       mLogger.severe(ex.getMessage());
@@ -292,7 +292,7 @@ public class Stickman3D extends Agent3D {
         .loadAnimation(this, name, frequent, actionDuration, block);
 
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       mLogger.severe(ex.getMessage());
@@ -320,7 +320,7 @@ public class Stickman3D extends Agent3D {
     a.setParameter(param); // this is for now only used by the Speech Bubble
 
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       mLogger.severe(ex.getMessage());
@@ -330,7 +330,7 @@ public class Stickman3D extends Agent3D {
 
   public void playAnimation(AnimationStickman3D a) {
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       mLogger.severe(ex.getMessage());

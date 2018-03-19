@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  */
 public class AnimationSchedulerReeti extends Thread {
 
-  public LinkedBlockingQueue<AnimationReeti> mAnimationQueue = new LinkedBlockingQueue<>();
+  public LinkedBlockingQueue<AnimationReeti> animationQueue = new LinkedBlockingQueue<>();
   public Semaphore mTheBlockOfHell = new Semaphore(1);
   Reeti mReeti;
   boolean mRunning = true;
@@ -23,7 +23,7 @@ public class AnimationSchedulerReeti extends Thread {
 
   public void introduce(AnimationReeti a) {
     try {
-      mAnimationQueue.put(a);
+      animationQueue.put(a);
     } catch (InterruptedException ex) {
       mReeti.logger.severe(ex.getMessage());
     }
@@ -35,7 +35,7 @@ public class AnimationSchedulerReeti extends Thread {
   }
 
   public void removeAnimation(AnimationReeti a) {
-    mAnimationQueue.remove(a);
+    animationQueue.remove(a);
   }
 
   public synchronized void end() {
@@ -43,7 +43,7 @@ public class AnimationSchedulerReeti extends Thread {
 
     // throw in a last animation that unblocks the scheduler letting him end
     try {
-      mAnimationQueue.put(new AnimationReeti(mReeti, 1, false) {
+      animationQueue.put(new AnimationReeti(mReeti, 1, false) {
       });
     } catch (InterruptedException ex) {
       Logger.getLogger(AnimationSchedulerReeti.class.getName()).log(Level.SEVERE, null, ex);
@@ -58,7 +58,7 @@ public class AnimationSchedulerReeti extends Thread {
         mTheBlockOfHell.acquire(1);
 
         // get the next animation in the animation queue
-        AnimationReeti animation = mAnimationQueue.take();
+        AnimationReeti animation = animationQueue.take();
 
         // tell the animation to render itself
         animation.animationStartSemaphore.release();

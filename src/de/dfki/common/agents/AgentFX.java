@@ -32,7 +32,7 @@ public abstract class AgentFX extends Pane implements AgentInterface {
   public long mID = 0;
 
   // amimation stuff
-  public Semaphore mAnimationLaunchControl = new Semaphore(1);
+  public Semaphore animationLaunchControlSemaphor = new Semaphore(1);
 
   public void addListener(AnimationListener al) {
     animationListeners.add(al);

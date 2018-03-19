@@ -32,7 +32,7 @@ public class UnconsciouslyAction extends Thread {
         countTouchHead = 0;
         countTileHead = 0;
         if (mStickmanFX.mAnimationSchedulerFX.mAnimationQueue
-            .isEmpty()) // to ignore to many actions put in mAnimationQueue
+            .isEmpty()) // to ignore to many actions put in animationQueue
         {
           mStickmanFX.doAnimation("CoverMouth", 500, true);
         }

@@ -59,30 +59,4 @@ public class EventAnimationReeti extends AnimationReeti {
     }
     out.pop().println("</StickmanEventAnimation>");
   }
-
-  @Override
-  public void parseXML(final Element element) throws XMLParseError {
-    agentName = element.getAttribute("stickmanname");
-    name = element.getAttribute("name");
-    ID = element.getAttribute("id");
-    duration = Integer.parseInt(element.getAttribute("duration"));
-    isBlocked = Boolean.parseBoolean(element.getAttribute("blocking"));
-
-    // Process The Child Nodes
-    XMLParseAction.processChildNodes(element, new XMLParseAction() {
-      @Override
-      public void run(final Element element) throws XMLParseError {
-        // Get The Child Tag Name
-        final String name = element.getTagName();
-
-        if (name.equalsIgnoreCase("WordTimeMarkSequence")) {
-          parameter = new WordTimeMarkSequence();
-
-          ((WordTimeMarkSequence) parameter).parseXML(element);
-        } else {
-          parameter = (String) element.getTextContent();
-        }
-      }
-    });
-  }
 }

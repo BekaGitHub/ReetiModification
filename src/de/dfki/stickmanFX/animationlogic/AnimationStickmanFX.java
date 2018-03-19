@@ -82,7 +82,7 @@ public class AnimationStickmanFX extends Animation implements XMLParseable, XMLW
     }
 
     // tell Agent this animation has been scheduled and a next one can come
-    mStickmanFX.mAnimationLaunchControl.release();
+    mStickmanFX.animationLaunchControlSemaphor.release();
   }
 
   public void play() {

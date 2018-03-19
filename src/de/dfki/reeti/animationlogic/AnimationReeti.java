@@ -25,8 +25,7 @@ import org.w3c.dom.NodeList;
  * @author Patrick Gebhard
  * @modified Beka Aptsiauri
  */
-public class AnimationReeti extends Animation implements XMLParseable, XMLWriteable,
-    AnimationInterface {
+public class AnimationReeti extends Animation implements AnimationInterface {
 
   private AnimatorReeti animatorReeti;
   private AnimationPauseReeti animationPauseReeti;
@@ -124,7 +123,7 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
     }
 
     // tell Agent this animation has been scheduled and a next one can come
-    reeti.mAnimationLaunchControl.release();
+    reeti.animationLaunchControlSemaphor.release();
   }
 
   public void play() {
@@ -207,44 +206,6 @@ public class AnimationReeti extends Animation implements XMLParseable, XMLWritea
       }
       out.pop().println("</Params>");
     }
-  }
-
-  @Override
-  public void parseXML(final Element element) throws XMLParseError {
-    agentName = element.getAttribute("stickmanname");
-    name = element.getAttribute("name");
-    ID = element.getAttribute("id");
-    duration = Integer.parseInt(element.getAttribute("duration"));
-    isBlocked = Boolean.parseBoolean(element.getAttribute("blocking"));
-    extraParams = new HashMap<>();
-
-    // Process The Child Nodes
-    XMLParseAction.processChildNodes(element, new XMLParseAction() {
-      @Override
-      public void run(final Element element) throws XMLParseError {
-        // Get The Child Tag Name
-        final String name = element.getTagName();
-
-        if (name.equalsIgnoreCase("WordTimeMarkSequence")) {
-          parameter = new WordTimeMarkSequence();
-
-          ((WordTimeMarkSequence) parameter).parseXML(element);
-        } else if (name.equals("Params")) {
-          NodeList nodes = element.getChildNodes();
-          for (int i = 0; i < nodes.getLength(); i++) {
-            Node node = nodes.item(i);
-            if (!node.hasAttributes()) {
-              continue;
-            }
-            String key = node.getAttributes().getNamedItem("key").getNodeValue();
-            String value = node.getTextContent();
-            extraParams.put(key, value);
-          }
-        } else {
-          parameter = (String) element.getTextContent();
-        }
-      }
-    });
   }
 
   @Override

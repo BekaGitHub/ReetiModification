@@ -2,7 +2,6 @@ package de.dfki.reeti;
 
 import de.dfki.action.sequence.WordTimeMarkSequence;
 import de.dfki.common.Gender;
-import de.dfki.common.agents.Agent3D;
 import de.dfki.common.agents.AgentFX;
 import de.dfki.common.interfaces.StageRoom;
 import de.dfki.common.parts.FXParts;
@@ -22,7 +21,6 @@ import de.dfki.reeti.body.MouthDownLip;
 import de.dfki.reeti.body.MouthLeftCorner;
 import de.dfki.reeti.body.MouthRightCorner;
 import de.dfki.reeti.body.MouthUpperLip;
-import de.dfki.reeti.body.Neck;
 import de.dfki.reeti.body.RightCheek;
 import de.dfki.reeti.body.RightEar;
 import de.dfki.reeti.body.RightEye;
@@ -83,7 +81,7 @@ public class Reeti extends AgentFX {
   public Reeti() {
     this.init();
     this.addAllParts();
-    this.posOnScreen();
+    this.setReetiOnScreen();
     logger.log(Level.INFO, "Reeti wurde erzeugt");
   }
 
@@ -118,7 +116,7 @@ public class Reeti extends AgentFX {
     a.setParameter(wts);
 
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -168,7 +166,7 @@ public class Reeti extends AgentFX {
         .loadAnimation(this, name, frequent, actionDuration, block);
 
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -188,31 +186,22 @@ public class Reeti extends AgentFX {
 
   @Override
   public AnimationReeti doAnimation(String name, int duration, Object param, boolean block) {
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
+    AnimationReeti animationReeti = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, name, duration, block);
 
-    a.setParameter(param); // this is for now only used by the Speech Bubble
+    animationReeti.setParameter(param); // this is for now only used by the Speech Bubble
 
     try {
-      mAnimationLaunchControl.acquire();
-      a.start();
+      animationLaunchControlSemaphor.acquire();
+      animationReeti.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
     }
 
-    return a;
+    return animationReeti;
   }
 
-  public void playAnimation(AnimationReeti a) {
-    try {
-      mAnimationLaunchControl.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
-  }
-
-  public void posOnScreen(float... pos) {
+  private void setReetiOnScreen() {
     this.setTranslateX(de.dfki.reeti.util.Dimension.getReetiStage_X_Center());
     this.setTranslateY(de.dfki.reeti.util.Dimension.getScreenHight());
   }
@@ -300,7 +289,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "RightLC", (int) dur, pos, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -325,7 +314,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "LeftLC", (int) dur, pos, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -353,7 +342,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "UpperLip", (int) dur, pos, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -381,7 +370,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "DownLip", (int) dur, pos, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -409,7 +398,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "LeftEye_X", (int) dur, (int) rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -433,7 +422,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "LeftEye_Y", (int) dur, (int) rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -461,7 +450,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "RightEye_X", (int) dur, (int) rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -485,7 +474,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "RightEye_Y", (int) dur, (int) rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -509,7 +498,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "BlinkLeftEyelid", (int) dur, (int) rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -533,7 +522,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "BlinkRightEyelid", (int) dur, (int) rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -557,7 +546,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "LeftEarMovement", (int) dur, (int) rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -581,7 +570,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "RightEarMovement", (int) dur, (int) -rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -605,7 +594,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "NeckRotation", (int) dur, (int) rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -632,7 +621,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "NeckPan", (int) dur, (int) rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -657,7 +646,7 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "NeckTilt", (int) dur, (int) -rot, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
@@ -668,48 +657,11 @@ public class Reeti extends AgentFX {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "Default", 100, false);
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       logger.severe(ex.getMessage());
     }
-  }
-
-  private Color checkColor(String color) {
-    Color ledColor = null;
-    switch (color) {
-      case "red":
-        ledColor = Color.RED;
-        break;
-      case "green":
-        ledColor = Color.GREEN;
-        break;
-      case "lightGreen":
-        ledColor = Color.LIGHTGREEN;
-        break;
-      case "blue":
-        ledColor = Color.BLUE;
-        break;
-      case "darkBlue":
-        ledColor = Color.DARKBLUE;
-        break;
-      case "turquoise":
-        ledColor = Color.TURQUOISE;
-        break;
-      case "yellow":
-        ledColor = Color.YELLOW;
-        break;
-      case "violet":
-        ledColor = Color.VIOLET;
-        break;
-      case "white":
-        ledColor = Color.WHITE;
-        break;
-      case "stop":
-        ledColor = Color.BLACK;
-        break;
-    }
-    return ledColor;
   }
 
   public Head getHead() {

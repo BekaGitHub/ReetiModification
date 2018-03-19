@@ -244,7 +244,7 @@ public class StickmanFX extends Agent2D {
     a.setParameter(wts);
 
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       mLogger.severe(ex.getMessage());
@@ -280,7 +280,7 @@ public class StickmanFX extends Agent2D {
     a.setParameter(param);
 
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       mLogger.severe(ex.getMessage());
@@ -295,7 +295,7 @@ public class StickmanFX extends Agent2D {
 
   public void playAnimation(AnimationStickmanFX a) {
     try {
-      mAnimationLaunchControl.acquire();
+      animationLaunchControlSemaphor.acquire();
       a.start();
     } catch (InterruptedException ex) {
       mLogger.severe(ex.getMessage());
