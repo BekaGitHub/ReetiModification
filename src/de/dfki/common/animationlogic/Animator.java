@@ -2,8 +2,7 @@ package de.dfki.common.animationlogic;
 
 import de.dfki.action.sequence.Entry;
 import de.dfki.action.sequence.WordTimeMarkSequence;
-import de.dfki.common.agents.AgentInterface;
-import de.dfki.stickmanSwing.util.TimingInfo;
+import de.dfki.common.agents.Agent;
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
@@ -19,7 +18,7 @@ public abstract class Animator {
   public WordTimeMarkSequence mWTS;
   public int mRenderPauseDuration = 0;
   public Semaphore mRenderingPause = new Semaphore(0);
-  public AgentInterface agent;
+  public Agent agent;
 
   public void renderEventAnimation() {
     for (ArrayList<Entry> cluster : mWTS.getClusters()) {
@@ -45,9 +44,9 @@ public abstract class Animator {
         //mReeti.speechBubbleFX.mCurrentlySpokenText = currentlySpokenText;
 
         // do the rendering ...
-        int duration = TimingInfo.spokenStringDuration(text);
+//        int duration = TimingInfo.spokenStringDuration(text);
 
-        mRenderPauseDuration = new Float(duration / sMAX_ANIM_STEPS).intValue();
+//        mRenderPauseDuration = new Float(duration / sMAX_ANIM_STEPS).intValue();
         mRenderPauseDuration =
             (mRenderPauseDuration < 1) ? 1 : mRenderPauseDuration; // minimum delay is 1 millisecond
 
@@ -61,7 +60,6 @@ public abstract class Animator {
           // we have 2 options!
           // 1) API Call
           // 2) send to Player
-          agent.getStageController().sendTimeMarkInformation(e.mContent);
         }
       }
     }

@@ -5,9 +5,7 @@ package de.dfki.common.parts;
  */
 public interface PartsInterface {
 
-  String getText();
-
-  default void setText(String text) {
+   default void setText(String text) {
   }
 
   default void set_X_Rotation(int degree) {

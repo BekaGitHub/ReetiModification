@@ -5,8 +5,7 @@
  */
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.common.Gender;
-import de.dfki.common.agents.AgentInterface;
+import de.dfki.common.agents.Agent;
 import de.dfki.reeti.Reeti;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -58,7 +57,7 @@ public class AnimationLoaderReeti {
     return classPath;
   }
 
-  private String getEventAnimationClasspath(Gender.TYPE type, String name) {
+  private String getEventAnimationClasspath(String name) {
     String classPath = "";
 
     for (String s : animationPackageNames) {
@@ -74,7 +73,7 @@ public class AnimationLoaderReeti {
     return classPath;
   }
 
-  public AnimationReeti loadAnimation(AgentInterface sm, String animationName, int duration, boolean block,
+  public AnimationReeti loadAnimation(Agent sm, String animationName, int duration, boolean block,
       HashMap<String, String> extraParams) {
     AnimationReeti a = null;
 
@@ -111,7 +110,7 @@ public class AnimationLoaderReeti {
     return a;
   }
 
-  public AnimationReeti loadAnimation(AgentInterface sm, String name, int duration, boolean block) {
+  public AnimationReeti loadAnimation(Agent sm, String name, int duration, boolean block) {
     AnimationReeti animationReeti = null;
 
     String classPath = getAnimationClasspath(name);
@@ -141,7 +140,7 @@ public class AnimationLoaderReeti {
     return animationReeti;
   }
 
-  public AnimationReeti loadAnimation(AgentInterface sm, String name, int frequent, int pos,
+  public AnimationReeti loadAnimation(Agent sm, String name, int frequent, int pos,
       boolean block) {
     AnimationReeti a = null;
 
@@ -173,11 +172,11 @@ public class AnimationLoaderReeti {
     return a;
   }
 
-  public EventAnimationReeti loadEventAnimation(AgentInterface sm, String name, int duration,
+  public EventAnimationReeti loadEventAnimation(Agent sm, String name, int duration,
       boolean block) {
     EventAnimationReeti a = null;
 
-    String cp = getEventAnimationClasspath(((Reeti) sm).mType, name);
+    String cp = getEventAnimationClasspath(name);
 
     try {
       Class c = Class.forName(cp);

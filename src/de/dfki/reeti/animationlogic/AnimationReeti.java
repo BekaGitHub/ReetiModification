@@ -39,9 +39,9 @@ public class AnimationReeti extends Animation implements AnimationInterface {
   public AnimationReeti(Reeti reeti, int duration, boolean block) {
     name = getClass().getSimpleName();
     this.reeti = reeti;
-    agentName = this.reeti.name;
+//    agentName = this.reeti.name;
     setName(agentName + "'s AnimationSwing " + name);
-    ID = this.reeti.getID(); // default ID;
+//    ID = this.reeti.getID(); // default ID;
     isBlocked = block;
     this.duration = duration;
   }
@@ -49,9 +49,9 @@ public class AnimationReeti extends Animation implements AnimationInterface {
   public AnimationReeti(Reeti reeti, int duration, int pos, boolean block) {
     name = getClass().getSimpleName();
     this.reeti = reeti;
-    agentName = this.reeti.name;
+//    agentName = this.reeti.name;
     setName(agentName + "'s AnimationSwing " + name);
-    ID = this.reeti.getID(); // default ID;
+//    ID = this.reeti.getID(); // default ID;
     isBlocked = block;
     this.duration = duration;
     this.actionDuration = actionDuration;
@@ -61,9 +61,9 @@ public class AnimationReeti extends Animation implements AnimationInterface {
       HashMap<String, String> extraParams) {
     name = getClass().getSimpleName();
     this.reeti = reeti;
-    agentName = this.reeti.name;
+//    agentName = this.reeti.name;
     setName(agentName + "'s AnimationSwing " + name);
-    ID = this.reeti.getID(); // default ID;
+//    ID = this.reeti.getID(); // default ID;
     isBlocked = block;
     duration = frequent;
     this.actionDuration = actionDuration;
@@ -73,11 +73,6 @@ public class AnimationReeti extends Animation implements AnimationInterface {
   @Override
   public void setParameter(Object p) {
     parameter = p;
-  }
-
-  @Override
-  public String getmID() {
-    return ID;
   }
 
   public void setID(String id) {

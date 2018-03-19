@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXToggleButton;
-import de.dfki.reeti.stage.ReetiStage;
 import de.dfki.reeti.timeline.TimelineStart;
 import de.dfki.reeti.util.BodyPartsMovement;
 import de.dfki.reeti.util.CameraMovement;
@@ -244,17 +243,17 @@ public class ReetiController {
 
   }
 
-  private ReetiStage stage3D;
-  @FXML
-  private void handleTimelineButton() {
-    TimelineStart timelineStart = new TimelineStart(reeti);
-    timelineStart.setOwnerStage(this.stage3D.getMainStage());
-    try {
-      timelineStart.show();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
+//  private ReetiStage stage3D;
+//    @FXML
+//    private void handleTimelineButton() {
+//      TimelineStart timelineStart = new TimelineStart(reeti);
+//      timelineStart.setOwnerStage(this.stage3D.getMainStage());
+//      try {
+//        timelineStart.show();
+//      } catch (Exception e) {
+//        e.printStackTrace();
+//      }
+//  }
 
   private void fillExpressionListView() {
     handleClickedLabels(getClassNames(PACKAGE_EXPRESSION), expressionListView);
@@ -296,10 +295,6 @@ public class ReetiController {
     label.setCache(true);
 
     return label;
-  }
-
-  public void setStage3D(ReetiStage stage3D) {
-    this.stage3D = stage3D;
   }
 
   public Reeti getReeti() {

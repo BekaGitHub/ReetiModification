@@ -65,12 +65,6 @@ public class Head extends ReetiParts {
     return new Point(mHalfWidth - 60, mHalfHeight - 110);
   }
 
-  public Point getNeckStartPosition() {
-    int mYCenterOffset = EARWITDH / 2;
-    int mXCenterOffset = EARWITDH / 2;
-    return new Point(mSize.width / 2 + mXCenterOffset, mSize.height + mYCenterOffset + 4);
-  }
-
   @Override
   public void calculate(int step) {
 

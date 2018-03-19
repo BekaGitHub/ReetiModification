@@ -1,15 +1,11 @@
 package de.dfki.reeti;
 
-import de.dfki.action.sequence.WordTimeMarkSequence;
-import de.dfki.common.Gender;
-import de.dfki.common.agents.AgentFX;
-import de.dfki.common.interfaces.StageRoom;
+import de.dfki.common.agents.Agent;
 import de.dfki.common.parts.FXParts;
 import de.dfki.reeti.animation.environment.Blinking;
 import de.dfki.reeti.animationlogic.AnimationLoaderReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 import de.dfki.reeti.animationlogic.AnimationSchedulerReeti;
-import de.dfki.reeti.animationlogic.EventAnimationReeti;
 import de.dfki.reeti.body.Body;
 import de.dfki.reeti.body.Head;
 import de.dfki.reeti.body.LeftCheek;
@@ -27,21 +23,24 @@ import de.dfki.reeti.body.RightEye;
 import de.dfki.reeti.body.RightEyelid;
 import de.dfki.reeti.environment.SpeechBubbleFX;
 import de.dfki.reeti.util.LED;
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.InnerShadow;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.RadialGradient;
 import javafx.scene.paint.Stop;
 
-public class Reeti extends AgentFX {
+public class Reeti extends Pane implements Agent {
 
   public final Logger logger = Logger.getAnonymousLogger();
   public Blinking blinking;
   public AnimationSchedulerReeti animationSchedulerReeti;
+  public Semaphore animationLaunchControlSemaphor = new Semaphore(1);
   // body parts
   private Head head;
   private LeftEyelid leftEyelid;
@@ -59,7 +58,6 @@ public class Reeti extends AgentFX {
   private MouthDownLip mouthDownLip;
   private Body body;
   private SpeechBubbleFX speechBubbleFX;
-  private StageRoom stageController = null;
   //Movement
   private double upperLipOldPos = 0;
   private double downLipOldPos = 20;
@@ -108,76 +106,8 @@ public class Reeti extends AgentFX {
   }
 
   @Override
-  public AnimationReeti doEventFeedbackAnimation(String name, int duration,
-      WordTimeMarkSequence wts, boolean block) {
-    EventAnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadEventAnimation(this, name, duration, block);
-
-    a.setParameter(wts);
-
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
-
-    return a;
-  }
-
-  @Override
-  public StageRoom getStageController() {
-    return stageController;
-  }
-
-  @Override
-  public void setStageController(StageRoom s) {
-    stageController = s;
-  }
-
-  @Override
-  public boolean isShowName() {
-    return false;
-  }
-
-  @Override
-  public void setShowName(boolean show) {
-
-  }
-
-  @Override
-  public void endAnimationScheduler() {
-
-  }
-
-  @Override
-  public Gender.TYPE getType() {
-    return null;
-  }
-
-  @Override
   public AnimationReeti doAnimation(String name, int duration, boolean block) {
     return doAnimation(name, duration, "", block);
-  }
-
-  @Override
-  public AnimationReeti doAnimation(String name, int frequent, int actionDuration, boolean block) {
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, name, frequent, actionDuration, block);
-
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
-
-    return a;
-  }
-
-  @Override
-  public AnimationReeti doAnimation(String name, Object param, boolean block) {
-    return doAnimation(name, -1, param, block);
   }
 
   public AnimationReeti doAnimation(String name, boolean block) {

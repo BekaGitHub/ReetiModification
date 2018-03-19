@@ -22,7 +22,6 @@ public class RightCheek extends ReetiParts {
   public RightCheek(Head head) {
     mLed = new Circle(SIZE);
     mLedGroup = new Group();
-    mStart = head.getLeftEyebrowPostion();
 
     mYRotation = 25;
     xRotation = -10;

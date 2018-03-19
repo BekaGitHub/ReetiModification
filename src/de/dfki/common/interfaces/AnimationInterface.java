@@ -9,5 +9,4 @@ public interface AnimationInterface extends XMLWriteable {
 
   void setParameter(Object p);
 
-  String getmID();
 }

@@ -20,9 +20,7 @@ public abstract class ReetiParts extends FXParts3D {
   private static PhongMaterial material = null;
   public static final Logger LOGGER = Logger.getLogger(ReetiParts.class.getName());
 
-  @Override
   public void init() {
-    super.init();
     calculate(0);
   }
 

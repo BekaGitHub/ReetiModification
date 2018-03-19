@@ -21,7 +21,6 @@ public class RightEyelid extends ReetiParts {
   private MeshView mLeftEyeMesh;
 
   public RightEyelid(Head head) {
-    mStart = head.getLeftEyebrowPostion();
     mZRotation = -30;
     mYRotation = 15;
     color = Color.WHITE;
