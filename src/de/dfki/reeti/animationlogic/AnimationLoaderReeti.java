@@ -98,10 +98,6 @@ public class AnimationLoaderReeti {
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
       ((Reeti) sm).logger.severe("AnimationInterface \"" + animationName + "\" cannot be found in " + cp);
     }
-
-    if (a != null) {
-      a.ID = getNextID();
-    }
     return a;
   }
 
@@ -126,10 +122,6 @@ public class AnimationLoaderReeti {
       }
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
       ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + classPath);
-    }
-
-    if (animationReeti != null) {
-      animationReeti.ID = getNextID();
     }
 
     return animationReeti;
@@ -160,40 +152,6 @@ public class AnimationLoaderReeti {
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
       ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
     }
-
-    if (a != null) {
-      a.ID = getNextID();
-    }
-    return a;
-  }
-
-  public EventAnimationReeti loadEventAnimation(Agent sm, String name, int duration,
-      boolean block) {
-    EventAnimationReeti a = null;
-
-    String cp = getEventAnimationClasspath(name);
-
-    try {
-      Class c = Class.forName(cp);
-
-      Constructor[] constructors = c.getConstructors();
-      for (Constructor con : constructors) {
-        Class[] params = con.getParameterTypes();
-
-        if (params.length == 3) {
-          if (params[0].getSimpleName().equalsIgnoreCase("reeti")
-              && params[1].getSimpleName().equalsIgnoreCase("int")
-              && params[2].getSimpleName().equalsIgnoreCase("boolean")) {
-            a = (EventAnimationReeti) c.getDeclaredConstructor(params)
-                .newInstance(sm, duration, block);
-          }
-        }
-      }
-    } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-      ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + cp);
-    }
-
-    a.ID = getNextID();
 
     return a;
   }

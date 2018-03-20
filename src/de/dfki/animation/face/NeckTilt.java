@@ -29,7 +29,7 @@ public class NeckTilt extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents.add(new AnimationContentReeti(getReeti().getHead(), "zrotate", rot));
-    playAnimationPart(duration);
+    playAnimationPart(animationDuration);
 
   }
 }

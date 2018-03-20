@@ -11,9 +11,6 @@ public abstract class Animation extends Thread {
   public Semaphore animationPartStartSemaphore = new Semaphore(0);
   public Semaphore animationStartSemaphore = new Semaphore(1);
   public ArrayList<AnimationContent> animationContents = new ArrayList<>();
-  public String ID;
-  public String name = "";
-  public String agentName;
   public boolean isBlocked = false;
-  public int duration = -1;
+  public int animationDuration = -1;
 }

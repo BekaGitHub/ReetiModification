@@ -29,7 +29,7 @@ public class NeckPan extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents.add(new AnimationContentReeti(getReeti().getHead(), "rotate", rot));
-    playAnimationPart(duration);
+    playAnimationPart(animationDuration);
 
   }
 }

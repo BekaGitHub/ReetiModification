@@ -25,35 +25,29 @@ public class AnimationReeti extends Animation{
   }
 
   public AnimationReeti(Reeti reeti, int duration, boolean block) {
-    name = getClass().getSimpleName();
     this.reeti = reeti;
-    setName(agentName + "'s AnimationSwing " + name);
     isBlocked = block;
-    this.duration = duration;
+    this.animationDuration = duration;
   }
 
   public AnimationReeti(Reeti reeti, int duration, int pos, boolean block) {
-    name = getClass().getSimpleName();
     this.reeti = reeti;
-    setName(agentName + "'s AnimationSwing " + name);
     isBlocked = block;
-    this.duration = duration;
+    this.animationDuration = duration;
     this.actionDuration = actionDuration;
   }
 
   public AnimationReeti(Reeti reeti, int frequent, int actionDuration, boolean block,
       HashMap<String, String> extraParams) {
-    name = getClass().getSimpleName();
     this.reeti = reeti;
-    setName(agentName + "'s AnimationSwing " + name);
     isBlocked = block;
-    duration = frequent;
+    animationDuration = frequent;
     this.actionDuration = actionDuration;
     this.extraParams = extraParams;
   }
 
   public void setDuration(int duration) {
-    this.duration = duration;
+    this.animationDuration = duration;
   }
 
   public void waitForClearance() {
@@ -135,11 +129,6 @@ public class AnimationReeti extends Animation{
 
   public void setAnimtype(ANIMTYPE animtype) {
     this.animtype = animtype;
-  }
-
-  @Override
-  public String toString() {
-    return name + ", " + getName();
   }
 
   public enum ANIMTYPE {

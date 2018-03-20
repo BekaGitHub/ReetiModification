@@ -29,7 +29,7 @@ public class LeftEye_Y extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents.add(new AnimationContentReeti(getReeti().getLeftEye(), "yrotate", rot));
-    playAnimationPart(duration);
+    playAnimationPart(animationDuration);
 
   }
 }

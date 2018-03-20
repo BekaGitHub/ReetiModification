@@ -5,22 +5,21 @@
  */
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.agent.Reeti;
-import java.util.List;
-
-/**
- * @author Beka Aptsiauri
- */
-public class EventAnimationReeti extends AnimationReeti {
-
-  public List<Long> mTimepoints;
-
-  public EventAnimationReeti() {
-    super();
-  }
-
-  public EventAnimationReeti(Reeti reet, int duration, boolean block) {
-    super(reet, duration, block);
-    name = getClass().getSimpleName();
-  }
-}
+//import de.dfki.agent.Reeti;
+//import java.util.List;
+//
+///**
+// * @author Beka Aptsiauri
+// */
+//public class EventAnimationReeti extends AnimationReeti {
+//
+//  public List<Long> mTimepoints;
+//
+//  public EventAnimationReeti() {
+//    super();
+//  }
+//
+//  public EventAnimationReeti(Reeti reet, int animationDuration, boolean block) {
+//    super(reet, animationDuration, block);
+//  }
+//}

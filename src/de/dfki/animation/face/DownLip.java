@@ -27,7 +27,7 @@ public class DownLip extends AnimationReeti {
     animationContents = new ArrayList<>();
     animationContents
         .add(new AnimationContentReeti(getReeti().getMouthDownLip(), "shape", "DOWNLIPACTION"));
-    playAnimationPart(duration);
+    playAnimationPart(animationDuration);
 
   }
 }

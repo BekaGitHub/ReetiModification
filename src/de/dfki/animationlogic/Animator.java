@@ -11,7 +11,6 @@ public abstract class Animator {
   public static int sMAX_ANIM_STEPS = 20;
   public static String sCurrentAction;
   public int mCurrentStep = sMAX_ANIM_STEPS;
-  public String mDescription = "";
   public int mRenderPauseDuration = 0;
   public Semaphore mRenderingPause = new Semaphore(0);
   public Agent agent;
