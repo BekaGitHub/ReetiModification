@@ -1,5 +1,9 @@
 package de.dfki.reeti.util;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Constants {
   public static final int HEAD_Y_POSITION = -700;
   public static final int BODY_Y_POSITION = -130;
@@ -24,4 +28,8 @@ public class Constants {
   public static final int BODY_Z_TRANSLATION = -125;
 
   public static final int CONTROLPANEL_WIDTH = 491;
+
+  public final static String ANIMATIONPATH = "de.dfki.reeti.animation";
+  public static final Set<String> ANIMATION_PACKAGE_NAMES = new HashSet<>(
+      Arrays.asList("head", "face", "gesture", "blink", "posture"));
 }

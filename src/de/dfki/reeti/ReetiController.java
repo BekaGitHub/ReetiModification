@@ -31,7 +31,7 @@ import javafx.scene.transform.Rotate;
 public class ReetiController {
 
   private static final String PACKAGE_EXPRESSION = "de.dfki.reeti.animation.face";
-  private static final String PACKAGE_ENVIRONMENT = "de.dfki.reeti.animation.environment";
+  private static final String PACKAGE_ENVIRONMENT = "de.dfki.reeti.animation.blink";
   public static RadioButton currentRadioButton;
 
   @FXML

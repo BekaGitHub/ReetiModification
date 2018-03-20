@@ -7,6 +7,7 @@ package de.dfki.reeti.animationlogic;
 
 import de.dfki.common.agents.Agent;
 import de.dfki.reeti.Reeti;
+import de.dfki.reeti.util.Constants;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -19,9 +20,6 @@ import java.util.Set;
  */
 public class AnimationLoaderReeti {
 
-  private final static String ANIMATIONPATH = "de.dfki.reeti";
-  private static final Set<String> animationPackageNames = new HashSet<>(
-      Arrays.asList("head", "face", "gesture", "environment", "posture"));
   private static AnimationLoaderReeti sInstance = null;
   private static long sID = 0;
 
@@ -44,8 +42,8 @@ public class AnimationLoaderReeti {
   private String getAnimationClasspath(String animationName) {
     String classPath = "";
 
-    for (String s : animationPackageNames) {
-      classPath = ANIMATIONPATH + ".animation." + s + "." + animationName;
+    for (String s : Constants.ANIMATION_PACKAGE_NAMES) {
+      classPath = Constants.ANIMATIONPATH + "." + s + "." + animationName;
 
       try {
         Class.forName(classPath);
@@ -60,8 +58,8 @@ public class AnimationLoaderReeti {
   private String getEventAnimationClasspath(String name) {
     String classPath = "";
 
-    for (String s : animationPackageNames) {
-      classPath = ANIMATIONPATH + ".animation." + s + ".event." + name;
+    for (String s : Constants.ANIMATION_PACKAGE_NAMES) {
+      classPath = Constants.ANIMATIONPATH + "." + s + ".event." + name;
 
       try {
         Class.forName(classPath);

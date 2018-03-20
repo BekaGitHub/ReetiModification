@@ -1,7 +1,7 @@
 package de.dfki.reeti;
 
 import de.dfki.common.agents.Agent;
-import de.dfki.reeti.animation.environment.Blinking;
+import de.dfki.reeti.animation.blink.Blinking;
 import de.dfki.reeti.animationlogic.AnimationLoaderReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
 import de.dfki.reeti.animationlogic.AnimationSchedulerReeti;

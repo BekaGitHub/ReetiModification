@@ -1,4 +1,4 @@
-package de.dfki.reeti.animation.environment;
+package de.dfki.reeti.animation.blink;
 
 import de.dfki.reeti.Reeti;
 import de.dfki.reeti.ReetiController;
