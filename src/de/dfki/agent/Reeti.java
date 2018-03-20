@@ -75,7 +75,7 @@ public class Reeti extends Pane implements Agent {
   public Reeti() {
     this.init();
     this.addAllParts();
-    this.setReetiOnScreen();
+    this.setAgentOnScreen();
     logger.log(Level.INFO, "Reeti wurde erzeugt");
   }
 
@@ -125,7 +125,7 @@ public class Reeti extends Pane implements Agent {
     return animationReeti;
   }
 
-  private void setReetiOnScreen() {
+  private void setAgentOnScreen() {
     this.setTranslateX(de.dfki.util.Dimension.getReetiStage_X_Center());
     this.setTranslateY(de.dfki.util.Dimension.getScreenHight());
   }

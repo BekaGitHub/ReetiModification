@@ -31,5 +31,5 @@ public class Constants {
 
   public final static String BASE_ANIMATIONPATH = "de.dfki.animation";
   public static final Set<String> ANIMATION_PACKAGE_NAMES = new HashSet<>(
-      Arrays.asList("head", "face", "gesture", "blink", "posture"));
+      Arrays.asList("head", "expression", "faceparts", "blink"));
 }

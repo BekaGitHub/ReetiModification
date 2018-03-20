@@ -255,7 +255,7 @@ public class ReetiController {
 //  }
 
   private void fillExpressionListView() {
-    handleClickedLabels(getClassNames(Constants.BASE_ANIMATIONPATH + ".face"), expressionListView);
+    handleClickedLabels(getClassNames(Constants.BASE_ANIMATIONPATH + ".expression"), expressionListView);
   }
 
   private void fillEnvironmentListView() {

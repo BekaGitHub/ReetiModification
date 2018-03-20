@@ -23,7 +23,7 @@ public class AnimationContentReeti extends AnimationContent {
 
   public AnimationContentReeti(ReetiParts bp, Movement movementAction, String p) {
     mBodypart = bp;
-    movementAction = movementAction;
+    this.movementAction = movementAction;
     mParam = 0;
     mParamString = p;
   }
