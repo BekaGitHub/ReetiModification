@@ -1,6 +1,6 @@
 package de.dfki.reeti.timeline;
 
-import de.dfki.reeti.Reeti;
+import de.dfki.agent.Reeti;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

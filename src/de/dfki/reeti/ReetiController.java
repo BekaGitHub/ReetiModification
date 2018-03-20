@@ -5,9 +5,11 @@ import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXToggleButton;
-import de.dfki.reeti.util.BodyPartsMovement;
-import de.dfki.reeti.util.CameraMovement;
-import de.dfki.reeti.util.Led;
+import de.dfki.agent.Reeti;
+import de.dfki.util.BodyPartsMovement;
+import de.dfki.util.CameraMovement;
+import de.dfki.util.Constants;
+import de.dfki.util.Led;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,8 +32,6 @@ import javafx.scene.transform.Rotate;
  */
 public class ReetiController {
 
-  private static final String PACKAGE_EXPRESSION = "de.dfki.reeti.animation.face";
-  private static final String PACKAGE_ENVIRONMENT = "de.dfki.reeti.animation.blink";
   public static RadioButton currentRadioButton;
 
   @FXML
@@ -255,11 +255,11 @@ public class ReetiController {
 //  }
 
   private void fillExpressionListView() {
-    handleClickedLabels(getClassNames(PACKAGE_EXPRESSION), expressionListView);
+    handleClickedLabels(getClassNames(Constants.BASE_ANIMATIONPATH + ".face"), expressionListView);
   }
 
   private void fillEnvironmentListView() {
-    handleClickedLabels(getClassNames(PACKAGE_ENVIRONMENT), environmentListView);
+    handleClickedLabels(getClassNames(Constants.BASE_ANIMATIONPATH + ".blink"), environmentListView);
   }
 
   private List<String> getClassNames(String packageName) {

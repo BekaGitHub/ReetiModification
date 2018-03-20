@@ -1,6 +1,6 @@
 package de.dfki.reeti.timeline;
 
-import de.dfki.reeti.Reeti;
+import de.dfki.agent.Reeti;
 import de.dfki.reeti.files.filestystem.FileSystemAble;
 import de.dfki.reeti.files.filestystem.rmdl.RMDLFileSystem;
 import de.dfki.reeti.files.readers.rmdl.RMDLReader;

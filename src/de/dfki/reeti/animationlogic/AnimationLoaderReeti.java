@@ -5,15 +5,12 @@
  */
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.common.agents.Agent;
-import de.dfki.reeti.Reeti;
-import de.dfki.reeti.util.Constants;
+import de.dfki.agent.Agent;
+import de.dfki.agent.Reeti;
+import de.dfki.util.Constants;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * @author Beka Aptsiauri
@@ -43,7 +40,7 @@ public class AnimationLoaderReeti {
     String classPath = "";
 
     for (String s : Constants.ANIMATION_PACKAGE_NAMES) {
-      classPath = Constants.ANIMATIONPATH + "." + s + "." + animationName;
+      classPath = Constants.BASE_ANIMATIONPATH + "." + s + "." + animationName;
 
       try {
         Class.forName(classPath);
@@ -59,7 +56,7 @@ public class AnimationLoaderReeti {
     String classPath = "";
 
     for (String s : Constants.ANIMATION_PACKAGE_NAMES) {
-      classPath = Constants.ANIMATIONPATH + "." + s + ".event." + name;
+      classPath = Constants.BASE_ANIMATIONPATH + "." + s + ".event." + name;
 
       try {
         Class.forName(classPath);

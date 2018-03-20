@@ -5,16 +5,15 @@
  */
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.common.animationlogic.Animation;
-import de.dfki.common.interfaces.AnimationInterface;
-import de.dfki.reeti.Reeti;
+import de.dfki.animationlogic.Animation;
+import de.dfki.agent.Reeti;
 import java.util.HashMap;
 
 /**
  * @author Patrick Gebhard
  * @modified Beka Aptsiauri
  */
-public class AnimationReeti extends Animation implements AnimationInterface {
+public class AnimationReeti extends Animation{
 
   private AnimatorReeti animatorReeti;
   private AnimationPauseReeti animationPauseReeti;
@@ -52,12 +51,6 @@ public class AnimationReeti extends Animation implements AnimationInterface {
     this.actionDuration = actionDuration;
     this.extraParams = extraParams;
   }
-
-  @Override
-  public void setParameter(Object p) {
-    parameter = p;
-  }
-
 
   public void setDuration(int duration) {
     this.duration = duration;

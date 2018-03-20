@@ -5,7 +5,7 @@
  */
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.reeti.Reeti;
+import de.dfki.agent.Reeti;
 import java.util.List;
 
 /**

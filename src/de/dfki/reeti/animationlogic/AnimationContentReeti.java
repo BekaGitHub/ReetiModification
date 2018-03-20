@@ -5,8 +5,8 @@
  */
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.common.animationlogic.AnimationContent;
-import de.dfki.reeti.body.ReetiParts;
+import de.dfki.animationlogic.AnimationContent;
+import de.dfki.body.ReetiParts;
 
 /**
  * @author Beka Aptsiauri

@@ -1,8 +1,8 @@
 package de.dfki.reeti.animationlogic;
 
-import de.dfki.common.animationlogic.AnimationContent;
-import de.dfki.common.animationlogic.Animator3D;
-import de.dfki.reeti.Reeti;
+import de.dfki.animationlogic.AnimationContent;
+import de.dfki.animationlogic.Animator3D;
+import de.dfki.agent.Reeti;
 import java.util.ArrayList;
 
 /**
