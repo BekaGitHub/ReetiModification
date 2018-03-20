@@ -9,6 +9,7 @@ package de.dfki.animation.face;
 import de.dfki.agent.Reeti;
 import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.util.Movement;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +29,7 @@ public class RightEye_Y extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().getRightEye(), "yrotate", rot));
+    animationContents.add(new AnimationContentReeti(getReeti().getRightEye(), Movement.Y_ROTATION, rot));
     playAnimationPart(animationDuration);
 
   }

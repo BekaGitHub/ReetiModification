@@ -1,6 +1,7 @@
 package de.dfki.animationlogic;
 
 import de.dfki.agent.Agent;
+import de.dfki.util.Movement;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -9,7 +10,7 @@ import java.util.concurrent.Semaphore;
 public abstract class Animator {
 
   public static int sMAX_ANIM_STEPS = 20;
-  public static String sCurrentAction;
+  public static Movement currentMovementAction;
   public int mCurrentStep = sMAX_ANIM_STEPS;
   public int mRenderPauseDuration = 0;
   public Semaphore mRenderingPause = new Semaphore(0);

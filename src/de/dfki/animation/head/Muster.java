@@ -9,6 +9,7 @@ import de.dfki.agent.Reeti;
 import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.util.Movement;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
@@ -39,7 +40,7 @@ public class Muster extends AnimationReeti {
     animationContents = new ArrayList<>();
 //        animationContents.add(new AnimationContentReeti(reeti.leftEar, "rotate", 60));
 //        animationContents.add(new AnimationContentReeti(reeti.rightEar, "yrotate", 60));
-    animationContents.add(new AnimationContentReeti(getReeti().getMouth(), "shape", "MOUTHACTION"));
+    animationContents.add(new AnimationContentReeti(getReeti().getMouth(), Movement.SHAPE, "MOUTHACTION"));
 //        animationContents.add(new AnimationContentReeti(reeti.rightEar, "yrotate", 60));
     playAnimationPart(animationDuration);
 
@@ -48,7 +49,7 @@ public class Muster extends AnimationReeti {
     animationContents = new ArrayList<>();
 //        animationContents.add(new AnimationContentReeti(reeti.leftEar, "rotate", -60));
 //        animationContents.add(new AnimationContentReeti(reeti.rightEar, "yrotate", -60));
-    animationContents.add(new AnimationContentReeti(getReeti().getMouth(), "shape", "MOUTHACTIONEND"));
+    animationContents.add(new AnimationContentReeti(getReeti().getMouth(), Movement.SHAPE, "MOUTHACTIONEND"));
     playAnimationPart(animationDuration);
 
     if (ReetiController.currentRadioButton != null) {

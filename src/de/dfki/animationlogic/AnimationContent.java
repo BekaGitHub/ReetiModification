@@ -1,6 +1,7 @@
 package de.dfki.animationlogic;
 
 import de.dfki.common.parts.PartsInterface;
+import de.dfki.util.Movement;
 
 /**
  * Created by EmpaT on 16.07.2017.
@@ -8,7 +9,7 @@ import de.dfki.common.parts.PartsInterface;
 public abstract class AnimationContent {
 
   public PartsInterface mBodypart;
-  public String mAction;
+  public Movement movementAction;
   public int mParam;
   public String mParamString;
 }

@@ -8,6 +8,7 @@ package de.dfki.animation.head;
 import de.dfki.agent.Reeti;
 import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.util.Movement;
 import java.util.ArrayList;
 
 /**
@@ -23,7 +24,7 @@ public class TiltRightEnd extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().getHead(), "zrotate", 10));
+    animationContents.add(new AnimationContentReeti(getReeti().getHead(), Movement.Z_ROTATION, 10));
     playAnimationPart(200);
   }
 }

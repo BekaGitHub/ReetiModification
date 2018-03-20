@@ -7,22 +7,23 @@ package de.dfki.reeti.animationlogic;
 
 import de.dfki.animationlogic.AnimationContent;
 import de.dfki.body.ReetiParts;
+import de.dfki.util.Movement;
 
 /**
  * @author Beka Aptsiauri
  */
 public class AnimationContentReeti extends AnimationContent {
 
-  public AnimationContentReeti(ReetiParts bp, String a, int p) {
+  public AnimationContentReeti(ReetiParts bp, Movement movementAction, int p) {
     mBodypart = bp;
-    mAction = a;
+    this.movementAction = movementAction;
     mParam = p;
     mParamString = "";
   }
 
-  public AnimationContentReeti(ReetiParts bp, String a, String p) {
+  public AnimationContentReeti(ReetiParts bp, Movement movementAction, String p) {
     mBodypart = bp;
-    mAction = a;
+    movementAction = movementAction;
     mParam = 0;
     mParamString = p;
   }

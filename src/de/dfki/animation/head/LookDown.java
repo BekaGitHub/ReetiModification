@@ -4,6 +4,7 @@ import de.dfki.agent.Reeti;
 import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.util.Movement;
 import java.util.ArrayList;
 
 /**
@@ -23,16 +24,16 @@ public class LookDown extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().getLeftEye(), "rotate", 20));
-    animationContents.add(new AnimationContentReeti(getReeti().getRightEye(), "rotate", 20));
+    animationContents.add(new AnimationContentReeti(getReeti().getLeftEye(), Movement.X_ROTATION, 20));
+    animationContents.add(new AnimationContentReeti(getReeti().getRightEye(), Movement.X_ROTATION, 20));
 //        animationContents.add(new AnimationContentReeti(reeti.mRightEyeFX, "shape", "LOOKDOWN"));
     playAnimationPart(100);
 
     pauseAnimation(100);
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().getLeftEye(), "rotate", -20));
-    animationContents.add(new AnimationContentReeti(getReeti().getRightEye(), "rotate", -20));
+    animationContents.add(new AnimationContentReeti(getReeti().getLeftEye(), Movement.X_ROTATION, -20));
+    animationContents.add(new AnimationContentReeti(getReeti().getRightEye(), Movement.X_ROTATION, -20));
 //        animationContents.add(new AnimationContentReeti(reeti.mRightEyeFX, "shape", "LOOKDOWNEND"));
     playAnimationPart(100);
 

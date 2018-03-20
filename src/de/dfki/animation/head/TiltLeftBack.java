@@ -9,6 +9,7 @@ import de.dfki.agent.Reeti;
 import de.dfki.reeti.ReetiController;
 import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.util.Movement;
 import java.util.ArrayList;
 
 /**
@@ -27,7 +28,7 @@ public class TiltLeftBack extends AnimationReeti {
   @Override
   public void playAnimation() {
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().getHead(), "zrotate", -10));
+    animationContents.add(new AnimationContentReeti(getReeti().getHead(), Movement.Z_ROTATION, -10));
     playAnimationPart(200);
 
     if (ReetiController.currentRadioButton != null) {

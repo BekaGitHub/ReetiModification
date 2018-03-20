@@ -9,6 +9,7 @@ package de.dfki.animation.face;
 import de.dfki.agent.Reeti;
 import de.dfki.reeti.animationlogic.AnimationContentReeti;
 import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.util.Movement;
 import java.util.ArrayList;
 
 /**
@@ -26,7 +27,7 @@ public class DownLip extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(getReeti().getMouthDownLip(), "shape", "DOWNLIPACTION"));
+        .add(new AnimationContentReeti(getReeti().getMouthDownLip(), Movement.SHAPE, "DOWNLIPACTION"));
     playAnimationPart(animationDuration);
 
   }

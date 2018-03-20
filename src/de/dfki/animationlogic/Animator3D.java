@@ -1,6 +1,7 @@
 package de.dfki.animationlogic;
 
 import de.dfki.common.parts.PartsInterface;
+import de.dfki.util.Movement;
 import java.util.ArrayList;
 
 /**
@@ -19,32 +20,32 @@ public abstract class Animator3D extends Animator {
         mAnimationComponents.stream().forEach((comp) ->
         {
           PartsInterface bodyPart = comp.mBodypart;
-          String action = comp.mAction;
-          sCurrentAction = action;
+          Movement movementAction = comp.movementAction;
+          currentMovementAction = movementAction;
           int param = comp.mParam;
           String paramString = comp.mParamString;
-          if (action.equalsIgnoreCase("rotate")) {
+          if (movementAction == Movement.X_ROTATION) {
             bodyPart.set_X_Rotation(param);
           }
-          if (action.equalsIgnoreCase("yRotate")) {
+          if (movementAction == Movement.Y_ROTATION) {
             bodyPart.set_Y_Rotation(param);
           }
-          if (action.equalsIgnoreCase("zRotate")) {
+          if (movementAction == Movement.Z_ROTATION) {
             bodyPart.set_Z_Rotation(param);
           }
-          if (action.equalsIgnoreCase("tilt")) {
+          if (movementAction == Movement.TILT) {
             bodyPart.setTilt(param);
           }
-          if (action.equalsIgnoreCase("translate")) {
+          if (movementAction == Movement.X_TRANSLATION) {
             bodyPart.set_X_Translation(param);
           }
-          if (action.equalsIgnoreCase("ytranslate")) {
+          if (movementAction == Movement.Y_TRANSLATION) {
             bodyPart.set_Y_Translation(param);
           }
-          if (action.equalsIgnoreCase("ztranslate")) {
+          if (movementAction == Movement.Z_TRANSLATION) {
             bodyPart.set_Z_Translation(param);
           }
-          if (action.equalsIgnoreCase("shape")) {
+          if (movementAction == Movement.SHAPE) {
             bodyPart.setShape(paramString);
           }
         });
@@ -53,31 +54,31 @@ public abstract class Animator3D extends Animator {
       if (mCurrentStep > 1) {
         for (AnimationContent acr : mAnimationComponents) {
           PartsInterface bodypart = acr.mBodypart;
-          String action = acr.mAction;
+          Movement movementAction = acr.movementAction;
 
-          if (action.equalsIgnoreCase("rotate")) {
+          if (movementAction == Movement.X_ROTATION) {
             bodypart.calculate_X_Rotation(mCurrentStep);
           }
-          if (action.equalsIgnoreCase("yrotate")) {
+          if (movementAction == Movement.Y_ROTATION) {
             bodypart.calculate_Y_Rotation(mCurrentStep);
           }
-          if (action.equalsIgnoreCase("zrotate")) {
+          if (movementAction == Movement.Z_ROTATION) {
             bodypart.calculate_Z_Rotation(mCurrentStep);
           }
-          if (action.equalsIgnoreCase("tilt")) {
+          if (movementAction == Movement.TILT) {
             bodypart.calculate_X_Rotation(mCurrentStep);
           }
 
-          if (action.equalsIgnoreCase("translate")) {
+          if (movementAction == Movement.X_TRANSLATION) {
             bodypart.calculate_X_Translation(mCurrentStep);
           }
-          if (action.equalsIgnoreCase("ytranslate")) {
+          if (movementAction == Movement.Y_TRANSLATION) {
             bodypart.calculate_Y_Translation(mCurrentStep);
           }
-          if (action.equalsIgnoreCase("ztranslate")) {
+          if (movementAction == Movement.Z_TRANSLATION) {
             bodypart.calculate_Z_Translation(mCurrentStep);
           }
-          if (action.equalsIgnoreCase("shape")) {
+          if (movementAction == Movement.SHAPE) {
             bodypart.calculateShape(mCurrentStep);
           }
         }
@@ -93,23 +94,23 @@ public abstract class Animator3D extends Animator {
 
       if (mCurrentStep == 1) {
         for (AnimationContent acr : mAnimationComponents) {
-          String action = acr.mAction;
+          Movement movementAction = acr.movementAction;
           PartsInterface bodypart = acr.mBodypart;
 
-          if (action.equalsIgnoreCase("rotate")) {
+          if (movementAction == Movement.X_ROTATION) {
             bodypart.reset_X_Rotation();
           }
-          if (action.equalsIgnoreCase("yrotate")) {
+          if (movementAction == Movement.Y_ROTATION) {
             bodypart.reset_Y_Rotation();
           }
-          if (action.equalsIgnoreCase("zrotate")) {
+          if (movementAction == Movement.Z_ROTATION) {
             bodypart.reset_Z_Rotation();
           }
-          if (action.equalsIgnoreCase("tilt")) {
+          if (movementAction == Movement.Z_ROTATION) {
             bodypart.resetRotation();
           }
 
-          if (action.equalsIgnoreCase("translate")) {
+          if (movementAction == Movement.X_TRANSLATION) {
             bodypart.resetTranslation();
           }
         }
