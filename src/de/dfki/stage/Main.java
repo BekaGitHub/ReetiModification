@@ -24,7 +24,7 @@ public class Main extends Application {
   public void start(Stage primaryStage) throws Exception {
 
     FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(getClass().getResource("/de/dfki/view/ViewX.fxml"));
+    loader.setLocation(getClass().getResource("/de/dfki/view/controlPanelView.fxml"));
 
 //    Reeti reeti = new Reeti("Reeti",  TYPE.MALE, 1.5f, new Dimension(0,0));
     Reeti reeti = new Reeti();
