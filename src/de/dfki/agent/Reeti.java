@@ -500,16 +500,32 @@ public class Reeti extends Pane implements Agent {
     return leftEye;
   }
 
+  public void setLeftEye(LeftEye leftEye) {
+    this.leftEye = leftEye;
+  }
+
   public RightEye getRightEye() {
     return rightEye;
+  }
+
+  public void setRightEye(RightEye rightEye) {
+    this.rightEye = rightEye;
   }
 
   public LeftEyelid getLeftEyelid() {
     return leftEyelid;
   }
 
+  public void setLeftEyelid(LeftEyelid leftEyelid) {
+    this.leftEyelid = leftEyelid;
+  }
+
   public RightEyelid getRightEyelid() {
     return rightEyelid;
+  }
+
+  public void setRightEyelid(RightEyelid rightEyelid) {
+    this.rightEyelid = rightEyelid;
   }
 
   public LeftEar getLeftEar() {
@@ -532,32 +548,32 @@ public class Reeti extends Pane implements Agent {
     return mouthLeftCorner;
   }
 
+  public void setMouthLeftCorner(MouthLeftCorner mouthLeftCorner) {
+    this.mouthLeftCorner = mouthLeftCorner;
+  }
+
   public MouthRightCorner getMouthRightCorner() {
     return mouthRightCorner;
+  }
+
+  public void setMouthRightCorner(MouthRightCorner mouthRightCorner) {
+    this.mouthRightCorner = mouthRightCorner;
   }
 
   public MouthUpperLip getMouthUpperLip() {
     return mouthUpperLip;
   }
 
+  public void setMouthUpperLip(MouthUpperLip mouthUpperLip) {
+    this.mouthUpperLip = mouthUpperLip;
+  }
+
   public MouthDownLip getMouthDownLip() {
     return mouthDownLip;
   }
 
-  public void setLeftEyelid(LeftEyelid leftEyelid) {
-    this.leftEyelid = leftEyelid;
-  }
-
-  public void setLeftEye(LeftEye leftEye) {
-    this.leftEye = leftEye;
-  }
-
-  public void setRightEye(RightEye rightEye) {
-    this.rightEye = rightEye;
-  }
-
-  public void setRightEyelid(RightEyelid rightEyelid) {
-    this.rightEyelid = rightEyelid;
+  public void setMouthDownLip(MouthDownLip mouthDownLip) {
+    this.mouthDownLip = mouthDownLip;
   }
 
   public LeftCheek getLeftCheek() {
@@ -582,22 +598,6 @@ public class Reeti extends Pane implements Agent {
 
   public void setMouth(Mouth mouth) {
     this.mouth = mouth;
-  }
-
-  public void setMouthLeftCorner(MouthLeftCorner mouthLeftCorner) {
-    this.mouthLeftCorner = mouthLeftCorner;
-  }
-
-  public void setMouthRightCorner(MouthRightCorner mouthRightCorner) {
-    this.mouthRightCorner = mouthRightCorner;
-  }
-
-  public void setMouthUpperLip(MouthUpperLip mouthUpperLip) {
-    this.mouthUpperLip = mouthUpperLip;
-  }
-
-  public void setMouthDownLip(MouthDownLip mouthDownLip) {
-    this.mouthDownLip = mouthDownLip;
   }
 
   public Body getBody() {

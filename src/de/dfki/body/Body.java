@@ -16,7 +16,7 @@ import javafx.scene.shape.MeshView;
 /**
  * @author Beka Aptsiauri
  */
-public class Body extends ReetiParts {
+public class Body extends ReetiBodyPart {
 
   public Body() {
     color = Color.WHITE;
@@ -31,7 +31,7 @@ public class Body extends ReetiParts {
     this.getChildren().addAll(mBodyMeshView);
 
     init();
-    LOGGER.log(Level.INFO,"Body wurde erzeugt");
+    LOGGER.log(Level.INFO, "Body wurde erzeugt");
   }
 
   @Override

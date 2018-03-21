@@ -13,7 +13,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka Aptsiauri
  */
-public class LeftCheek extends ReetiParts {
+public class LeftCheek extends ReetiBodyPart {
 
   private static final int SIZE = 70;
   private final Circle led;
@@ -25,9 +25,9 @@ public class LeftCheek extends ReetiParts {
     ledGroup = new Group();
 
     y_Rotation = -25;
-    xRotation = -10;
+    x_Rotation = -10;
     Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
-    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(x_Rotation, Rotate.X_AXIS);
     ledGroup.getTransforms().addAll(rx, ry);
 
     ledGroup.getChildren().add(led);

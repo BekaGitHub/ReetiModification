@@ -1,8 +1,8 @@
 package de.dfki.animation.blink;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.ReetiController;
 import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.reeti.ReetiController;
 import de.dfki.util.AnimationVisivility;
 
 /**
@@ -18,6 +18,7 @@ public class StartBlinking extends AnimationReeti {
 
   int frequent;
   int actionDuration;
+
   public StartBlinking() {
     setAnimationVisivility(AnimationVisivility.YES);
   }
@@ -36,7 +37,7 @@ public class StartBlinking extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    ((Reeti)agent).blinking = new Blinking(((Reeti)agent), frequent, actionDuration);
+    ((Reeti) agent).blinking = new Blinking(((Reeti) agent), frequent, actionDuration);
 
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);

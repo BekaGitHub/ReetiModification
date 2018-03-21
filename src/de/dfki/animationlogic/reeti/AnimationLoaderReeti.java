@@ -60,13 +60,15 @@ public class AnimationLoaderReeti {
           if (params[0].getSimpleName().equalsIgnoreCase("reeti")
               && params[1].getSimpleName().equalsIgnoreCase("int")
               && params[2].getSimpleName().equalsIgnoreCase("boolean")) {
-            animationReeti = (AnimationReeti) animationClass.getDeclaredConstructor(params).newInstance(sm, duration, block);
+            animationReeti = (AnimationReeti) animationClass.getDeclaredConstructor(params)
+                .newInstance(sm, duration, block);
           }
         }
 
       }
     } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-      ((Reeti) sm).logger.severe("AnimationInterface \"" + name + "\" cannot be found in " + classPath);
+      ((Reeti) sm).logger
+          .severe("AnimationInterface \"" + name + "\" cannot be found in " + classPath);
     }
 
     return animationReeti;

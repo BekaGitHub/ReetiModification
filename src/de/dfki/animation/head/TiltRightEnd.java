@@ -24,7 +24,8 @@ public class TiltRightEnd extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getHead(), Movement.Z_ROTATION, 10));
+    animationContents
+        .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.Z_ROTATION, 10));
     playAnimationPart(200);
   }
 }

@@ -29,7 +29,8 @@ public class RightEye_X extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getRightEye(), Movement.X_ROTATION, rot));
+    animationContents
+        .add(new AnimationContentReeti(((Reeti) agent).getRightEye(), Movement.X_ROTATION, rot));
     playAnimationPart(animationDuration);
 
   }

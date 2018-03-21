@@ -15,7 +15,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka Aptsiauri
  */
-public class Head extends ReetiParts {
+public class Head extends ReetiBodyPart {
 
   private static final int EARWITDH = 10;
   private Group headGroup;
@@ -42,7 +42,7 @@ public class Head extends ReetiParts {
 
     init();
     getChildren().add(headGroup);
-    LOGGER.log(Level.INFO,"Head wurde erzeugt");
+    LOGGER.log(Level.INFO, "Head wurde erzeugt");
   }
 
 
@@ -68,7 +68,7 @@ public class Head extends ReetiParts {
   @Override
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(xRotation, 0, 25, -25, Rotate.X_AXIS);
+    Rotate rx = new Rotate(x_Rotation, 0, 25, -25, Rotate.X_AXIS);
     Rotate ry = new Rotate(y_Rotation, 0, 25, -25, Rotate.Y_AXIS);
     Rotate rz = new Rotate(z_Rotation, 0, 25, -25, Rotate.Z_AXIS);
 

@@ -6,9 +6,9 @@
 package de.dfki.animation.head;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.ReetiController;
 import de.dfki.animationlogic.reeti.AnimationContentReeti;
 import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.reeti.ReetiController;
 import de.dfki.util.AnimationVisivility;
 import de.dfki.util.Movement;
 import java.util.ArrayList;
@@ -29,14 +29,18 @@ public class Blink extends AnimationReeti {
   @Override
   public void playAnimation() {
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getLeftEyelid(), Movement.X_ROTATION, 100));
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getRightEyelid(), Movement.X_ROTATION, 100));
+    animationContents
+        .add(new AnimationContentReeti(((Reeti) agent).getLeftEyelid(), Movement.X_ROTATION, 100));
+    animationContents
+        .add(new AnimationContentReeti(((Reeti) agent).getRightEyelid(), Movement.X_ROTATION, 100));
     playAnimationPart(500);
 
     //blink up
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getLeftEyelid(), Movement.X_ROTATION, -100));
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getRightEyelid(), Movement.X_ROTATION, -100));
+    animationContents
+        .add(new AnimationContentReeti(((Reeti) agent).getLeftEyelid(), Movement.X_ROTATION, -100));
+    animationContents.add(
+        new AnimationContentReeti(((Reeti) agent).getRightEyelid(), Movement.X_ROTATION, -100));
     playAnimationPart(500);
 
     if (ReetiController.currentRadioButton != null) {

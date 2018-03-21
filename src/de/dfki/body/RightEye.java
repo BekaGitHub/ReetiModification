@@ -15,12 +15,12 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka Aptsiauri
  */
-public class RightEye extends ReetiParts {
+public class RightEye extends ReetiBodyPart {
 
   private Group mRightEarMesh;
 
   public RightEye(Head head) {
-    xRotation = 5;
+    x_Rotation = 5;
 
     URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiEye.dae");
     ColModelImporter importer = new ColModelImporter();
@@ -30,7 +30,7 @@ public class RightEye extends ReetiParts {
     init();
 
     head.getHeadGroup().getChildren().add(mRightEarMesh);
-    LOGGER.log(Level.INFO,"Right Eye wurde erzeugt");
+    LOGGER.log(Level.INFO, "Right Eye wurde erzeugt");
   }
 
   @Override
@@ -44,7 +44,7 @@ public class RightEye extends ReetiParts {
   @Override
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(x_Rotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(z_Rotation, Rotate.Z_AXIS);
 

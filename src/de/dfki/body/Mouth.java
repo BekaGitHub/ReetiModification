@@ -13,7 +13,7 @@ import javafx.scene.shape.StrokeLineJoin;
 /**
  * @author Beka Aptsiauri
  */
-public class Mouth extends ReetiParts {
+public class Mouth extends ReetiBodyPart {
 
   private final int mouthLength = 32;
   public Point2D leftCorner;
@@ -81,10 +81,10 @@ public class Mouth extends ReetiParts {
           leftCornerRegulator = leftCorner.getY();
         }
 
-        downRegulator += recordDownRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
-        upRegulator += recordUpRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
-        rightCornerRegulator += recordRightCornerRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
-        leftCornerRegulator += recordLeftCornerRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
+        downRegulator += recordDownRegulator / AnimatorReeti.MAX_ANIM_STEPS;
+        upRegulator += recordUpRegulator / AnimatorReeti.MAX_ANIM_STEPS;
+        rightCornerRegulator += recordRightCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
+        leftCornerRegulator += recordLeftCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
         mLips.getElements().clear();
         mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCornerRegulator));
         mLips.getElements().add(new QuadCurveTo(upperPoint.getX(), upRegulator, leftCorner.getX(),
@@ -108,10 +108,10 @@ public class Mouth extends ReetiParts {
           leftCornerRegulator = recordLeftCornerRegulator + rightCorner.getY();
         }
 
-        downRegulator -= recordDownRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
-        upRegulator -= recordUpRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
-        rightCornerRegulator -= recordRightCornerRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
-        leftCornerRegulator -= recordLeftCornerRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
+        downRegulator -= recordDownRegulator / AnimatorReeti.MAX_ANIM_STEPS;
+        upRegulator -= recordUpRegulator / AnimatorReeti.MAX_ANIM_STEPS;
+        rightCornerRegulator -= recordRightCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
+        leftCornerRegulator -= recordLeftCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
 
         mLips.getElements().clear();
         mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCornerRegulator));
@@ -135,7 +135,7 @@ public class Mouth extends ReetiParts {
           leftCornerRegulator = leftCorner.getY();
         }
 
-        leftCornerRegulator += recordLeftCornerRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
+        leftCornerRegulator += recordLeftCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
         mLips.getElements().clear();
         mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCorner.getY()));
         mLips.getElements().add(
@@ -156,7 +156,7 @@ public class Mouth extends ReetiParts {
           recordRightCornerRegulator = rightCornerRegulator;
           rightCornerRegulator = rightCorner.getY();
         }
-        rightCornerRegulator += recordRightCornerRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
+        rightCornerRegulator += recordRightCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
         mLips.getElements().clear();
         mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCornerRegulator));
         mLips.getElements().add(

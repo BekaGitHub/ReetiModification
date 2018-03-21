@@ -3,6 +3,7 @@ package de.dfki.stage;
 import javafx.scene.PerspectiveCamera;
 
 public class ReetiCamera {
+
   private static PerspectiveCamera perspectiveCamera;
 
   public static PerspectiveCamera getCameraInstance() {

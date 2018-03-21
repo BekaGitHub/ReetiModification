@@ -12,29 +12,35 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: #5A5A5A;" maxHeight="864.0" maxWidth="1152.0" minHeight="337.0"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" style="-fx-background-color: #5A5A5A;"
+  maxHeight="864.0" maxWidth="1152.0" minHeight="337.0"
   minWidth="1152.0"
   prefHeight="337.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8.0.60"
   fx:id="root">
   <children>
-    <Separator style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="278.0" AnchorPane.topAnchor="0.0"
+    <Separator style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0"
+      AnchorPane.leftAnchor="278.0" AnchorPane.topAnchor="0.0"
       layoutX="278.0"
       opacity="0.34" orientation="VERTICAL"
       prefHeight="864.0"
       prefWidth="0.0"/>
-    <AnchorPane style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+    <AnchorPane style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0"
+      AnchorPane.leftAnchor="0.0"
       AnchorPane.topAnchor="0.0" prefHeight="864.0" prefWidth="282.0">
       <children>
-        <ComboBox AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="50.0" layoutX="35.0" layoutY="50.0"
+        <ComboBox AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="50.0" layoutX="35.0"
+          layoutY="50.0"
           prefWidth="150.0" fx:id="animationCombo"/>
-        <Button AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="169.0" layoutX="60.0" layoutY="169.0"
+        <Button AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="169.0" layoutX="60.0"
+          layoutY="169.0"
           mnemonicParsing="false"
           prefHeight="53.0" prefWidth="100.0" text="PLAY" fx:id="playButton">
           <font>
             <Font name="System Bold" size="25.0"/>
           </font>
         </Button>
-        <Separator style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="199.0" AnchorPane.topAnchor="0.0"
+        <Separator style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="199.0" AnchorPane.topAnchor="0.0"
           layoutX="199.0"
           layoutY="-31.0" opacity="0.34" orientation="VERTICAL"
           prefHeight="864.0" prefWidth="6.0"/>
@@ -65,16 +71,19 @@
         </Label>
       </children>
     </AnchorPane>
-    <ScrollPane style="-fx-background-color: #5A5A5A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="0.0"
+    <ScrollPane style="-fx-background-color: #5A5A5A;" AnchorPane.bottomAnchor="0.0"
+      AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="0.0"
       AnchorPane.topAnchor="0.0" layoutX="284.0"
       prefHeight="864.0"
       prefWidth="868.0" fx:id="animationScrollPane">
       <content>
-        <AnchorPane style="-fx-background-color: #5A5A5A;" maxHeight="324.0" maxWidth="6000.0" minHeight="324.0"
+        <AnchorPane style="-fx-background-color: #5A5A5A;" maxHeight="324.0" maxWidth="6000.0"
+          minHeight="324.0"
           minWidth="5789.0"
           prefHeight="324.0" prefWidth="5789.0">
           <children>
-            <Separator style="-fx-background-color: #00B3FF;" layoutX="-5.0" layoutY="37.0" maxWidth="6000.0"
+            <Separator style="-fx-background-color: #00B3FF;" layoutX="-5.0" layoutY="37.0"
+              maxWidth="6000.0"
               minWidth="6000.0"
               prefHeight="0.0" prefWidth="6000.0"/>
             <Line endX="-222.0" endY="20.0" fill="BLACK" layoutX="242.0" layoutY="23.0"
@@ -887,7 +896,8 @@
             <Line endX="-222.0" endY="20.0" fill="BLACK" layoutX="6202.0" layoutY="23.0"
               startX="-222.0"
               startY="8.0" stroke="#00b3ff" strokeLineCap="ROUND" strokeType="OUTSIDE"/>
-            <GridPane style="-fx-background-color: black;" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0"
+            <GridPane style="-fx-background-color: black;" AnchorPane.leftAnchor="4.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0"
               gridLinesVisible="true" layoutX="4.0" layoutY="75.0" minHeight="324.0"
               minWidth="5903.0" prefHeight="324.0"
               prefWidth="5941.0" fx:id="animationGridPane">

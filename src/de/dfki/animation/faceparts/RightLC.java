@@ -26,7 +26,8 @@ public class RightLC extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(((Reeti)agent).getMouthRightCorner(), Movement.SHAPE, "RIGHTCORNERACTION"));
+        .add(new AnimationContentReeti(((Reeti) agent).getMouthRightCorner(), Movement.SHAPE,
+            "RIGHTCORNERACTION"));
     playAnimationPart(animationDuration);
 
   }

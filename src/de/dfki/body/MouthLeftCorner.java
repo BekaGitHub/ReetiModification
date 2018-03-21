@@ -8,7 +8,7 @@ import javafx.scene.shape.QuadCurveTo;
 /**
  * @author Beka Aptsiauri
  */
-public class MouthLeftCorner extends ReetiParts {
+public class MouthLeftCorner extends ReetiBodyPart {
 
   public MouthLeftCorner.SHAPE mShape = MouthLeftCorner.SHAPE.DEFAULT;
   private Path mLips;
@@ -40,7 +40,7 @@ public class MouthLeftCorner extends ReetiParts {
           leftCornerRegulator = leftCorner.getY();
         }
 
-        leftCornerRegulator += recordLeftCornerRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
+        leftCornerRegulator += recordLeftCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
         leftCorner.setLocation(leftCorner.getX(), leftCornerRegulator);
         QuadCurveTo leftQuadCurveTo = (QuadCurveTo) mLips.getElements().get(1);
 

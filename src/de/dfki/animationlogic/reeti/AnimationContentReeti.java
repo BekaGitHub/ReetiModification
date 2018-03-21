@@ -6,7 +6,7 @@
 package de.dfki.animationlogic.reeti;
 
 import de.dfki.animationlogic.commonlogic.AnimationContent;
-import de.dfki.body.ReetiParts;
+import de.dfki.body.ReetiBodyPart;
 import de.dfki.util.Movement;
 
 /**
@@ -14,17 +14,17 @@ import de.dfki.util.Movement;
  */
 public class AnimationContentReeti extends AnimationContent {
 
-  public AnimationContentReeti(ReetiParts bp, Movement movementAction, int p) {
+  public AnimationContentReeti(ReetiBodyPart bp, Movement movementAction, int position) {
     mBodypart = bp;
     this.movementAction = movementAction;
-    mParam = p;
-    mParamString = "";
+    this.position = position;
+    bodyPartMovementAction = "";
   }
 
-  public AnimationContentReeti(ReetiParts bp, Movement movementAction, String p) {
+  public AnimationContentReeti(ReetiBodyPart bp, Movement movementAction, String action) {
     mBodypart = bp;
     this.movementAction = movementAction;
-    mParam = 0;
-    mParamString = p;
+    position = 0;
+    this.bodyPartMovementAction = action;
   }
 }

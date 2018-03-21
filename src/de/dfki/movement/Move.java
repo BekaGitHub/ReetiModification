@@ -1,6 +1,7 @@
 package de.dfki.movement;
 
 public class Move {
+
   private double upperLipOldPos = 0;
   private double downLipOldPos = 20;
   private double leftCornerOldPos = 8;

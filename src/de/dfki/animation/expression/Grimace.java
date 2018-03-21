@@ -25,7 +25,7 @@ public class Grimace extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    Reeti reeti = ((Reeti)agent);
+    Reeti reeti = ((Reeti) agent);
     reeti.neckPan(25);
     reeti.neckTilt(20);
     reeti.leftEyePan(60);
@@ -37,6 +37,5 @@ public class Grimace extends AnimationReeti {
     reeti.rightLC(60);
     reeti.bottomLip(10);
     reeti.topLip(3);
-
   }
 }

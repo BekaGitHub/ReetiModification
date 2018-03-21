@@ -28,8 +28,9 @@ public class CameraMovement {
           double rotationFactor = newValue - oldValue;
           Rotate rotation = new Rotate(rotationFactor, Dimension.getReetiStage_X_Center(),
               Dimension.getReetiStage_Y_Center(), 0, axis);
-          if (perspectiveCamera != null)
+          if (perspectiveCamera != null) {
             perspectiveCamera.getTransforms().add(rotation);
+          }
         });
   }
 
@@ -47,20 +48,22 @@ public class CameraMovement {
           Translate translate = null;
           if (axis == Rotate.X_AXIS) {
             translate = new Translate(-translationFactor, 0, 0);
-          }
-          else if (axis == Rotate.Y_AXIS)
+          } else if (axis == Rotate.Y_AXIS) {
             translate = new Translate(0, translationFactor, 0);
-          else
+          } else {
             translate = new Translate(0, 0, translationFactor);
+          }
 
-          if (perspectiveCamera != null)
+          if (perspectiveCamera != null) {
             perspectiveCamera.getTransforms().add(translate);
+          }
         });
   }
 
   public static void resetCameraPosition(List<JFXSlider> sliders) {
-    if (perspectiveCamera != null)
+    if (perspectiveCamera != null) {
       perspectiveCamera.getTransforms().clear();
+    }
 
     sliders.stream().forEach(e -> e.setValue(0));
   }

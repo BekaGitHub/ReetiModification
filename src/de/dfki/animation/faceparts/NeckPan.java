@@ -29,7 +29,8 @@ public class NeckPan extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getHead(), Movement.X_ROTATION, rot));
+    animationContents
+        .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.X_ROTATION, rot));
     playAnimationPart(animationDuration);
 
   }

@@ -8,7 +8,7 @@ import javafx.scene.shape.QuadCurveTo;
 /**
  * @author Beka Aptsiauri
  */
-public class MouthDownLip extends ReetiParts {
+public class MouthDownLip extends ReetiBodyPart {
 
   public MouthDownLip.SHAPE mShape = MouthDownLip.SHAPE.DEFAULT;
   private Point2D downPoint;
@@ -42,7 +42,7 @@ public class MouthDownLip extends ReetiParts {
           downLipRegulator = downPoint.getY();
         }
 
-        downLipRegulator += recorDownLipRegulator / AnimatorReeti.sMAX_ANIM_STEPS;
+        downLipRegulator += recorDownLipRegulator / AnimatorReeti.MAX_ANIM_STEPS;
         downPoint.setLocation(downPoint.getX(), downLipRegulator);
 
         QuadCurveTo quadCurveTo = (QuadCurveTo) mLips.getElements().get(2);

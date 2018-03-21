@@ -6,9 +6,9 @@
 package de.dfki.animation.head;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.ReetiController;
 import de.dfki.animationlogic.reeti.AnimationContentReeti;
 import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.reeti.ReetiController;
 import de.dfki.util.AnimationVisivility;
 import de.dfki.util.Movement;
 import java.util.ArrayList;
@@ -30,11 +30,13 @@ public class Nod extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getHead(), Movement.X_ROTATION, 10));
+    animationContents
+        .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.X_ROTATION, 10));
     playAnimationPart(200);
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getHead(), Movement.X_ROTATION, -10));
+    animationContents
+        .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.X_ROTATION, -10));
     playAnimationPart(200);
 
     if (ReetiController.currentRadioButton != null) {

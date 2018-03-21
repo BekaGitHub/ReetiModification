@@ -20,13 +20,13 @@ public class Dimension {
   public static double getReetiStage_X_Center() {
     Screen screen = Screen.getPrimary();
     Rectangle2D bounds = screen.getVisualBounds();
-    return bounds.getWidth()/2 - Constants.CONTROLPANEL_WIDTH/2;
+    return bounds.getWidth() / 2 - Constants.CONTROLPANEL_WIDTH / 2;
   }
 
   public static double getReetiStage_Y_Center() {
     Screen screen = Screen.getPrimary();
     Rectangle2D bounds = screen.getVisualBounds();
-    return bounds.getHeight()/2;
+    return bounds.getHeight() / 2;
   }
 
 }

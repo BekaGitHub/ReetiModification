@@ -16,7 +16,7 @@ public class SmileStart extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    Reeti reeti = ((Reeti)agent);
+    Reeti reeti = ((Reeti) agent);
     reeti.bottomLip(50);
     reeti.leftLC(70);
     reeti.rightLC(70);

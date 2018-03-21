@@ -5,20 +5,18 @@
  */
 package de.dfki.animationlogic.reeti;
 
-import de.dfki.animationlogic.commonlogic.Animation;
 import de.dfki.agent.Reeti;
-import de.dfki.util.AnimationVisivility;
-import java.util.HashMap;
+import de.dfki.animationlogic.commonlogic.Animation;
 
 /**
  * @author Patrick Gebhard
  * @modified Beka Aptsiauri
  */
-public class AnimationReeti extends Animation{
+public class AnimationReeti extends Animation {
 
   private int actionDuration = -1;
 
-  public AnimationReeti(){
+  public AnimationReeti() {
     super();
   }
 
@@ -40,20 +38,13 @@ public class AnimationReeti extends Animation{
   }
 
   public void playAnimationPart(int duration) {
-    animator = new AnimatorReeti((Reeti) agent, this, animationContents, duration);
+    animator = new AnimatorReeti((Reeti) agent, animationContents, duration);
+    animator.renderAnimation();
 
   }
 
   @Override
   public void run() {
     play();
-  }
-
-  public AnimationVisivility getAnimationVisivility() {
-    return animationVisivility;
-  }
-
-  public void setAnimationVisivility(AnimationVisivility animationVisivility) {
-    this.animationVisivility = animationVisivility;
   }
 }

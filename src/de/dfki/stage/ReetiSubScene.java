@@ -8,10 +8,12 @@ import javafx.scene.layout.StackPane;
 
 public class ReetiSubScene {
 
-  private ReetiSubScene(){}
+  private ReetiSubScene() {
+  }
 
   public static SubScene createSubScene(StackPane stackPane) {
-    SubScene subScene = new SubScene(stackPane, Dimension.getScreenWidth() - Constants.CONTROLPANEL_WIDTH,
+    SubScene subScene = new SubScene(stackPane,
+        Dimension.getScreenWidth() - Constants.CONTROLPANEL_WIDTH,
         Dimension.getScreenHight(),
         true, SceneAntialiasing.BALANCED);
     subScene.setCamera(ReetiCamera.getCameraInstance());

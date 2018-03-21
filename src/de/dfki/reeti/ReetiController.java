@@ -255,11 +255,13 @@ public class ReetiController {
 //  }
 
   private void fillExpressionListView() {
-    handleClickedLabels(getClassNames(Constants.BASE_ANIMATIONPATH + ".expression"), expressionListView);
+    handleClickedLabels(getClassNames(Constants.BASE_ANIMATIONPATH + ".expression"),
+        expressionListView);
   }
 
   private void fillEnvironmentListView() {
-    handleClickedLabels(getClassNames(Constants.BASE_ANIMATIONPATH + ".blink"), environmentListView);
+    handleClickedLabels(getClassNames(Constants.BASE_ANIMATIONPATH + ".blink"),
+        environmentListView);
   }
 
   private List<String> getClassNames(String packageName) {

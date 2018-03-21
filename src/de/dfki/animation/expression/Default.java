@@ -6,8 +6,8 @@
 package de.dfki.animation.expression;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.ReetiController;
 import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.reeti.ReetiController;
 import de.dfki.util.AnimationVisivility;
 
 /**
@@ -25,7 +25,7 @@ public class Default extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    Reeti reeti = ((Reeti)agent);
+    Reeti reeti = ((Reeti) agent);
     reeti.neckRotat(50);
     reeti.neckPan(50);
     reeti.neckTilt(50);

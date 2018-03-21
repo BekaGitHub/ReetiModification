@@ -1,8 +1,8 @@
 package de.dfki.animation.blink;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.ReetiController;
 import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.reeti.ReetiController;
 import de.dfki.util.AnimationVisivility;
 
 /**
@@ -20,8 +20,8 @@ public class StopBlinking extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    if (((Reeti)agent).blinking != null) {
-      ((Reeti)agent).blinking.stopBlinkAktion();
+    if (((Reeti) agent).blinking != null) {
+      ((Reeti) agent).blinking.stopBlinkAktion();
     }
 
     if (ReetiController.currentRadioButton != null) {

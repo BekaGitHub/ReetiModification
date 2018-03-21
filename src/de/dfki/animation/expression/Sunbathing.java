@@ -6,8 +6,8 @@
 package de.dfki.animation.expression;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.ReetiController;
 import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.reeti.ReetiController;
 import de.dfki.util.AnimationVisivility;
 import de.dfki.util.Led;
 import javafx.scene.paint.Color;
@@ -27,7 +27,7 @@ public class Sunbathing extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    Reeti reeti = ((Reeti)agent);
+    Reeti reeti = ((Reeti) agent);
     reeti.leftEyeLid(0);
     reeti.rightEyeLid(0);
     reeti.ledON(Color.RED, Led.BOTH);

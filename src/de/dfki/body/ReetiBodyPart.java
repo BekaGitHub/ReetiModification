@@ -5,8 +5,8 @@
  */
 package de.dfki.body;
 
-import de.dfki.common.parts.FXParts3D;
 import de.dfki.animationlogic.reeti.AnimatorReeti;
+import de.dfki.common.parts.BodyPart;
 import java.net.URL;
 import java.util.logging.Logger;
 import javafx.application.Platform;
@@ -15,10 +15,10 @@ import javafx.scene.paint.PhongMaterial;
 /**
  * @author Beka Aptsiauri
  */
-public abstract class ReetiParts extends FXParts3D {
+public abstract class ReetiBodyPart extends BodyPart {
 
+  public static final Logger LOGGER = Logger.getLogger(ReetiBodyPart.class.getName());
   private static PhongMaterial material = null;
-  public static final Logger LOGGER = Logger.getLogger(ReetiParts.class.getName());
 
   public void init() {
     calculate(0);
@@ -26,17 +26,17 @@ public abstract class ReetiParts extends FXParts3D {
 
   @Override
   public void set_X_Translation(int length) {
-    x_TranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
+    x_TranslationStep = (double) length / AnimatorReeti.MAX_ANIM_STEPS;
   }
 
   @Override
   public void set_Y_Translation(int length) {
-    y_TranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
+    y_TranslationStep = (double) length / AnimatorReeti.MAX_ANIM_STEPS;
   }
 
   @Override
   public void set_Z_Translation(int length) {
-    z_TranslationStep = (double) length / AnimatorReeti.sMAX_ANIM_STEPS;
+    z_TranslationStep = (double) length / AnimatorReeti.MAX_ANIM_STEPS;
   }
 
   @Override
@@ -72,30 +72,30 @@ public abstract class ReetiParts extends FXParts3D {
 
   @Override
   public void set_X_Rotation(int degree) {
-    toDegree = xRotation + degree;
-    x_RotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+    toDegree = x_Rotation + degree;
+    x_RotationStep = (double) degree / AnimatorReeti.MAX_ANIM_STEPS;
   }
 
   @Override
   public void set_Y_Rotation(int degree) {
-    y_RotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+    y_RotationStep = (double) degree / AnimatorReeti.MAX_ANIM_STEPS;
   }
 
   @Override
   public void set_Z_Rotation(int degree) {
-    z_RotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+    z_RotationStep = (double) degree / AnimatorReeti.MAX_ANIM_STEPS;
   }
 
   @Override
   public void setTilt(int degree) {
-    toDegree = xRotation + degree;
-    x_RotationStep = (double) degree / AnimatorReeti.sMAX_ANIM_STEPS;
+    toDegree = x_Rotation + degree;
+    x_RotationStep = (double) degree / AnimatorReeti.MAX_ANIM_STEPS;
   }
 
   @Override
   public synchronized void calculate_X_Rotation(int step) {
-    xRotation += x_RotationStep;
-    xRotation = (double) Math.round(xRotation * 1000d) / 1000d;
+    x_Rotation += x_RotationStep;
+    x_Rotation = (double) Math.round(x_Rotation * 1000d) / 1000d;
 
     Platform.runLater(() -> calculate(step));
   }
@@ -119,7 +119,7 @@ public abstract class ReetiParts extends FXParts3D {
 
   @Override
   public void reset_X_Rotation() {
-    xRotation += x_RotationStep;
+    x_Rotation += x_RotationStep;
     Platform.runLater(() -> calculate(1));
     x_RotationStep = 0;
   }
@@ -136,6 +136,16 @@ public abstract class ReetiParts extends FXParts3D {
     z_Rotation += z_RotationStep;
     Platform.runLater(() -> calculate(1));
     z_RotationStep = 0;
+  }
+
+  @Override
+  public void setShape(String s) {
+
+  }
+
+  @Override
+  public void resetRotation() {
+
   }
 
   public void createShape() {

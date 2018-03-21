@@ -1,6 +1,6 @@
 package de.dfki.animationlogic.commonlogic;
 
-import de.dfki.common.parts.PartsInterface;
+import de.dfki.common.parts.BodyPart;
 import de.dfki.util.Movement;
 
 /**
@@ -8,8 +8,8 @@ import de.dfki.util.Movement;
  */
 public abstract class AnimationContent {
 
-  public PartsInterface mBodypart;
+  public BodyPart mBodypart;
   public Movement movementAction;
-  public int mParam;
-  public String mParamString;
+  public int position;
+  public String bodyPartMovementAction;
 }

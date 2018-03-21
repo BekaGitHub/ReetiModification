@@ -16,7 +16,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka Aptsiauri
  */
-public class LeftEar extends ReetiParts {
+public class LeftEar extends ReetiBodyPart {
 
   private MeshView leftEarMesh;
 
@@ -33,7 +33,7 @@ public class LeftEar extends ReetiParts {
     init();
 
     head.getHeadGroup().getChildren().add(leftEarMesh);
-    LOGGER.log(Level.INFO,"Left Ear wurde erzeugt");
+    LOGGER.log(Level.INFO, "Left Ear wurde erzeugt");
   }
 
   @Override
@@ -45,7 +45,7 @@ public class LeftEar extends ReetiParts {
 
   @Override
   public void calculate(int step) {
-    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(x_Rotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(z_Rotation, Rotate.Z_AXIS);
 

@@ -16,12 +16,15 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
+  public static void main(String[] args) {
+    launch(args);
+  }
+
   @Override
   public void start(Stage primaryStage) throws Exception {
 
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("/de/dfki/reeti/ViewX.fxml"));
-
 
 //    Reeti reeti = new Reeti("Reeti",  TYPE.MALE, 1.5f, new Dimension(0,0));
     Reeti reeti = new Reeti();
@@ -43,9 +46,5 @@ public class Main extends Application {
     primaryStage.setScene(scene);
     primaryStage.initStyle(StageStyle.UNDECORATED);
     primaryStage.show();
-  }
-
-  public static void main(String[] args) {
-    launch(args);
   }
 }

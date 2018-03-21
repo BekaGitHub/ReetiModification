@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Constants {
+
   public static final int HEAD_Y_POSITION = -700;
   public static final int BODY_Y_POSITION = -130;
   public static final int LEFT_EYE_X_POSITION = 55;

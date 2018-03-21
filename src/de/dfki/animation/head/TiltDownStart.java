@@ -19,6 +19,6 @@ public class TiltDownStart extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    ((Reeti)agent).neckTilt(20);
+    ((Reeti) agent).neckTilt(20);
   }
 }

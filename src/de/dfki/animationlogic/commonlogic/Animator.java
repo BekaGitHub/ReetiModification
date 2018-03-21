@@ -2,6 +2,7 @@ package de.dfki.animationlogic.commonlogic;
 
 import de.dfki.agent.Agent;
 import de.dfki.util.Movement;
+import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -9,18 +10,29 @@ import java.util.concurrent.Semaphore;
  */
 public abstract class Animator {
 
-  public static int sMAX_ANIM_STEPS = 20;
-  public static Movement currentMovementAction;
-  public int mCurrentStep = sMAX_ANIM_STEPS;
-  public int mRenderPauseDuration = 0;
-  public Agent agent;
-  public Semaphore mRenderingPause = new Semaphore(0);
+  public static final int MAX_ANIM_STEPS = 20;
+  protected static Movement currentMovementAction;
+  protected int currentStep = MAX_ANIM_STEPS;
+  protected int renderPauseDuration = 0;
+  protected Agent agent;
+  protected Semaphore renderingPauseSemaphor = new Semaphore(0);
+  protected ArrayList<AnimationContent> animationContents = new ArrayList<>();
 
-  public abstract void render();
+  public Animator(Agent agent, ArrayList<AnimationContent> animationContents,
+      int duration) {
+    this.agent = agent;
+    this.animationContents = animationContents;
+    renderPauseDuration = new Float(duration / MAX_ANIM_STEPS).intValue();
+    if (renderPauseDuration < 1) {
+      renderPauseDuration = 1; // minimum delay is 1 millisecond
+    }
+  }
+
+  public abstract void renderAnimation();
 
   public class WaitThread extends Thread {
 
-    int mSleepTime = 10;
+    int mSleepTime;
 
     public WaitThread(int time) {
       mSleepTime = time;
@@ -35,7 +47,7 @@ public abstract class Animator {
         ex.printStackTrace();
       }
       // release sempahore
-      mRenderingPause.release();
+      renderingPauseSemaphor.release();
     }
   }
 }

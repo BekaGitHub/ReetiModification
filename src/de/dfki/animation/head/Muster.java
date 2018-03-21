@@ -6,9 +6,9 @@
 package de.dfki.animation.head;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.ReetiController;
 import de.dfki.animationlogic.reeti.AnimationContentReeti;
 import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.reeti.ReetiController;
 import de.dfki.util.AnimationVisivility;
 import de.dfki.util.Movement;
 import java.util.ArrayList;
@@ -34,22 +34,24 @@ public class Muster extends AnimationReeti {
     Color c3 = Color.rgb(0, 0, 255);
 //    getReeti().ledON(c1, c2, c3, 0.7f, 0.9f, 0.4f, "B");
 
-    ((Reeti)agent).getMouth().setUpRegulator(-20);
-    ((Reeti)agent).getMouth().setDownRegulator(-10);
+    ((Reeti) agent).getMouth().setUpRegulator(-20);
+    ((Reeti) agent).getMouth().setDownRegulator(-10);
 //        reeti.mouth.setLeftCornerRegulator(-20);
 
     animationContents = new ArrayList<>();
 //        animationContents.add(new AnimationContentReeti(reeti.leftEar, "rotate", 60));
 //        animationContents.add(new AnimationContentReeti(reeti.rightEar, "yrotate", 60));
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getMouth(), Movement.SHAPE, "MOUTHACTION"));
+    animationContents
+        .add(new AnimationContentReeti(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTION"));
 //        animationContents.add(new AnimationContentReeti(reeti.rightEar, "yrotate", 60));
     playAnimationPart(animationDuration);
 
-    ((Reeti)agent).ledOFF();
+    ((Reeti) agent).ledOFF();
     animationContents = new ArrayList<>();
 //        animationContents.add(new AnimationContentReeti(reeti.leftEar, "rotate", -60));
 //        animationContents.add(new AnimationContentReeti(reeti.rightEar, "yrotate", -60));
-    animationContents.add(new AnimationContentReeti(((Reeti)agent).getMouth(), Movement.SHAPE, "MOUTHACTIONEND"));
+    animationContents.add(
+        new AnimationContentReeti(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTIONEND"));
     playAnimationPart(animationDuration);
 
     if (ReetiController.currentRadioButton != null) {

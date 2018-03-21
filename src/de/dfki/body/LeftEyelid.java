@@ -16,7 +16,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka Aptsiauri
  */
-public class LeftEyelid extends ReetiParts {
+public class LeftEyelid extends ReetiBodyPart {
 
   private MeshView leftEyeLidMesh;
 
@@ -35,7 +35,7 @@ public class LeftEyelid extends ReetiParts {
     init();
 
     head.getHeadGroup().getChildren().add(leftEyeLidMesh);
-    LOGGER.log(Level.INFO,"Left Eyelid wurde erzeugt");
+    LOGGER.log(Level.INFO, "Left Eyelid wurde erzeugt");
   }
 
   @Override
@@ -49,7 +49,7 @@ public class LeftEyelid extends ReetiParts {
   @Override
   public void calculate(int step) {
 
-    Rotate rx = new Rotate(xRotation, Rotate.X_AXIS);
+    Rotate rx = new Rotate(x_Rotation, Rotate.X_AXIS);
     Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
     Rotate rz = new Rotate(z_Rotation, Rotate.Z_AXIS);
 
