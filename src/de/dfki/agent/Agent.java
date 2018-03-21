@@ -1,6 +1,6 @@
 package de.dfki.agent;
 
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
 
 /**
  * Created by alvaro on 9/4/16.

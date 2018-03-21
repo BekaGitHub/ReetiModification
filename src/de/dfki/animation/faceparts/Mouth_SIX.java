@@ -7,8 +7,8 @@ package de.dfki.animation.faceparts;
      */
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.animationlogic.AnimationContentReeti;
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationContentReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.util.Movement;
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public class Mouth_SIX extends AnimationReeti {
   public void playAnimation() {
     // smile
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().getMouth(), Movement.SHAPE, "SIX"));
+    animationContents.add(new AnimationContentReeti(((Reeti)agent).getMouth(), Movement.SHAPE, "SIX"));
     playAnimationPart(20);
   }
 }

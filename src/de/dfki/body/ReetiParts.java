@@ -6,7 +6,7 @@
 package de.dfki.body;
 
 import de.dfki.common.parts.FXParts3D;
-import de.dfki.reeti.animationlogic.AnimatorReeti;
+import de.dfki.animationlogic.reeti.AnimatorReeti;
 import java.net.URL;
 import java.util.logging.Logger;
 import javafx.application.Platform;

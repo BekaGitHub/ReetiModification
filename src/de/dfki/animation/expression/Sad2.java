@@ -7,7 +7,8 @@ package de.dfki.animation.expression;
 
 import de.dfki.agent.Reeti;
 import de.dfki.reeti.ReetiController;
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.util.AnimationVisivility;
 
 /**
  * @author Beka
@@ -15,7 +16,7 @@ import de.dfki.reeti.animationlogic.AnimationReeti;
 public class Sad2 extends AnimationReeti {
 
   public Sad2() {
-    setAnimtype(ANIMTYPE.ON);
+    setAnimationVisivility(AnimationVisivility.YES);
   }
 
   public Sad2(Reeti sm, int duration, boolean block) {
@@ -24,7 +25,7 @@ public class Sad2 extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    Reeti reeti = getReeti();
+    Reeti reeti = ((Reeti)agent);
     reeti.leftEyeLid(45);
     reeti.rightEyeLid(45);
     reeti.leftEyeTilt(55);

@@ -1,6 +1,6 @@
 package de.dfki.body;
 
-import de.dfki.reeti.animationlogic.AnimatorReeti;
+import de.dfki.animationlogic.reeti.AnimatorReeti;
 import java.awt.geom.Point2D;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.QuadCurveTo;

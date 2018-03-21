@@ -6,8 +6,8 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.animationlogic.AnimationContentReeti;
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationContentReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.util.Movement;
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class UpperLip extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(getReeti().getMouthUpperLip(), Movement.SHAPE, "UPPERLIPACTION"));
+        .add(new AnimationContentReeti(((Reeti)agent).getMouthUpperLip(), Movement.SHAPE, "UPPERLIPACTION"));
     playAnimationPart(animationDuration);
 
   }

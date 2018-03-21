@@ -6,7 +6,7 @@
 package de.dfki.animation.head;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
 
 /**
  * @author Beka
@@ -19,6 +19,6 @@ public class TiltLeftStart extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    getReeti().neckPan(20);
+    ((Reeti)agent).neckPan(20);
   }
 }

@@ -7,7 +7,8 @@ package de.dfki.animation.expression;
 
 import de.dfki.agent.Reeti;
 import de.dfki.reeti.ReetiController;
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.util.AnimationVisivility;
 import de.dfki.util.Led;
 import javafx.scene.paint.Color;
 
@@ -17,7 +18,7 @@ import javafx.scene.paint.Color;
 public class Relaxed extends AnimationReeti {
 
   public Relaxed() {
-    setAnimtype(ANIMTYPE.ON);
+    setAnimationVisivility(AnimationVisivility.YES);
   }
 
   public Relaxed(Reeti sm, int duration, boolean block) {
@@ -27,7 +28,7 @@ public class Relaxed extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    Reeti reeti = getReeti();
+    Reeti reeti = ((Reeti)agent);
     reeti.neckTilt(75);
     reeti.leftEyeLid(25);
     reeti.rightEyeLid(25);

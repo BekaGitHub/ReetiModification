@@ -1,6 +1,6 @@
 package de.dfki.body;
 
-import de.dfki.reeti.animationlogic.AnimatorReeti;
+import de.dfki.animationlogic.reeti.AnimatorReeti;
 import de.dfki.util.Constants;
 import java.awt.geom.Point2D;
 import javafx.scene.paint.Color;

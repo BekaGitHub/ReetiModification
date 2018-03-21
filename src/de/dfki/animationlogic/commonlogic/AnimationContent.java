@@ -1,4 +1,4 @@
-package de.dfki.animationlogic;
+package de.dfki.animationlogic.commonlogic;
 
 import de.dfki.common.parts.PartsInterface;
 import de.dfki.util.Movement;

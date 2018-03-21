@@ -1,9 +1,8 @@
 package de.dfki.agent;
 
 import de.dfki.animation.blink.Blinking;
-import de.dfki.reeti.animationlogic.AnimationLoaderReeti;
-import de.dfki.reeti.animationlogic.AnimationReeti;
-import de.dfki.reeti.animationlogic.AnimationSchedulerReeti;
+import de.dfki.animationlogic.reeti.AnimationLoaderReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.body.Body;
 import de.dfki.body.Head;
 import de.dfki.body.LeftCheek;
@@ -20,7 +19,6 @@ import de.dfki.body.RightEar;
 import de.dfki.body.RightEye;
 import de.dfki.body.RightEyelid;
 import de.dfki.util.Led;
-import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.effect.BlurType;
@@ -36,8 +34,6 @@ public class Reeti extends Pane implements Agent {
 
   public final Logger logger = Logger.getAnonymousLogger();
   public Blinking blinking;
-  public AnimationSchedulerReeti animationSchedulerReeti;
-  public Semaphore animationLaunchControlSemaphor = new Semaphore(1);
   // body parts
   private Head head;
   private LeftEyelid leftEyelid;
@@ -96,9 +92,6 @@ public class Reeti extends Pane implements Agent {
     setMouthDownLip(new MouthDownLip(getMouth()));
     setBody(new Body());
 //    this.speechBubbleFX = new SpeechBubbleFX(head);
-
-    animationSchedulerReeti = new AnimationSchedulerReeti(this);
-    animationSchedulerReeti.start();
   }
 
   @Override
@@ -114,14 +107,7 @@ public class Reeti extends Pane implements Agent {
   public AnimationReeti doAnimation(String name, int duration, Object param, boolean block) {
     AnimationReeti animationReeti = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, name, duration, block);
-
-    try {
-      animationLaunchControlSemaphor.acquire();
-      animationReeti.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
-
+    animationReeti.start();
     return animationReeti;
   }
 
@@ -207,12 +193,7 @@ public class Reeti extends Pane implements Agent {
     rightCornerOldPos = pos;
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "RightLC", (int) dur, pos, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -232,12 +213,7 @@ public class Reeti extends Pane implements Agent {
     leftCornerOldPos = pos;
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "LeftLC", (int) dur, pos, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -260,12 +236,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "UpperLip", (int) dur, pos, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -288,12 +259,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "DownLip", (int) dur, pos, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -316,12 +282,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "LeftEye_X", (int) dur, (int) rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -340,12 +301,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "LeftEye_Y", (int) dur, (int) rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -368,12 +324,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "RightEye_X", (int) dur, (int) rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -392,12 +343,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "RightEye_Y", (int) dur, (int) rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -416,12 +362,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "BlinkLeftEyelid", (int) dur, (int) rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -440,12 +381,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "BlinkRightEyelid", (int) dur, (int) rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -464,12 +400,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "LeftEarMovement", (int) dur, (int) rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -488,12 +419,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "RightEarMovement", (int) dur, (int) -rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -512,12 +438,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "NeckRotation", (int) dur, (int) rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -539,12 +460,7 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "NeckPan", (int) dur, (int) rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   /**
@@ -564,23 +480,12 @@ public class Reeti extends Pane implements Agent {
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "NeckTilt", (int) dur, (int) -rot, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
+    a.start();
   }
 
   public void defaultPose() {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "Default", 100, false);
-    try {
-      animationLaunchControlSemaphor.acquire();
-      a.start();
-    } catch (InterruptedException ex) {
-      logger.severe(ex.getMessage());
-    }
   }
 
   public Head getHead() {

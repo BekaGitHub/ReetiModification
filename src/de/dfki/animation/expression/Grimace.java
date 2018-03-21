@@ -6,7 +6,8 @@
 package de.dfki.animation.expression;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.util.AnimationVisivility;
 
 /**
  * @author Beka
@@ -14,7 +15,7 @@ import de.dfki.reeti.animationlogic.AnimationReeti;
 public class Grimace extends AnimationReeti {
 
   public Grimace() {
-    setAnimtype(ANIMTYPE.ON);
+    setAnimationVisivility(AnimationVisivility.YES);
   }
 
   public Grimace(Reeti sm, int duration, boolean block) {
@@ -24,7 +25,7 @@ public class Grimace extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    Reeti reeti = getReeti();
+    Reeti reeti = ((Reeti)agent);
     reeti.neckPan(25);
     reeti.neckTilt(20);
     reeti.leftEyePan(60);

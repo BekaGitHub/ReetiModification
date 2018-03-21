@@ -1,4 +1,4 @@
-package de.dfki.animationlogic;
+package de.dfki.animationlogic.commonlogic;
 
 import de.dfki.agent.Agent;
 import de.dfki.util.Movement;
@@ -13,14 +13,14 @@ public abstract class Animator {
   public static Movement currentMovementAction;
   public int mCurrentStep = sMAX_ANIM_STEPS;
   public int mRenderPauseDuration = 0;
-  public Semaphore mRenderingPause = new Semaphore(0);
   public Agent agent;
+  public Semaphore mRenderingPause = new Semaphore(0);
 
   public abstract void render();
 
   public class WaitThread extends Thread {
 
-    int mSleepTime = 0;
+    int mSleepTime = 10;
 
     public WaitThread(int time) {
       mSleepTime = time;

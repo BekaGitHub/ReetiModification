@@ -7,8 +7,8 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.animationlogic.AnimationContentReeti;
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationContentReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.util.Movement;
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class NeckPan extends AnimationReeti {
   int rot;
 
   public NeckPan(Reeti sm, int duration, int pos, boolean block) {
-    super(sm, duration, pos, block);
+    super(sm, duration, block);
     this.rot = pos;
   }
 
@@ -29,7 +29,7 @@ public class NeckPan extends AnimationReeti {
   public void playAnimation() {
 
     animationContents = new ArrayList<>();
-    animationContents.add(new AnimationContentReeti(getReeti().getHead(), Movement.X_ROTATION, rot));
+    animationContents.add(new AnimationContentReeti(((Reeti)agent).getHead(), Movement.X_ROTATION, rot));
     playAnimationPart(animationDuration);
 
   }

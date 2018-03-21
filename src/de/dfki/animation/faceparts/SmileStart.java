@@ -1,7 +1,7 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.util.Led;
 import javafx.scene.paint.Color;
 
@@ -16,7 +16,7 @@ public class SmileStart extends AnimationReeti {
 
   @Override
   public void playAnimation() {
-    Reeti reeti = getReeti();
+    Reeti reeti = ((Reeti)agent);
     reeti.bottomLip(50);
     reeti.leftLC(70);
     reeti.rightLC(70);

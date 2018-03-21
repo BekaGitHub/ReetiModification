@@ -6,8 +6,8 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.animationlogic.AnimationContentReeti;
-import de.dfki.reeti.animationlogic.AnimationReeti;
+import de.dfki.animationlogic.reeti.AnimationContentReeti;
+import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.util.Movement;
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class RightLC extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(getReeti().getMouthRightCorner(), Movement.SHAPE, "RIGHTCORNERACTION"));
+        .add(new AnimationContentReeti(((Reeti)agent).getMouthRightCorner(), Movement.SHAPE, "RIGHTCORNERACTION"));
     playAnimationPart(animationDuration);
 
   }

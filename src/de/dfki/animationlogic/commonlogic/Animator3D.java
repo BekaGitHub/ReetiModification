@@ -1,4 +1,4 @@
-package de.dfki.animationlogic;
+package de.dfki.animationlogic.commonlogic;
 
 import de.dfki.common.parts.PartsInterface;
 import de.dfki.util.Movement;
@@ -122,7 +122,6 @@ public abstract class Animator3D extends Animator {
         } catch (InterruptedException ex) {
           ex.printStackTrace();
         }
-        mAnimation.animationPartStartSemaphore.release();
         return;
       }
 

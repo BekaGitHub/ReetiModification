@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.dfki.reeti.animationlogic;
+package de.dfki.animationlogic.reeti;
 
-import de.dfki.animationlogic.AnimationContent;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.body.ReetiParts;
 import de.dfki.util.Movement;
 
