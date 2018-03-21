@@ -1,4 +1,4 @@
-package de.dfki.reeti;
+package de.dfki.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXColorPicker;
@@ -10,6 +10,7 @@ import de.dfki.util.BodyPartsMovement;
 import de.dfki.util.CameraMovement;
 import de.dfki.util.Constants;
 import de.dfki.util.Led;
+import de.dfki.util.Packageparser;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -226,9 +227,9 @@ public class ReetiController {
         .moveMouthBottomLip(reeti.getMouthDownLip(), bottomLipSlider, bottomLipRotationField);
 
     expressionListView.getStylesheets()
-        .add(this.getClass().getResource("listView.css").toExternalForm());
+        .add(this.getClass().getResource("/de/dfki/view/listView.css").toExternalForm());
     environmentListView.getStylesheets()
-        .add(this.getClass().getResource("listView.css").toExternalForm());
+        .add(this.getClass().getResource("/de/dfki/view/listView.css").toExternalForm());
 
     leftLedColorPicker
         .setOnAction(event -> reeti.ledON(leftLedColorPicker.getValue(), Led.LEFT));

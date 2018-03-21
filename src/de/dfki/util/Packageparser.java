@@ -1,4 +1,4 @@
-package de.dfki.reeti;
+package de.dfki.util;
 
 import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.util.AnimationVisivility;

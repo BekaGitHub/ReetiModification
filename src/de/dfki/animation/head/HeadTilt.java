@@ -8,7 +8,7 @@ package de.dfki.animation.head;
 import de.dfki.agent.Reeti;
 import de.dfki.animationlogic.reeti.AnimationContentReeti;
 import de.dfki.animationlogic.reeti.AnimationReeti;
-import de.dfki.reeti.ReetiController;
+import de.dfki.controllers.ReetiController;
 import de.dfki.util.AnimationVisivility;
 import de.dfki.util.Movement;
 import java.util.ArrayList;

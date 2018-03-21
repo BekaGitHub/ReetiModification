@@ -1,4 +1,4 @@
-package de.dfki.reeti.timeline;
+package de.dfki.timeline;
 
 import de.dfki.agent.Reeti;
 import javafx.fxml.FXMLLoader;

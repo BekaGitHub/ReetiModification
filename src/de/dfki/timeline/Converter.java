@@ -1,4 +1,4 @@
-package de.dfki.reeti.timeline;
+package de.dfki.timeline;
 
 /**
  * Created by EmpaT on 20.04.2017.

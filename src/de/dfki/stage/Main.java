@@ -1,7 +1,7 @@
 package de.dfki.stage;
 
 import de.dfki.agent.Reeti;
-import de.dfki.reeti.ReetiController;
+import de.dfki.controllers.ReetiController;
 import de.dfki.util.Dimension;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +24,7 @@ public class Main extends Application {
   public void start(Stage primaryStage) throws Exception {
 
     FXMLLoader loader = new FXMLLoader();
-    loader.setLocation(getClass().getResource("/de/dfki/reeti/ViewX.fxml"));
+    loader.setLocation(getClass().getResource("/de/dfki/view/ViewX.fxml"));
 
 //    Reeti reeti = new Reeti("Reeti",  TYPE.MALE, 1.5f, new Dimension(0,0));
     Reeti reeti = new Reeti();
