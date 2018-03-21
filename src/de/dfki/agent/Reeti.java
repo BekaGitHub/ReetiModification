@@ -18,6 +18,7 @@ import de.dfki.body.RightCheek;
 import de.dfki.body.RightEar;
 import de.dfki.body.RightEye;
 import de.dfki.body.RightEyelid;
+import de.dfki.movement.MoveReetiPart;
 import de.dfki.util.Constants;
 import de.dfki.util.Led;
 import java.util.logging.Level;
@@ -51,7 +52,9 @@ public class Reeti extends Pane implements Agent {
   private MouthUpperLip mouthUpperLip;
   private MouthDownLip mouthDownLip;
   private Body body;
+
   //Movement
+  private MoveReetiPart moveReetiPart;
   private double upperLipOldPos = 0;
   private double downLipOldPos = 20;
   private double leftCornerOldPos = 8;
@@ -92,6 +95,7 @@ public class Reeti extends Pane implements Agent {
     setMouthUpperLip(new MouthUpperLip(getMouth()));
     setMouthDownLip(new MouthDownLip(getMouth()));
     setBody(new Body());
+    moveReetiPart = new MoveReetiPart();
 //    this.speechBubbleFX = new SpeechBubbleFX(head);
   }
 
@@ -184,304 +188,105 @@ public class Reeti extends Pane implements Agent {
    */
 
   public void rightLC(int pos, double... duration) {
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    pos = (pos * 16) / 100;
-    double distance = rightCornerOldPos - pos;
-    this.getMouthRightCorner().setRightCornerRegulator(distance);
-    rightCornerOldPos = pos;
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.RIGHT_LC, (int) dur, pos, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.RIGHT_LC, pos, 16, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void leftLC(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    pos = (pos * 16) / 100;
-    double distance = leftCornerOldPos - pos;
-    this.getMouthLeftCorner().setLeftCornerRegulator(distance);
-    leftCornerOldPos = pos;
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.LEFT_LC, (int) dur, pos, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.LEFT_LC, pos, 16, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 0)
    */
   public void topLip(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-
-    pos = (pos * 25) / 100;
-
-    double distance = upperLipOldPos - pos;
-    this.getMouthUpperLip().setUpperLipRegulator(distance);
-    upperLipOldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.UPPER_LIP, (int) dur, pos, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.UPPER_LIP, pos, 25, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 100)
    */
   public void bottomLip(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-
-    pos = (pos * 20) / 100;
-
-    double distance = pos - downLipOldPos;
-    this.getMouthDownLip().setDownLipRegulator(-distance);
-    downLipOldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.DOWN_LIP, (int) dur, pos, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.DOWN_LIP, pos, 20, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 30)
    */
   public void leftEyeTilt(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-
-    if (pos > 100) {
-      pos = 100;
-    } else if (pos < 20) {
-      pos = 20;
-    }
-
-    double rot = leftEye_Y_OldPos - pos;
-    leftEye_Y_OldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.LEFT_EYE_X, (int) dur, (int) rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.LEFT_EYE_X, pos, 20, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 40)
    */
   public void leftEyePan(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    double rot = leftEye_X_OldPos - pos;
-    leftEye_X_OldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.LEFT_EYE_Y, (int) dur, (int) rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.LEFT_EYE_Y, pos, -1, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 30)
    */
   public void rightEyeTilt(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-
-    if (pos > 100) {
-      pos = 100;
-    } else if (pos < 23) {
-      pos = 23;
-    }
-
-    double rot = rightEye_Y_OldPos - pos;
-    rightEye_Y_OldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.RIGHT_EYE_X, (int) dur, (int) rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.RIGHT_EYE_X, pos, 23, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 60)
    */
   public void rightEyePan(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    double rot = rightEye_X_OldPos - pos;
-    rightEye_X_OldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.RIGHT_EYE_Y, (int) dur, (int) rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.RIGHT_EYE_Y, pos, 23, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 100)
    */
   public void leftEyeLid(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    double rot = leftEyelidOldPos - pos;
-    leftEyelidOldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.BLINK_LEFT_EYELID, (int) dur, (int) rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.BLINK_LEFT_EYELID, pos, 23, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 100)
    */
   public void rightEyeLid(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    double rot = rightEyelidOldPos - pos;
-    rightEyelidOldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.BLINK_RIGHT_EYELID, (int) dur, (int) rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.BLINK_RIGHT_EYELID, pos, 23, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void leftEar(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    double rot = leftEarOldPos - pos;
-    leftEarOldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.LEFT_EAR_MOVEMENT, (int) dur, (int) rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.LEFT_EAR_MOVEMENT, pos, 23, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void rightEar(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    double rot = rightEarOldPos - pos;
-    rightEarOldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.RIGHT_EAR_MOVEMENT, (int) dur, (int) -rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.RIGHT_EAR_MOVEMENT, pos, 1, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void neckRotat(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    double rot = neckRotatOldPos - pos;
-    neckRotatOldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.NECK_ROTATION, (int) dur, (int) rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.NECK_ROTATION, pos, 1, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void neckTilt(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-
-    double rot = neckPanOldPos - pos;
-    rot = (rot * 40) / 100;
-    neckPanOldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.NECK_PAN, (int) dur, (int) rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.NECK_PAN, pos, 40, 500);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void neckPan(int pos, double... duration) {
-    if (pos == -1) {
-      return;
-    }
-    double dur = (duration.length == 0) ? 500 : duration[0];
-    if (pos > 100) {
-      pos = 100;
-    }
-    double rot = neckTiltOldPos - pos;
-    rot = (rot * 40) / 100;
-    neckTiltOldPos = pos;
-
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, Constants.NECK_TILT, (int) dur, (int) -rot, false);
-    a.start();
+    moveReetiPart.movePart(this, Constants.NECK_TILT, pos, 40, 500);
   }
 
   public void defaultPose() {

@@ -26,6 +26,6 @@ public class Test extends AnimationReeti {
   @Override
   public void playAnimation() {
     Reeti reeti = ((Reeti) agent);
-    reeti.neckPan(100);
+    reeti.neckPan(0);
   }
 }
