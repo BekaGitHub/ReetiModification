@@ -18,6 +18,7 @@ import de.dfki.body.RightCheek;
 import de.dfki.body.RightEar;
 import de.dfki.body.RightEye;
 import de.dfki.body.RightEyelid;
+import de.dfki.util.Constants;
 import de.dfki.util.Led;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -192,7 +193,7 @@ public class Reeti extends Pane implements Agent {
     this.getMouthRightCorner().setRightCornerRegulator(distance);
     rightCornerOldPos = pos;
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "RightLC", (int) dur, pos, false);
+        .loadAnimation(this, Constants.RIGHT_LC, (int) dur, pos, false);
     a.start();
   }
 
@@ -212,7 +213,7 @@ public class Reeti extends Pane implements Agent {
     this.getMouthLeftCorner().setLeftCornerRegulator(distance);
     leftCornerOldPos = pos;
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "LeftLC", (int) dur, pos, false);
+        .loadAnimation(this, Constants.LEFT_LC, (int) dur, pos, false);
     a.start();
   }
 
@@ -235,7 +236,7 @@ public class Reeti extends Pane implements Agent {
     upperLipOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "UpperLip", (int) dur, pos, false);
+        .loadAnimation(this, Constants.UPPER_LIP, (int) dur, pos, false);
     a.start();
   }
 
@@ -258,7 +259,7 @@ public class Reeti extends Pane implements Agent {
     downLipOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "DownLip", (int) dur, pos, false);
+        .loadAnimation(this, Constants.DOWN_LIP, (int) dur, pos, false);
     a.start();
   }
 
@@ -281,7 +282,7 @@ public class Reeti extends Pane implements Agent {
     leftEye_Y_OldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "LeftEye_X", (int) dur, (int) rot, false);
+        .loadAnimation(this, Constants.LEFT_EYE_X, (int) dur, (int) rot, false);
     a.start();
   }
 
@@ -300,7 +301,7 @@ public class Reeti extends Pane implements Agent {
     leftEye_X_OldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "LeftEye_Y", (int) dur, (int) rot, false);
+        .loadAnimation(this, Constants.LEFT_EYE_Y, (int) dur, (int) rot, false);
     a.start();
   }
 
@@ -323,7 +324,7 @@ public class Reeti extends Pane implements Agent {
     rightEye_Y_OldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "RightEye_X", (int) dur, (int) rot, false);
+        .loadAnimation(this, Constants.RIGHT_EYE_X, (int) dur, (int) rot, false);
     a.start();
   }
 
@@ -342,7 +343,7 @@ public class Reeti extends Pane implements Agent {
     rightEye_X_OldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "RightEye_Y", (int) dur, (int) rot, false);
+        .loadAnimation(this, Constants.RIGHT_EYE_Y, (int) dur, (int) rot, false);
     a.start();
   }
 
@@ -361,7 +362,7 @@ public class Reeti extends Pane implements Agent {
     leftEyelidOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "BlinkLeftEyelid", (int) dur, (int) rot, false);
+        .loadAnimation(this, Constants.BLINK_LEFT_EYELID, (int) dur, (int) rot, false);
     a.start();
   }
 
@@ -380,7 +381,7 @@ public class Reeti extends Pane implements Agent {
     rightEyelidOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "BlinkRightEyelid", (int) dur, (int) rot, false);
+        .loadAnimation(this, Constants.BLINK_RIGHT_EYELID, (int) dur, (int) rot, false);
     a.start();
   }
 
@@ -399,7 +400,7 @@ public class Reeti extends Pane implements Agent {
     leftEarOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "LeftEarMovement", (int) dur, (int) rot, false);
+        .loadAnimation(this, Constants.LEFT_EAR_MOVEMENT, (int) dur, (int) rot, false);
     a.start();
   }
 
@@ -418,7 +419,7 @@ public class Reeti extends Pane implements Agent {
     rightEarOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "RightEarMovement", (int) dur, (int) -rot, false);
+        .loadAnimation(this, Constants.RIGHT_EAR_MOVEMENT, (int) dur, (int) -rot, false);
     a.start();
   }
 
@@ -437,7 +438,7 @@ public class Reeti extends Pane implements Agent {
     neckRotatOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "NeckRotation", (int) dur, (int) rot, false);
+        .loadAnimation(this, Constants.NECK_ROTATION, (int) dur, (int) rot, false);
     a.start();
   }
 
@@ -459,7 +460,7 @@ public class Reeti extends Pane implements Agent {
     neckPanOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "NeckPan", (int) dur, (int) rot, false);
+        .loadAnimation(this, Constants.NECK_PAN, (int) dur, (int) rot, false);
     a.start();
   }
 
@@ -479,13 +480,14 @@ public class Reeti extends Pane implements Agent {
     neckTiltOldPos = pos;
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "NeckTilt", (int) dur, (int) -rot, false);
+        .loadAnimation(this, Constants.NECK_TILT, (int) dur, (int) -rot, false);
     a.start();
   }
 
   public void defaultPose() {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "Default", 100, false);
+    a.start();
   }
 
   public Head getHead() {

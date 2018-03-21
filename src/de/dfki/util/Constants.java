@@ -33,4 +33,20 @@ public class Constants {
   public final static String BASE_ANIMATIONPATH = "de.dfki.animation";
   public static final Set<String> ANIMATION_PACKAGE_NAMES = new HashSet<>(
       Arrays.asList("head", "expression", "faceparts", "blink"));
+
+  public static final String RIGHT_LC = "RightLC";
+  public static final String LEFT_LC = "LeftLC";
+  public static final String UPPER_LIP = "UpperLip";
+  public static final String DOWN_LIP = "DownLip";
+  public static final String LEFT_EYE_X = "LeftEye_X";
+  public static final String LEFT_EYE_Y = "LeftEye_Y";
+  public static final String RIGHT_EYE_X = "RightEye_X";
+  public static final String RIGHT_EYE_Y = "RightEye_Y";
+  public static final String BLINK_LEFT_EYELID = "BlinkLeftEyelid";
+  public static final String BLINK_RIGHT_EYELID = "BlinkRightEyelid";
+  public static final String LEFT_EAR_MOVEMENT = "LeftEarMovement";
+  public static final String RIGHT_EAR_MOVEMENT = "RightEarMovement";
+  public static final String NECK_ROTATION = "NeckRotation";
+  public static final String NECK_PAN = "NeckPan";
+  public static final String NECK_TILT = "NeckTilt";
 }
