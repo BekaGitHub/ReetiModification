@@ -29,18 +29,18 @@ public class Relaxed extends AnimationReeti {
   @Override
   public void playAnimation() {
     Reeti reeti = ((Reeti) agent);
-    reeti.neckTilt(75);
-    reeti.leftEyeLid(25);
-    reeti.rightEyeLid(25);
-    reeti.leftEyeTilt(15);
-    reeti.rightEyeTilt(20);
+    reeti.neckTilt(75, 500);
+    reeti.leftEyeLid(25, 500);
+    reeti.rightEyeLid(25, 500);
+    reeti.leftEyeTilt(15, 500);
+    reeti.rightEyeTilt(20, 500);
     reeti.ledON(Color.GREEN, Led.BOTH);
-    reeti.leftEar(0);
-    reeti.rightEar(0);
-    reeti.leftLC(75);
-    reeti.rightLC(60);
-    reeti.bottomLip(10);
-    reeti.topLip(3);
+    reeti.leftEar(0, 500);
+    reeti.rightEar(0, 500);
+    reeti.leftLC(75, 500);
+    reeti.rightLC(60, 500);
+    reeti.bottomLip(10, 500);
+    reeti.topLip(3, 500);
 
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);

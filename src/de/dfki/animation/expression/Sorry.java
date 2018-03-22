@@ -28,17 +28,17 @@ public class Sorry extends AnimationReeti {
   @Override
   public void playAnimation() {
     Reeti reeti = ((Reeti) agent);
-    reeti.neckPan(20);
-    reeti.neckTilt(30);
-    reeti.leftEyeLid(30);
-    reeti.rightEyeLid(30);
-    reeti.leftEyeTilt(20);
-    reeti.rightEyeTilt(20);
+    reeti.neckPan(20, 500);
+    reeti.neckTilt(30, 500);
+    reeti.leftEyeLid(30, 500);
+    reeti.rightEyeLid(30, 500);
+    reeti.leftEyeTilt(20, 500);
+    reeti.rightEyeTilt(20, 500);
     reeti.ledON(Color.VIOLET.GREEN.brighter(), Led.BOTH);
-    reeti.leftEar(20);
-    reeti.rightEar(30);
-    reeti.rightLC(10);
-    reeti.leftLC(10);
+    reeti.leftEar(20, 500);
+    reeti.rightEar(30, 500);
+    reeti.rightLC(10, 500);
+    reeti.leftLC(10, 500);
 
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);

@@ -30,7 +30,7 @@ public class NeckTilt extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.Z_ROTATION, rot));
+        .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.X_ROTATION, rot));
     playAnimationPart(animationDuration);
 
   }

@@ -63,40 +63,40 @@ public class MoveReetiPart {
         movementFactor = positionCorrection;
       }
       movementFactor = leftEye_Y_OldPos - movementFactor;
-      leftEye_Y_OldPos = movementFactor;
+      leftEye_Y_OldPos = position;
     } else if (moveCommand.equals(Constants.LEFT_EYE_Y)) {
       movementFactor = leftEye_X_OldPos - movementFactor;
-      leftEye_X_OldPos = movementFactor;
+      leftEye_X_OldPos = position;
     } else if (moveCommand.equals(Constants.RIGHT_EYE_X)) {
       if (movementFactor < positionCorrection) {
         movementFactor = positionCorrection;
       }
       movementFactor = rightEye_Y_OldPos - movementFactor;
-      rightEye_Y_OldPos = movementFactor;
+      rightEye_Y_OldPos = position;
     } else if (moveCommand.equals(Constants.RIGHT_EYE_Y)) {
       movementFactor = rightEye_X_OldPos - movementFactor;
-      rightEye_X_OldPos = movementFactor;
+      rightEye_X_OldPos = position;
     } else if (moveCommand.equals(Constants.BLINK_LEFT_EYELID)) {
       movementFactor = leftEyelidOldPos - movementFactor;
-      leftEyelidOldPos = movementFactor;
+      leftEyelidOldPos = position;
     } else if (moveCommand.equals(Constants.BLINK_RIGHT_EYELID)) {
       movementFactor = rightEyelidOldPos - movementFactor;
-      rightEyelidOldPos = movementFactor;
+      rightEyelidOldPos = position;
     } else if (moveCommand.equals(Constants.LEFT_EAR_MOVEMENT)) {
       movementFactor = leftEarOldPos - movementFactor;
-      leftEarOldPos = movementFactor;
+      leftEarOldPos = position;
     } else if (moveCommand.equals(Constants.RIGHT_EAR_MOVEMENT)) {
       movementFactor = (rightEarOldPos - movementFactor) * -1;
-      rightEarOldPos = movementFactor;
+      rightEarOldPos = position;
     } else if (moveCommand.equals(Constants.NECK_ROTATION)) {
       movementFactor = neckRotatOldPos - movementFactor;
-      neckRotatOldPos = movementFactor;
+      neckRotatOldPos = position;
     } else if (moveCommand.equals(Constants.NECK_PAN)) {
-      movementFactor = ((neckPanOldPos - movementFactor) * positionCorrection) / 100;
-      neckPanOldPos = movementFactor;
+      movementFactor = -1 * ((neckPanOldPos - movementFactor) * positionCorrection) / 100;
+      neckPanOldPos = position;
     } else if (moveCommand.equals(Constants.NECK_TILT)) {
-      movementFactor = -1 * ((neckTiltOldPos - movementFactor) * positionCorrection) / 100;
-      neckTiltOldPos = movementFactor;
+      movementFactor = ((neckTiltOldPos - movementFactor) * positionCorrection) / 100;
+      neckTiltOldPos = position;
     }
 
     AnimationReeti a = AnimationLoaderReeti.getInstance()

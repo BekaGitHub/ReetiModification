@@ -26,16 +26,16 @@ public class Grimace extends AnimationReeti {
   @Override
   public void playAnimation() {
     Reeti reeti = ((Reeti) agent);
-    reeti.neckPan(25);
-    reeti.neckTilt(20);
-    reeti.leftEyePan(60);
-    reeti.leftEyeTilt(60);
-    reeti.rightEyePan(15);
-    reeti.rightEyeTilt(40);
-    reeti.rightEar(0);
-    reeti.leftLC(75);
-    reeti.rightLC(60);
-    reeti.bottomLip(10);
-    reeti.topLip(3);
+    reeti.neckPan(25, 500);
+    reeti.neckTilt(20, 500);
+    reeti.leftEyePan(60, 500);
+    reeti.leftEyeTilt(60, 500);
+    reeti.rightEyePan(15, 500);
+    reeti.rightEyeTilt(40, 500);
+    reeti.rightEar(0, 500);
+    reeti.leftLC(75, 500);
+    reeti.rightLC(60, 500);
+    reeti.bottomLip(10, 500);
+    reeti.topLip(3, 500);
   }
 }

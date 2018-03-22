@@ -26,21 +26,21 @@ public class Default extends AnimationReeti {
   @Override
   public void playAnimation() {
     Reeti reeti = ((Reeti) agent);
-    reeti.neckRotat(50);
-    reeti.neckPan(50);
-    reeti.neckTilt(50);
-    reeti.rightLC(50);
-    reeti.leftLC(50);
-    reeti.topLip(0);
-    reeti.bottomLip(100);
-    reeti.rightEyePan(60);
-    reeti.rightEyeTilt(42);
-    reeti.leftEyePan(40);
-    reeti.leftEyeTilt(42);
-    reeti.leftEyeLid(100);
-    reeti.rightEyeLid(100);
-    reeti.rightEar(50);
-    reeti.leftEar(50);
+    reeti.neckRotat(50, 500);
+    reeti.neckPan(50, 500);
+    reeti.neckTilt(50, 500);
+    reeti.rightLC(50, 500);
+    reeti.leftLC(50, 500);
+    reeti.topLip(0, 500);
+    reeti.bottomLip(100, 500);
+    reeti.rightEyePan(60, 500);
+    reeti.rightEyeTilt(42, 500);
+    reeti.leftEyePan(40, 500);
+    reeti.leftEyeTilt(42, 500);
+    reeti.leftEyeLid(100, 500);
+    reeti.rightEyeLid(100, 500);
+    reeti.rightEar(50, 500);
+    reeti.leftEar(50, 500);
     reeti.ledOFF();
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);

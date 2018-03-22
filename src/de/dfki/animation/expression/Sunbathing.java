@@ -28,16 +28,16 @@ public class Sunbathing extends AnimationReeti {
   @Override
   public void playAnimation() {
     Reeti reeti = ((Reeti) agent);
-    reeti.leftEyeLid(0);
-    reeti.rightEyeLid(0);
+    reeti.leftEyeLid(0, 500);
+    reeti.rightEyeLid(0, 500);
     reeti.ledON(Color.RED, Led.BOTH);
-    reeti.leftEar(0);
-    reeti.rightEar(0);
-    reeti.rightLC(40);
-    reeti.leftLC(80);
-    reeti.neckTilt(85);
-    reeti.topLip(20);
-    reeti.bottomLip(50);
+    reeti.leftEar(0, 500);
+    reeti.rightEar(0, 500);
+    reeti.rightLC(40, 500);
+    reeti.leftLC(80, 500);
+    reeti.neckTilt(85, 500);
+    reeti.topLip(20, 500);
+    reeti.bottomLip(50, 500);
 
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);

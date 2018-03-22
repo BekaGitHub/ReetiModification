@@ -28,16 +28,16 @@ public class Sad extends AnimationReeti {
   @Override
   public void playAnimation() {
     Reeti reeti = ((Reeti) agent);
-    reeti.leftEyeLid(60);
-    reeti.rightEyeLid(60);
-    reeti.leftEyeTilt(15);
-    reeti.rightEyeTilt(15);
+    reeti.leftEyeLid(60, 500);
+    reeti.rightEyeLid(60, 500);
+    reeti.leftEyeTilt(15, 500);
+    reeti.rightEyeTilt(15, 500);
     reeti.ledON(Color.VIOLET, Led.BOTH);
-    reeti.leftEar(0);
-    reeti.rightEar(0);
-    reeti.rightLC(0);
-    reeti.leftLC(0);
-    reeti.neckTilt(0);
+    reeti.leftEar(0, 500);
+    reeti.rightEar(0, 500);
+    reeti.rightLC(0, 500);
+    reeti.leftLC(0, 500);
+    reeti.neckTilt(0, 500);
 
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);

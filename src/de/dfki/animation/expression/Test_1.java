@@ -12,13 +12,13 @@ import de.dfki.util.AnimationVisivility;
 /**
  * @author Beka
  */
-public class Test extends AnimationReeti {
+public class Test_1 extends AnimationReeti {
 
-  public Test() {
+  public Test_1() {
     setAnimationVisivility(AnimationVisivility.YES);
   }
 
-  public Test(Reeti sm, int duration, boolean block) {
+  public Test_1(Reeti sm, int duration, boolean block) {
     super(sm, duration, block);
   }
 
@@ -26,6 +26,6 @@ public class Test extends AnimationReeti {
   @Override
   public void playAnimation() {
     Reeti reeti = ((Reeti) agent);
-    reeti.neckTilt(50, 500);
+    reeti.neckTilt(20, 500);
   }
 }
