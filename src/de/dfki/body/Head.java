@@ -17,10 +17,7 @@ import javafx.scene.transform.Rotate;
  */
 public class Head extends ReetiBodyPart {
 
-  private static final int EARWITDH = 10;
   private Group headGroup;
-  private int mHalfHeight;
-  private int mHalfWidth;
 
   public Head(Reeti reeti) {
     color = Color.WHITE;
@@ -53,27 +50,9 @@ public class Head extends ReetiBodyPart {
     super.init();
   }
 
-  public Point getLeftEyebrowPostion() {
-    return new Point(mHalfWidth - 60, mHalfHeight - 152);
-  }
-
-  public Point getRightEyebrowPostion() {
-    return new Point(mHalfWidth - 60, mHalfHeight - 105);
-  }
-
-  public Point getMouthPostion() {
-    return new Point(mHalfWidth - 60, mHalfHeight - 110);
-  }
-
   @Override
   public void calculate(int step) {
-
-    Rotate rx = new Rotate(x_Rotation, 0, 25, -25, Rotate.X_AXIS);
-    Rotate ry = new Rotate(y_Rotation, 0, 25, -25, Rotate.Y_AXIS);
-    Rotate rz = new Rotate(z_Rotation, 0, 25, -25, Rotate.Z_AXIS);
-
-    headGroup.getTransforms().clear();
-    headGroup.getTransforms().addAll(rz, ry, rx);
+    transformate(headGroup, 0, 25, -25);
   }
 
   public Group getHeadGroup() {

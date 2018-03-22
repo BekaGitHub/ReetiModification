@@ -43,12 +43,6 @@ public class LeftEye extends ReetiBodyPart {
 
   @Override
   public void calculate(int step) {
-
-    Rotate rx = new Rotate(x_Rotation, Rotate.X_AXIS);
-    Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
-    Rotate rz = new Rotate(z_Rotation, Rotate.Z_AXIS);
-
-    leftEyeGroup.getTransforms().clear();
-    leftEyeGroup.getTransforms().addAll(rz, ry, rx);
+    transformate(leftEyeGroup, 0, 0, 0);
   }
 }

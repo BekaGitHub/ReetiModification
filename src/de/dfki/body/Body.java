@@ -4,8 +4,10 @@ import com.interactivemesh.jfx.importer.col.ColModelImporter;
 import de.dfki.util.Constants;
 import java.net.URL;
 import java.util.logging.Level;
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
+import javafx.scene.transform.Rotate;
 
     /*
      * To change this license header, choose License Headers in Project Properties.

@@ -10,7 +10,9 @@ import de.dfki.common.parts.BodyPart;
 import java.net.URL;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.paint.PhongMaterial;
+import javafx.scene.transform.Rotate;
 
 /**
  * @author Beka Aptsiauri
@@ -173,5 +175,14 @@ public abstract class ReetiBodyPart extends BodyPart {
       material.setSelfIlluminationMap(image);
     }
     return material;
+  }
+
+  protected void transformate(Node reetiBodyPart, double pivotX, double pivotY, double pivotZ) {
+    Rotate rx = new Rotate(x_Rotation, pivotX, pivotY, pivotZ, Rotate.X_AXIS);
+    Rotate ry = new Rotate(y_Rotation, pivotX, pivotY, pivotZ, Rotate.Y_AXIS);
+    Rotate rz = new Rotate(z_Rotation, pivotX, pivotY, pivotZ, Rotate.Z_AXIS);
+
+    reetiBodyPart.getTransforms().clear();
+    reetiBodyPart.getTransforms().addAll(rz, ry, rx);
   }
 }

@@ -43,13 +43,6 @@ public class RightEye extends ReetiBodyPart {
 
   @Override
   public void calculate(int step) {
-
-    Rotate rx = new Rotate(x_Rotation, Rotate.X_AXIS);
-    Rotate ry = new Rotate(y_Rotation, Rotate.Y_AXIS);
-    Rotate rz = new Rotate(z_Rotation, Rotate.Z_AXIS);
-
-    mRightEarMesh.getTransforms().clear();
-    mRightEarMesh.getTransforms().addAll(rz, ry, rx);
-
+    transformate(mRightEarMesh, 0, 0, 0);
   }
 }
