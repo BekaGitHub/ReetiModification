@@ -19,10 +19,12 @@ import de.dfki.body.RightEar;
 import de.dfki.body.RightEye;
 import de.dfki.body.RightEyelid;
 import de.dfki.movement.MoveReetiPart;
+import de.dfki.speaking.SpeechBubble;
 import de.dfki.util.Constants;
 import de.dfki.util.Led;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.InnerShadow;
@@ -53,6 +55,8 @@ public class Reeti extends Pane implements Agent {
   private MouthDownLip mouthDownLip;
   private Body body;
 
+  private SpeechBubble speechBubble;
+
   //Movement
   private MoveReetiPart moveReetiPart;
 
@@ -80,7 +84,15 @@ public class Reeti extends Pane implements Agent {
     setMouthDownLip(new MouthDownLip(getMouth()));
     setBody(new Body());
     moveReetiPart = new MoveReetiPart();
-//    this.speechBubbleFX = new SpeechBubbleFX(head);
+    speechBubble = new SpeechBubble(head);
+  }
+
+  public void showSpeechBubble(String text) {
+    Platform.runLater(() -> speechBubble.showSpeechBubble(text));
+  }
+
+  public void hideSpeechBubble() {
+    Platform.runLater(() -> speechBubble.hideSpeechBubble());
   }
 
   @Override
@@ -106,7 +118,7 @@ public class Reeti extends Pane implements Agent {
   }
 
   private void addAllParts() {
-    this.getChildren().addAll(getHead(), getBody());
+    this.getChildren().addAll(getHead(), getBody(), speechBubble);
 //    this.getChildren().addAll(neck, head, body, speechBubbleFX);
   }
 

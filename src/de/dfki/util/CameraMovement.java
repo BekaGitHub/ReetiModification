@@ -1,7 +1,7 @@
 package de.dfki.util;
 
 import com.jfoenix.controls.JFXSlider;
-import de.dfki.stage.ReetiCamera;
+import de.dfki.main.ReetiCamera;
 import java.util.List;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;

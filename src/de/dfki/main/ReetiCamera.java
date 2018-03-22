@@ -1,4 +1,4 @@
-package de.dfki.stage;
+package de.dfki.main;
 
 import javafx.scene.PerspectiveCamera;
 

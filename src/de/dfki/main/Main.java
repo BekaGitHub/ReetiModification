@@ -1,4 +1,4 @@
-package de.dfki.stage;
+package de.dfki.main;
 
 import de.dfki.agent.Reeti;
 import de.dfki.controllers.ReetiController;
@@ -42,7 +42,7 @@ public class Main extends Application {
     //macht Root Element clickbar
     root.setPickOnBounds(false);
     reetiStage.getChildren().add(reeti);
-    scene.getStylesheets().add("de/dfki/stage/Style.css");
+    scene.getStylesheets().add("de/dfki/main/Style.css");
     primaryStage.setScene(scene);
     primaryStage.initStyle(StageStyle.UNDECORATED);
     primaryStage.show();

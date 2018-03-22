@@ -30,6 +30,10 @@ public class Constants {
 
   public static final int CONTROLPANEL_WIDTH = 491;
 
+  public static final int SPEECH_BUBBLE_X_POSITION = MOUTH_X_POSITION + 27;
+  public static final int SPEECH_BUBBLE_Y_POSITION = MOUTH_Y_POSITION - 665;
+  public static final int SPEECH_BUBBLE_Z_POSITION = Z_TRANSLATION - 145;
+
   public final static String BASE_ANIMATIONPATH = "de.dfki.animation";
   public static final Set<String> ANIMATION_PACKAGE_NAMES = new HashSet<>(
       Arrays.asList("head", "expression", "faceparts", "blink"));

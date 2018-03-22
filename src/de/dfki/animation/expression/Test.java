@@ -26,6 +26,6 @@ public class Test extends AnimationReeti {
   @Override
   public void playAnimation() {
     Reeti reeti = ((Reeti) agent);
-    reeti.neckTilt(50, 500);
+    reeti.showSpeechBubble("<daddsdsaddsadsadsadsaddsada>");
   }
 }

@@ -42,6 +42,8 @@ public class Default extends AnimationReeti {
     reeti.rightEar(50, 500);
     reeti.leftEar(50, 500);
     reeti.ledOFF();
+    reeti.hideSpeechBubble();
+
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);
     }
