@@ -92,7 +92,7 @@ public class MoveReetiPart {
       movementFactor = neckRotatOldPos - movementFactor;
       neckRotatOldPos = position;
     } else if (moveCommand.equals(Constants.NECK_PAN)) {
-      movementFactor = -1 * ((neckPanOldPos - movementFactor) * positionCorrection) / 100;
+      movementFactor = ((neckPanOldPos - movementFactor) * positionCorrection) / 100;
       neckPanOldPos = position;
     } else if (moveCommand.equals(Constants.NECK_TILT)) {
       movementFactor = ((neckTiltOldPos - movementFactor) * positionCorrection) / 100;
