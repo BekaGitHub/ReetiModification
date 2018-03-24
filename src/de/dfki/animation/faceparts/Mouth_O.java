@@ -25,7 +25,7 @@ public class Mouth_O extends AnimationReeti {
     // smile
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(((Reeti) agent).getMouth(), Movement.SHAPE, "O"));
+        .add(new AnimationContentReeti(((Reeti) agent).getMouth(), Movement.SHAPE, "OPEN"));
     playAnimationPart(20);
   }
 }

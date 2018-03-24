@@ -2,7 +2,9 @@ package de.dfki.main;
 
 import de.dfki.agent.Reeti;
 import de.dfki.controllers.ReetiController;
+import de.dfki.tts.Cereproc;
 import de.dfki.util.Dimension;
+import de.dfki.util.XMLParser;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +19,14 @@ import javafx.stage.StageStyle;
 public class Main extends Application {
 
   public static void main(String[] args) {
+//    XMLParser.createDocument(null);
+//    System.out.println(XMLParser.getVauleOf("cereproc-library-path"));
+    Cereproc cereproc = new Cereproc(null);
+    cereproc.setLibraryPathFromXML("cereproc-library-path");
+    cereproc.setVoiceNameFromXML("voice-name");
+    cereproc.setLicenseNameFromXML("license-name");
+    cereproc.buildCereVoice();
+    cereproc.speakFromFile("C:\\Users\\Beka\\Desktop\\test.txt");
     launch(args);
   }
 

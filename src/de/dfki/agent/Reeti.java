@@ -285,6 +285,12 @@ public class Reeti extends Pane implements Agent {
     moveReetiPart.movePart(this, Constants.NECK_PAN, pos, 40, duration);
   }
 
+  public void mouthTest() {
+    AnimationReeti a = AnimationLoaderReeti.getInstance()
+        .loadAnimation(this, "Mouth_O", 100, false);
+    a.start();
+  }
+
   public void defaultPose() {
     AnimationReeti a = AnimationLoaderReeti.getInstance()
         .loadAnimation(this, "Default", 100, false);
