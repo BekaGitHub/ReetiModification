@@ -19,6 +19,7 @@ import de.dfki.body.RightEar;
 import de.dfki.body.RightEye;
 import de.dfki.body.RightEyelid;
 import de.dfki.movement.MoveReetiPart;
+import de.dfki.speaking.Speak;
 import de.dfki.speaking.SpeechBubble;
 import de.dfki.util.Constants;
 import de.dfki.util.Led;
@@ -56,6 +57,7 @@ public class Reeti extends Pane implements Agent {
   private Body body;
 
   private SpeechBubble speechBubble;
+  private Speak speak;
 
   //Movement
   private MoveReetiPart moveReetiPart;
@@ -85,6 +87,7 @@ public class Reeti extends Pane implements Agent {
     setBody(new Body());
     moveReetiPart = new MoveReetiPart();
     speechBubble = new SpeechBubble(head);
+    speak = new Speak(this);
   }
 
   public void showSpeechBubble(String text) {
@@ -415,5 +418,9 @@ public class Reeti extends Pane implements Agent {
 
   public void setBody(Body body) {
     this.body = body;
+  }
+
+  public Speak getSpeak() {
+    return speak;
   }
 }

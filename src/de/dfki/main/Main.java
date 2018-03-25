@@ -21,12 +21,12 @@ public class Main extends Application {
   public static void main(String[] args) {
 //    XMLParser.createDocument(null);
 //    System.out.println(XMLParser.getVauleOf("cereproc-library-path"));
-    Cereproc cereproc = new Cereproc(null);
-    cereproc.setLibraryPathFromXML("cereproc-library-path");
-    cereproc.setVoiceNameFromXML("voice-name");
-    cereproc.setLicenseNameFromXML("license-name");
-    cereproc.buildCereVoice();
-    cereproc.speakFromFile("C:\\Users\\Beka\\Desktop\\test.txt");
+//    Cereproc cereproc = new Cereproc(null);
+//    cereproc.setLibraryPathFromXML("cereproc-library-path");
+//    cereproc.setVoiceNameFromXML("voice-name");
+//    cereproc.setLicenseNameFromXML("license-name");
+//    cereproc.buildCereVoice();
+//    cereproc.speakFromFile("C:\\Users\\Beka\\Desktop\\test.txt  ");
     launch(args);
   }
 

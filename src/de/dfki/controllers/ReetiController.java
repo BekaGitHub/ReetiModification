@@ -4,8 +4,10 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXSlider;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXToggleButton;
 import de.dfki.agent.Reeti;
+import de.dfki.speaking.Speak;
 import de.dfki.util.BodyPartsMovement;
 import de.dfki.util.CameraMovement;
 import de.dfki.util.Constants;
@@ -159,9 +161,12 @@ public class ReetiController {
   private TextField fieldOfViewField;
   @FXML
   private JFXButton cameraResetButton;
-
   @FXML
   private JFXButton exitButton;
+  @FXML
+  private JFXTextArea speakTextArea;
+  @FXML
+  private JFXButton speakButton;
 
   private Reeti reeti;
 
@@ -238,6 +243,16 @@ public class ReetiController {
     bothLedColorPicker
         .setOnAction(event -> reeti.ledON(bothLedColorPicker.getValue(), Led.BOTH));
     ledOffButton.setOnAction(event -> reeti.ledOFF());
+
+    speakButton.setOnAction((event) -> {
+      String speakText = speakTextArea.getText();
+      if (speakText != "" || speakText != null) {
+        Speak speak = new Speak(reeti);
+//        speak.setText(speakText);
+        speak.setTextFromFile("C:\\Users\\Beka\\Desktop\\test.txt");
+        speak.start();
+      }
+    });
 
     exitButton.setOnAction((event) -> System.exit(0));
 
