@@ -2,6 +2,13 @@ package de.dfki.speaking;
 
 import de.dfki.agent.Reeti;
 import de.dfki.tts.Cereproc;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.stream.Collectors;
 
 public class Speak extends Thread{
   private Cereproc cereproc;
@@ -35,8 +42,34 @@ public class Speak extends Thread{
 
   @Override
   public void run() {
-    reeti.showSpeechBubble(text);
-    cereproc.speak(text);
+    List<String> sentences = getSentence(text, 20);
+    for (int i = 0; i<sentences.size(); i++) {
+      String sencence = sentences.get(i);
+      reeti.showSpeechBubble(sencence);
+      cereproc.speak(sencence);
+    }
+    reeti.hideSpeechBubble();
+  }
+
+  private List<String> getSentence(String text, int sentenseSize) {
+    Queue<String> splitText = new LinkedList<>(Arrays.asList(text.split(" ")));
+    String sentenceBlock = "";
+    if (splitText.size() <= sentenseSize) {
+      sentenceBlock = splitText.stream().collect(Collectors.joining(" "));
+      return new ArrayList<>(Collections.singletonList(sentenceBlock));
+    } else {
+      List<String> sentences = new ArrayList<>();
+      int limit = (splitText.size() % sentenseSize == 0)? splitText.size()/20 : splitText.size()/20 + 1;
+      for (int k = 0; k < limit; k++) {
+        while (sentenceBlock.split(" ").length < 20) {
+          if (splitText.isEmpty()) break;
+          sentenceBlock += splitText.poll() + " ";
+        }
+        sentences.add(sentenceBlock);
+        sentenceBlock = "";
+      }
+      return sentences;
+    }
   }
 
 }

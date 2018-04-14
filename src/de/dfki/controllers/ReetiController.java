@@ -248,8 +248,8 @@ public class ReetiController {
       String speakText = speakTextArea.getText();
       if (speakText != "" || speakText != null) {
         Speak speak = new Speak(reeti);
-//        speak.setText(speakText);
-        speak.setTextFromFile("C:\\Users\\Beka\\Desktop\\test.txt");
+        speak.setText(speakText);
+//        speak.setTextFromFile("C:\\Users\\Beka\\Desktop\\test.txt");
         speak.start();
       }
     });

@@ -121,13 +121,15 @@ public class Cereproc {
 
     // Flush engine
     cerevoice_eng.CPRCEN_engine_channel_speak(eng, chan_handle, "", 0, 1);
+    //################Überprüfe ob dieses Block auskommentiert werden kann##############
     // Flush any remaining audio
-    audioLine.flush();
-    ttsEngineCallback.ClearCallback(eng, chan_handle);
-    // Close the channel
-    cerevoice_eng.CPRCEN_engine_channel_close(eng, chan_handle);
-    // Delete the engine
-    cerevoice_eng.CPRCEN_engine_delete(eng);
+//    audioLine.flush();
+//    ttsEngineCallback.ClearCallback(eng, chan_handle);
+//    // Close the channel
+//    cerevoice_eng.CPRCEN_engine_channel_close(eng, chan_handle);
+//    // Delete the engine
+//    cerevoice_eng.CPRCEN_engine_delete(eng);
+    //##################################################################################
   }
 
   public void speakFromFile(String filePath) {
@@ -182,4 +184,7 @@ public class Cereproc {
     }
   }
 
+  public TtsEngineCallback getTtsEngineCallback() {
+    return ttsEngineCallback;
+  }
 }
