@@ -254,7 +254,10 @@ public class ReetiController {
       }
     });
 
-    exitButton.setOnAction((event) -> System.exit(0));
+//    exitButton.setOnAction((event) -> System.exit(0));
+    exitButton.setOnAction((event) -> {
+      reeti.agentAnimationTimer.start();
+    });
 
   }
 

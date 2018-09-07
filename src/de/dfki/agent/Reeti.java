@@ -1,5 +1,7 @@
 package de.dfki.agent;
 
+import de.dfki.TestAnimation;
+import de.dfki.animation.AgentAnimationTimer;
 import de.dfki.animation.blink.Blinking;
 import de.dfki.animationlogic.reeti.AnimationLoaderReeti;
 import de.dfki.animationlogic.reeti.AnimationReeti;
@@ -55,6 +57,7 @@ public class Reeti extends Pane implements Agent {
   private MouthUpperLip mouthUpperLip;
   private MouthDownLip mouthDownLip;
   private Body body;
+  public AgentAnimationTimer agentAnimationTimer;
 
   private SpeechBubble speechBubble;
   private Speak speak;
@@ -88,6 +91,8 @@ public class Reeti extends Pane implements Agent {
     moveReetiPart = new MoveReetiPart();
     speechBubble = new SpeechBubble(head);
     speak = new Speak(this);
+
+    agentAnimationTimer = new TestAnimation(this,  20, 10);
   }
 
   public void showSpeechBubble(String text) {
