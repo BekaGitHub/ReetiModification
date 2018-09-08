@@ -6,7 +6,7 @@
 package de.dfki.animation.head;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContentReeti;
+import de.dfki.animationlogic.reeti.AnimationContent;
 import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.controllers.ReetiController;
 import de.dfki.util.AnimationVisivility;
@@ -34,22 +34,22 @@ public class HeadShake extends AnimationReeti {
       if (i == 0) {
         animationContents = new ArrayList<>();
         animationContents
-            .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.Z_ROTATION, -10));
+            .add(new AnimationContent(((Reeti) agent).getHead(), Movement.Z_ROTATION, -10));
         playAnimationPart(200);
       } else if (i == 5) {
         animationContents = new ArrayList<>();
         animationContents
-            .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.Z_ROTATION, 10));
+            .add(new AnimationContent(((Reeti) agent).getHead(), Movement.Z_ROTATION, 10));
         playAnimationPart(200);
       } else if (i % 2 == 1) {
         animationContents = new ArrayList<>();
         animationContents
-            .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.Z_ROTATION, 20));
+            .add(new AnimationContent(((Reeti) agent).getHead(), Movement.Z_ROTATION, 20));
         playAnimationPart(400);
       } else {
         animationContents = new ArrayList<>();
         animationContents
-            .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.Z_ROTATION, -20));
+            .add(new AnimationContent(((Reeti) agent).getHead(), Movement.Z_ROTATION, -20));
         playAnimationPart(400);
       }
     }

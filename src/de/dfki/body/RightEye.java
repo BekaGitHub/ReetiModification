@@ -10,12 +10,11 @@ import de.dfki.util.Constants;
 import java.net.URL;
 import java.util.logging.Level;
 import javafx.scene.Group;
-import javafx.scene.transform.Rotate;
 
 /**
  * @author Beka Aptsiauri
  */
-public class RightEye extends ReetiBodyPart {
+public class RightEye extends BodyPart {
 
   private Group mRightEarMesh;
 

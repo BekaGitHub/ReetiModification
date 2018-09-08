@@ -1,9 +1,8 @@
 package de.dfki.animationlogic.reeti;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.animationlogic.commonlogic.Animator;
-import de.dfki.common.parts.BodyPart;
+import de.dfki.body.BodyPart;
 import de.dfki.util.Movement;
 import java.util.ArrayList;
 

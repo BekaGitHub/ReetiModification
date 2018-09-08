@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXToggleButton;
 import de.dfki.agent.Reeti;
+import de.dfki.body.Head;
 import de.dfki.speaking.Speak;
 import de.dfki.util.BodyPartsMovement;
 import de.dfki.util.CameraMovement;
@@ -256,7 +257,8 @@ public class ReetiController {
 
 //    exitButton.setOnAction((event) -> System.exit(0));
     exitButton.setOnAction((event) -> {
-      reeti.agentAnimationTimer.start();
+//      reeti.agentAnimationTimer.start();
+      reeti.getHead().testAnimation();
     });
 
   }

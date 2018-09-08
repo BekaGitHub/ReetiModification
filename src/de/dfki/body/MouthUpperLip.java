@@ -8,7 +8,7 @@ import javafx.scene.shape.QuadCurveTo;
 /**
  * @author Beka Aptsiauri
  */
-public class MouthUpperLip extends ReetiBodyPart {
+public class MouthUpperLip extends BodyPart {
 
   public MouthUpperLip.SHAPE mShape = MouthUpperLip.SHAPE.DEFAULT;
   private Point2D upperPoint;

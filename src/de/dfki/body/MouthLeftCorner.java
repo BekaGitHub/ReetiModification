@@ -8,7 +8,7 @@ import javafx.scene.shape.QuadCurveTo;
 /**
  * @author Beka Aptsiauri
  */
-public class MouthLeftCorner extends ReetiBodyPart {
+public class MouthLeftCorner extends BodyPart {
 
   public MouthLeftCorner.SHAPE mShape = MouthLeftCorner.SHAPE.DEFAULT;
   private Path mLips;

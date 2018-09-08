@@ -4,12 +4,10 @@ import com.interactivemesh.jfx.importer.col.ColModelImporter;
 import de.dfki.util.Constants;
 import java.net.URL;
 import java.util.logging.Level;
-import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
-import javafx.scene.transform.Rotate;
 
-    /*
+/*
      * To change this license header, choose License Headers in Project Properties.
      * To change this template file, choose Tools | Templates
      * and open the template in the editor.
@@ -18,7 +16,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka Aptsiauri
  */
-public class Body extends ReetiBodyPart {
+public class Body extends BodyPart {
 
   public Body() {
     color = Color.WHITE;

@@ -6,7 +6,7 @@
 package de.dfki.animation.head;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContentReeti;
+import de.dfki.animationlogic.reeti.AnimationContent;
 import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.controllers.ReetiController;
 import de.dfki.util.AnimationVisivility;
@@ -31,12 +31,12 @@ public class HeadTilt extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.Z_ROTATION, -10));
+        .add(new AnimationContent(((Reeti) agent).getHead(), Movement.Z_ROTATION, -10));
     playAnimationPart(200);
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.Z_ROTATION, 10));
+        .add(new AnimationContent(((Reeti) agent).getHead(), Movement.Z_ROTATION, 10));
     playAnimationPart(200);
 
     if (ReetiController.currentRadioButton != null) {

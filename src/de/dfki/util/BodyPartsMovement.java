@@ -7,7 +7,7 @@ import de.dfki.body.MouthDownLip;
 import de.dfki.body.MouthLeftCorner;
 import de.dfki.body.MouthRightCorner;
 import de.dfki.body.MouthUpperLip;
-import de.dfki.body.ReetiBodyPart;
+import de.dfki.body.BodyPart;
 import de.dfki.body.RightEye;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;
@@ -46,7 +46,7 @@ public class BodyPartsMovement {
     rotate(rightEyeSlider, axis, rightEye, rightEyeTextField, 51, 90, 100);
   }
 
-  public static void rotateEyeLid(ReetiBodyPart eyeLid, TextField eyeLidTextField,
+  public static void rotateEyeLid(BodyPart eyeLid, TextField eyeLidTextField,
       JFXSlider eyeLidSlider, Point3D axis) {
     eyeLidSlider.setMin(0);
     eyeLidSlider.setMax(100);
@@ -55,7 +55,7 @@ public class BodyPartsMovement {
     rotate(eyeLidSlider, axis, eyeLid, eyeLidTextField, 100, 100, 100);
   }
 
-  public static void rotateEar(ReetiBodyPart ear, TextField earTextField, JFXSlider earSlider,
+  public static void rotateEar(BodyPart ear, TextField earTextField, JFXSlider earSlider,
       Point3D axis) {
     earSlider.setMin(0);
     earSlider.setMax(100);
@@ -103,7 +103,7 @@ public class BodyPartsMovement {
     moveLip(mouthDownLipSlider, mouthDownLip, mouthDownLipTextField, "DOWNLIPACTION", 217, 16, 100);
   }
 
-  private static ReetiBodyPart moveLip(JFXSlider lipSlider, ReetiBodyPart lip,
+  private static BodyPart moveLip(JFXSlider lipSlider, BodyPart lip,
       TextField lipTextField,
       String action, int plusFactor, int multiplicationFactor, int divisionFactor) {
     lipSlider.valueProperty()
@@ -128,7 +128,7 @@ public class BodyPartsMovement {
     return lip;
   }
 
-  private static void rotate(JFXSlider slider, Point3D axis, ReetiBodyPart parts,
+  private static void rotate(JFXSlider slider, Point3D axis, BodyPart parts,
       TextField textField,
       int minusFactor, int multiplicationFactor, int divisionFactor) {
     slider.valueProperty()

@@ -1,6 +1,7 @@
 package de.dfki.animationlogic.commonlogic;
 
 import de.dfki.agent.Agent;
+import de.dfki.animationlogic.reeti.AnimationContent;
 import de.dfki.util.AnimationVisivility;
 import java.util.ArrayList;
 

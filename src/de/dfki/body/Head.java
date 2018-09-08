@@ -2,8 +2,9 @@ package de.dfki.body;
 
 import com.interactivemesh.jfx.importer.stl.StlMeshImporter;
 import de.dfki.agent.Reeti;
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationTest;
 import de.dfki.util.Constants;
-import java.awt.Point;
 import java.net.URL;
 import java.util.logging.Level;
 import javafx.scene.Group;
@@ -15,7 +16,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka Aptsiauri
  */
-public class Head extends ReetiBodyPart {
+public class Head extends BodyPart {
 
   private Group headGroup;
 
@@ -57,6 +58,22 @@ public class Head extends ReetiBodyPart {
 
   public Group getHeadGroup() {
     return headGroup;
+  }
+
+  public void testAnimation() {
+    AnimationContentTest animationContentTest = new AnimationContentTest(headGroup);
+    animationContentTest.setAnimationsDauerInSekunden(5000);
+    animationContentTest.setPivotX(0);
+    animationContentTest.setPivotY(25);
+    animationContentTest.setPivotZ(-25);
+    animationContentTest.setRotationsGradAufXAxis(0);
+    animationContentTest.setRotationsGradAufYAxis(0);
+    animationContentTest.setRotationsGradAufZAxis(360);
+
+    animationContentTest.setAnimationCycleCounter(20);
+
+    AnimationTest animationTest = new AnimationTest();
+    animationTest.onAnimation(animationContentTest);
   }
 
 }

@@ -6,7 +6,7 @@
 package de.dfki.animation.head;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContentReeti;
+import de.dfki.animationlogic.reeti.AnimationContent;
 import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.controllers.ReetiController;
 import de.dfki.util.AnimationVisivility;
@@ -39,19 +39,19 @@ public class Muster extends AnimationReeti {
 //        reeti.mouth.setLeftCornerRegulator(-20);
 
     animationContents = new ArrayList<>();
-//        animationContents.add(new AnimationContentReeti(reeti.leftEar, "rotate", 60));
-//        animationContents.add(new AnimationContentReeti(reeti.rightEar, "yrotate", 60));
+//        animationContents.add(new AnimationContent(reeti.leftEar, "rotate", 60));
+//        animationContents.add(new AnimationContent(reeti.rightEar, "yrotate", 60));
     animationContents
-        .add(new AnimationContentReeti(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTION"));
-//        animationContents.add(new AnimationContentReeti(reeti.rightEar, "yrotate", 60));
+        .add(new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTION"));
+//        animationContents.add(new AnimationContent(reeti.rightEar, "yrotate", 60));
     playAnimationPart(animationDuration);
 
     ((Reeti) agent).ledOFF();
     animationContents = new ArrayList<>();
-//        animationContents.add(new AnimationContentReeti(reeti.leftEar, "rotate", -60));
-//        animationContents.add(new AnimationContentReeti(reeti.rightEar, "yrotate", -60));
+//        animationContents.add(new AnimationContent(reeti.leftEar, "rotate", -60));
+//        animationContents.add(new AnimationContent(reeti.rightEar, "yrotate", -60));
     animationContents.add(
-        new AnimationContentReeti(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTIONEND"));
+        new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTIONEND"));
     playAnimationPart(animationDuration);
 
     if (ReetiController.currentRadioButton != null) {

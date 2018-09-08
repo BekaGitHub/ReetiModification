@@ -11,12 +11,11 @@ import java.net.URL;
 import java.util.logging.Level;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
-import javafx.scene.transform.Rotate;
 
 /**
  * @author Beka Aptsiauri
  */
-public class LeftEar extends ReetiBodyPart {
+public class LeftEar extends BodyPart {
 
   private MeshView leftEarMesh;
 

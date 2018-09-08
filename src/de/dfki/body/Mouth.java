@@ -13,7 +13,7 @@ import javafx.scene.shape.StrokeLineJoin;
 /**
  * @author Beka Aptsiauri
  */
-public class Mouth extends ReetiBodyPart {
+public class Mouth extends BodyPart {
 
   private final int mouthLength = 32;
   public Point2D leftCorner;

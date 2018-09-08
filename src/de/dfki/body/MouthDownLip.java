@@ -8,7 +8,7 @@ import javafx.scene.shape.QuadCurveTo;
 /**
  * @author Beka Aptsiauri
  */
-public class MouthDownLip extends ReetiBodyPart {
+public class MouthDownLip extends BodyPart {
 
   public MouthDownLip.SHAPE mShape = MouthDownLip.SHAPE.DEFAULT;
   private Point2D downPoint;

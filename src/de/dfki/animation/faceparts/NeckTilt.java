@@ -7,7 +7,7 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContentReeti;
+import de.dfki.animationlogic.reeti.AnimationContent;
 import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.util.Movement;
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class NeckTilt extends AnimationReeti {
 
     animationContents = new ArrayList<>();
     animationContents
-        .add(new AnimationContentReeti(((Reeti) agent).getHead(), Movement.X_ROTATION, rot));
+        .add(new AnimationContent(((Reeti) agent).getHead(), Movement.X_ROTATION, rot));
     playAnimationPart(animationDuration);
 
   }

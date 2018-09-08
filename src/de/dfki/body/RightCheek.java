@@ -13,7 +13,7 @@ import javafx.scene.transform.Rotate;
 /**
  * @author Beka Aptsiauri
  */
-public class RightCheek extends ReetiBodyPart {
+public class RightCheek extends BodyPart {
 
   private static final int SIZE = 70;
   private final Circle mLed;
