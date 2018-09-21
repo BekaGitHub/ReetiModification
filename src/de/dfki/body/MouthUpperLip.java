@@ -1,5 +1,6 @@
 package de.dfki.body;
 
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.reeti.AnimatorReeti;
 import java.awt.geom.Point2D;
 import javafx.scene.shape.Path;
@@ -22,11 +23,11 @@ public class MouthUpperLip extends BodyPart {
     upperPoint = mouth.getUpperPoint();
   }
 
-  @Override
-  public void setShape(String s) {
-    MouthUpperLip.SHAPE shape = MouthUpperLip.SHAPE.valueOf(s);
-    mShape = (shape != null) ? shape : MouthUpperLip.SHAPE.DEFAULT;
-  }
+//  @Override
+//  public void setShape(String s) {
+//    MouthUpperLip.SHAPE shape = MouthUpperLip.SHAPE.valueOf(s);
+//    mShape = (shape != null) ? shape : MouthUpperLip.SHAPE.DEFAULT;
+//  }
 
 
   @Override
@@ -52,6 +53,11 @@ public class MouthUpperLip extends BodyPart {
         mLips.getElements().set(1, quadCurveTo);
         break;
     }
+  }
+
+  @Override
+  public void onAnimation(AnimationContentTest AnimationContentTest) {
+
   }
 
   public void setUpperLipRegulator(double upperLipRegulator) {

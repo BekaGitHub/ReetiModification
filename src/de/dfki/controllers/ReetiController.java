@@ -7,7 +7,8 @@ import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXToggleButton;
 import de.dfki.agent.Reeti;
-import de.dfki.body.Head;
+import de.dfki.animation.expression.Test;
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.speaking.Speak;
 import de.dfki.util.BodyPartsMovement;
 import de.dfki.util.CameraMovement;
@@ -44,7 +45,7 @@ public class ReetiController {
   private VBox controlPanelBox;
 
   @FXML
-  private JFXListView<Label> expressionListView;
+  private JFXListView<JFXButton> expressionListView;
   @FXML
   private JFXListView<Label> environmentListView;
 
@@ -172,7 +173,19 @@ public class ReetiController {
   private Reeti reeti;
 
   public void initialize() {
-    fillExpressionListView();
+    JFXButton jfxButton = new JFXButton("TESTING");
+    jfxButton = getDecoratedLabel(jfxButton);
+    expressionListView.getItems().add(jfxButton);
+    Test test = new Test();
+    jfxButton.setOnMouseEntered(event -> {
+      test.onAnimation(reeti);
+    });
+
+    jfxButton.setOnMouseExited(event -> {
+      test.pauseAnimation(reeti);
+    });
+
+//    fillExpressionListView();
     fillEnvironmentListView();
 
     cameraToogleButton.selectedProperty().addListener((p, o, n) -> {
@@ -258,7 +271,17 @@ public class ReetiController {
 //    exitButton.setOnAction((event) -> System.exit(0));
     exitButton.setOnAction((event) -> {
 //      reeti.agentAnimationTimer.start();
-      reeti.getHead().testAnimation();
+      AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getRightEar().getRightEarMesh());
+    animationContentTest.setAnimationsDauerInMillisekunden(2000);
+    animationContentTest.setPivotX(0);
+    animationContentTest.setPivotY(0);
+    animationContentTest.setPivotZ(0);
+    animationContentTest.setRotationsGradAufXAxis(0);
+    animationContentTest.setRotationsGradAufYAxis(0);
+    animationContentTest.setRotationsGradAufZAxis(360);
+
+    animationContentTest.setAnimationCycleCounter(20);
+      reeti.getRightEar().onAnimation(animationContentTest);
     });
 
   }
@@ -308,6 +331,18 @@ public class ReetiController {
   }
 
   private Label getDecoratedLabel(Label label) {
+    DropShadow ds = new DropShadow();
+    ds.setOffsetY(3.0f);
+    ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
+
+    label.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
+    label.setEffect(ds);
+    label.setCache(true);
+
+    return label;
+  }
+
+  private JFXButton getDecoratedLabel(JFXButton label) {
     DropShadow ds = new DropShadow();
     ds.setOffsetY(3.0f);
     ds.setColor(Color.color(0.4f, 0.4f, 0.4f));

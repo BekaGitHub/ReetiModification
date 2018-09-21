@@ -1,13 +1,13 @@
 package de.dfki.util;
 
 import com.jfoenix.controls.JFXSlider;
+import de.dfki.body.BodyPart;
 import de.dfki.body.Head;
 import de.dfki.body.LeftEye;
 import de.dfki.body.MouthDownLip;
 import de.dfki.body.MouthLeftCorner;
 import de.dfki.body.MouthRightCorner;
 import de.dfki.body.MouthUpperLip;
-import de.dfki.body.BodyPart;
 import de.dfki.body.RightEye;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;
@@ -110,7 +110,7 @@ public class BodyPartsMovement {
         .addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) ->
         {
           double newValue = Math.abs(new_val.doubleValue());
-          lip.setShape(action);
+//          lip.setShape(action);
           double SliderValue = (newValue + plusFactor) * multiplicationFactor / divisionFactor;
           if (lip instanceof MouthDownLip) {
             ((MouthDownLip) lip).setDownLipRegulator(SliderValue);

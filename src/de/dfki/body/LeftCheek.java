@@ -5,6 +5,7 @@
  */
 package de.dfki.body;
 
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.util.Constants;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
@@ -40,9 +41,13 @@ public class LeftCheek extends BodyPart {
 
   @Override
   public void init() {
-    super.init();
     led.setTranslateX(Constants.LED_X_POSITION);
     led.setTranslateZ(Constants.LEFT_LED_Z_POSITION);
+  }
+
+  @Override
+  public void onAnimation(AnimationContentTest AnimationContentTest) {
+
   }
 
   public int getSize() {

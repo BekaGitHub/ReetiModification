@@ -1,5 +1,6 @@
 package de.dfki.body;
 
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.reeti.AnimatorReeti;
 import java.awt.geom.Point2D;
 import javafx.scene.shape.Path;
@@ -22,11 +23,11 @@ public class MouthDownLip extends BodyPart {
     downPoint = mouth.getDownPoint();
   }
 
-  @Override
-  public void setShape(String s) {
-    MouthDownLip.SHAPE shape = MouthDownLip.SHAPE.valueOf(s);
-    mShape = (shape != null) ? shape : MouthDownLip.SHAPE.DEFAULT;
-  }
+//  @Override
+//  public void setShape(String s) {
+//    MouthDownLip.SHAPE shape = MouthDownLip.SHAPE.valueOf(s);
+//    mShape = (shape != null) ? shape : MouthDownLip.SHAPE.DEFAULT;
+//  }
 
 
   @Override
@@ -52,6 +53,11 @@ public class MouthDownLip extends BodyPart {
         mLips.getElements().set(2, quadCurveTo);
         break;
     }
+  }
+
+  @Override
+  public void onAnimation(AnimationContentTest AnimationContentTest) {
+
   }
 
   public void setDownLipRegulator(double downLipRegulator) {

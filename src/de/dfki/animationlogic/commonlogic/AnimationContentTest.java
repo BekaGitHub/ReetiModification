@@ -1,6 +1,5 @@
 package de.dfki.animationlogic.commonlogic;
 
-import javafx.geometry.Point3D;
 import javafx.scene.Node;
 
 /**
@@ -29,7 +28,7 @@ public class AnimationContentTest {
     return animationsDauerInSekunden;
   }
 
-  public void setAnimationsDauerInSekunden(int animationsDauerInSekunden) {
+  public void setAnimationsDauerInMillisekunden(int animationsDauerInSekunden) {
     this.animationsDauerInSekunden = animationsDauerInSekunden;
   }
 

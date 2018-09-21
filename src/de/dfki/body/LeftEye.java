@@ -5,9 +5,10 @@
  */
 package de.dfki.body;
 
-import com.interactivemesh.jfx.importer.col.ColModelImporter;
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationTest;
 import de.dfki.util.Constants;
-import java.net.URL;
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import javafx.scene.Group;
 
@@ -16,16 +17,15 @@ import javafx.scene.Group;
  */
 public class LeftEye extends BodyPart {
 
+  private static final Semaphore SEMAPHORE = new Semaphore(1);
+
+  private AnimationTest animationTest;
   private Group leftEyeGroup;
 
   public LeftEye(Head head) {
     x_Rotation = 5;
 
-    URL url = getClass().getClassLoader().getResource("BodyParts/Reeti/ReetiEye.dae");
-    ColModelImporter importer = new ColModelImporter();
-    importer.read(url);
-    leftEyeGroup = (Group) importer.getImport()[0];
-
+    leftEyeGroup = readDaeFile("BodyParts/Reeti/ReetiEye.dae");
     init();
 
     head.getHeadGroup().getChildren().add(leftEyeGroup);
@@ -43,5 +43,21 @@ public class LeftEye extends BodyPart {
   @Override
   public void calculate(int step) {
     transformate(leftEyeGroup, 0, 0, 0);
+  }
+
+  @Override
+  public void onAnimation(AnimationContentTest animationContentTest) {
+    try {
+      SEMAPHORE.acquire();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    animationTest = new AnimationTest();
+    animationTest.onAnimation(animationContentTest);
+    SEMAPHORE.release();
+  }
+
+  public Group getLeftEyeGroup() {
+    return leftEyeGroup;
   }
 }

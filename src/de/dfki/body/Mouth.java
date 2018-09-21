@@ -1,8 +1,11 @@
 package de.dfki.body;
 
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationTest;
 import de.dfki.animationlogic.reeti.AnimatorReeti;
 import de.dfki.util.Constants;
 import java.awt.geom.Point2D;
+import java.util.concurrent.Semaphore;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ClosePath;
 import javafx.scene.shape.MoveTo;
@@ -55,11 +58,11 @@ public class Mouth extends BodyPart {
     mLips.setTranslateZ(Constants.MOUTH_Z_POSITION);
   }
 
-  @Override
-  public void setShape(String s) {
-    Mouth.SHAPE shape = Mouth.SHAPE.valueOf(s);
-    mShape = (shape != null) ? shape : Mouth.SHAPE.DEFAULT;
-  }
+//  @Override
+//  public void setShape(String s) {
+//    Mouth.SHAPE shape = Mouth.SHAPE.valueOf(s);
+//    mShape = (shape != null) ? shape : Mouth.SHAPE.DEFAULT;
+//  }
 
 
   @Override
@@ -217,6 +220,22 @@ public class Mouth extends BodyPart {
         break;
 
     }
+  }
+
+  private static final Semaphore SEMAPHORE = new Semaphore(1);
+
+  private AnimationTest animationTest;
+
+  @Override
+  public void onAnimation(AnimationContentTest animationContentTest) {
+    try {
+      SEMAPHORE.acquire();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    animationTest = new AnimationTest();
+    animationTest.onAnimation(animationContentTest);
+    SEMAPHORE.release();
   }
 
   private void openMouth(double factor) {

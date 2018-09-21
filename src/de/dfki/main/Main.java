@@ -2,9 +2,7 @@ package de.dfki.main;
 
 import de.dfki.agent.Reeti;
 import de.dfki.controllers.ReetiController;
-import de.dfki.tts.Cereproc;
 import de.dfki.util.Dimension;
-import de.dfki.util.XMLParser;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

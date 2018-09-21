@@ -1,7 +1,6 @@
 package de.dfki.util;
 
 import de.dfki.animationlogic.reeti.AnimationReeti;
-import de.dfki.util.AnimationVisivility;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;

@@ -5,6 +5,7 @@
  */
 package de.dfki.body;
 
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.util.Constants;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
@@ -42,6 +43,11 @@ public class RightCheek extends BodyPart {
     super.init();
     mLed.setTranslateX(Constants.LED_X_POSITION);
     mLed.setTranslateZ(Constants.LEFT_LED_Z_POSITION);
+  }
+
+  @Override
+  public void onAnimation(AnimationContentTest AnimationContentTest) {
+
   }
 
   public Circle getLed() {

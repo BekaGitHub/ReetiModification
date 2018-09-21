@@ -5,14 +5,20 @@
  */
 package de.dfki.body;
 
-import de.dfki.animationlogic.reeti.AnimatorReeti;
+import com.interactivemesh.jfx.importer.col.ColModelImporter;
+import com.interactivemesh.jfx.importer.stl.StlMeshImporter;
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationTest;
 import java.net.URL;
 import java.util.logging.Logger;
-import javafx.application.Platform;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
+import javafx.scene.shape.MeshView;
+import javafx.scene.shape.TriangleMesh;
 import javafx.scene.transform.Rotate;
 
 /**
@@ -20,156 +26,63 @@ import javafx.scene.transform.Rotate;
  */
 public abstract class BodyPart extends Pane {
 
-  public double x_Translation = 0.0;
-  public double y_Translation = 0.0;
-  public double z_Translation = 0.0;
-
-  public double x_TranslationStep = 0.0f;
-  public double y_TranslationStep = 0.0f;
-  public double z_TranslationStep = 0.0f;
+  public static final Logger LOGGER = Logger.getLogger(BodyPart.class.getName());
+  private static PhongMaterial material = null;
 
   public double x_Rotation = 0;
   public double y_Rotation = 0;
   public double z_Rotation = 0;
-  public double toDegree = 0;
 
-  public double x_RotationStep = 0.0f;
-  public double y_RotationStep = 0.0f;
-  public double z_RotationStep = 0.0f;
-
-  public int mShapeAnimationStep = 0;
   public Color color = Color.rgb(0, 0, 0);
-
-  public static final Logger LOGGER = Logger.getLogger(BodyPart.class.getName());
-  private static PhongMaterial material = null;
 
   public void init() {
     calculate(0);
   }
 
-  public void set_X_Translation(int length) {
-    x_TranslationStep = (double) length / AnimatorReeti.MAX_ANIM_STEPS;
+  public MeshView readStlFile(String path, int startRotationsGrad) {
+    URL url = getClass().getClassLoader().getResource(path);
+    StlMeshImporter stlMeshImporter = new StlMeshImporter();
+    stlMeshImporter.read(url);
+
+    TriangleMesh triangleMesh = stlMeshImporter.getImport();
+    MeshView headMeshView = new MeshView(triangleMesh);
+
+    headMeshView.setMaterial(getMaterial());
+
+    headMeshView.setRotationAxis(Rotate.X_AXIS);
+    headMeshView.setRotate(startRotationsGrad);
+    return headMeshView;
   }
 
-  public void set_Y_Translation(int length) {
-    y_TranslationStep = (double) length / AnimatorReeti.MAX_ANIM_STEPS;
+  MeshView readDaeFile(String path, int startRotationsGrad) {
+    ColModelImporter importer = new ColModelImporter();
+    URL url = getClass().getClassLoader().getResource(path);
+
+    importer.read(url);
+    return  (MeshView) importer.getImport()[0];
   }
 
-  public void set_Z_Translation(int length) {
-    z_TranslationStep = (double) length / AnimatorReeti.MAX_ANIM_STEPS;
+  Group readDaeFile(String path) {
+    URL url = getClass().getClassLoader().getResource(path);
+    ColModelImporter importer = new ColModelImporter();
+    importer.read(url);
+    return (Group) importer.getImport()[0];
   }
 
-  public synchronized void calculate_X_Translation(int step) {
-    x_Translation += x_TranslationStep;
-    x_Translation = Math.round(x_Translation * 1000d) / 1000d;
-
-    Platform.runLater(() -> calculate(step));
-  }
-
-  public synchronized void calculate_Y_Translation(int step) {
-    y_Translation += y_TranslationStep;
-    y_Translation = Math.round(y_Translation * 1000d) / 1000d;
-
-    Platform.runLater(() -> calculate(step));
-  }
-
-  public synchronized void calculate_Z_Translation(int step) {
-    z_Translation += z_TranslationStep;
-    z_Translation = Math.round(z_Translation * 1000d) / 1000d;
-
-    Platform.runLater(() -> calculate(step));
-  }
-
-  public void resetTranslation() {
-    x_TranslationStep = 0.0d;
-    y_TranslationStep = 0.0d;
-    z_TranslationStep = 0.0d;
-  }
-
-  public void set_X_Rotation(int degree) {
-    toDegree = x_Rotation + degree;
-    x_RotationStep = (double) degree / AnimatorReeti.MAX_ANIM_STEPS;
-  }
-
-  public void set_Y_Rotation(int degree) {
-    y_RotationStep = (double) degree / AnimatorReeti.MAX_ANIM_STEPS;
-  }
-
-  public void set_Z_Rotation(int degree) {
-    z_RotationStep = (double) degree / AnimatorReeti.MAX_ANIM_STEPS;
-  }
-
-  public void setTilt(int degree) {
-    toDegree = x_Rotation + degree;
-    x_RotationStep = (double) degree / AnimatorReeti.MAX_ANIM_STEPS;
-  }
-
-  public synchronized void calculate_X_Rotation(int step) {
-    x_Rotation += x_RotationStep;
-    x_Rotation = (double) Math.round(x_Rotation * 1000d) / 1000d;
-
-    Platform.runLater(() -> calculate(step));
-  }
-
-  public synchronized void calculate_Y_Rotation(int step) {
-    y_Rotation += y_RotationStep;
-    y_Rotation = (double) Math.round(y_Rotation * 1000d) / 1000d;
-
-    Platform.runLater(() -> calculate(step));
-  }
-
-  public synchronized void calculate_Z_Rotation(int step) {
-    z_Rotation += z_RotationStep;
-    z_Rotation = (double) Math.round(z_Rotation * 1000d) / 1000d;
-
-    Platform.runLater(() -> calculate(step));
-
-  }
-
-  public void reset_X_Rotation() {
-    x_Rotation += x_RotationStep;
-    Platform.runLater(() -> calculate(1));
-    x_RotationStep = 0;
-  }
-
-  public void reset_Y_Rotation() {
-    y_Rotation += y_RotationStep;
-    Platform.runLater(() -> calculate(1));
-    y_RotationStep = 0;
-  }
-
-  public void reset_Z_Rotation() {
-    z_Rotation += z_RotationStep;
-    Platform.runLater(() -> calculate(1));
-    z_RotationStep = 0;
-  }
-
-  public void setShape(String s) {
-
-  }
-
-  public void resetRotation() {
-
-  }
-
-  public void createShape() {
+  private void createShape() {
     // create the shape
-  }
-
-  public synchronized void calculateShape(int step) {
-    mShapeAnimationStep = step;
-
-    Platform.runLater(() -> calculate(step));
   }
 
   public synchronized void calculate(int step) {
     createShape();
   }
 
+  public abstract void onAnimation(AnimationContentTest AnimationContentTest);
+
   protected PhongMaterial getMaterial() {
     if (material == null) {
       URL imageUrl = getClass().getClassLoader().getResource("Images/difuseMap2.png");
-      javafx.scene.image.Image image = new javafx.scene.image.Image(imageUrl.toExternalForm());
+      Image image = new javafx.scene.image.Image(imageUrl.toExternalForm());
       material = new PhongMaterial();
       material.setDiffuseColor(color);
       material.setDiffuseMap(image);
@@ -178,7 +91,7 @@ public abstract class BodyPart extends Pane {
     return material;
   }
 
-  protected void transformate(Node reetiBodyPart, double pivotX, double pivotY, double pivotZ) {
+  void transformate(Node reetiBodyPart, double pivotX, double pivotY, double pivotZ) {
     Rotate rx = new Rotate(x_Rotation, pivotX, pivotY, pivotZ, Rotate.X_AXIS);
     Rotate ry = new Rotate(y_Rotation, pivotX, pivotY, pivotZ, Rotate.Y_AXIS);
     Rotate rz = new Rotate(z_Rotation, pivotX, pivotY, pivotZ, Rotate.Z_AXIS);

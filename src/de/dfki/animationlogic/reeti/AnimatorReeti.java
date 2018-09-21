@@ -28,28 +28,28 @@ public class AnimatorReeti extends Animator {
           int param = comp.position;
           String paramString = comp.bodyPartMovementAction;
           if (movementAction == Movement.X_ROTATION) {
-            bodyPart.set_X_Rotation(param);
+//            bodyPart.set_X_Rotation(param);
           }
           if (movementAction == Movement.Y_ROTATION) {
-            bodyPart.set_Y_Rotation(param);
+//            bodyPart.set_Y_Rotation(param);
           }
           if (movementAction == Movement.Z_ROTATION) {
-            bodyPart.set_Z_Rotation(param);
+//            bodyPart.set_Z_Rotation(param);
           }
           if (movementAction == Movement.TILT) {
-            bodyPart.setTilt(param);
+//            bodyPart.setTilt(param);
           }
           if (movementAction == Movement.X_TRANSLATION) {
-            bodyPart.set_X_Translation(param);
+//            bodyPart.set_X_Translation(param);
           }
           if (movementAction == Movement.Y_TRANSLATION) {
-            bodyPart.set_Y_Translation(param);
+//            bodyPart.set_Y_Translation(param);
           }
           if (movementAction == Movement.Z_TRANSLATION) {
-            bodyPart.set_Z_Translation(param);
+//            bodyPart.set_Z_Translation(param);
           }
           if (movementAction == Movement.SHAPE) {
-            bodyPart.setShape(paramString);
+//            bodyPart.setShape(paramString);
           }
         });
       }
@@ -60,29 +60,29 @@ public class AnimatorReeti extends Animator {
           Movement movementAction = acr.movementAction;
 
           if (movementAction == Movement.X_ROTATION) {
-            bodypart.calculate_X_Rotation(currentStep);
+//            bodypart.calculate_X_Rotation(currentStep);
           }
           if (movementAction == Movement.Y_ROTATION) {
-            bodypart.calculate_Y_Rotation(currentStep);
+//            bodypart.calculate_Y_Rotation(currentStep);
           }
           if (movementAction == Movement.Z_ROTATION) {
-            bodypart.calculate_Z_Rotation(currentStep);
+//            bodypart.calculate_Z_Rotation(currentStep);
           }
           if (movementAction == Movement.TILT) {
-            bodypart.calculate_X_Rotation(currentStep);
+//            bodypart.calculate_X_Rotation(currentStep);
           }
 
           if (movementAction == Movement.X_TRANSLATION) {
-            bodypart.calculate_X_Translation(currentStep);
+//            bodypart.calculate_X_Translation(currentStep);
           }
           if (movementAction == Movement.Y_TRANSLATION) {
-            bodypart.calculate_Y_Translation(currentStep);
+//            bodypart.calculate_Y_Translation(currentStep);
           }
           if (movementAction == Movement.Z_TRANSLATION) {
-            bodypart.calculate_Z_Translation(currentStep);
+//            bodypart.calculate_Z_Translation(currentStep);
           }
           if (movementAction == Movement.SHAPE) {
-            bodypart.calculateShape(currentStep);
+//            bodypart.calculateShape(currentStep);
           }
         }
 
@@ -101,20 +101,20 @@ public class AnimatorReeti extends Animator {
           BodyPart bodypart = acr.mBodypart;
 
           if (movementAction == Movement.X_ROTATION) {
-            bodypart.reset_X_Rotation();
+//            bodypart.reset_X_Rotation();
           }
           if (movementAction == Movement.Y_ROTATION) {
-            bodypart.reset_Y_Rotation();
+//            bodypart.reset_Y_Rotation();
           }
           if (movementAction == Movement.Z_ROTATION) {
-            bodypart.reset_Z_Rotation();
+//            bodypart.reset_Z_Rotation();
           }
           if (movementAction == Movement.Z_ROTATION) {
-            bodypart.resetRotation();
+//            bodypart.resetRotation();
           }
 
           if (movementAction == Movement.X_TRANSLATION) {
-            bodypart.resetTranslation();
+//            bodypart.resetTranslation();
           }
         }
 

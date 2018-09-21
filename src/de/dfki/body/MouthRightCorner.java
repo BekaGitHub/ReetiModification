@@ -1,5 +1,6 @@
 package de.dfki.body;
 
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.reeti.AnimatorReeti;
 import java.awt.geom.Point2D;
 import javafx.scene.shape.MoveTo;
@@ -23,11 +24,11 @@ public class MouthRightCorner extends BodyPart {
     rightCorner = mouth.getRightCorner();
   }
 
-  @Override
-  public void setShape(String s) {
-    MouthRightCorner.SHAPE shape = MouthRightCorner.SHAPE.valueOf(s);
-    mShape = (shape != null) ? shape : MouthRightCorner.SHAPE.DEFAULT;
-  }
+//  @Override
+//  public void setShape(String s) {
+//    MouthRightCorner.SHAPE shape = MouthRightCorner.SHAPE.valueOf(s);
+//    mShape = (shape != null) ? shape : MouthRightCorner.SHAPE.DEFAULT;
+//  }
 
   @Override
   public void calculate(int step) {
@@ -55,6 +56,11 @@ public class MouthRightCorner extends BodyPart {
         mLips.getElements().set(0, rightMoveTo);
         break;
     }
+  }
+
+  @Override
+  public void onAnimation(AnimationContentTest AnimationContentTest) {
+
   }
 
   public void setRightCornerRegulator(double rightCornerRegler) {

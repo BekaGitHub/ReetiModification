@@ -3,9 +3,11 @@ package de.dfki.agent;
 import de.dfki.TestAnimation;
 import de.dfki.animation.AgentAnimationTimer;
 import de.dfki.animation.blink.Blinking;
+import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.reeti.AnimationLoaderReeti;
 import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.body.Body;
+import de.dfki.body.BodyPart;
 import de.dfki.body.Head;
 import de.dfki.body.LeftCheek;
 import de.dfki.body.LeftEar;
@@ -103,6 +105,10 @@ public class Reeti extends Pane implements Agent {
     Platform.runLater(() -> speechBubble.hideSpeechBubble());
   }
 
+  @Override
+  public void onAnimation(BodyPart bodyPart, AnimationContentTest animationContentTest) {
+    bodyPart.onAnimation(animationContentTest);
+  }
   @Override
   public AnimationReeti doAnimation(String name, int duration, boolean block) {
     return doAnimation(name, duration, "", block);
@@ -220,77 +226,88 @@ public class Reeti extends Pane implements Agent {
    * @param pos a int between 0 and 100 (default value is 30)
    */
   public void leftEyeTilt(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.LEFT_EYE_X, pos, 20, duration);
+    moveReetiPart.leftEyeTilt(this, pos, 20, (int) duration);
+//    moveReetiPart.movePart(this, Constants.LEFT_EYE_X, pos, 20, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 40)
    */
   public void leftEyePan(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.LEFT_EYE_Y, pos, -1, duration);
+    moveReetiPart.leftEyePan(this, pos, (int) duration);
+//    moveReetiPart.movePart(this, Constants.LEFT_EYE_Y, pos, -1, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 30)
    */
   public void rightEyeTilt(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.RIGHT_EYE_X, pos, 23, duration);
+    moveReetiPart.rightEyeTilt(this, pos, 23, (int) duration);
+//    moveReetiPart.movePart(this, Constants.RIGHT_EYE_X, pos, 23, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 60)
    */
   public void rightEyePan(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.RIGHT_EYE_Y, pos, 23, duration);
+    moveReetiPart.rightEyePan(this, pos, (int) duration);
+//    moveReetiPart.movePart(this, Constants.RIGHT_EYE_Y, pos, 23, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 100)
    */
   public void leftEyeLid(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.BLINK_LEFT_EYELID, pos, 23, duration);
+    moveReetiPart.blinkLeftEyelid(this, pos, (int) duration);
+//    moveReetiPart.movePart(this, Constants.BLINK_LEFT_EYELID, pos, 23, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 100)
    */
   public void rightEyeLid(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.BLINK_RIGHT_EYELID, pos, 23, duration);
+    moveReetiPart.blinkRightEyelid(this, pos, (int) duration);
+//    moveReetiPart.movePart(this, Constants.BLINK_RIGHT_EYELID, pos, 23, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void leftEar(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.LEFT_EAR_MOVEMENT, pos, 23, duration);
+    moveReetiPart.leftEar(this, pos, (int) duration);
+//    moveReetiPart.movePart(this, Constants.LEFT_EAR_MOVEMENT, pos, 23, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void rightEar(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.RIGHT_EAR_MOVEMENT, pos, 1, duration);
+    moveReetiPart.rightEar(this, pos, (int) duration);
+//    moveReetiPart.movePart(this, Constants.RIGHT_EAR_MOVEMENT, pos, 1, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void neckRotat(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.NECK_ROTATION, pos, 1, duration);
+    moveReetiPart.neckRotation(this, pos, (int) duration);
+//    moveReetiPart.movePart(this, Constants.NECK_ROTATION, pos, 1, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void neckTilt(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.NECK_TILT, pos, 40, duration);
+    moveReetiPart.neckTild(this, pos, 40, (int) duration);
+//    moveReetiPart.movePart(this, Constants.NECK_TILT, pos, 40, duration);
   }
 
   /**
    * @param pos a int between 0 and 100 (default value is 50)
    */
   public void neckPan(int pos, double duration) {
-    moveReetiPart.movePart(this, Constants.NECK_PAN, pos, 40, duration);
+    moveReetiPart.neckPan(this, pos, 40, (int) duration);
+//    moveReetiPart.movePart(this, Constants.NECK_PAN, pos, 40, duration);
   }
 
   public void mouthTest() {

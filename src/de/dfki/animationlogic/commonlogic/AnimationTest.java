@@ -7,9 +7,11 @@ import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 /**
- * Die Klasse ist zuständig, um eine Animation auszuführen.
+ * Die Klasse ist zuständig, um eine Animation starten/pausieren/stopen.
  */
 public class AnimationTest {
+
+  private Timeline timeline;
 
   public void onAnimation(AnimationContentTest animationContentTest) {
 
@@ -25,22 +27,29 @@ public class AnimationTest {
     double rotationsGradAufYAxis = animationContentTest.getRotationsGradAufYAxis();
     double rotationsGradAufZAxis = animationContentTest.getRotationsGradAufZAxis();
 
-    Timeline animationTimeline = new Timeline(
-        new KeyFrame(Duration.ZERO, new KeyValue(rotateX.angleProperty(), 0)),
-        new KeyFrame(Duration.millis(animationsDauer), new KeyValue(rotateX.angleProperty(), rotationsGradAufXAxis)),
+    timeline = new Timeline();
+    KeyFrame xZero = new KeyFrame(Duration.ZERO, new KeyValue(rotateX.angleProperty(), 0));
+    KeyFrame xEnd = new KeyFrame(Duration.millis(animationsDauer), new KeyValue(rotateX.angleProperty(), rotationsGradAufXAxis));
+    KeyFrame yZero = new KeyFrame(Duration.ZERO, new KeyValue(rotateY.angleProperty(), 0));
+    KeyFrame yEnd = new KeyFrame(Duration.millis(animationsDauer), new KeyValue(rotateY.angleProperty(), rotationsGradAufYAxis));
+    KeyFrame zZero = new KeyFrame(Duration.ZERO, new KeyValue(rotateZ.angleProperty(), 0));
+    KeyFrame zEnd = new KeyFrame(Duration.millis(animationsDauer), new KeyValue(rotateZ.angleProperty(), rotationsGradAufZAxis));
 
-        new KeyFrame(Duration.ZERO, new KeyValue(rotateY.angleProperty(), 0)),
-        new KeyFrame(Duration.millis(animationsDauer), new KeyValue(rotateY.angleProperty(), rotationsGradAufYAxis)),
-
-        new KeyFrame(Duration.ZERO, new KeyValue(rotateZ.angleProperty(), 0)),
-        new KeyFrame(Duration.millis(animationsDauer), new KeyValue(rotateZ.angleProperty(), rotationsGradAufZAxis))
-    );
+    timeline.getKeyFrames().addAll(xZero, xEnd, yZero, yEnd, zZero, zEnd);
 
     int animationCycleCounter = animationContentTest.getAnimationCycleCounter();
     if (animationCycleCounter != -1) {
-      animationTimeline.setAutoReverse(true);
-      animationTimeline.setCycleCount(animationCycleCounter);
+      timeline.setAutoReverse(true);
+      timeline.setCycleCount(animationCycleCounter);
     }
-    animationTimeline.play();
+    timeline.play();
+  }
+
+  public void pauseAnimation() {
+    timeline.pause();
+  }
+
+  public void stopAnimation() {
+    timeline.stop();
   }
 }
