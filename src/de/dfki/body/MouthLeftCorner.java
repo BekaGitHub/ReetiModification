@@ -19,8 +19,8 @@ public class MouthLeftCorner extends BodyPart {
   private double recordLeftCornerRegulator;
 
   public MouthLeftCorner(Mouth mouth) {
-    mLips = mouth.getLips();
-    leftCorner = mouth.getLeftCorner();
+//    mLips = mouth.getLips();
+//    leftCorner = mouth.getLeftCorner();
   }
 
 //  @Override

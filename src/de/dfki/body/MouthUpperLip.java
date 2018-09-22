@@ -19,8 +19,8 @@ public class MouthUpperLip extends BodyPart {
   private double recordupperLipRegulator;
 
   public MouthUpperLip(Mouth mouth) {
-    mLips = mouth.getLips();
-    upperPoint = mouth.getMiddleUpperPoint();
+//    mLips = mouth.getLips();
+//    upperPoint = mouth.getMiddleUpperPoint();
   }
 
 //  @Override

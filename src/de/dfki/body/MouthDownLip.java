@@ -29,8 +29,8 @@ public class MouthDownLip extends BodyPart {
 
   public MouthDownLip(Mouth mouth) {
     this.mouth = mouth;
-    mLips = mouth.getLips();
-    downPoint = mouth.getMiddleDownPoint();
+//    mLips = mouth.getLips();
+//    downPoint = mouth.getMiddleDownPoint();
   }
 
 //  @Override

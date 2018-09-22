@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXToggleButton;
 import de.dfki.agent.Reeti;
 import de.dfki.animation.expression.Test;
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.reeti.AnimationContent;
 import de.dfki.speaking.Speak;
 import de.dfki.util.BodyPartsMovement;
 import de.dfki.util.CameraMovement;
@@ -178,7 +179,10 @@ public class ReetiController {
     expressionListView.getItems().add(jfxButton);
     Test test = new Test();
     jfxButton.setOnMouseEntered(event -> {
-      test.onAnimation(reeti);
+      AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getHead());
+      animationContentTest.setAnimationsDauerInMillisekunden(150);
+      animationContentTest.setPosition(100);
+      reeti.getMouth().onAnimation(animationContentTest);
     });
 
     jfxButton.setOnMouseExited(event -> {
