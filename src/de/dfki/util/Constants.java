@@ -20,8 +20,8 @@ public class Constants {
   public static final int EAR_Y_POSITION = -50;
   public static final int RIGHT_EAR_X_POSITION = -LEFT_EAR_X_POSITION;
   public static final int MOUTH_X_POSITION = -7;
-  public static final int MOUTH_Y_POSITION = -25;
-  public static final int MOUTH_Z_POSITION = -137;
+  public static final double MOUTH_Y_POSITION = -28;
+  public static final int MOUTH_Z_POSITION = -135;
   public static final int LED_X_POSITION = -20;
   public static final double LEFT_LED_Z_POSITION = -132.4;
 
@@ -31,7 +31,7 @@ public class Constants {
   public static final int CONTROLPANEL_WIDTH = 491;
 
   public static final int SPEECH_BUBBLE_X_POSITION = MOUTH_X_POSITION + 27;
-  public static final int SPEECH_BUBBLE_Y_POSITION = MOUTH_Y_POSITION - 665;
+  public static final double SPEECH_BUBBLE_Y_POSITION = MOUTH_Y_POSITION - 665;
   public static final int SPEECH_BUBBLE_Z_POSITION = Z_TRANSLATION - 145;
 
   public final static String BASE_ANIMATIONPATH = "de.dfki.animation";

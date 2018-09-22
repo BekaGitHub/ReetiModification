@@ -7,6 +7,7 @@ import java.util.concurrent.Semaphore;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.beans.value.WritableValue;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.QuadCurve;
@@ -23,7 +24,6 @@ public class Mouth extends BodyPart {
 
   private static final Semaphore SEMAPHORE = new Semaphore(1);
 
-  private AnimationTest animationTest;
   private Timeline timeline;
 
   QuadCurve upperLipQuadCurve = new QuadCurve();
@@ -37,8 +37,8 @@ public class Mouth extends BodyPart {
     upperLipQuadCurve.setTranslateZ(Constants.MOUTH_Z_POSITION);
     //Setze Angangsposition des downLips
     downLipCuadCurve.setTranslateX(Constants.MOUTH_X_POSITION);
-    downLipCuadCurve.setTranslateY(Constants.MOUTH_Y_POSITION-0.5);
-    downLipCuadCurve.setTranslateZ(Constants.MOUTH_Z_POSITION);
+    downLipCuadCurve.setTranslateY(Constants.MOUTH_Y_POSITION);
+    downLipCuadCurve.setTranslateZ(Constants.MOUTH_Z_POSITION-1);
 
     head.getHeadGroup().getChildren().addAll(upperLipQuadCurve, downLipCuadCurve);
     createMouth();
@@ -51,16 +51,44 @@ public class Mouth extends BodyPart {
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-    int animationsDauer = animationContentTest.getAnimationsDauerInMillisekunden();
-    int position = animationContentTest.getPosition();
-    timeline = new Timeline();
-    timeline.setCycleCount(Timeline.INDEFINITE);
-    timeline.setAutoReverse(true);
-    final KeyValue kv = new KeyValue(upperLipQuadCurve.controlYProperty(), 2);
-    final KeyFrame kf = new KeyFrame(Duration.millis(500), kv);
-    timeline.getKeyFrames().addAll(kf);
-    timeline.play();
+    switch (animationContentTest.getMouthPart()) {
+      case UPPER_LIP:
+        startUpperLipAnimation(animationContentTest);
+        break;
+      case DOWN_LIP:
+        startDownLipAnimation(animationContentTest);
+        break;
+      case RIGHT_CORNER:
+        startRightCornerAnimation(animationContentTest);
+        break;
+      case LEFT_CORNER:
+        startLeftCornerAnimation(animationContentTest);
+        break;
+    }
     SEMAPHORE.release();
+  }
+
+  private void startUpperLipAnimation(AnimationContentTest animationContentTest) {
+    startAnimation(upperLipQuadCurve.controlYProperty(), animationContentTest.getPosition(), animationContentTest.getAnimationsDauerInMillisekunden());
+  }
+
+  private void startDownLipAnimation(AnimationContentTest animationContentTest) {
+    startAnimation(downLipCuadCurve.controlYProperty(), animationContentTest.getPosition(), animationContentTest.getAnimationsDauerInMillisekunden());
+  }
+
+  private void startRightCornerAnimation(AnimationContentTest animationContentTest) {
+    startAnimation(upperLipQuadCurve.startYProperty(), animationContentTest.getPosition(), animationContentTest.getAnimationsDauerInMillisekunden());
+  }
+
+  private void startLeftCornerAnimation(AnimationContentTest animationContentTest) {
+    startAnimation(upperLipQuadCurve.endYProperty(), animationContentTest.getPosition(), animationContentTest.getAnimationsDauerInMillisekunden());
+  }
+  private void startAnimation(WritableValue<Number> target, Number endValue, int duration) {
+    timeline = new Timeline();
+    KeyValue keyValue = new KeyValue(target, endValue);
+    KeyFrame keyFrame = new KeyFrame(Duration.millis(duration), keyValue);
+    timeline.getKeyFrames().add(keyFrame);
+    timeline.play();
   }
 
   private void createMouth() {
@@ -99,12 +127,4 @@ public class Mouth extends BodyPart {
     lipQadCurve.setStrokeWidth(1);
     lipQadCurve.setFill(Color.GRAY.brighter());
   }
-
-
-  public enum SHAPE {
-    DEFAULT, MOUTHACTION, MOUTHACTIONEND, LEFTCORNERACTION, LEFTCORNERACTIONEND, RIGHTCORNERACTION, RIGHTCORNERACTIONEND, OPEN,
-    ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, ELEVEN, TWELVE, THIRTEEN, FOURTEEN, NINETEEN, TWENTY
-  }
-
-
 }

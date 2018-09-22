@@ -21,6 +21,7 @@ public class AnimationContentTest {
   private double pivotZ;
 
   private Node koerperteil;
+  private MouthPart mouthPart;
 
   public AnimationContentTest(Node koerperteil) {
     this.koerperteil = koerperteil;
@@ -104,5 +105,13 @@ public class AnimationContentTest {
 
   public void setPosition(int position) {
     this.position = position;
+  }
+
+  public MouthPart getMouthPart() {
+    return mouthPart;
+  }
+
+  public void setMouthPart(MouthPart mouthPart) {
+    this.mouthPart = mouthPart;
   }
 }
