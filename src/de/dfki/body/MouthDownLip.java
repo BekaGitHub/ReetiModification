@@ -77,7 +77,7 @@ public class MouthDownLip extends BodyPart {
     int position = animationContentTest.getPosition();
 
     timeline = new Timeline();
-    KeyValue kv = new KeyValue(mouth.getMiddleDownPoint(), 300);
+//    KeyValue kv = new KeyValue(mouth.getMiddleDownPoint(), 300);
     SEMAPHORE.release();
   }
 

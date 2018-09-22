@@ -34,8 +34,8 @@ public class Muster extends AnimationReeti {
     Color c3 = Color.rgb(0, 0, 255);
 //    getReeti().ledON(c1, c2, c3, 0.7f, 0.9f, 0.4f, "B");
 
-    ((Reeti) agent).getMouth().setUpRegulator(-20);
-    ((Reeti) agent).getMouth().setDownRegulator(-10);
+//    ((Reeti) agent).getMouth().setUpRegulator(-20);
+//    ((Reeti) agent).getMouth().setDownRegulator(-10);
 //        reeti.mouth.setLeftCornerRegulator(-20);
 
     animationContents = new ArrayList<>();

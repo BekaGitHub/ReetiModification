@@ -6,10 +6,10 @@ import de.dfki.util.Constants;
 import java.awt.geom.Point2D;
 import java.util.concurrent.Semaphore;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.ClosePath;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
+import javafx.scene.shape.QuadCurve;
 import javafx.scene.shape.QuadCurveTo;
 import javafx.scene.shape.StrokeLineJoin;
 
@@ -19,23 +19,15 @@ import javafx.scene.shape.StrokeLineJoin;
 public class Mouth extends Pane {
 
   private static final int MOUTH_LENGTH = 32;
+
+  QuadCurve upperLipQuadCurve = new QuadCurve();
+  QuadCurve downLipCuadCurve = new QuadCurve();
+
   public Point2D leftCorner;
   public Point2D rightCorner;
   public Point2D middleUpperPoint;
   public Point2D middleDownPoint;
-  public Mouth.SHAPE mShape = Mouth.SHAPE.DEFAULT;
   private Path mLips;
-  private boolean openMouth = false;
-
-  private double rightCornerRegulator = 0;
-  private double leftCornerRegulator = 0;
-  private double upRegulator = 0;
-  private double downRegulator = 0;
-
-  private double recordLeftCornerRegulator;
-  private double recordRightCornerRegulator;
-  private double recordUpRegulator;
-  private double recordDownRegulator;
 
   private static final int MOUTH_START_POINT_X = -9;
   private static final int MOUTH_START_POINT_Y = 35;
@@ -45,15 +37,19 @@ public class Mouth extends Pane {
     mLips = new Path();
 
     init();
-    head.getHeadGroup().getChildren().addAll(mLips);
+    head.getHeadGroup().getChildren().addAll(upperLipQuadCurve, downLipCuadCurve);
   }
 
 //  @Override
   public void init() {
     initialeMouthPoints();
-    mLips.setTranslateX(Constants.MOUTH_X_POSITION);
-    mLips.setTranslateY(Constants.MOUTH_Y_POSITION);
-    mLips.setTranslateZ(Constants.MOUTH_Z_POSITION);
+    upperLipQuadCurve.setTranslateX(Constants.MOUTH_X_POSITION);
+    upperLipQuadCurve.setTranslateY(Constants.MOUTH_Y_POSITION);
+    upperLipQuadCurve.setTranslateZ(Constants.MOUTH_Z_POSITION);
+
+    downLipCuadCurve.setTranslateX(Constants.MOUTH_X_POSITION);
+    downLipCuadCurve.setTranslateY(Constants.MOUTH_Y_POSITION);
+    downLipCuadCurve.setTranslateZ(Constants.MOUTH_Z_POSITION);
     createMouth();
   }
 
@@ -85,23 +81,25 @@ public class Mouth extends Pane {
     SEMAPHORE.release();
   }
 
-  private void openMouth(double factor) {
-    mLips.getElements().clear();
-    mLips.getElements().add(new MoveTo(leftCorner.getX(), leftCorner.getY()));
-    mLips.getElements().add(
-        new QuadCurveTo(middleUpperPoint.getX(), middleUpperPoint.getY() - 10 * factor, rightCorner.getX(),
-            rightCorner.getY()));
-    mLips.getElements().add(
-        new QuadCurveTo(middleDownPoint.getX(), middleDownPoint.getY() + 10 * factor, leftCorner.getX(),
-            leftCorner.getY()));
-    mLips.getElements().add(new ClosePath());
-  }
-
   private void initialeMouthPoints() {
     rightCorner = new Point2D.Double(MOUTH_START_POINT_X, MOUTH_START_POINT_Y);
     leftCorner = new Point2D.Double(rightCorner.getX() + MOUTH_LENGTH, rightCorner.getY());
     middleUpperPoint = new Point2D.Double(rightCorner.getX() + MOUTH_LENGTH / 2, rightCorner.getY());
     middleDownPoint = new Point2D.Double(middleUpperPoint.getX(), middleUpperPoint.getY());
+
+    upperLipQuadCurve.setStartX(MOUTH_START_POINT_X);
+    upperLipQuadCurve.setStartY(MOUTH_START_POINT_Y);
+    upperLipQuadCurve.setControlX(MOUTH_START_POINT_X + MOUTH_LENGTH / 2);
+    upperLipQuadCurve.setControlY(MOUTH_START_POINT_Y - 10);
+    upperLipQuadCurve.setEndX(MOUTH_START_POINT_X + MOUTH_LENGTH);
+    upperLipQuadCurve.setEndY(MOUTH_START_POINT_Y);
+
+    downLipCuadCurve.setStartX(MOUTH_START_POINT_X);
+    downLipCuadCurve.setStartY(MOUTH_START_POINT_Y);
+    downLipCuadCurve.setControlX(MOUTH_START_POINT_X + MOUTH_LENGTH / 2);
+    downLipCuadCurve.setControlY(MOUTH_START_POINT_Y + 10);
+    downLipCuadCurve.setEndX(MOUTH_START_POINT_X + MOUTH_LENGTH);
+    downLipCuadCurve.setEndY(MOUTH_START_POINT_Y);
   }
 
   private void createMouth() {
@@ -137,13 +135,6 @@ public class Mouth extends Pane {
     mLips.setStyle("-fx-effect: dropshadow( one-pass-box , black , 4 , 0.0 , 1 , 0 );");
   }
 
-  public void setUpRegulator(int upRegler) {
-    this.upRegulator = upRegler;
-  }
-
-  public void setDownRegulator(int downRegler) {
-    this.downRegulator = downRegler;
-  }
 
   public Path getLips() {
     return mLips;
