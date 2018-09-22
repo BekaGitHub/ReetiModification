@@ -25,8 +25,8 @@ public class Mouth_TWO extends AnimationReeti {
   public void playAnimation() {
     // smile
     animationContents = new ArrayList<>();
-    animationContents
-        .add(new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "TWO"));
-    playAnimationPart(20);
+//    animationContents
+//        .add(new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "TWO"));
+//    playAnimationPart(20);
   }
 }

@@ -7,12 +7,14 @@ import javafx.scene.Node;
  */
 public class AnimationContentTest {
 
-  private int animationsDauerInSekunden;
+  private int animationsDauerInMillisekunden;
   private int animationCycleCounter = -1;
 
   private double rotationsGradAufXAxis;
   private double rotationsGradAufYAxis;
   private double rotationsGradAufZAxis;
+
+  private int position;
 
   private double pivotX;
   private double pivotY;
@@ -24,12 +26,12 @@ public class AnimationContentTest {
     this.koerperteil = koerperteil;
   }
 
-  public int getAnimationsDauerInSekunden() {
-    return animationsDauerInSekunden;
+  public int getAnimationsDauerInMillisekunden() {
+    return animationsDauerInMillisekunden;
   }
 
-  public void setAnimationsDauerInMillisekunden(int animationsDauerInSekunden) {
-    this.animationsDauerInSekunden = animationsDauerInSekunden;
+  public void setAnimationsDauerInMillisekunden(int animationsDauerInMillisekunden) {
+    this.animationsDauerInMillisekunden = animationsDauerInMillisekunden;
   }
 
   public double getRotationsGradAufXAxis() {
@@ -94,5 +96,13 @@ public class AnimationContentTest {
 
   public void setAnimationCycleCounter(int animationCycleCounter) {
     this.animationCycleCounter = animationCycleCounter;
+  }
+
+  public int getPosition() {
+    return position;
+  }
+
+  public void setPosition(int position) {
+    this.position = position;
   }
 }

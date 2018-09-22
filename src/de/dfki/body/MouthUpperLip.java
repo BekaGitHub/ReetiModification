@@ -20,7 +20,7 @@ public class MouthUpperLip extends BodyPart {
 
   public MouthUpperLip(Mouth mouth) {
     mLips = mouth.getLips();
-    upperPoint = mouth.getUpperPoint();
+    upperPoint = mouth.getMiddleUpperPoint();
   }
 
 //  @Override

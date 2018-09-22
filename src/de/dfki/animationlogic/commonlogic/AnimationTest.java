@@ -13,7 +13,7 @@ public class AnimationTest {
 
   private Timeline timeline;
 
-  public void onAnimation(AnimationContentTest animationContentTest) {
+  public void  onAnimation(AnimationContentTest animationContentTest) {
 
     Rotation rotation = new Rotation();
     Rotate rotateX = rotation.createXRotation(animationContentTest);
@@ -22,7 +22,7 @@ public class AnimationTest {
 
     animationContentTest.getKoerperteil().getTransforms().addAll(rotateX, rotateY, rotateZ);
 
-    int animationsDauer = animationContentTest.getAnimationsDauerInSekunden();
+    int animationsDauer = animationContentTest.getAnimationsDauerInMillisekunden();
     double rotationsGradAufXAxis = animationContentTest.getRotationsGradAufXAxis();
     double rotationsGradAufYAxis = animationContentTest.getRotationsGradAufYAxis();
     double rotationsGradAufZAxis = animationContentTest.getRotationsGradAufZAxis();

@@ -41,8 +41,8 @@ public class Muster extends AnimationReeti {
     animationContents = new ArrayList<>();
 //        animationContents.add(new AnimationContent(reeti.leftEar, "rotate", 60));
 //        animationContents.add(new AnimationContent(reeti.rightEar, "yrotate", 60));
-    animationContents
-        .add(new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTION"));
+//    animationContents
+//        .add(new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTION"));
 //        animationContents.add(new AnimationContent(reeti.rightEar, "yrotate", 60));
     playAnimationPart(animationDuration);
 
@@ -50,9 +50,9 @@ public class Muster extends AnimationReeti {
     animationContents = new ArrayList<>();
 //        animationContents.add(new AnimationContent(reeti.leftEar, "rotate", -60));
 //        animationContents.add(new AnimationContent(reeti.rightEar, "yrotate", -60));
-    animationContents.add(
-        new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTIONEND"));
-    playAnimationPart(animationDuration);
+//    animationContents.add(
+//        new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTIONEND"));
+//    playAnimationPart(animationDuration);
 
     if (ReetiController.currentRadioButton != null) {
       ReetiController.currentRadioButton.setSelected(false);

@@ -25,8 +25,8 @@ public class Mouth_ONE extends AnimationReeti {
   public void playAnimation() {
     // smile
     animationContents = new ArrayList<>();
-    animationContents
-        .add(new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "ONE"));
+//    animationContents
+//        .add(new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "ONE"));
     playAnimationPart(20);
   }
 }

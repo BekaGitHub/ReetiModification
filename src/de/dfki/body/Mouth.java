@@ -2,10 +2,10 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
-import de.dfki.animationlogic.reeti.AnimatorReeti;
 import de.dfki.util.Constants;
 import java.awt.geom.Point2D;
 import java.util.concurrent.Semaphore;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ClosePath;
 import javafx.scene.shape.MoveTo;
@@ -16,13 +16,13 @@ import javafx.scene.shape.StrokeLineJoin;
 /**
  * @author Beka Aptsiauri
  */
-public class Mouth extends BodyPart {
+public class Mouth extends Pane {
 
-  private final int mouthLength = 32;
+  private static final int MOUTH_LENGTH = 32;
   public Point2D leftCorner;
   public Point2D rightCorner;
-  public Point2D upperPoint;
-  public Point2D downPoint;
+  public Point2D middleUpperPoint;
+  public Point2D middleDownPoint;
   public Mouth.SHAPE mShape = Mouth.SHAPE.DEFAULT;
   private Path mLips;
   private boolean openMouth = false;
@@ -37,25 +37,24 @@ public class Mouth extends BodyPart {
   private double recordUpRegulator;
   private double recordDownRegulator;
 
-  public Mouth(Head head) {
-    color = Color.DARKGREY;
-    mLips = new Path();
+  private static final int MOUTH_START_POINT_X = -9;
+  private static final int MOUTH_START_POINT_Y = 35;
 
-    rightCorner = new Point2D.Double(-9, 35);
-    leftCorner = new Point2D.Double(rightCorner.getX() + mouthLength, rightCorner.getY());
-    upperPoint = new Point2D.Double(rightCorner.getX() + mouthLength / 2, rightCorner.getY());
-    downPoint = new Point2D.Double(upperPoint.getX(), upperPoint.getY());
+  public Mouth(Head head) {
+//    color = Color.DARKGREY;
+    mLips = new Path();
 
     init();
     head.getHeadGroup().getChildren().addAll(mLips);
   }
 
-  @Override
+//  @Override
   public void init() {
-    super.init();
+    initialeMouthPoints();
     mLips.setTranslateX(Constants.MOUTH_X_POSITION);
     mLips.setTranslateY(Constants.MOUTH_Y_POSITION);
     mLips.setTranslateZ(Constants.MOUTH_Z_POSITION);
+    createMouth();
   }
 
 //  @Override
@@ -65,168 +64,16 @@ public class Mouth extends BodyPart {
 //  }
 
 
-  @Override
+//  @Override
   public void calculate(int step) {
-    switch (mShape) {
-      case DEFAULT:
-        closeMouth();
-        break;
 
-      case MOUTHACTION:
-        if (step == 20) {
-          recordDownRegulator = downRegulator;
-          recordUpRegulator = upRegulator;
-          recordLeftCornerRegulator = leftCornerRegulator;
-          recordRightCornerRegulator = rightCornerRegulator;
-          downRegulator = downPoint.getY();
-          upRegulator = upperPoint.getY();
-          rightCornerRegulator = rightCorner.getY();
-          leftCornerRegulator = leftCorner.getY();
-        }
-
-        downRegulator += recordDownRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        upRegulator += recordUpRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        rightCornerRegulator += recordRightCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        leftCornerRegulator += recordLeftCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        mLips.getElements().clear();
-        mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCornerRegulator));
-        mLips.getElements().add(new QuadCurveTo(upperPoint.getX(), upRegulator, leftCorner.getX(),
-            leftCornerRegulator));
-        mLips.getElements().add(new QuadCurveTo(downPoint.getX(), downRegulator, rightCorner.getX(),
-            rightCornerRegulator));
-        mLips.getElements().add(new ClosePath());
-        if (step == 2) {
-          downRegulator = 0;
-          upRegulator = 0;
-          rightCornerRegulator = 0;
-          leftCornerRegulator = 0;
-        }
-        break;
-
-      case MOUTHACTIONEND:
-        if (step == 20) {
-          downRegulator = recordDownRegulator + downPoint.getY();
-          upRegulator = recordUpRegulator + upperPoint.getY();
-          rightCornerRegulator = recordRightCornerRegulator + leftCorner.getY();
-          leftCornerRegulator = recordLeftCornerRegulator + rightCorner.getY();
-        }
-
-        downRegulator -= recordDownRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        upRegulator -= recordUpRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        rightCornerRegulator -= recordRightCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        leftCornerRegulator -= recordLeftCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-
-        mLips.getElements().clear();
-        mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCornerRegulator));
-        mLips.getElements().add(new QuadCurveTo(upperPoint.getX(), upRegulator, leftCorner.getX(),
-            leftCornerRegulator));
-        mLips.getElements().add(new QuadCurveTo(downPoint.getX(), downRegulator, rightCorner.getX(),
-            rightCornerRegulator));
-        mLips.getElements().add(new ClosePath());
-
-        if (step == 2) {
-          downRegulator = 0;
-          upRegulator = 0;
-          rightCornerRegulator = 0;
-          leftCornerRegulator = 0;
-        }
-        break;
-
-      case LEFTCORNERACTION:
-        if (step == 20) {
-          recordLeftCornerRegulator = leftCornerRegulator;
-          leftCornerRegulator = leftCorner.getY();
-        }
-
-        leftCornerRegulator += recordLeftCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        mLips.getElements().clear();
-        mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCorner.getY()));
-        mLips.getElements().add(
-            new QuadCurveTo(upperPoint.getX(), upperPoint.getY(), leftCorner.getX(),
-                leftCornerRegulator));
-        mLips.getElements().add(
-            new QuadCurveTo(downPoint.getX(), downPoint.getY(), rightCorner.getX(),
-                rightCorner.getY()));
-        mLips.getElements().add(new ClosePath());
-
-        if (step == 2) {
-          leftCornerRegulator = 0;
-        }
-        break;
-
-      case RIGHTCORNERACTION:
-        if (step == 20) {
-          recordRightCornerRegulator = rightCornerRegulator;
-          rightCornerRegulator = rightCorner.getY();
-        }
-        rightCornerRegulator += recordRightCornerRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        mLips.getElements().clear();
-        mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCornerRegulator));
-        mLips.getElements().add(
-            new QuadCurveTo(upperPoint.getX(), upperPoint.getY(), leftCorner.getX(),
-                leftCorner.getY()));
-        mLips.getElements().add(
-            new QuadCurveTo(downPoint.getX(), downPoint.getY(), rightCorner.getX(),
-                rightCornerRegulator));
-        mLips.getElements().add(new ClosePath());
-
-        if (step == 2) {
-          rightCornerRegulator = 0;
-        }
-        break;
-
-      case OPEN:
-        openMouth(1);
-        break;
-      case ONE:
-        openMouth(0.5);
-        break;
-      case SIX:
-      case FOURTEEN:
-        openMouth(1);
-        break;
-      case NINETEEN:
-        openMouth(0.7);
-        break;
-      case TWO:
-        openMouth(1);
-        break;
-      case THREE:
-      case TWENTY:
-        openMouth(0.8);
-        break;
-      case FOUR:
-        openMouth(0.9);
-        break;
-      case FIVE:
-      case EIGHT:
-        openMouth(0.9);
-        break;
-      case SEVEN:
-        closeMouth();
-        break;
-      case NINE:
-        openMouth(1);
-        break;
-      case TEN:
-        openMouth(0.9);
-        break;
-      case ELEVEN:
-        openMouth(0.9);
-        break;
-      case THIRTEEN:
-      case TWELVE:
-        openMouth(0.9);
-        break;
-
-    }
   }
 
   private static final Semaphore SEMAPHORE = new Semaphore(1);
 
   private AnimationTest animationTest;
 
-  @Override
+//  @Override
   public void onAnimation(AnimationContentTest animationContentTest) {
     try {
       SEMAPHORE.acquire();
@@ -242,25 +89,51 @@ public class Mouth extends BodyPart {
     mLips.getElements().clear();
     mLips.getElements().add(new MoveTo(leftCorner.getX(), leftCorner.getY()));
     mLips.getElements().add(
-        new QuadCurveTo(upperPoint.getX(), upperPoint.getY() - 10 * factor, rightCorner.getX(),
+        new QuadCurveTo(middleUpperPoint.getX(), middleUpperPoint.getY() - 10 * factor, rightCorner.getX(),
             rightCorner.getY()));
     mLips.getElements().add(
-        new QuadCurveTo(downPoint.getX(), downPoint.getY() + 10 * factor, leftCorner.getX(),
+        new QuadCurveTo(middleDownPoint.getX(), middleDownPoint.getY() + 10 * factor, leftCorner.getX(),
             leftCorner.getY()));
     mLips.getElements().add(new ClosePath());
   }
 
-  private void closeMouth() {
+  private void initialeMouthPoints() {
+    rightCorner = new Point2D.Double(MOUTH_START_POINT_X, MOUTH_START_POINT_Y);
+    leftCorner = new Point2D.Double(rightCorner.getX() + MOUTH_LENGTH, rightCorner.getY());
+    middleUpperPoint = new Point2D.Double(rightCorner.getX() + MOUTH_LENGTH / 2, rightCorner.getY());
+    middleDownPoint = new Point2D.Double(middleUpperPoint.getX(), middleUpperPoint.getY());
+  }
+
+  private void createMouth() {
+    addEffect();
+    MoveTo startPoint = createStartPoint();
+    QuadCurveTo upperLipPath = createUpperLipQuadCurve();
+    QuadCurveTo downLipPath = createDownLipQuadCurve();
+    mLips.getElements().add(startPoint);
+    mLips.getElements().add(upperLipPath);
+    mLips.getElements().add(downLipPath);
+    mLips.getElements().add(new ClosePath());
+  }
+
+  private MoveTo createStartPoint() {
+    return new MoveTo(rightCorner.getX(), rightCorner.getY());
+  }
+
+  private QuadCurveTo createUpperLipQuadCurve() {
+    return new QuadCurveTo(middleUpperPoint.getX(), middleUpperPoint.getY(), leftCorner.getX(),
+        leftCorner.getY());
+  }
+
+  private QuadCurveTo createDownLipQuadCurve() {
+    return new QuadCurveTo(middleDownPoint.getX(), middleDownPoint.getY(), rightCorner.getX(),
+        rightCorner.getY());
+  }
+
+  private void addEffect(){
     mLips.getElements().clear();
     mLips.setStrokeLineJoin(StrokeLineJoin.ROUND);
     mLips.setStrokeWidth(3);
-    mLips.setStroke(color);
-    mLips.getElements().add(new MoveTo(rightCorner.getX(), rightCorner.getY()));
-    mLips.getElements().add(new QuadCurveTo(upperPoint.getX(), upperPoint.getY(), leftCorner.getX(),
-        leftCorner.getY()));
-    mLips.getElements().add(new QuadCurveTo(downPoint.getX(), downPoint.getY(), rightCorner.getX(),
-        rightCorner.getY()));
-    mLips.getElements().add(new ClosePath());
+//    mLips.setStroke(color);
     mLips.setStyle("-fx-effect: dropshadow( one-pass-box , black , 4 , 0.0 , 1 , 0 );");
   }
 
@@ -284,12 +157,12 @@ public class Mouth extends BodyPart {
     return rightCorner;
   }
 
-  public Point2D getUpperPoint() {
-    return upperPoint;
+  public Point2D getMiddleUpperPoint() {
+    return middleUpperPoint;
   }
 
-  public Point2D getDownPoint() {
-    return downPoint;
+  public Point2D getMiddleDownPoint() {
+    return middleDownPoint;
   }
 
   public enum SHAPE {

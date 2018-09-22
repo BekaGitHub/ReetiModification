@@ -1,8 +1,12 @@
 package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationTest;
 import de.dfki.animationlogic.reeti.AnimatorReeti;
 import java.awt.geom.Point2D;
+import java.util.concurrent.Semaphore;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.QuadCurveTo;
 
@@ -11,16 +15,22 @@ import javafx.scene.shape.QuadCurveTo;
  */
 public class MouthDownLip extends BodyPart {
 
+  private static final Semaphore SEMAPHORE = new Semaphore(1);
+
+  private AnimationTest animationTest;
+
   public MouthDownLip.SHAPE mShape = MouthDownLip.SHAPE.DEFAULT;
   private Point2D downPoint;
   private Path mLips;
 
   private double downLipRegulator = 0;
   private double recorDownLipRegulator;
+  Mouth mouth;
 
   public MouthDownLip(Mouth mouth) {
+    this.mouth = mouth;
     mLips = mouth.getLips();
-    downPoint = mouth.getDownPoint();
+    downPoint = mouth.getMiddleDownPoint();
   }
 
 //  @Override
@@ -55,9 +65,20 @@ public class MouthDownLip extends BodyPart {
     }
   }
 
+  Timeline timeline;
   @Override
-  public void onAnimation(AnimationContentTest AnimationContentTest) {
+  public void onAnimation(AnimationContentTest animationContentTest) {
+    try {
+      SEMAPHORE.acquire();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    int animationsDauer = animationContentTest.getAnimationsDauerInMillisekunden();
+    int position = animationContentTest.getPosition();
 
+    timeline = new Timeline();
+    KeyValue kv = new KeyValue(mouth.getMiddleDownPoint(), 300);
+    SEMAPHORE.release();
   }
 
   public void setDownLipRegulator(double downLipRegulator) {
