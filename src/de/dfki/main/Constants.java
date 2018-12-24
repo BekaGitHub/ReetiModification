@@ -1,4 +1,4 @@
-package de.dfki.util;
+package de.dfki.main;
 
 import java.util.Arrays;
 import java.util.HashSet;

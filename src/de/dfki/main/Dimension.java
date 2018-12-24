@@ -1,5 +1,6 @@
-package de.dfki.util;
+package de.dfki.main;
 
+import de.dfki.main.Constants;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 

@@ -16,13 +16,13 @@ import de.dfki.movement.bodyparts.mouth.MouthRightCornerMovement;
 import de.dfki.movement.bodyparts.mouth.MouthUpperLipMovement;
 import de.dfki.speaking.Speak;
 import de.dfki.movement.CameraMovement;
-import de.dfki.util.Constants;
+import de.dfki.main.Constants;
 import de.dfki.movement.bodyparts.EarMovement;
 import de.dfki.movement.bodyparts.EyeLidMovement;
 import de.dfki.movement.bodyparts.HeadMovement;
-import de.dfki.util.Led;
+import de.dfki.animation.Led;
 import de.dfki.movement.bodyparts.LeftEyeMovement;
-import de.dfki.util.Packageparser;
+import de.dfki.reader.Packageparser;
 import de.dfki.movement.bodyparts.RightEyeMovement;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -216,9 +216,9 @@ public class ReetiController {
     initializeMouthBottomLipMovement();
 
     expressionListView.getStylesheets()
-        .add(this.getClass().getResource("/de/dfki/view/listView.css").toExternalForm());
+        .add(this.getClass().getResource("/de/dfki/style/listView.css").toExternalForm());
     environmentListView.getStylesheets()
-        .add(this.getClass().getResource("/de/dfki/view/listView.css").toExternalForm());
+        .add(this.getClass().getResource("/de/dfki/style/listView.css").toExternalForm());
 
     leftLedColorPicker.setOnAction(event -> reeti.ledON(leftLedColorPicker.getValue(), Led.LEFT));
     rightLedColorPicker.setOnAction(event -> reeti.ledON(rightLedColorPicker.getValue(), Led.RIGHT));

@@ -2,7 +2,7 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
-import de.dfki.util.Constants;
+import de.dfki.main.Constants;
 import java.util.concurrent.Semaphore;
 import javafx.animation.Timeline;
 import javafx.scene.shape.QuadCurve;

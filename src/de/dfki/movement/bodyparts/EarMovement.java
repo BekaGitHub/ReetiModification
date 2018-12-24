@@ -2,7 +2,7 @@ package de.dfki.movement.bodyparts;
 
 import com.jfoenix.controls.JFXSlider;
 import de.dfki.body.BodyPart;
-import de.dfki.util.Constants;
+import de.dfki.main.Constants;
 import javafx.geometry.Point3D;
 import javafx.scene.control.TextField;
 

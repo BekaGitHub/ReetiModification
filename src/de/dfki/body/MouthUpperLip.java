@@ -1,13 +1,8 @@
 package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.animationlogic.reeti.AnimatorReeti;
-import de.dfki.util.Constants;
-import java.awt.geom.Point2D;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Path;
+import de.dfki.main.Constants;
 import javafx.scene.shape.QuadCurve;
-import javafx.scene.shape.QuadCurveTo;
 
 /**
  * @author Beka Aptsiauri

@@ -2,9 +2,8 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.reader.DaeFile;
-import de.dfki.util.Constants;
+import de.dfki.main.Constants;
 import java.util.logging.Level;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
 
 /*

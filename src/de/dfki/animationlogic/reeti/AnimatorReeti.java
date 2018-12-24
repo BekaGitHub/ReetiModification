@@ -3,7 +3,7 @@ package de.dfki.animationlogic.reeti;
 import de.dfki.agent.Reeti;
 import de.dfki.animationlogic.commonlogic.Animator;
 import de.dfki.body.BodyPart;
-import de.dfki.util.Move;
+import de.dfki.movement.Move;
 import java.util.ArrayList;
 
 /**

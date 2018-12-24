@@ -3,7 +3,7 @@ package de.dfki.animation.blink;
 import de.dfki.agent.Reeti;
 import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.controllers.ReetiController;
-import de.dfki.util.AnimationVisivility;
+import de.dfki.animation.AnimationVisivility;
 
 /**
  * @author Beka

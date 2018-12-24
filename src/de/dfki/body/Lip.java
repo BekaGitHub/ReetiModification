@@ -2,7 +2,7 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.style.Effect;
-import de.dfki.util.Constants;
+import de.dfki.main.Constants;
 import javafx.scene.shape.QuadCurve;
 
 public class Lip extends BodyPart {

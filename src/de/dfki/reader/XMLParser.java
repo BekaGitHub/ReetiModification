@@ -1,4 +1,4 @@
-package de.dfki.util;
+package de.dfki.reader;
 
 import java.io.File;
 import java.io.IOException;

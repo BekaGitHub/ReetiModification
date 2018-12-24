@@ -7,7 +7,7 @@ package de.dfki.animationlogic.reeti;
 
 import de.dfki.agent.Agent;
 import de.dfki.agent.Reeti;
-import de.dfki.util.Constants;
+import de.dfki.main.Constants;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 

@@ -2,7 +2,7 @@ package de.dfki.movement;
 
 import com.jfoenix.controls.JFXSlider;
 import de.dfki.main.ReetiCamera;
-import de.dfki.util.Dimension;
+import de.dfki.main.Dimension;
 import java.util.List;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;

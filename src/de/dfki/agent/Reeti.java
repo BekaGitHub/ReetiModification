@@ -22,11 +22,12 @@ import de.dfki.body.RightCheek;
 import de.dfki.body.RightEar;
 import de.dfki.body.RightEye;
 import de.dfki.body.RightEyelid;
+import de.dfki.main.Dimension;
 import de.dfki.movement.MoveReetiPart;
 import de.dfki.speaking.Speak;
 import de.dfki.speaking.SpeechBubble;
-import de.dfki.util.Constants;
-import de.dfki.util.Led;
+import de.dfki.main.Constants;
+import de.dfki.animation.Led;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
@@ -132,8 +133,8 @@ public class Reeti extends Pane implements Agent {
   }
 
   private void setAgentOnScreen() {
-    this.setTranslateX(de.dfki.util.Dimension.getReetiStage_X_Center());
-    this.setTranslateY(de.dfki.util.Dimension.getScreenHight());
+    this.setTranslateX(Dimension.getReetiStage_X_Center());
+    this.setTranslateY(Dimension.getScreenHight());
   }
 
   private void addAllParts() {

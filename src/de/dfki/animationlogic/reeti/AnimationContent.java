@@ -6,7 +6,7 @@
 package de.dfki.animationlogic.reeti;
 
 import de.dfki.body.BodyPart;
-import de.dfki.util.Move;
+import de.dfki.movement.Move;
 
 /**
  * @author Beka Aptsiauri

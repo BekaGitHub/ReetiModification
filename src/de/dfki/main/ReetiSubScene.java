@@ -1,7 +1,5 @@
 package de.dfki.main;
 
-import de.dfki.util.Constants;
-import de.dfki.util.Dimension;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.SubScene;
 import javafx.scene.layout.StackPane;

@@ -9,7 +9,7 @@ import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
 import de.dfki.movement.bodyparts.Rotation;
 import de.dfki.reader.DaeFile;
-import de.dfki.util.Constants;
+import de.dfki.main.Constants;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import javafx.scene.Group;

@@ -2,43 +2,163 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66f92e1d-3f37-4dea-abf0-3a05c542b8fa" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/de/dfki/body/Lip.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/de/dfki/reader/DaeFile.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/de/dfki/reader/StlFile.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/de/dfki/style/Effect.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/de/dfki/style/Material.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/agent/Reeti$1.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/agent/Reeti$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/agent/Reeti.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/agent/Reeti.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/blink/StartBlinking.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/blink/StartBlinking.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/blink/StopBlinking.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/blink/StopBlinking.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Default.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Default.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Grimace.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Grimace.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Relaxed.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Relaxed.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Sad.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Sad.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Sad2.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Sad2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Smile.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Smile.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Sorry.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Sorry.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Sunbathing.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Sunbathing.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Test.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Test.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/BlinkLeftEyelid.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/BlinkLeftEyelid.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/BlinkRightEyelid.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/BlinkRightEyelid.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/DownLip.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/DownLip.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/LeftEarMovement.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/LeftEarMovement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/LeftEye_X.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/LeftEye_X.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/LeftEye_Y.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/LeftEye_Y.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/LeftLC.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/LeftLC.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/NeckPan.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/NeckPan.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/NeckRotation.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/NeckRotation.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/NeckTilt.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/NeckTilt.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/RightEarMovement.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/RightEarMovement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/RightEye_X.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/RightEye_X.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/RightEye_Y.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/RightEye_Y.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/RightLC.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/RightLC.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/SmileStart.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/SmileStart.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/UpperLip.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/faceparts/UpperLip.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/Blink.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/Blink.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/HeadShake.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/HeadShake.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/HeadTilt.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/HeadTilt.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/LookDown.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/LookDown.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/Muster.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/Muster.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/Nod.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/Nod.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/Nod2.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/Nod2.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/TiltLeftBack.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/TiltLeftBack.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/TiltLeftEnd.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/TiltLeftEnd.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/TiltRightEnd.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/head/TiltRightEnd.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/commonlogic/Animation.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/commonlogic/Animation.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/commonlogic/Animator.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/commonlogic/Animator.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/reeti/AnimationContent.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/reeti/AnimationContent.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/reeti/AnimationLoaderReeti.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/reeti/AnimationLoaderReeti.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/reeti/AnimatorReeti.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animationlogic/reeti/AnimatorReeti.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/Body.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/Body.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/BodyPart.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/BodyPart.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/Head.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/Head.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/LeftCheek.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/LeftCheek.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/LeftEar.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/LeftEar.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/LeftEye.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/LeftEye.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/LeftEyelid.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/LeftEyelid.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/Lip.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/Lip.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/MouthDownLip.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/MouthDownLip.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/MouthUpperLip$SHAPE.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/MouthUpperLip$SHAPE.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/MouthUpperLip.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/MouthUpperLip.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/RightCheek.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/RightCheek.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/RightEar.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/RightEar.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/RightEye.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/RightEye.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/RightEyelid.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/body/RightEyelid.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/controllers/ReetiController.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/controllers/ReetiController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/main/Main.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/main/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/main/ReetiSubScene.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/main/ReetiSubScene.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/CameraMovement.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/CameraMovement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/MoveReetiPart.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/MoveReetiPart.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/EarMovement.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/EarMovement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/EyeLidMovement.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/EyeLidMovement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/HeadMovement.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/HeadMovement.class" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/LeftEyeMovement.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/LeftEyeMovement.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/Movement.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/Movement.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/Rotation.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/Rotation.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/RightEyeMovement.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/movement/bodyparts/RightEyeMovement.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/speaking/SpeechBubble.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/speaking/SpeechBubble.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/tts/Cereproc.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/tts/Cereproc.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/util/AnimationVisivility.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/util/Constants.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/util/Dimension.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/util/Led.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/util/Move.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/util/Packageparser$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/util/Packageparser.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/util/XMLParser.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/view/listView.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/agent/Reeti.java" afterPath="$PROJECT_DIR$/src/de/dfki/agent/Reeti.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/blink/StartBlinking.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/blink/StartBlinking.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/blink/StopBlinking.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/blink/StopBlinking.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/expression/Default.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/expression/Default.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/expression/Grimace.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/expression/Grimace.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/expression/Relaxed.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/expression/Relaxed.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/expression/Sad.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/expression/Sad.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/expression/Sad2.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/expression/Sad2.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/expression/Smile.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/expression/Smile.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/expression/Sorry.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/expression/Sorry.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/expression/Sunbathing.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/expression/Sunbathing.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/expression/Test.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/expression/Test.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/BlinkLeftEyelid.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/BlinkLeftEyelid.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/BlinkRightEyelid.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/BlinkRightEyelid.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/DownLip.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/DownLip.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/LeftEarMovement.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/LeftEarMovement.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/LeftEye_X.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/LeftEye_X.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/LeftEye_Y.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/LeftEye_Y.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/LeftLC.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/LeftLC.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/NeckPan.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/NeckPan.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/NeckRotation.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/NeckRotation.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/NeckTilt.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/NeckTilt.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/RightEarMovement.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/RightEarMovement.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/RightEye_X.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/RightEye_X.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/RightEye_Y.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/RightEye_Y.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/RightLC.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/RightLC.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/SmileStart.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/SmileStart.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/UpperLip.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/faceparts/UpperLip.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/Blink.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/Blink.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/HeadShake.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/HeadShake.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/HeadTilt.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/HeadTilt.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/LookDown.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/LookDown.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/Muster.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/Muster.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/Nod.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/Nod.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/Nod2.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/Nod2.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/TiltLeftBack.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/TiltLeftBack.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/TiltLeftEnd.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/TiltLeftEnd.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/head/TiltRightEnd.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/head/TiltRightEnd.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animationlogic/commonlogic/Animation.java" afterPath="$PROJECT_DIR$/src/de/dfki/animationlogic/commonlogic/Animation.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animationlogic/commonlogic/Animator.java" afterPath="$PROJECT_DIR$/src/de/dfki/animationlogic/commonlogic/Animator.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animationlogic/reeti/AnimationContent.java" afterPath="$PROJECT_DIR$/src/de/dfki/animationlogic/reeti/AnimationContent.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animationlogic/reeti/AnimationLoaderReeti.java" afterPath="$PROJECT_DIR$/src/de/dfki/animationlogic/reeti/AnimationLoaderReeti.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/animationlogic/reeti/AnimatorReeti.java" afterPath="$PROJECT_DIR$/src/de/dfki/animationlogic/reeti/AnimatorReeti.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/Body.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/Body.java" />
-      <change beforePath="$PROJECT_DIR$/src/de/dfki/body/BodyPart.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/BodyPart.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/Head.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/Head.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/LeftCheek.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/LeftCheek.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/LeftEar.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/LeftEar.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/LeftEye.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/LeftEye.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/LeftEyelid.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/LeftEyelid.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/body/Lip.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/Lip.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/MouthDownLip.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/MouthDownLip.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/MouthUpperLip.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/MouthUpperLip.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/RightCheek.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/RightCheek.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/RightEar.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/RightEar.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/RightEye.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/RightEye.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/body/RightEyelid.java" afterPath="$PROJECT_DIR$/src/de/dfki/body/RightEyelid.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/controllers/ReetiController.java" afterPath="$PROJECT_DIR$/src/de/dfki/controllers/ReetiController.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/main/Main.java" afterPath="$PROJECT_DIR$/src/de/dfki/main/Main.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/main/ReetiSubScene.java" afterPath="$PROJECT_DIR$/src/de/dfki/main/ReetiSubScene.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/movement/CameraMovement.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/CameraMovement.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/movement/MoveReetiPart.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/MoveReetiPart.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/EarMovement.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/EarMovement.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/EyeLidMovement.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/EyeLidMovement.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/HeadMovement.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/HeadMovement.java" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/LeftEyeMovement.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/LeftEyeMovement.java" />
-      <change beforePath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/Movement.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/Movement.java" />
-      <change beforePath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/Rotation.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/Rotation.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/RightEyeMovement.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/bodyparts/RightEyeMovement.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/speaking/SpeechBubble.java" afterPath="$PROJECT_DIR$/src/de/dfki/speaking/SpeechBubble.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/tts/Cereproc.java" afterPath="$PROJECT_DIR$/src/de/dfki/tts/Cereproc.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/util/AnimationVisivility.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/AnimationVisivility.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/util/Constants.java" afterPath="$PROJECT_DIR$/src/de/dfki/main/Constants.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/util/Dimension.java" afterPath="$PROJECT_DIR$/src/de/dfki/main/Dimension.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/util/Led.java" afterPath="$PROJECT_DIR$/src/de/dfki/animation/Led.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/util/Move.java" afterPath="$PROJECT_DIR$/src/de/dfki/movement/Move.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/util/Packageparser.java" afterPath="$PROJECT_DIR$/src/de/dfki/reader/Packageparser.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/util/XMLParser.java" afterPath="$PROJECT_DIR$/src/de/dfki/reader/XMLParser.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/view/listView.css" afterPath="$PROJECT_DIR$/src/de/dfki/style/listView.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,60 +174,7 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="BodyPart.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/body/BodyPart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RightEye.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/body/RightEye.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RightCheek.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/body/RightCheek.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RightEar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/body/RightEar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RightEyelid.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/body/RightEyelid.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -143,13 +210,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/faceparts/Mouth_SEVEN.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/faceparts/Mouth_ONE.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/faceparts/Mouth_O.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animationlogic/commonlogic/AnimationTest.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/head/Muster.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animationlogic/commonlogic/MouthPart.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animationlogic/commonlogic/AnimationContentTest.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/util/Rotation.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/util/Move.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/util/BodyPart.java" />
@@ -194,6 +254,13 @@
         <option value="$PROJECT_DIR$/src/de/dfki/body/RightEye.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/body/RightEyelid.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/body/BodyPart.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/reader/Packageparser.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/reader/XMLParser.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/animation/Led.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/movement/Move.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/main/Constants.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/animation/AnimationVisivility.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/main/Dimension.java" />
       </list>
     </option>
   </component>
@@ -250,36 +317,14 @@
               <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="body" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
               <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="movement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="movement" type="462c0819:PsiDirectoryNode" />
-              <item name="bodyparts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="reader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -297,6 +342,12 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="extract.method.default.visibility" value="private" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Beka\Desktop\ReetiModification.bak\src\de\dfki\view" />
+      <recent name="C:\Users\Beka\Desktop\ReetiModification.bak\src\de\dfki\style" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -464,16 +515,15 @@
       <workItem from="1544215864617" duration="305000" />
       <workItem from="1545576916240" duration="1988000" />
       <workItem from="1545581564197" duration="13134000" />
-      <workItem from="1545643842184" duration="4138000" />
+      <workItem from="1545643842184" duration="4479000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117594000" />
+    <option name="totallyTimeSpent" value="117935000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -484,12 +534,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27357394" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27357394" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24704619" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -505,7 +556,6 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,13 +581,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/de/dfki/agent/Reeti.java</url>
-          <line>306</line>
+          <line>307</line>
           <properties />
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/de/dfki/body/RightEar.java</url>
-          <line>53</line>
+          <line>52</line>
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
@@ -579,34 +629,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/faceparts/Mouth_O.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="27" column="14" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="27" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/expression/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="53" column="15" lean-forward="false" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/head/Muster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/animationlogic/commonlogic/AnimationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="83" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/TestAnimation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -639,14 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/util/Move.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,13 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="61" column="8" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -798,22 +805,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/movement/bodyparts/BodyPartsMovement.java" />
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/util/Packageparser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1780">
-          <caret line="11" column="15" lean-forward="false" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/util/XMLParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/style/Material.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -965,7 +956,7 @@
     <entry file="file://$PROJECT_DIR$/src/de/dfki/body/RightEar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -988,11 +979,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/body/BodyPart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state relative-caret-position="690">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/reader/Packageparser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/reader/XMLParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/Led.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/movement/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/main/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/AnimationVisivility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/main/Dimension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/style/listView.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

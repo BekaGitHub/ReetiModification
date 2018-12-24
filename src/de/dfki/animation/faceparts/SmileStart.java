@@ -2,7 +2,7 @@ package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
 import de.dfki.animationlogic.reeti.AnimationReeti;
-import de.dfki.util.Led;
+import de.dfki.animation.Led;
 import javafx.scene.paint.Color;
 
 /**

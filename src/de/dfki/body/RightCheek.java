@@ -6,7 +6,7 @@
 package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.util.Constants;
+import de.dfki.main.Constants;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;

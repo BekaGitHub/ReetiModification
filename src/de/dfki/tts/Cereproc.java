@@ -4,7 +4,7 @@ import com.cereproc.cerevoice_eng.CPRC_VOICE_LOAD_TYPE;
 import com.cereproc.cerevoice_eng.SWIGTYPE_p_CPRCEN_engine;
 import com.cereproc.cerevoice_eng.TtsEngineCallback;
 import com.cereproc.cerevoice_eng.cerevoice_eng;
-import de.dfki.util.XMLParser;
+import de.dfki.reader.XMLParser;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

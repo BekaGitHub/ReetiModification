@@ -1,4 +1,4 @@
-package de.dfki.util;
+package de.dfki.movement;
 
 public enum Move {
   X_ROTATION, Y_ROTATION, Z_ROTATION,
