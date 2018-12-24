@@ -23,7 +23,7 @@ public class Test {
 
 //    animationContentTest.setMouthPart(MouthPart.UPPER_LIP);
     animationContentTest.setAnimationCycleCounter(20);
-    reeti.getMouthDownLip().onAnimation(animationContentTest);
+    reeti.getMouthRightCorner().onAnimation(animationContentTest);
 
   }
 

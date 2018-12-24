@@ -1,11 +1,16 @@
 package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.style.Effect;
 import de.dfki.main.Constants;
+import de.dfki.style.Effect;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.DoubleProperty;
 import javafx.scene.shape.QuadCurve;
+import javafx.util.Duration;
 
-public class Lip extends BodyPart {
+public abstract class Lip extends BodyPart {
 
   public void createLip(QuadCurve lip) {
     lip.setStartX(Constants.MOUTH_START_POINT_X);
@@ -17,8 +22,16 @@ public class Lip extends BodyPart {
     new Effect().addEffect(lip);
   }
 
-  @Override
-  public void onAnimation(AnimationContentTest AnimationContentTest) {
+  Timeline createTimeline(AnimationContentTest animationContentTest, DoubleProperty property) {
+    Timeline timeline = new Timeline();
 
+    KeyValue keyValue = new KeyValue(property,
+        calculateMovementPosition(animationContentTest.getPosition()));
+    KeyFrame keyFrame = new KeyFrame(
+        Duration.millis(animationContentTest.getAnimationsDauerInMillisekunden()), keyValue);
+    timeline.getKeyFrames().add(keyFrame);
+    return timeline;
   }
+
+  abstract double calculateMovementPosition(double position);
 }
