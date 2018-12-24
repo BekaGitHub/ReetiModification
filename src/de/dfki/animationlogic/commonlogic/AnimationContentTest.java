@@ -104,6 +104,7 @@ public class AnimationContentTest {
   }
 
   public void setPosition(double position) {
+//    position = 25 + (position/5);
     this.position = position;
   }
 

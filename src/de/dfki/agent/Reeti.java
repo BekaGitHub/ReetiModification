@@ -86,10 +86,10 @@ public class Reeti extends Pane implements Agent {
     setLeftCheek(new LeftCheek(getHead()));
     setRightCheek(new RightCheek(getHead()));
 
-    setMouthLeftCorner(new MouthLeftCorner());
-    setMouthRightCorner(new MouthRightCorner());
     MouthUpperLip mouthUpperLip = MouthUpperLip.getnstance();
     setMouthUpperLip(mouthUpperLip);
+    setMouthRightCorner(new MouthRightCorner(mouthUpperLip));
+    setMouthLeftCorner(new MouthLeftCorner(mouthUpperLip));
 
     MouthDownLip mouthDownLip = MouthDownLip.getnstance();
     setMouthDownLip(mouthDownLip);

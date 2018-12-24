@@ -19,11 +19,11 @@ public class Test {
   public void playAnimation(Reeti reeti) {
     AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getMouth());
     animationContentTest.setAnimationsDauerInMillisekunden(500);
-    animationContentTest.setPosition(35);
+    animationContentTest.setPosition(100);
 
-    animationContentTest.setMouthPart(MouthPart.RIGHT_CORNER);
+//    animationContentTest.setMouthPart(MouthPart.UPPER_LIP);
     animationContentTest.setAnimationCycleCounter(20);
-    reeti.getMouth().onAnimation(animationContentTest);
+    reeti.getMouthDownLip().onAnimation(animationContentTest);
 
   }
 

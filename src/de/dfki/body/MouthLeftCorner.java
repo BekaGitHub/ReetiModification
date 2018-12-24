@@ -3,21 +3,23 @@ package de.dfki.body;
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.reeti.AnimatorReeti;
 import java.awt.geom.Point2D;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.QuadCurveTo;
+import javafx.util.Duration;
 
 /**
  * @author Beka Aptsiauri
  */
 public class MouthLeftCorner extends BodyPart {
 
-  public MouthLeftCorner.SHAPE mShape = MouthLeftCorner.SHAPE.DEFAULT;
+  private MouthUpperLip mouthUpperLip;
 
-//  @Override
-//  public void setShape(String s) {
-//    MouthLeftCorner.SHAPE shape = MouthLeftCorner.SHAPE.valueOf(s);
-//    mShape = (shape != null) ? shape : MouthLeftCorner.SHAPE.DEFAULT;
-//  }
+  public MouthLeftCorner(MouthUpperLip mouthUpperLip) {
+    this.mouthUpperLip = mouthUpperLip;
+  }
 
   @Override
   public void calculate(int step) {
@@ -25,11 +27,15 @@ public class MouthLeftCorner extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContentTest AnimationContentTest) {
-
+  public void onAnimation(AnimationContentTest animationContentTest) {
+    Timeline timeline = new Timeline();
+    KeyValue keyValue = new KeyValue(mouthUpperLip.getUpperLip().endYProperty(), calculateMovementPosition(animationContentTest.getPosition()));
+    KeyFrame keyFrame = new KeyFrame(Duration.millis(animationContentTest.getAnimationsDauerInMillisekunden()), keyValue);
+    timeline.getKeyFrames().add(keyFrame);
+    timeline.play();
   }
 
-  public enum SHAPE {
-    DEFAULT, LEFTCORNERACTION
+  private double calculateMovementPosition(double position) {
+    return 25 + (position/5);
   }
 }
