@@ -6,9 +6,7 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContent;
 import de.dfki.animationlogic.reeti.AnimationReeti;
-import de.dfki.util.Movement;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +23,7 @@ public class Mouth_Default extends AnimationReeti {
     // smile
     animationContents = new ArrayList<>();
 //    animationContents
-//        .add(new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "DEFAULT"));
+//        .add(new AnimationContent(((Reeti) agent).getMouth(), Move.SHAPE, "DEFAULT"));
     playAnimationPart(animationDuration);
   }
 }

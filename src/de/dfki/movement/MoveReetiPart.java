@@ -42,24 +42,20 @@ public class MoveReetiPart {
     if (moveCommand.equals(Constants.RIGHT_LC)) {
       movementFactor = (movementFactor * positionCorrection) / 100;
       double distance = rightCornerOldPos - movementFactor;
-      ((Reeti) agent).getMouthRightCorner().setRightCornerRegulator(distance);
       rightCornerOldPos = movementFactor;
     } else if (moveCommand.equals(Constants.LEFT_LC)) {
       movementFactor = (movementFactor * positionCorrection) / 100;
       double distance = leftCornerOldPos - movementFactor;
-      ((Reeti) agent).getMouthLeftCorner().setLeftCornerRegulator(distance);
       leftCornerOldPos = movementFactor;
     } else if (moveCommand.equals(Constants.UPPER_LIP)) {
       movementFactor = (movementFactor * positionCorrection) / 100;
       double distance = upperLipOldPos - movementFactor;
-      ((Reeti) agent).getMouthUpperLip().setUpperLipRegulator(distance);
       upperLipOldPos = movementFactor;
     }
 
     else if (moveCommand.equals(Constants.DOWN_LIP)) {
       movementFactor = (movementFactor * positionCorrection) / 100;
       double distance = movementFactor - downLipOldPos;
-      ((Reeti) agent).getMouthDownLip().setDownLipRegulator(-distance);
       downLipOldPos = movementFactor;
     }
   }

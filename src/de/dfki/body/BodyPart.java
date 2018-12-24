@@ -9,6 +9,7 @@ import com.interactivemesh.jfx.importer.col.ColModelImporter;
 import com.interactivemesh.jfx.importer.stl.StlMeshImporter;
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
+import de.dfki.util.Constants;
 import java.net.URL;
 import java.util.logging.Logger;
 import javafx.scene.Group;
@@ -18,6 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.MeshView;
+import javafx.scene.shape.QuadCurve;
 import javafx.scene.shape.TriangleMesh;
 import javafx.scene.transform.Rotate;
 
@@ -69,12 +71,7 @@ public abstract class BodyPart extends Pane {
     return (Group) importer.getImport()[0];
   }
 
-  private void createShape() {
-    // create the shape
-  }
-
   public synchronized void calculate(int step) {
-    createShape();
   }
 
   public abstract void onAnimation(AnimationContentTest AnimationContentTest);
@@ -98,5 +95,21 @@ public abstract class BodyPart extends Pane {
 
     reetiBodyPart.getTransforms().clear();
     reetiBodyPart.getTransforms().addAll(rz, ry, rx);
+  }
+
+  public static void addEffect(QuadCurve lipQadCurve) {
+    lipQadCurve.setStroke(Color.BLACK);
+    lipQadCurve.setStrokeWidth(1);
+    lipQadCurve.setFill(Color.GRAY.brighter());
+  }
+
+  public void createLip(QuadCurve lip) {
+    lip.setStartX(Constants.MOUTH_START_POINT_X);
+    lip.setStartY(Constants.MOUTH_START_POINT_Y);
+    lip.setControlX(Constants.MOUTH_START_POINT_X + Constants.MOUTH_LENGTH / 2);
+    lip.setControlY(Constants.MOUTH_START_POINT_Y);
+    lip.setEndX(Constants.MOUTH_START_POINT_X + Constants.MOUTH_LENGTH);
+    lip.setEndY(Constants.MOUTH_START_POINT_Y);
+    addEffect(lip);
   }
 }

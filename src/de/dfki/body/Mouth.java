@@ -1,16 +1,11 @@
 package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.animationlogic.commonlogic.AnimationTest;
-import de.dfki.util.Constants;
 import java.util.concurrent.Semaphore;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.value.WritableValue;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.QuadCurve;
 import javafx.util.Duration;
 
 /**
@@ -18,30 +13,21 @@ import javafx.util.Duration;
  */
 public class Mouth extends BodyPart {
 
-  private static final int MOUTH_START_POINT_X = -9;
-  private static final int MOUTH_START_POINT_Y = 35;
-  private static final int MOUTH_LENGTH = 32;
-
   private static final Semaphore SEMAPHORE = new Semaphore(1);
 
   private Timeline timeline;
 
-  QuadCurve upperLipQuadCurve = new QuadCurve();
-  QuadCurve downLipCuadCurve = new QuadCurve();
+  MouthDownLip mouthDownLip;
+  MouthUpperLip mouthUpperLip;
 
 
-  public Mouth(Head head) {
-    //Setze Anfangsposition des upperLips
-    upperLipQuadCurve.setTranslateX(Constants.MOUTH_X_POSITION);
-    upperLipQuadCurve.setTranslateY(Constants.MOUTH_Y_POSITION);
-    upperLipQuadCurve.setTranslateZ(Constants.MOUTH_Z_POSITION);
-    //Setze Angangsposition des downLips
-    downLipCuadCurve.setTranslateX(Constants.MOUTH_X_POSITION);
-    downLipCuadCurve.setTranslateY(Constants.MOUTH_Y_POSITION);
-    downLipCuadCurve.setTranslateZ(Constants.MOUTH_Z_POSITION-1);
+  public Mouth(Head head, MouthDownLip mouthDownLip, MouthUpperLip mouthUpperLip) {
+    this.mouthDownLip = mouthDownLip;
+    this.mouthUpperLip = mouthUpperLip;
 
-    head.getHeadGroup().getChildren().addAll(upperLipQuadCurve, downLipCuadCurve);
-    createMouth();
+    head.getHeadGroup().getChildren()
+        .addAll(mouthUpperLip.getUpperLip(), mouthDownLip.getDownLip());
+    bindLipCorners();
   }
 
   @Override
@@ -69,20 +55,26 @@ public class Mouth extends BodyPart {
   }
 
   private void startUpperLipAnimation(AnimationContentTest animationContentTest) {
-    startAnimation(upperLipQuadCurve.controlYProperty(), animationContentTest.getPosition(), animationContentTest.getAnimationsDauerInMillisekunden());
+    startAnimation(mouthUpperLip.getUpperLip().controlYProperty(),
+        animationContentTest.getPosition(),
+        animationContentTest.getAnimationsDauerInMillisekunden());
   }
 
   private void startDownLipAnimation(AnimationContentTest animationContentTest) {
-    startAnimation(downLipCuadCurve.controlYProperty(), animationContentTest.getPosition(), animationContentTest.getAnimationsDauerInMillisekunden());
+    startAnimation(mouthDownLip.getDownLip().controlYProperty(), animationContentTest.getPosition(),
+        animationContentTest.getAnimationsDauerInMillisekunden());
   }
 
   private void startRightCornerAnimation(AnimationContentTest animationContentTest) {
-    startAnimation(upperLipQuadCurve.startYProperty(), animationContentTest.getPosition(), animationContentTest.getAnimationsDauerInMillisekunden());
+    startAnimation(mouthUpperLip.getUpperLip().startYProperty(), animationContentTest.getPosition(),
+        animationContentTest.getAnimationsDauerInMillisekunden());
   }
 
   private void startLeftCornerAnimation(AnimationContentTest animationContentTest) {
-    startAnimation(upperLipQuadCurve.endYProperty(), animationContentTest.getPosition(), animationContentTest.getAnimationsDauerInMillisekunden());
+    startAnimation(mouthUpperLip.getUpperLip().endYProperty(), animationContentTest.getPosition(),
+        animationContentTest.getAnimationsDauerInMillisekunden());
   }
+
   private void startAnimation(WritableValue<Number> target, Number endValue, int duration) {
     timeline = new Timeline();
     KeyValue keyValue = new KeyValue(target, endValue);
@@ -91,40 +83,10 @@ public class Mouth extends BodyPart {
     timeline.play();
   }
 
-  private void createMouth() {
-    createUpperLip();
-    createDownLip();
-    bindLipCorners();
-  }
-
-  private void createUpperLip() {
-    upperLipQuadCurve.setStartX(MOUTH_START_POINT_X);
-    upperLipQuadCurve.setStartY(MOUTH_START_POINT_Y);
-    upperLipQuadCurve.setControlX(MOUTH_START_POINT_X + MOUTH_LENGTH / 2);
-    upperLipQuadCurve.setControlY(MOUTH_START_POINT_Y - 10);
-    upperLipQuadCurve.setEndX(MOUTH_START_POINT_X + MOUTH_LENGTH);
-    upperLipQuadCurve.setEndY(MOUTH_START_POINT_Y);
-    addEffect(upperLipQuadCurve);
-  }
-
-  private void createDownLip() {
-    downLipCuadCurve.setStartX(MOUTH_START_POINT_X);
-    downLipCuadCurve.setStartY(MOUTH_START_POINT_Y);
-    downLipCuadCurve.setControlX(MOUTH_START_POINT_X + MOUTH_LENGTH / 2);
-    downLipCuadCurve.setControlY(MOUTH_START_POINT_Y + 10);
-    downLipCuadCurve.setEndX(MOUTH_START_POINT_X + MOUTH_LENGTH);
-    downLipCuadCurve.setEndY(MOUTH_START_POINT_Y);
-    addEffect(downLipCuadCurve);
-  }
-
   private void bindLipCorners() {
-    downLipCuadCurve.startYProperty().bindBidirectional(upperLipQuadCurve.startYProperty());
-    downLipCuadCurve.endYProperty().bindBidirectional(upperLipQuadCurve.endYProperty());
-  }
-
-  private void addEffect(QuadCurve lipQadCurve){
-    lipQadCurve.setStroke(Color.BLACK);
-    lipQadCurve.setStrokeWidth(1);
-    lipQadCurve.setFill(Color.GRAY.brighter());
+    mouthDownLip.getDownLip().startYProperty()
+        .bindBidirectional(mouthUpperLip.getUpperLip().startYProperty());
+    mouthDownLip.getDownLip().endYProperty()
+        .bindBidirectional(mouthUpperLip.getUpperLip().endYProperty());
   }
 }

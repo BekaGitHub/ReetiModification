@@ -1,7 +1,8 @@
-package de.dfki.util;
+package de.dfki.movement;
 
 import com.jfoenix.controls.JFXSlider;
 import de.dfki.main.ReetiCamera;
+import de.dfki.util.Dimension;
 import java.util.List;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;
@@ -13,10 +14,7 @@ public class CameraMovement {
 
   private static PerspectiveCamera perspectiveCamera;
 
-  private CameraMovement() {
-  }
-
-  public static void rotateCamera(JFXSlider cameraRotationSlider, Point3D axis) {
+  public void rotateCamera(JFXSlider cameraRotationSlider, Point3D axis) {
     cameraRotationSlider.setMin(-180);
     cameraRotationSlider.setMax(180);
     cameraRotationSlider.setValue(0);
@@ -34,7 +32,7 @@ public class CameraMovement {
         });
   }
 
-  public static void translateCamera(JFXSlider cameraTranslationSlider, Point3D axis) {
+  public void translateCamera(JFXSlider cameraTranslationSlider, Point3D axis) {
     cameraTranslationSlider.setMin(-180);
     cameraTranslationSlider.setMax(180);
     cameraTranslationSlider.setValue(0);
@@ -60,7 +58,7 @@ public class CameraMovement {
         });
   }
 
-  public static void resetCameraPosition(List<JFXSlider> sliders) {
+  public void resetCameraPosition(List<JFXSlider> sliders) {
     if (perspectiveCamera != null) {
       perspectiveCamera.getTransforms().clear();
     }

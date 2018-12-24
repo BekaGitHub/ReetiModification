@@ -2,8 +2,11 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.reeti.AnimatorReeti;
+import de.dfki.util.Constants;
 import java.awt.geom.Point2D;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Path;
+import javafx.scene.shape.QuadCurve;
 import javafx.scene.shape.QuadCurveTo;
 
 /**
@@ -11,19 +14,31 @@ import javafx.scene.shape.QuadCurveTo;
  */
 public class MouthUpperLip extends BodyPart {
 
+  private static MouthUpperLip mouthUpperLipInstance = null;
+
   public MouthUpperLip.SHAPE mShape = MouthUpperLip.SHAPE.DEFAULT;
-  private Point2D upperPoint;
-  private Path mLips;
 
-  private double upperLipRegulator = 0;
-  private double recordupperLipRegulator;
+  QuadCurve upperLip = new QuadCurve();
 
-  public MouthUpperLip(Mouth mouth) {
-//    mLips = mouth.getLips();
-//    upperPoint = mouth.getMiddleUpperPoint();
+  private MouthUpperLip() {
+    upperLip.setTranslateX(Constants.MOUTH_X_POSITION);
+    upperLip.setTranslateY(Constants.MOUTH_Y_POSITION);
+    upperLip.setTranslateZ(Constants.MOUTH_Z_POSITION);
+    createLip(upperLip);
   }
 
-//  @Override
+  public static MouthUpperLip getnstance() {
+    if (mouthUpperLipInstance == null) {
+      mouthUpperLipInstance = new MouthUpperLip();
+    }
+    return mouthUpperLipInstance;
+  }
+
+  public QuadCurve getUpperLip() {
+    return upperLip;
+  }
+
+  //  @Override
 //  public void setShape(String s) {
 //    MouthUpperLip.SHAPE shape = MouthUpperLip.SHAPE.valueOf(s);
 //    mShape = (shape != null) ? shape : MouthUpperLip.SHAPE.DEFAULT;
@@ -32,36 +47,12 @@ public class MouthUpperLip extends BodyPart {
 
   @Override
   public void calculate(int step) {
-
-    switch (mShape) {
-      case DEFAULT:
-        break;
-
-      case UPPERLIPACTION:
-        if (step == 20) {
-          recordupperLipRegulator = upperLipRegulator;
-          upperLipRegulator = upperPoint.getY();
-        }
-
-        upperLipRegulator += recordupperLipRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        upperPoint.setLocation(upperPoint.getX(), upperLipRegulator);
-
-        QuadCurveTo quadCurveTo = (QuadCurveTo) mLips.getElements().get(1);
-
-        quadCurveTo.setControlX(upperPoint.getX());
-        quadCurveTo.setControlY(upperPoint.getY());
-        mLips.getElements().set(1, quadCurveTo);
-        break;
-    }
+    upperLip.setControlY(step);
   }
 
   @Override
   public void onAnimation(AnimationContentTest AnimationContentTest) {
 
-  }
-
-  public void setUpperLipRegulator(double upperLipRegulator) {
-    this.upperLipRegulator = upperLipRegulator;
   }
 
   public enum SHAPE {

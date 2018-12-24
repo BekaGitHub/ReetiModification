@@ -6,7 +6,7 @@
 package de.dfki.animationlogic.reeti;
 
 import de.dfki.body.BodyPart;
-import de.dfki.util.Movement;
+import de.dfki.util.Move;
 
 /**
  * @author Beka Aptsiauri
@@ -14,20 +14,20 @@ import de.dfki.util.Movement;
 public class AnimationContent {
 
   public BodyPart mBodypart;
-  public Movement movementAction;
+  public Move moveAction;
   public int position;
   public String bodyPartMovementAction;
 
-  public AnimationContent(BodyPart bp, Movement movementAction, int position) {
+  public AnimationContent(BodyPart bp, Move moveAction, int position) {
     mBodypart = bp;
-    this.movementAction = movementAction;
+    this.moveAction = moveAction;
     this.position = position;
     bodyPartMovementAction = "";
   }
 
-  public AnimationContent(BodyPart bp, Movement movementAction, String action) {
+  public AnimationContent(BodyPart bp, Move moveAction, String action) {
     mBodypart = bp;
-    this.movementAction = movementAction;
+    this.moveAction = moveAction;
     position = 0;
     this.bodyPartMovementAction = action;
   }

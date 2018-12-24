@@ -53,4 +53,34 @@ public class Constants {
   public static final String NECK_ROTATION = "NeckRotation";
   public static final String NECK_PAN = "NeckPan";
   public static final String NECK_TILT = "NeckTilt";
+
+  public static int UPPER_LIP_INDEX = 0;
+  public static int DOWN_LIP_INDEX = 1;
+
+  public static final int MOUTH_START_POINT_X = -9;
+  public static final int MOUTH_START_POINT_Y = 35;
+  public static final int MOUTH_LENGTH = 32;
+
+  //Rotation
+  public static int HEAD_MINUS_FACTOR = 50;
+  public static int HEAD_MULTIPLIKATION_FACTOR = 40;
+  public static int HEAD_DIVISION_FACTOR = 100;
+
+  public static int LEFT_EYE_MINUS_FACTOR = 42;
+  public static int LEFT_EYE_MULTIPLIKATION_FACTOR = 90;
+  public static int LEFT_EYE_DIVISION_FACTOR = 100;
+
+  public static int RIGHT_EYE_MINUS_FACTOR = 51;
+  public static int RIGHT_EYE_MULTIPLIKATION_FACTOR = 90;
+  public static int RIGHT_EYE_DIVISION_FACTOR = 100;
+
+  public static int EYE_LID_MINUS_FACTOR = 100;
+  public static int EYE_LID_MULTIPLIKATION_FACTOR = 100;
+  public static int EYE_LID_DIVISION_FACTOR = 100;
+
+  public static int EAR_MINUS_FACTOR = 50;
+  public static int EAR_MULTIPLIKATION_FACTOR = 50;
+  public static int EAR_DIVISION_FACTOR = 50;
+
+
 }

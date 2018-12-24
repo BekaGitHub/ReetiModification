@@ -2,7 +2,7 @@ package de.dfki.animationlogic.commonlogic;
 
 import de.dfki.agent.Agent;
 import de.dfki.animationlogic.reeti.AnimationContent;
-import de.dfki.util.Movement;
+import de.dfki.util.Move;
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
 
@@ -12,7 +12,7 @@ import java.util.concurrent.Semaphore;
 public abstract class Animator {
 
   public static final int MAX_ANIM_STEPS = 20;
-  protected static Movement currentMovementAction;
+  protected static Move currentMoveAction;
   protected int currentStep = MAX_ANIM_STEPS;
   protected int renderPauseDuration = 0;
   protected Agent agent;

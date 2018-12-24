@@ -10,13 +10,20 @@ import de.dfki.agent.Reeti;
 import de.dfki.animation.expression.Test;
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.MouthPart;
-import de.dfki.animationlogic.reeti.AnimationContent;
+import de.dfki.movement.bodyparts.mouth.MouthBottomLipMovement;
+import de.dfki.movement.bodyparts.mouth.MouthLeftCornerMovement;
+import de.dfki.movement.bodyparts.mouth.MouthRightCornerMovement;
+import de.dfki.movement.bodyparts.mouth.MouthUpperLipMovement;
 import de.dfki.speaking.Speak;
-import de.dfki.util.BodyPartsMovement;
-import de.dfki.util.CameraMovement;
+import de.dfki.movement.CameraMovement;
 import de.dfki.util.Constants;
+import de.dfki.movement.bodyparts.EarMovement;
+import de.dfki.movement.bodyparts.EyeLidMovement;
+import de.dfki.movement.bodyparts.HeadMovement;
 import de.dfki.util.Led;
+import de.dfki.movement.bodyparts.LeftEyeMovement;
 import de.dfki.util.Packageparser;
+import de.dfki.movement.bodyparts.RightEyeMovement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -194,74 +201,28 @@ public class ReetiController {
 //    fillExpressionListView();
     fillEnvironmentListView();
 
-    cameraToogleButton.selectedProperty().addListener((p, o, n) -> {
-      if (p.getValue()) {
-        CameraMovement.startCamera();
-      } else {
-        CameraMovement.stopCamera();
-      }
-    });
-    CameraMovement.rotateCamera(camera_X_Rotation, Rotate.X_AXIS);
-    CameraMovement.rotateCamera(camera_Y_Rotation, Rotate.Y_AXIS);
-    CameraMovement.rotateCamera(camera_Z_Rotation, Rotate.Z_AXIS);
-    CameraMovement.translateCamera(camera_X_Translation, Rotate.X_AXIS);
-    CameraMovement.translateCamera(camera_Y_Translation, Rotate.Y_AXIS);
-    CameraMovement.translateCamera(camera_Z_Translation, Rotate.Z_AXIS);
-    //Setze Camera Position und alle Camera Sliders auf den Defaultpunkt
-    cameraResetButton.setOnAction((event) -> CameraMovement.resetCameraPosition(new ArrayList<>(
-        Arrays.asList(camera_X_Rotation, camera_Y_Rotation, camera_Z_Rotation,
-            camera_X_Translation, camera_Y_Translation, camera_Z_Translation))));
+    setCameraToggleButton();
+    initializeCameraMovement();
 
-    BodyPartsMovement
-        .rotateHead(reeti.getHead(), head_X_Slider, head_X_RotationField, Rotate.X_AXIS);
-    BodyPartsMovement
-        .rotateHead(reeti.getHead(), head_Y_Slider, head_Y_RotationField, Rotate.Y_AXIS);
-    BodyPartsMovement
-        .rotateHead(reeti.getHead(), head_Z_Slider, head_Z_RotationField, Rotate.Z_AXIS);
+    initializeHeadMovement();
+    initializeLeftEyeMovement();
+    initializeRightEyeMovement();
+    initializeEyeLidMovement();
+    initializeEarMovement();
 
-    BodyPartsMovement.rotateLeftEye(reeti.getLeftEye(), leftEye_X_RotationFiled, leftEye_X_Slider,
-        Rotate.X_AXIS);
-    BodyPartsMovement.rotateLeftEye(reeti.getLeftEye(), leftEye_Y_RotationFiled, leftEye_Y_Slider,
-        Rotate.Y_AXIS);
-    BodyPartsMovement
-        .rotateRightEye(reeti.getRightEye(), rightEye_X_RotationFiled, rightEye_X_Slider,
-            Rotate.X_AXIS);
-    BodyPartsMovement
-        .rotateRightEye(reeti.getRightEye(), rightEye_Y_RotationFiled, rightEye_Y_Slider,
-            Rotate.Y_AXIS);
-
-    BodyPartsMovement
-        .rotateEyeLid(reeti.getLeftEyelid(), leftEyeLid_X_RotationField, leftEyeLid_X_Slider,
-            Rotate.X_AXIS);
-    BodyPartsMovement
-        .rotateEyeLid(reeti.getRightEyelid(), rightEyeLid_X_RotationField, rightEyeLid_X_Slider,
-            Rotate.X_AXIS);
-
-    BodyPartsMovement
-        .rotateEar(reeti.getLeftEar(), leftEarRotationField, leftEarSlider, Rotate.Z_AXIS);
-    BodyPartsMovement
-        .rotateEar(reeti.getRightEar(), rightEarRotationField, rightEarSlider, Rotate.Z_AXIS);
-
-    BodyPartsMovement
-        .moveMouthLeftCorner(reeti.getMouthLeftCorner(), leftLCSlider, leftLCRotationField);
-    BodyPartsMovement
-        .moveMouthRightCorner(reeti.getMouthRightCorner(), rightLCSlider, rightLCRotationField);
-    BodyPartsMovement
-        .moveMouthUpperLip(reeti.getMouthUpperLip(), topLipSlider, topLipRotationField);
-    BodyPartsMovement
-        .moveMouthBottomLip(reeti.getMouthDownLip(), bottomLipSlider, bottomLipRotationField);
+    initializeMouthLeftCornerMovement();
+    initializeMouthRightCornerMovement();
+    initializeMouthUpperLipMovement();
+    initializeMouthBottomLipMovement();
 
     expressionListView.getStylesheets()
         .add(this.getClass().getResource("/de/dfki/view/listView.css").toExternalForm());
     environmentListView.getStylesheets()
         .add(this.getClass().getResource("/de/dfki/view/listView.css").toExternalForm());
 
-    leftLedColorPicker
-        .setOnAction(event -> reeti.ledON(leftLedColorPicker.getValue(), Led.LEFT));
-    rightLedColorPicker
-        .setOnAction(event -> reeti.ledON(rightLedColorPicker.getValue(), Led.RIGHT));
-    bothLedColorPicker
-        .setOnAction(event -> reeti.ledON(bothLedColorPicker.getValue(), Led.BOTH));
+    leftLedColorPicker.setOnAction(event -> reeti.ledON(leftLedColorPicker.getValue(), Led.LEFT));
+    rightLedColorPicker.setOnAction(event -> reeti.ledON(rightLedColorPicker.getValue(), Led.RIGHT));
+    bothLedColorPicker.setOnAction(event -> reeti.ledON(bothLedColorPicker.getValue(), Led.BOTH));
     ledOffButton.setOnAction(event -> reeti.ledOFF());
 
     speakButton.setOnAction((event) -> {
@@ -290,6 +251,81 @@ public class ReetiController {
       reeti.getRightEar().onAnimation(animationContentTest);
     });
 
+  }
+
+  private void initializeMouthBottomLipMovement() {
+    MouthBottomLipMovement mouthBottomLipMovement = new MouthBottomLipMovement();
+    mouthBottomLipMovement.execute(reeti.getMouthDownLip(), bottomLipSlider, bottomLipRotationField, null);
+  }
+
+  private void initializeMouthUpperLipMovement() {
+    MouthUpperLipMovement mouthUpperLipMovement = new MouthUpperLipMovement();
+    mouthUpperLipMovement.execute(reeti.getMouthUpperLip(), topLipSlider, topLipRotationField, null);
+  }
+
+  private void initializeMouthRightCornerMovement() {
+    MouthRightCornerMovement mouthRightCornerMovement = new MouthRightCornerMovement();
+    mouthRightCornerMovement.execute(reeti.getMouthRightCorner(), rightLCSlider, rightLCRotationField, null);
+  }
+
+  private void initializeMouthLeftCornerMovement() {
+    MouthLeftCornerMovement mouthLeftCornerMovement = new MouthLeftCornerMovement();
+    mouthLeftCornerMovement.execute(reeti.getMouthLeftCorner(), leftLCSlider, leftLCRotationField, null);
+  }
+
+  private void initializeEarMovement() {
+    EarMovement earMovement = new EarMovement();
+    earMovement.execute(reeti.getLeftEar(), leftEarSlider, leftEarRotationField, Rotate.Z_AXIS);
+    earMovement.execute(reeti.getRightEar(), rightEarSlider, rightEarRotationField, Rotate.Z_AXIS);
+  }
+
+  private void initializeEyeLidMovement() {
+    EyeLidMovement eyeLidMovement = new EyeLidMovement();
+    eyeLidMovement.execute(reeti.getLeftEyelid(), leftEyeLid_X_Slider, leftEyeLid_X_RotationField, Rotate.X_AXIS);
+    eyeLidMovement.execute(reeti.getRightEyelid(), rightEyeLid_X_Slider, rightEyeLid_X_RotationField, Rotate.X_AXIS);
+  }
+
+  private void initializeRightEyeMovement() {
+    RightEyeMovement rightEyeMovement = new RightEyeMovement();
+    rightEyeMovement.execute(reeti.getRightEye(), rightEye_X_Slider, rightEye_X_RotationFiled, Rotate.X_AXIS);
+    rightEyeMovement.execute(reeti.getRightEye(), rightEye_Y_Slider, rightEye_Y_RotationFiled, Rotate.Y_AXIS);
+  }
+
+  private void initializeLeftEyeMovement() {
+    LeftEyeMovement leftEyeMovement = new LeftEyeMovement();
+    leftEyeMovement.execute(reeti.getLeftEye(), leftEye_X_Slider, leftEye_X_RotationFiled, Rotate.X_AXIS);
+    leftEyeMovement.execute(reeti.getLeftEye(), leftEye_Y_Slider, leftEye_Y_RotationFiled, Rotate.Y_AXIS);
+  }
+
+  private void initializeHeadMovement() {
+    HeadMovement headMovement = new HeadMovement();
+    headMovement.execute(reeti.getHead(), head_Z_Slider, head_Z_RotationField, Rotate.Z_AXIS);
+    headMovement.execute(reeti.getHead(), head_X_Slider, head_X_RotationField, Rotate.X_AXIS);
+    headMovement.execute(reeti.getHead(), head_Y_Slider, head_Y_RotationField, Rotate.Y_AXIS);
+  }
+
+  private void setCameraToggleButton() {
+    cameraToogleButton.selectedProperty().addListener((p, o, n) -> {
+      if (p.getValue()) {
+        CameraMovement.startCamera();
+      } else {
+        CameraMovement.stopCamera();
+      }
+    });
+  }
+
+  private void initializeCameraMovement() {
+    CameraMovement cameraMovement = new CameraMovement();
+    cameraMovement.rotateCamera(camera_X_Rotation, Rotate.X_AXIS);
+    cameraMovement.rotateCamera(camera_Y_Rotation, Rotate.Y_AXIS);
+    cameraMovement.rotateCamera(camera_Z_Rotation, Rotate.Z_AXIS);
+    cameraMovement.translateCamera(camera_X_Translation, Rotate.X_AXIS);
+    cameraMovement.translateCamera(camera_Y_Translation, Rotate.Y_AXIS);
+    cameraMovement.translateCamera(camera_Z_Translation, Rotate.Z_AXIS);
+    //Setze Camera Position und alle Camera Sliders auf den Defaultpunkt
+    cameraResetButton.setOnAction((event) -> cameraMovement.resetCameraPosition(new ArrayList<>(
+        Arrays.asList(camera_X_Rotation, camera_Y_Rotation, camera_Z_Rotation,
+            camera_X_Translation, camera_Y_Translation, camera_Z_Translation))));
   }
 
 //  private ReetiStage stage3D;

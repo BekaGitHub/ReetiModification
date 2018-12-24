@@ -64,7 +64,7 @@ public class Reeti extends Pane implements Agent {
   private SpeechBubble speechBubble;
   private Speak speak;
 
-  //Movement
+  //Move
   private MoveReetiPart moveReetiPart;
 
   public Reeti() {
@@ -84,11 +84,16 @@ public class Reeti extends Pane implements Agent {
     setRightEyelid(new RightEyelid(getHead()));
     setLeftCheek(new LeftCheek(getHead()));
     setRightCheek(new RightCheek(getHead()));
-    setMouth(new Mouth(getHead()));
-    setMouthLeftCorner(new MouthLeftCorner(getMouth()));
-    setMouthRightCorner(new MouthRightCorner(getMouth()));
-    setMouthUpperLip(new MouthUpperLip(getMouth()));
-    setMouthDownLip(new MouthDownLip(getMouth()));
+
+    setMouthLeftCorner(new MouthLeftCorner());
+    setMouthRightCorner(new MouthRightCorner());
+    MouthUpperLip mouthUpperLip = MouthUpperLip.getnstance();
+    setMouthUpperLip(mouthUpperLip);
+
+    MouthDownLip mouthDownLip = MouthDownLip.getnstance();
+    setMouthDownLip(mouthDownLip);
+
+    setMouth(new Mouth(getHead(), mouthDownLip, mouthUpperLip));
     setBody(new Body());
     moveReetiPart = new MoveReetiPart();
     speechBubble = new SpeechBubble(head);

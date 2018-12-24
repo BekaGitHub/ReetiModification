@@ -3,7 +3,7 @@ package de.dfki.animationlogic.reeti;
 import de.dfki.agent.Reeti;
 import de.dfki.animationlogic.commonlogic.Animator;
 import de.dfki.body.BodyPart;
-import de.dfki.util.Movement;
+import de.dfki.util.Move;
 import java.util.ArrayList;
 
 /**
@@ -23,32 +23,32 @@ public class AnimatorReeti extends Animator {
         animationContents.stream().forEach((comp) ->
         {
           BodyPart bodyPart = comp.mBodypart;
-          Movement movementAction = comp.movementAction;
-          currentMovementAction = movementAction;
+          Move moveAction = comp.moveAction;
+          currentMoveAction = moveAction;
           int param = comp.position;
           String paramString = comp.bodyPartMovementAction;
-          if (movementAction == Movement.X_ROTATION) {
+          if (moveAction == Move.X_ROTATION) {
 //            bodyPart.set_X_Rotation(param);
           }
-          if (movementAction == Movement.Y_ROTATION) {
+          if (moveAction == Move.Y_ROTATION) {
 //            bodyPart.set_Y_Rotation(param);
           }
-          if (movementAction == Movement.Z_ROTATION) {
+          if (moveAction == Move.Z_ROTATION) {
 //            bodyPart.set_Z_Rotation(param);
           }
-          if (movementAction == Movement.TILT) {
+          if (moveAction == Move.TILT) {
 //            bodyPart.setTilt(param);
           }
-          if (movementAction == Movement.X_TRANSLATION) {
+          if (moveAction == Move.X_TRANSLATION) {
 //            bodyPart.set_X_Translation(param);
           }
-          if (movementAction == Movement.Y_TRANSLATION) {
+          if (moveAction == Move.Y_TRANSLATION) {
 //            bodyPart.set_Y_Translation(param);
           }
-          if (movementAction == Movement.Z_TRANSLATION) {
+          if (moveAction == Move.Z_TRANSLATION) {
 //            bodyPart.set_Z_Translation(param);
           }
-          if (movementAction == Movement.SHAPE) {
+          if (moveAction == Move.SHAPE) {
 //            bodyPart.setShape(paramString);
           }
         });
@@ -57,31 +57,31 @@ public class AnimatorReeti extends Animator {
       if (currentStep > 1) {
         for (AnimationContent acr : animationContents) {
           BodyPart bodypart = acr.mBodypart;
-          Movement movementAction = acr.movementAction;
+          Move moveAction = acr.moveAction;
 
-          if (movementAction == Movement.X_ROTATION) {
+          if (moveAction == Move.X_ROTATION) {
 //            bodypart.calculate_X_Rotation(currentStep);
           }
-          if (movementAction == Movement.Y_ROTATION) {
+          if (moveAction == Move.Y_ROTATION) {
 //            bodypart.calculate_Y_Rotation(currentStep);
           }
-          if (movementAction == Movement.Z_ROTATION) {
+          if (moveAction == Move.Z_ROTATION) {
 //            bodypart.calculate_Z_Rotation(currentStep);
           }
-          if (movementAction == Movement.TILT) {
+          if (moveAction == Move.TILT) {
 //            bodypart.calculate_X_Rotation(currentStep);
           }
 
-          if (movementAction == Movement.X_TRANSLATION) {
+          if (moveAction == Move.X_TRANSLATION) {
 //            bodypart.calculate_X_Translation(currentStep);
           }
-          if (movementAction == Movement.Y_TRANSLATION) {
+          if (moveAction == Move.Y_TRANSLATION) {
 //            bodypart.calculate_Y_Translation(currentStep);
           }
-          if (movementAction == Movement.Z_TRANSLATION) {
+          if (moveAction == Move.Z_TRANSLATION) {
 //            bodypart.calculate_Z_Translation(currentStep);
           }
-          if (movementAction == Movement.SHAPE) {
+          if (moveAction == Move.SHAPE) {
 //            bodypart.calculateShape(currentStep);
           }
         }
@@ -97,23 +97,23 @@ public class AnimatorReeti extends Animator {
 
       if (currentStep == 1) {
         for (AnimationContent acr : animationContents) {
-          Movement movementAction = acr.movementAction;
+          Move moveAction = acr.moveAction;
           BodyPart bodypart = acr.mBodypart;
 
-          if (movementAction == Movement.X_ROTATION) {
+          if (moveAction == Move.X_ROTATION) {
 //            bodypart.reset_X_Rotation();
           }
-          if (movementAction == Movement.Y_ROTATION) {
+          if (moveAction == Move.Y_ROTATION) {
 //            bodypart.reset_Y_Rotation();
           }
-          if (movementAction == Movement.Z_ROTATION) {
+          if (moveAction == Move.Z_ROTATION) {
 //            bodypart.reset_Z_Rotation();
           }
-          if (movementAction == Movement.Z_ROTATION) {
+          if (moveAction == Move.Z_ROTATION) {
 //            bodypart.resetRotation();
           }
 
-          if (movementAction == Movement.X_TRANSLATION) {
+          if (moveAction == Move.X_TRANSLATION) {
 //            bodypart.resetTranslation();
           }
         }

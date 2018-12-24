@@ -6,11 +6,9 @@
 package de.dfki.animation.head;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContent;
 import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.controllers.ReetiController;
 import de.dfki.util.AnimationVisivility;
-import de.dfki.util.Movement;
 import java.util.ArrayList;
 import javafx.scene.paint.Color;
 
@@ -42,7 +40,7 @@ public class Muster extends AnimationReeti {
 //        animationContents.add(new AnimationContent(reeti.leftEar, "rotate", 60));
 //        animationContents.add(new AnimationContent(reeti.rightEar, "yrotate", 60));
 //    animationContents
-//        .add(new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTION"));
+//        .add(new AnimationContent(((Reeti) agent).getMouth(), Move.SHAPE, "MOUTHACTION"));
 //        animationContents.add(new AnimationContent(reeti.rightEar, "yrotate", 60));
     playAnimationPart(animationDuration);
 
@@ -51,7 +49,7 @@ public class Muster extends AnimationReeti {
 //        animationContents.add(new AnimationContent(reeti.leftEar, "rotate", -60));
 //        animationContents.add(new AnimationContent(reeti.rightEar, "yrotate", -60));
 //    animationContents.add(
-//        new AnimationContent(((Reeti) agent).getMouth(), Movement.SHAPE, "MOUTHACTIONEND"));
+//        new AnimationContent(((Reeti) agent).getMouth(), Move.SHAPE, "MOUTHACTIONEND"));
 //    playAnimationPart(animationDuration);
 
     if (ReetiController.currentRadioButton != null) {

@@ -2,35 +2,42 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
-import de.dfki.animationlogic.reeti.AnimatorReeti;
-import java.awt.geom.Point2D;
+import de.dfki.util.Constants;
 import java.util.concurrent.Semaphore;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.scene.shape.Path;
-import javafx.scene.shape.QuadCurveTo;
+import javafx.scene.shape.QuadCurve;
 
 /**
  * @author Beka Aptsiauri
  */
 public class MouthDownLip extends BodyPart {
 
+  private static MouthDownLip mouthDownLipInstance = null;
+
   private static final Semaphore SEMAPHORE = new Semaphore(1);
 
   private AnimationTest animationTest;
 
   public MouthDownLip.SHAPE mShape = MouthDownLip.SHAPE.DEFAULT;
-  private Point2D downPoint;
-  private Path mLips;
 
-  private double downLipRegulator = 0;
-  private double recorDownLipRegulator;
-  Mouth mouth;
+  private QuadCurve downLip = new QuadCurve();
 
-  public MouthDownLip(Mouth mouth) {
-    this.mouth = mouth;
-//    mLips = mouth.getLips();
-//    downPoint = mouth.getMiddleDownPoint();
+  private MouthDownLip() {
+    downLip.setTranslateX(Constants.MOUTH_X_POSITION);
+    downLip.setTranslateY(Constants.MOUTH_Y_POSITION);
+    downLip.setTranslateZ(Constants.MOUTH_Z_POSITION - 1);
+    createLip(downLip);
+  }
+
+  public static MouthDownLip getnstance() {
+    if (mouthDownLipInstance == null) {
+      mouthDownLipInstance = new MouthDownLip();
+    }
+    return mouthDownLipInstance;
+  }
+
+  public QuadCurve getDownLip() {
+    return downLip;
   }
 
 //  @Override
@@ -42,30 +49,11 @@ public class MouthDownLip extends BodyPart {
 
   @Override
   public void calculate(int step) {
-
-    switch (mShape) {
-      case DEFAULT:
-        break;
-
-      case DOWNLIPACTION:
-        if (step == 20) {
-          recorDownLipRegulator = downLipRegulator;
-          downLipRegulator = downPoint.getY();
-        }
-
-        downLipRegulator += recorDownLipRegulator / AnimatorReeti.MAX_ANIM_STEPS;
-        downPoint.setLocation(downPoint.getX(), downLipRegulator);
-
-        QuadCurveTo quadCurveTo = (QuadCurveTo) mLips.getElements().get(2);
-
-        quadCurveTo.setControlX(downPoint.getX());
-        quadCurveTo.setControlY(downPoint.getY());
-        mLips.getElements().set(2, quadCurveTo);
-        break;
-    }
+    downLip.setControlY(step);
   }
 
   Timeline timeline;
+
   @Override
   public void onAnimation(AnimationContentTest animationContentTest) {
     try {
@@ -79,10 +67,6 @@ public class MouthDownLip extends BodyPart {
     timeline = new Timeline();
 //    KeyValue kv = new KeyValue(mouth.getMiddleDownPoint(), 300);
     SEMAPHORE.release();
-  }
-
-  public void setDownLipRegulator(double downLipRegulator) {
-    this.downLipRegulator = downLipRegulator;
   }
 
   public enum SHAPE {
