@@ -7,37 +7,38 @@ package de.dfki.animation.expression;
 
 import de.dfki.agent.Reeti;
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.MouthPart;
 import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.animation.AnimationVisivility;
 
 /**
  * @author Beka
  */
-public class Test extends AnimationReeti {
+public class Test {
 
-  public Test() {
-    setAnimationVisivility(AnimationVisivility.YES);
-  }
+  public void playAnimation(Reeti reeti) {
+    AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getMouth());
+    animationContentTest.setAnimationsDauerInMillisekunden(500);
+    animationContentTest.setPosition(35);
 
-  public Test(Reeti sm, int duration, boolean block) {
-    super(sm, duration, block);
-  }
-
-  @Override
-  public void playAnimation() {
-    Reeti reeti = (Reeti) agent;
-    AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getHead().getHeadGroup());
-    animationContentTest.setAnimationsDauerInMillisekunden(5000);
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(25);
-    animationContentTest.setPivotZ(-25);
-    animationContentTest.setRotationsGradAufXAxis(0);
-    animationContentTest.setRotationsGradAufYAxis(0);
-    animationContentTest.setRotationsGradAufZAxis(360);
-
+    animationContentTest.setMouthPart(MouthPart.RIGHT_CORNER);
     animationContentTest.setAnimationCycleCounter(20);
-    reeti.getHead().onAnimation(animationContentTest);
+    reeti.getMouth().onAnimation(animationContentTest);
+
   }
+
+
+//  AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getHead().getHeadGroup());
+//    animationContentTest.setAnimationsDauerInMillisekunden(250);
+//    animationContentTest.setPivotX(0);
+//    animationContentTest.setPivotY(25);
+//    animationContentTest.setPivotZ(-25);
+//    animationContentTest.setRotationsGradAufXAxis(20);
+//    animationContentTest.setRotationsGradAufYAxis(0);
+//    animationContentTest.setRotationsGradAufZAxis(0);
+//
+//    animationContentTest.setAnimationCycleCounter(20);
+//    reeti.getHead().onAnimation(animationContentTest);
 
   public void onAnimation(Reeti reeti) {
 //    AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getHead().getHeadGroup());

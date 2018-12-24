@@ -17,8 +17,8 @@ public class Mouth extends BodyPart {
 
   private Timeline timeline;
 
-  MouthDownLip mouthDownLip;
-  MouthUpperLip mouthUpperLip;
+  private MouthDownLip mouthDownLip;
+  private MouthUpperLip mouthUpperLip;
 
 
   public Mouth(Head head, MouthDownLip mouthDownLip, MouthUpperLip mouthUpperLip) {

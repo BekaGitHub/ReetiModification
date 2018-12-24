@@ -14,7 +14,7 @@ public class AnimationContentTest {
   private double rotationsGradAufYAxis;
   private double rotationsGradAufZAxis;
 
-  private int position;
+  private double position;
 
   private double pivotX;
   private double pivotY;
@@ -99,11 +99,11 @@ public class AnimationContentTest {
     this.animationCycleCounter = animationCycleCounter;
   }
 
-  public int getPosition() {
+  public double getPosition() {
     return position;
   }
 
-  public void setPosition(int position) {
+  public void setPosition(double position) {
     this.position = position;
   }
 

@@ -187,16 +187,17 @@ public class ReetiController {
     expressionListView.getItems().add(jfxButton);
     Test test = new Test();
     jfxButton.setOnMouseEntered(event -> {
-      AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getHead());
-      animationContentTest.setAnimationsDauerInMillisekunden(500);
-      animationContentTest.setPosition(2);
-      animationContentTest.setMouthPart(MouthPart.RIGHT_CORNER);
-      reeti.getMouth().onAnimation(animationContentTest);
+//      AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getHead());
+//      animationContentTest.setAnimationsDauerInMillisekunden(500);
+//      animationContentTest.setPosition(2);
+//      animationContentTest.setMouthPart(MouthPart.RIGHT_CORNER);
+      test.playAnimation(reeti);
+//      reeti.getMouth().onAnimation(animationContentTest);
     });
 
-    jfxButton.setOnMouseExited(event -> {
-      test.pauseAnimation(reeti);
-    });
+//    jfxButton.setOnMouseExited(event -> {
+//      test.pauseAnimation(reeti);
+//    });
 
 //    fillExpressionListView();
     fillEnvironmentListView();

@@ -16,7 +16,6 @@ import javafx.scene.shape.MeshView;
  */
 public class Head extends BodyPart {
 
-  private static final Semaphore SEMAPHORE = new Semaphore(1);
   private static final int START_ROTATION_GRAD = -92;
 
   private Group headGroup;
@@ -42,14 +41,8 @@ public class Head extends BodyPart {
 
   @Override
   public void onAnimation(AnimationContentTest animationContentTest) {
-    try {
-      SEMAPHORE.acquire();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
     animationTest = new AnimationTest();
     animationTest.onAnimation(animationContentTest);
-    SEMAPHORE.release();
   }
 
   public void pauseAnimation() {

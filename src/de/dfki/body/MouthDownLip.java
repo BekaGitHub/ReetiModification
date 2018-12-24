@@ -62,7 +62,7 @@ public class MouthDownLip extends Lip {
       e.printStackTrace();
     }
     int animationsDauer = animationContentTest.getAnimationsDauerInMillisekunden();
-    int position = animationContentTest.getPosition();
+    double position = animationContentTest.getPosition();
 
     timeline = new Timeline();
 //    KeyValue kv = new KeyValue(mouth.getMiddleDownPoint(), 300);
