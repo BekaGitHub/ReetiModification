@@ -9,8 +9,7 @@ import javafx.scene.control.TextField;
 public class LeftEyeMovement implements Movement {
 
   @Override
-  public void execute(BodyPart bodyPart, JFXSlider slider,
-      TextField textField, Point3D axis) {
+  public void execute(BodyPart bodyPart, JFXSlider slider, TextField textField, Point3D axis) {
     initializeSlider(slider, 0, 100, 42);
 
     Rotation rotation = new Rotation();

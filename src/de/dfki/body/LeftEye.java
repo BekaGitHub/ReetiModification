@@ -7,6 +7,8 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
+import de.dfki.movement.bodyparts.Rotation;
+import de.dfki.reader.DaeFile;
 import de.dfki.util.Constants;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
@@ -25,24 +27,19 @@ public class LeftEye extends BodyPart {
   public LeftEye(Head head) {
     x_Rotation = 5;
 
-    leftEyeGroup = readDaeFile("BodyParts/Reeti/ReetiEye.dae");
-    init();
+    leftEyeGroup = (Group) new DaeFile().read("BodyParts/Reeti/ReetiEye.dae");
+
+    leftEyeGroup.setTranslateX(Constants.LEFT_EYE_X_POSITION);
+    leftEyeGroup.setTranslateY(Constants.EYE_Y_POSITION);
+    leftEyeGroup.setTranslateZ(Constants.EYE_Z_TRANSLATION);
 
     head.getHeadGroup().getChildren().add(leftEyeGroup);
     LOGGER.log(Level.INFO, "Left Eye wurde erzeugt");
   }
 
   @Override
-  public void init() {
-    super.init();
-    leftEyeGroup.setTranslateX(Constants.LEFT_EYE_X_POSITION);
-    leftEyeGroup.setTranslateY(Constants.EYE_Y_POSITION);
-    leftEyeGroup.setTranslateZ(Constants.EYE_Z_TRANSLATION);
-  }
-
-  @Override
   public void calculate(int step) {
-    transformate(leftEyeGroup, 0, 0, 0);
+    new Rotation().execute(leftEyeGroup, 0, 0, 0, x_Rotation, y_Rotation, z_Rotation);
   }
 
   @Override

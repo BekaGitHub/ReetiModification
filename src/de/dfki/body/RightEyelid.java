@@ -7,10 +7,12 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
+import de.dfki.movement.bodyparts.Rotation;
+import de.dfki.reader.DaeFile;
+import de.dfki.style.Material;
 import de.dfki.util.Constants;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.MeshView;
 
 /**
@@ -21,33 +23,27 @@ public class RightEyelid extends BodyPart {
   private static final Semaphore SEMAPHORE = new Semaphore(1);
 
   private AnimationTest animationTest;
-  private MeshView rightEyelidMesh;
+  private MeshView rightEyelid;
 
   public RightEyelid(Head head) {
     z_Rotation = -30;
     y_Rotation = 15;
-    color = Color.WHITE;
 
-    rightEyelidMesh = readDaeFile("BodyParts/Reeti/ReetiEyelid.dae", 0);
-    rightEyelidMesh.setMaterial(getMaterial());
+    rightEyelid = (MeshView) new DaeFile().read("BodyParts/Reeti/ReetiEyelid.dae");
+    rightEyelid.setMaterial(Material.getInstance().getMaterial());
 
-    init();
+    rightEyelid.setTranslateX(Constants.RIGHT_EYE_LID_X_POSITION);
+    rightEyelid.setTranslateY(Constants.EYE_LID_Y_POSITION);
+    rightEyelid.setTranslateZ(Constants.EYE_LID_Z_TRANSLATION);
+    calculate(0);
 
-    head.getHeadGroup().getChildren().add(rightEyelidMesh);
+    head.getHeadGroup().getChildren().add(rightEyelid);
     LOGGER.log(Level.INFO, "Right Eyelid wurde erzeugt");
   }
 
   @Override
-  public void init() {
-    super.init();
-    rightEyelidMesh.setTranslateX(Constants.RIGHT_EYE_LID_X_POSITION);
-    rightEyelidMesh.setTranslateY(Constants.EYE_LID_Y_POSITION);
-    rightEyelidMesh.setTranslateZ(Constants.EYE_LID_Z_TRANSLATION);
-  }
-
-  @Override
   public void calculate(int step) {
-    transformate(rightEyelidMesh, 0, 0, 0);
+    new Rotation().execute(rightEyelid, 0, 0, 0, x_Rotation, y_Rotation, z_Rotation);
   }
 
   @Override
@@ -62,7 +58,7 @@ public class RightEyelid extends BodyPart {
     SEMAPHORE.release();
   }
 
-  public MeshView getRightEyelidMesh() {
-    return rightEyelidMesh;
+  public MeshView getRightEyelid() {
+    return rightEyelid;
   }
 }

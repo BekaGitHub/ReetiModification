@@ -7,8 +7,7 @@ import javafx.scene.control.TextField;
 
 public interface Movement {
 
-  void execute(BodyPart bodyPart, JFXSlider slider,
-      TextField textField, Point3D axis);
+  void execute(BodyPart bodyPart, JFXSlider slider, TextField textField, Point3D axis);
 
   default void initializeSlider(JFXSlider slider, int min, int max, int value) {
     slider.setMin(min);

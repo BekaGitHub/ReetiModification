@@ -137,7 +137,7 @@ public class MoveReetiPart {
   }
 
   public void blinkRightEyelid(Reeti reeti, int position, int duration) {
-    MeshView rightEyelidMeshView = reeti.getRightEyelid().getRightEyelidMesh();
+    MeshView rightEyelidMeshView = reeti.getRightEyelid().getRightEyelid();
     AnimationContentTest animationContentTest = new AnimationContentTest(rightEyelidMeshView);
     animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
     animationContentTest.setPivotX(0);

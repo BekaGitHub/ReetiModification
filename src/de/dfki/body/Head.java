@@ -3,6 +3,8 @@ package de.dfki.body;
 import de.dfki.agent.Reeti;
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
+import de.dfki.movement.bodyparts.Rotation;
+import de.dfki.reader.StlFile;
 import de.dfki.util.Constants;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
@@ -22,26 +24,21 @@ public class Head extends BodyPart {
   private AnimationTest animationTest;
 
   public Head(Reeti reeti) {
-    color = Color.WHITE;
 
-    MeshView headMeshView = readStlFile("BodyParts/Reeti/v1.stl", START_ROTATION_GRAD);
+    MeshView headMeshView = new StlFile().read("BodyParts/Reeti/v1.stl");
+    headMeshView.setRotate(START_ROTATION_GRAD);
     headGroup = new Group();
     headGroup.getChildren().add(headMeshView);
 
-    init();
+    headGroup.setTranslateY(Constants.HEAD_Y_POSITION);
+    headGroup.setTranslateZ(Constants.Z_TRANSLATION);
     getChildren().add(headGroup);
     LOGGER.log(Level.INFO, "Head wurde erzeugt");
   }
 
   @Override
-  public void init() {
-    headGroup.setTranslateY(Constants.HEAD_Y_POSITION);
-    headGroup.setTranslateZ(Constants.Z_TRANSLATION);
-  }
-
-  @Override
   public void calculate(int step) {
-    transformate(headGroup, 0, 25, -25);
+    new Rotation().execute(headGroup, 0, 25, -25, x_Rotation, y_Rotation, z_Rotation);
   }
 
   @Override

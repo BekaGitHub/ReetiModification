@@ -7,6 +7,9 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
+import de.dfki.movement.bodyparts.Rotation;
+import de.dfki.reader.DaeFile;
+import de.dfki.style.Material;
 import de.dfki.util.Constants;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
@@ -26,28 +29,22 @@ public class LeftEyelid extends BodyPart {
   public LeftEyelid(Head head) {
     z_Rotation = 30;
     y_Rotation = -10;
-    color = Color.WHITE;
 
-    leftEyeLidMesh = readDaeFile("BodyParts/Reeti/ReetiEyelid.dae", 0);
-    leftEyeLidMesh.setMaterial(getMaterial());
+    leftEyeLidMesh = (MeshView) new DaeFile().read("BodyParts/Reeti/ReetiEyelid.dae");
+    leftEyeLidMesh.setMaterial(Material.getInstance().getMaterial());
 
-    init();
+    leftEyeLidMesh.setTranslateX(Constants.LEFT_EYE_LID_X_POSITION);
+    leftEyeLidMesh.setTranslateY(Constants.EYE_LID_Y_POSITION);
+    leftEyeLidMesh.setTranslateZ(Constants.EYE_LID_Z_TRANSLATION);
+    calculate(0);
 
     head.getHeadGroup().getChildren().add(leftEyeLidMesh);
     LOGGER.log(Level.INFO, "Left Eyelid wurde erzeugt");
   }
 
   @Override
-  public void init() {
-    super.init();
-    leftEyeLidMesh.setTranslateX(Constants.LEFT_EYE_LID_X_POSITION);
-    leftEyeLidMesh.setTranslateY(Constants.EYE_LID_Y_POSITION);
-    leftEyeLidMesh.setTranslateZ(Constants.EYE_LID_Z_TRANSLATION);
-  }
-
-  @Override
   public void calculate(int step) {
-    transformate(leftEyeLidMesh, 0, 0, 0);
+    new Rotation().execute(leftEyeLidMesh, 0, 0, 0, x_Rotation, y_Rotation, z_Rotation);
   }
 
   @Override

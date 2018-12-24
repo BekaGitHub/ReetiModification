@@ -33,16 +33,10 @@ public class RightCheek extends BodyPart {
     mLedGroup.getChildren().add(mLed);
 
     mLedGroup.setVisible(false);
-    init();
-
-    head.getHeadGroup().getChildren().add(mLedGroup);
-  }
-
-  @Override
-  public void init() {
-    super.init();
     mLed.setTranslateX(Constants.LED_X_POSITION);
     mLed.setTranslateZ(Constants.LEFT_LED_Z_POSITION);
+
+    head.getHeadGroup().getChildren().add(mLedGroup);
   }
 
   @Override

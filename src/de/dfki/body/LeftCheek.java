@@ -34,15 +34,10 @@ public class LeftCheek extends BodyPart {
     ledGroup.getChildren().add(led);
 
     ledGroup.setVisible(false);
-    init();
 
-    head.getHeadGroup().getChildren().add(ledGroup);
-  }
-
-  @Override
-  public void init() {
     led.setTranslateX(Constants.LED_X_POSITION);
     led.setTranslateZ(Constants.LEFT_LED_Z_POSITION);
+    head.getHeadGroup().getChildren().add(ledGroup);
   }
 
   @Override

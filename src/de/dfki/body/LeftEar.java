@@ -7,6 +7,9 @@ package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
 import de.dfki.animationlogic.commonlogic.AnimationTest;
+import de.dfki.movement.bodyparts.Rotation;
+import de.dfki.reader.DaeFile;
+import de.dfki.style.Material;
 import de.dfki.util.Constants;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
@@ -24,26 +27,21 @@ public class LeftEar extends BodyPart {
   private AnimationTest animationTest;
 
   public LeftEar(Head head) {
-    color = Color.WHITE;
 
-    leftEarMesh = readDaeFile("BodyParts/Reeti/ReetiLeftEar.dae", 0);
-    leftEarMesh.setMaterial(getMaterial());
-    init();
+    leftEarMesh = (MeshView) new DaeFile().read("BodyParts/Reeti/ReetiLeftEar.dae");
+    leftEarMesh.setMaterial(Material.getInstance().getMaterial());
+
+    leftEarMesh.setTranslateX(Constants.LEFT_EAR_X_POSITION);
+    leftEarMesh.setTranslateY(Constants.EAR_Y_POSITION);
+    calculate(0);
 
     head.getHeadGroup().getChildren().add(leftEarMesh);
     LOGGER.log(Level.INFO, "Left Ear wurde erzeugt");
   }
 
   @Override
-  public void init() {
-    super.init();
-    leftEarMesh.setTranslateX(Constants.LEFT_EAR_X_POSITION);
-    leftEarMesh.setTranslateY(Constants.EAR_Y_POSITION);
-  }
-
-  @Override
   public void calculate(int step) {
-    transformate(leftEarMesh, 0, 0, 0);
+    new Rotation().execute(leftEarMesh, 0, 0, 0, x_Rotation, y_Rotation, z_Rotation);
   }
 
   @Override

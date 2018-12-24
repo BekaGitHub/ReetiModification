@@ -1,6 +1,7 @@
 package de.dfki.body;
 
 import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.reader.DaeFile;
 import de.dfki.util.Constants;
 import java.util.logging.Level;
 import javafx.scene.paint.Color;
@@ -20,18 +21,12 @@ public class Body extends BodyPart {
   private MeshView bodyMeshView;
 
   public Body() {
-    color = Color.WHITE;
-
-    bodyMeshView = readDaeFile("BodyParts/Reeti/ReetiBody.dae", 0);
+    bodyMeshView = (MeshView) new DaeFile().read("BodyParts/Reeti/ReetiBody.dae");
     this.getChildren().addAll(bodyMeshView);
-    init();
-    LOGGER.log(Level.INFO, "Body wurde erzeugt");
-  }
 
-  @Override
-  public void init() {
     bodyMeshView.setTranslateY(Constants.BODY_Y_POSITION);
     bodyMeshView.setTranslateZ(Constants.BODY_Z_TRANSLATION);
+    LOGGER.log(Level.INFO, "Body wurde erzeugt");
   }
 
   @Override

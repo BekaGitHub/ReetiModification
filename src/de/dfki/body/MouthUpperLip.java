@@ -12,7 +12,7 @@ import javafx.scene.shape.QuadCurveTo;
 /**
  * @author Beka Aptsiauri
  */
-public class MouthUpperLip extends BodyPart {
+public class MouthUpperLip extends Lip {
 
   private static MouthUpperLip mouthUpperLipInstance = null;
 

@@ -10,7 +10,7 @@ import javafx.scene.shape.QuadCurve;
 /**
  * @author Beka Aptsiauri
  */
-public class MouthDownLip extends BodyPart {
+public class MouthDownLip extends Lip {
 
   private static MouthDownLip mouthDownLipInstance = null;
 
