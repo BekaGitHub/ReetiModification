@@ -5,8 +5,8 @@
  */
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.animationlogic.commonlogic.AnimationTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.commonlogic.Animation;
 import de.dfki.movement.bodyparts.Rotation;
 import de.dfki.reader.DaeFile;
 import de.dfki.style.Material;
@@ -20,9 +20,6 @@ import javafx.scene.shape.MeshView;
  */
 public class LeftEyelid extends BodyPart {
 
-  private static final Semaphore SEMAPHORE = new Semaphore(1);
-
-  private AnimationTest animationTest;
   private MeshView leftEyeLidMesh;
 
   public LeftEyelid(Head head) {
@@ -47,15 +44,8 @@ public class LeftEyelid extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContentTest animationContentTest) {
-    try {
-      SEMAPHORE.acquire();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    animationTest = new AnimationTest();
-    animationTest.onAnimation(animationContentTest);
-    SEMAPHORE.release();
+  public void onAnimation(AnimationContent animationContent) {
+    new Animation().onAnimation(animationContent);
   }
 
   public MeshView getLeftEyeLidMesh() {

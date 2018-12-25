@@ -1,7 +1,6 @@
 package de.dfki.agent;
 
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.body.BodyPart;
 
 /**
@@ -9,9 +8,5 @@ import de.dfki.body.BodyPart;
  */
 public interface Agent {
 
-  AnimationReeti doAnimation(String name, int duration, boolean block);
-
-  AnimationReeti doAnimation(String name, int duration, Object param, boolean block);
-
-  void onAnimation(BodyPart bodyPart,  AnimationContentTest animationContentTest);
+  void onAnimation(BodyPart bodyPart,  AnimationContent animationContent);
 }

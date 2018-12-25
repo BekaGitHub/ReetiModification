@@ -16,16 +16,16 @@ public final class Blinking {
 
   public Blinking(Reeti reeti, int frequent, int actionDuration) {
     this.reeti = reeti;
-    startBlinkAktion(frequent, actionDuration);
+//    startBlinkAktion(frequent, actionDuration);
   }
 
-  public void startBlinkAktion(int frequent, int actionDuration) {
-    blinkTimeline = new Timeline(new KeyFrame(Duration.millis(frequent), (ActionEvent event) ->
-        reeti.doAnimation("Blink", actionDuration, false)
-    ));
-    blinkTimeline.setCycleCount(Timeline.INDEFINITE);
-    blinkTimeline.play();
-  }
+//  public void startBlinkAktion(int frequent, int actionDuration) {
+//    blinkTimeline = new Timeline(new KeyFrame(Duration.millis(frequent), (ActionEvent event) ->
+////        reeti.doAnimation("Blink", actionDuration, false)
+//    ));
+//    blinkTimeline.setCycleCount(Timeline.INDEFINITE);
+//    blinkTimeline.play();
+//  }
 
   public void stopBlinkAktion() {
     if (blinkTimeline != null) {

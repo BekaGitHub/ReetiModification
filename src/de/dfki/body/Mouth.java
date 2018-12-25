@@ -1,6 +1,6 @@
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import java.util.concurrent.Semaphore;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -31,48 +31,48 @@ public class Mouth extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContentTest animationContentTest) {
+  public void onAnimation(AnimationContent animationContent) {
     try {
       SEMAPHORE.acquire();
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-    switch (animationContentTest.getMouthPart()) {
+    switch (animationContent.getMouthPart()) {
       case UPPER_LIP:
-        startUpperLipAnimation(animationContentTest);
+        startUpperLipAnimation(animationContent);
         break;
       case DOWN_LIP:
-        startDownLipAnimation(animationContentTest);
+        startDownLipAnimation(animationContent);
         break;
       case RIGHT_CORNER:
-        startRightCornerAnimation(animationContentTest);
+        startRightCornerAnimation(animationContent);
         break;
       case LEFT_CORNER:
-        startLeftCornerAnimation(animationContentTest);
+        startLeftCornerAnimation(animationContent);
         break;
     }
     SEMAPHORE.release();
   }
 
-  private void startUpperLipAnimation(AnimationContentTest animationContentTest) {
+  private void startUpperLipAnimation(AnimationContent animationContent) {
     startAnimation(mouthUpperLip.getUpperLip().controlYProperty(),
-        animationContentTest.getPosition(),
-        animationContentTest.getAnimationsDauerInMillisekunden());
+        animationContent.getPosition(),
+        animationContent.getAnimationsDauerInMillisekunden());
   }
 
-  private void startDownLipAnimation(AnimationContentTest animationContentTest) {
-    startAnimation(mouthDownLip.getDownLip().controlYProperty(), animationContentTest.getPosition(),
-        animationContentTest.getAnimationsDauerInMillisekunden());
+  private void startDownLipAnimation(AnimationContent animationContent) {
+    startAnimation(mouthDownLip.getDownLip().controlYProperty(), animationContent.getPosition(),
+        animationContent.getAnimationsDauerInMillisekunden());
   }
 
-  private void startRightCornerAnimation(AnimationContentTest animationContentTest) {
-    startAnimation(mouthUpperLip.getUpperLip().startYProperty(), animationContentTest.getPosition(),
-        animationContentTest.getAnimationsDauerInMillisekunden());
+  private void startRightCornerAnimation(AnimationContent animationContent) {
+    startAnimation(mouthUpperLip.getUpperLip().startYProperty(), animationContent.getPosition(),
+        animationContent.getAnimationsDauerInMillisekunden());
   }
 
-  private void startLeftCornerAnimation(AnimationContentTest animationContentTest) {
-    startAnimation(mouthUpperLip.getUpperLip().endYProperty(), animationContentTest.getPosition(),
-        animationContentTest.getAnimationsDauerInMillisekunden());
+  private void startLeftCornerAnimation(AnimationContent animationContent) {
+    startAnimation(mouthUpperLip.getUpperLip().endYProperty(), animationContent.getPosition(),
+        animationContent.getAnimationsDauerInMillisekunden());
   }
 
   private void startAnimation(WritableValue<Number> target, Number endValue, int duration) {

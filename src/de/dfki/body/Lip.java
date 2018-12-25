@@ -1,6 +1,6 @@
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.main.Constants;
 import de.dfki.style.Effect;
 import javafx.animation.KeyFrame;
@@ -22,13 +22,13 @@ public abstract class Lip extends BodyPart {
     new Effect().addEffect(lip);
   }
 
-  Timeline createTimeline(AnimationContentTest animationContentTest, DoubleProperty property) {
+  Timeline createTimeline(AnimationContent animationContent, DoubleProperty property) {
     Timeline timeline = new Timeline();
 
     KeyValue keyValue = new KeyValue(property,
-        calculateMovementPosition(animationContentTest.getPosition()));
+        calculateMovementPosition(animationContent.getPosition()));
     KeyFrame keyFrame = new KeyFrame(
-        Duration.millis(animationContentTest.getAnimationsDauerInMillisekunden()), keyValue);
+        Duration.millis(animationContent.getAnimationsDauerInMillisekunden()), keyValue);
     timeline.getKeyFrames().add(keyFrame);
     return timeline;
   }

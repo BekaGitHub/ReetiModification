@@ -7,31 +7,32 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContent;
-import de.dfki.animationlogic.reeti.AnimationReeti;
-import de.dfki.movement.Move;
-import java.util.ArrayList;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 
 /**
  * @author Beka
  */
-public class NeckPan extends AnimationReeti {
+public class NeckPan {
 
+  public void playAnimation(Reeti reeti) {
+    AnimationContent animationContentForLeftPan = new AnimationContent(reeti.getHead().getHeadGroup());
+    animationContentForLeftPan.setAnimationsDauerInMillisekunden(500);
+    animationContentForLeftPan.setPivotX(0);
+    animationContentForLeftPan.setPivotY(25);
+    animationContentForLeftPan.setPivotZ(-25);
+    animationContentForLeftPan.setRotationsGradAufZAxis(20);
+    animationContentForLeftPan.setAnimationCycleCounter(2);
+    reeti.getHead().onAnimation(animationContentForLeftPan);
 
-  int rot;
+    AnimationContent animationContentForRightPan = new AnimationContent(reeti.getHead().getHeadGroup());
+    animationContentForRightPan.setAnimationsDauerInMillisekunden(500);
+    animationContentForRightPan.setPivotX(0);
+    animationContentForRightPan.setPivotY(25);
+    animationContentForRightPan.setPivotZ(-25);
+    animationContentForRightPan.setRotationsGradAufZAxis(40);
+    animationContentForRightPan.setAnimationCycleCounter(2);
+    reeti.getHead().onAnimation(animationContentForRightPan);
 
-  public NeckPan(Reeti sm, int duration, int pos, boolean block) {
-    super(sm, duration, block);
-    this.rot = pos;
-  }
-
-  @Override
-  public void playAnimation() {
-
-    animationContents = new ArrayList<>();
-    animationContents
-        .add(new AnimationContent(((Reeti) agent).getHead(), Move.Z_ROTATION, rot));
-    playAnimationPart(animationDuration);
 
   }
 }

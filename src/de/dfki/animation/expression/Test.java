@@ -6,10 +6,7 @@
 package de.dfki.animation.expression;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.animationlogic.commonlogic.MouthPart;
-import de.dfki.animationlogic.reeti.AnimationReeti;
-import de.dfki.animation.AnimationVisivility;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 
 /**
  * @author Beka
@@ -17,18 +14,18 @@ import de.dfki.animation.AnimationVisivility;
 public class Test {
 
   public void playAnimation(Reeti reeti) {
-    AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getMouth());
-    animationContentTest.setAnimationsDauerInMillisekunden(500);
-    animationContentTest.setPosition(100);
+    AnimationContent animationContent = new AnimationContent(reeti.getMouth());
+    animationContent.setAnimationsDauerInMillisekunden(500);
+    animationContent.setPosition(100);
 
-//    animationContentTest.setMouthPart(MouthPart.UPPER_LIP);
-    animationContentTest.setAnimationCycleCounter(20);
-    reeti.getMouthRightCorner().onAnimation(animationContentTest);
+//    animationContent.setMouthPart(MouthPart.UPPER_LIP);
+    animationContent.setAnimationCycleCounter(20);
+    reeti.getMouthRightCorner().onAnimation(animationContent);
 
   }
 
 
-//  AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getHead().getHeadGroup());
+//  AnimationContent animationContentTest = new AnimationContent(reeti.getHead().getHeadGroup());
 //    animationContentTest.setAnimationsDauerInMillisekunden(250);
 //    animationContentTest.setPivotX(0);
 //    animationContentTest.setPivotY(25);
@@ -41,7 +38,7 @@ public class Test {
 //    reeti.getHead().onAnimation(animationContentTest);
 
   public void onAnimation(Reeti reeti) {
-//    AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getHead().getHeadGroup());
+//    AnimationContent animationContentTest = new AnimationContent(reeti.getHead().getHeadGroup());
 //    animationContentTest.setAnimationsDauerInMillisekunden(5000);
 //    animationContentTest.setPivotX(0);
 //    animationContentTest.setPivotY(25);

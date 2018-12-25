@@ -7,9 +7,7 @@ import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXToggleButton;
 import de.dfki.agent.Reeti;
-import de.dfki.animation.expression.Test;
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.animationlogic.commonlogic.MouthPart;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.movement.bodyparts.mouth.MouthBottomLipMovement;
 import de.dfki.movement.bodyparts.mouth.MouthLeftCornerMovement;
 import de.dfki.movement.bodyparts.mouth.MouthRightCornerMovement;
@@ -182,18 +180,19 @@ public class ReetiController {
   private Reeti reeti;
 
   public void initialize() {
-    JFXButton jfxButton = new JFXButton("TESTING");
-    jfxButton = getDecoratedLabel(jfxButton);
-    expressionListView.getItems().add(jfxButton);
-    Test test = new Test();
-    jfxButton.setOnMouseEntered(event -> {
-//      AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getHead());
-//      animationContentTest.setAnimationsDauerInMillisekunden(500);
-//      animationContentTest.setPosition(2);
-//      animationContentTest.setMouthPart(MouthPart.RIGHT_CORNER);
-      test.playAnimation(reeti);
-//      reeti.getMouth().onAnimation(animationContentTest);
-    });
+    ButtonContainer buttonContainer = new ButtonContainer(expressionListView, reeti);
+//    JFXButton jfxButton = new JFXButton("TESTING");
+//    jfxButton = getDecoratedLabel(jfxButton);
+//    expressionListView.getItems().add(jfxButton);
+//    Test test = new Test();
+//    jfxButton.setOnMouseEntered(event -> {
+////      AnimationContent animationContentTest = new AnimationContent(reeti.getHead());
+////      animationContentTest.setAnimationsDauerInMillisekunden(500);
+////      animationContentTest.setPosition(2);
+////      animationContentTest.setMouthPart(MouthPart.RIGHT_CORNER);
+//      test.playAnimation(reeti);
+////      reeti.getMouth().onAnimation(animationContentTest);
+//    });
 
 //    jfxButton.setOnMouseExited(event -> {
 //      test.pauseAnimation(reeti);
@@ -239,17 +238,17 @@ public class ReetiController {
 //    exitButton.setOnAction((event) -> System.exit(0));
     exitButton.setOnAction((event) -> {
 //      reeti.agentAnimationTimer.start();
-      AnimationContentTest animationContentTest = new AnimationContentTest(reeti.getRightEar().getRightEarMesh());
-    animationContentTest.setAnimationsDauerInMillisekunden(2000);
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(0);
-    animationContentTest.setPivotZ(0);
-    animationContentTest.setRotationsGradAufXAxis(0);
-    animationContentTest.setRotationsGradAufYAxis(0);
-    animationContentTest.setRotationsGradAufZAxis(360);
+      AnimationContent animationContent = new AnimationContent(reeti.getRightEar().getRightEarMesh());
+    animationContent.setAnimationsDauerInMillisekunden(2000);
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
+    animationContent.setRotationsGradAufXAxis(0);
+    animationContent.setRotationsGradAufYAxis(0);
+    animationContent.setRotationsGradAufZAxis(360);
 
-    animationContentTest.setAnimationCycleCounter(20);
-      reeti.getRightEar().onAnimation(animationContentTest);
+    animationContent.setAnimationCycleCounter(20);
+      reeti.getRightEar().onAnimation(animationContent);
     });
 
   }
@@ -368,7 +367,7 @@ public class ReetiController {
       listView.getItems().add(getDecoratedLabel(label));
       listView.setOnMouseClicked(event -> {
         int index = listView.getSelectionModel().getSelectedIndex();
-        reeti.doAnimation(classNamesList.get(index), 500, true);
+//        reeti.doAnimation(classNamesList.get(index), 500, true);
       });
     }
   }

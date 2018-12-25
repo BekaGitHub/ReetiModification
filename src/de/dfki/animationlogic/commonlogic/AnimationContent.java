@@ -5,7 +5,7 @@ import javafx.scene.Node;
 /**
  * Die Klasse hält die Daten, die zur Ausführung einer Animation nötig sind.
  */
-public class AnimationContentTest {
+public class AnimationContent {
 
   private int animationsDauerInMillisekunden;
   private int animationCycleCounter = -1;
@@ -23,7 +23,7 @@ public class AnimationContentTest {
   private Node koerperteil;
   private MouthPart mouthPart;
 
-  public AnimationContentTest(Node koerperteil) {
+  public AnimationContent(Node koerperteil) {
     this.koerperteil = koerperteil;
   }
 
@@ -104,7 +104,6 @@ public class AnimationContentTest {
   }
 
   public void setPosition(double position) {
-//    position = 25 + (position/5);
     this.position = position;
   }
 

@@ -5,8 +5,8 @@
  */
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.animationlogic.commonlogic.AnimationTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.commonlogic.Animation;
 import de.dfki.movement.bodyparts.Rotation;
 import de.dfki.reader.DaeFile;
 import de.dfki.style.Material;
@@ -23,7 +23,7 @@ public class LeftEar extends BodyPart {
   private static final Semaphore SEMAPHORE = new Semaphore(1);
 
   private MeshView leftEarMesh;
-  private AnimationTest animationTest;
+  private Animation animation;
 
   public LeftEar(Head head) {
 
@@ -44,14 +44,14 @@ public class LeftEar extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContentTest animationContentTest) {
+  public void onAnimation(AnimationContent animationContent) {
     try {
       SEMAPHORE.acquire();
     } catch (InterruptedException e) {
       e.printStackTrace();
     }
-    animationTest = new AnimationTest();
-    animationTest.onAnimation(animationContentTest);
+    animation = new Animation();
+    animation.onAnimation(animationContent);
     SEMAPHORE.release();
   }
 

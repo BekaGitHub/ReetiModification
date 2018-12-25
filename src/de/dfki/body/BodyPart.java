@@ -5,7 +5,7 @@
  */
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import java.util.logging.Logger;
 import javafx.scene.layout.Pane;
 
@@ -23,5 +23,5 @@ public abstract class BodyPart extends Pane {
   public synchronized void calculate(int step) {
   }
 
-  public abstract void onAnimation(AnimationContentTest AnimationContentTest);
+  public abstract void onAnimation(AnimationContent AnimationContent);
 }

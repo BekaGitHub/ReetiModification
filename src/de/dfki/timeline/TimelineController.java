@@ -124,7 +124,7 @@ public class TimelineController implements Initializable {
                 == Converter
                 .SecondToPixel(pose.getStartTime() + pose.getDuration().getTimeToReachPose())
                 && pose.isBackToNeutralOn()) {
-              reeti.defaultPose();
+//              reeti.defaultPose();
             }
 
             //stop and reset timeline and autoscroll

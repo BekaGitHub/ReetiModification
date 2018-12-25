@@ -41,7 +41,7 @@ public class Constants {
   public static final String RIGHT_LC = "RightLC";
   public static final String LEFT_LC = "LeftLC";
   public static final String UPPER_LIP = "UpperLip";
-  public static final String DOWN_LIP = "DownLip";
+  public static final String DOWN_LIP = "LipDown";
   public static final String LEFT_EYE_X = "LeftEye_X";
   public static final String LEFT_EYE_Y = "LeftEye_Y";
   public static final String RIGHT_EYE_X = "RightEye_X";

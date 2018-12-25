@@ -5,20 +5,11 @@
  */
 package de.dfki.animation.head;
 
-import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationReeti;
-
 /**
  * @author Beka
  */
-public class TiltLeftStart extends AnimationReeti {
+public class TiltLeftStart {
 
-  public TiltLeftStart(Reeti sm, int duration, boolean block) {
-    super(sm, duration, block);
-  }
-
-  @Override
   public void playAnimation() {
-    ((Reeti) agent).neckPan(20, 500);
   }
 }

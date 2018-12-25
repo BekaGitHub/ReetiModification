@@ -1,6 +1,6 @@
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.reader.DaeFile;
 import de.dfki.main.Constants;
 import java.util.logging.Level;
@@ -23,7 +23,7 @@ public class Body extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContentTest AnimationContentTest) {
+  public void onAnimation(AnimationContent AnimationContent) {
 
   }
 }

@@ -3,9 +3,7 @@ package de.dfki.agent;
 import de.dfki.TestAnimation;
 import de.dfki.animation.AgentAnimationTimer;
 import de.dfki.animation.blink.Blinking;
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.animationlogic.reeti.AnimationLoaderReeti;
-import de.dfki.animationlogic.reeti.AnimationReeti;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.body.Body;
 import de.dfki.body.BodyPart;
 import de.dfki.body.Head;
@@ -112,26 +110,9 @@ public class Reeti extends Pane implements Agent {
   }
 
   @Override
-  public void onAnimation(BodyPart bodyPart, AnimationContentTest animationContentTest) {
-    bodyPart.onAnimation(animationContentTest);
+  public void onAnimation(BodyPart bodyPart, AnimationContent animationContent) {
+    bodyPart.onAnimation(animationContent);
   }
-  @Override
-  public AnimationReeti doAnimation(String name, int duration, boolean block) {
-    return doAnimation(name, duration, "", block);
-  }
-
-  public AnimationReeti doAnimation(String name, boolean block) {
-    return doAnimation(name, -1, "", block);
-  }
-
-  @Override
-  public AnimationReeti doAnimation(String name, int duration, Object param, boolean block) {
-    AnimationReeti animationReeti = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, name, duration, block);
-    animationReeti.start();
-    return animationReeti;
-  }
-
   private void setAgentOnScreen() {
     this.setTranslateX(Dimension.getReetiStage_X_Center());
     this.setTranslateY(Dimension.getScreenHight());
@@ -314,18 +295,6 @@ public class Reeti extends Pane implements Agent {
   public void neckPan(int pos, double duration) {
     moveReetiPart.neckPan(this, pos, 40, (int) duration);
 //    moveReetiPart.movePart(this, Constants.NECK_PAN, pos, 40, duration);
-  }
-
-  public void mouthTest() {
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "Mouth_O", 100, false);
-    a.start();
-  }
-
-  public void defaultPose() {
-    AnimationReeti a = AnimationLoaderReeti.getInstance()
-        .loadAnimation(this, "Default", 100, false);
-    a.start();
   }
 
   public Head getHead() {

@@ -7,31 +7,21 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContent;
-import de.dfki.animationlogic.reeti.AnimationReeti;
-import de.dfki.movement.Move;
-import java.util.ArrayList;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 
 /**
  * @author Beka
  */
-public class BlinkRightEyelid extends AnimationReeti {
+public class BlinkRightEyelid {
 
-
-  int rot;
-
-  public BlinkRightEyelid(Reeti sm, int duration, int pos, boolean block) {
-    super(sm, duration, pos, block);
-    this.rot = pos;
-  }
-
-  @Override
-  public void playAnimation() {
-
-    animationContents = new ArrayList<>();
-    animationContents
-        .add(new AnimationContent(((Reeti) agent).getRightEyelid(), Move.X_ROTATION, rot));
-    playAnimationPart(animationDuration);
-
+  public void playAnimation(Reeti reeti) {
+    AnimationContent animationContent = new AnimationContent(reeti.getRightEyelid().getRightEyelid());
+    animationContent.setAnimationsDauerInMillisekunden(500);
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
+    animationContent.setRotationsGradAufXAxis(100);
+    animationContent.setAnimationCycleCounter(4);
+    reeti.getRightEyelid().onAnimation(animationContent);
   }
 }

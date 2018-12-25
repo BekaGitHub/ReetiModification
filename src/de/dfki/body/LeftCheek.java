@@ -5,7 +5,7 @@
  */
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.main.Constants;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
@@ -41,7 +41,7 @@ public class LeftCheek extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContentTest AnimationContentTest) {
+  public void onAnimation(AnimationContent AnimationContent) {
 
   }
 

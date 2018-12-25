@@ -2,7 +2,7 @@ package de.dfki.movement;
 
 import de.dfki.agent.Agent;
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.main.Constants;
 import javafx.scene.Group;
 import javafx.scene.shape.MeshView;
@@ -62,162 +62,162 @@ public class MoveReetiPart {
 
   public void leftEyeTilt(Reeti reeti, int position, int positionCorrection, int duration) {
     Group leftEyeGroup = reeti.getLeftEye().getLeftEyeGroup();
-    AnimationContentTest animationContentTest = new AnimationContentTest(leftEyeGroup);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(0);
-    animationContentTest.setPivotZ(0);
+    AnimationContent animationContent = new AnimationContent(leftEyeGroup);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
     int movementFactor = berechneMovementFactor(position);
     if (movementFactor < positionCorrection) {
       movementFactor = positionCorrection;
     }
     int movement = (int) leftEye_Y_OldPos - movementFactor;
     leftEye_Y_OldPos = position;
-    animationContentTest.setRotationsGradAufXAxis(movement);
-    reeti.getLeftEye().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufXAxis(movement);
+    reeti.getLeftEye().onAnimation(animationContent);
   }
 
   public void leftEyePan(Reeti reeti, int position, int duration) {
     Group leftEyeGroup = reeti.getLeftEye().getLeftEyeGroup();
-    AnimationContentTest animationContentTest = new AnimationContentTest(leftEyeGroup);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(0);
-    animationContentTest.setPivotZ(0);
+    AnimationContent animationContent = new AnimationContent(leftEyeGroup);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
     int movementFactor = berechneMovementFactor(position);
     int movement = (int) leftEye_X_OldPos - movementFactor;
     leftEye_X_OldPos = position;
-    animationContentTest.setRotationsGradAufYAxis(movement);
-    reeti.getLeftEye().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufYAxis(movement);
+    reeti.getLeftEye().onAnimation(animationContent);
   }
 
   public void rightEyeTilt(Reeti reeti, int position, int positionCorrection, int duration) {
     Group rightEyeGroup = reeti.getRightEye().getRightEyeGroup();
-    AnimationContentTest animationContentTest = new AnimationContentTest(rightEyeGroup);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(0);
-    animationContentTest.setPivotZ(0);
+    AnimationContent animationContent = new AnimationContent(rightEyeGroup);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
     int movementFactor = berechneMovementFactor(position);
     if (movementFactor < positionCorrection) {
       movementFactor = positionCorrection;
     }
     int movement = (int) rightEye_Y_OldPos - movementFactor;
     rightEye_Y_OldPos = position;
-    animationContentTest.setRotationsGradAufXAxis(movement);
-    reeti.getRightEye().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufXAxis(movement);
+    reeti.getRightEye().onAnimation(animationContent);
   }
 
   public void rightEyePan(Reeti reeti, int position, int duration) {
     Group rightEyeGroup = reeti.getRightEye().getRightEyeGroup();
-    AnimationContentTest animationContentTest = new AnimationContentTest(rightEyeGroup);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(0);
-    animationContentTest.setPivotZ(0);
+    AnimationContent animationContent = new AnimationContent(rightEyeGroup);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
     int movementFactor = berechneMovementFactor(position);
     int movement = (int) rightEye_X_OldPos - movementFactor;;
     rightEye_X_OldPos = position;
-    animationContentTest.setRotationsGradAufYAxis(movement);
-    reeti.getRightEye().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufYAxis(movement);
+    reeti.getRightEye().onAnimation(animationContent);
   }
 
   public void blinkLeftEyelid(Reeti reeti, int position, int duration) {
     MeshView leftEyelidMeshView = reeti.getLeftEyelid().getLeftEyeLidMesh();
-    AnimationContentTest animationContentTest = new AnimationContentTest(leftEyelidMeshView);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(0);
-    animationContentTest.setPivotZ(0);
+    AnimationContent animationContent = new AnimationContent(leftEyelidMeshView);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
     int movementFactor = berechneMovementFactor(position);
     int movement = (int) leftEyelidOldPos - movementFactor;
     leftEyelidOldPos = position;
-    animationContentTest.setRotationsGradAufXAxis(movement);
-    reeti.getLeftEyelid().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufXAxis(movement);
+    reeti.getLeftEyelid().onAnimation(animationContent);
   }
 
   public void blinkRightEyelid(Reeti reeti, int position, int duration) {
     MeshView rightEyelidMeshView = reeti.getRightEyelid().getRightEyelid();
-    AnimationContentTest animationContentTest = new AnimationContentTest(rightEyelidMeshView);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(0);
-    animationContentTest.setPivotZ(0);
+    AnimationContent animationContent = new AnimationContent(rightEyelidMeshView);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
     int movementFactor = berechneMovementFactor(position);
     int movement = (int) rightEyelidOldPos - movementFactor;
     rightEyelidOldPos = position;
-    animationContentTest.setRotationsGradAufXAxis(movement);
-    reeti.getRightEyelid().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufXAxis(movement);
+    reeti.getRightEyelid().onAnimation(animationContent);
   }
 
   public void leftEar(Reeti reeti, int position, int duration){
     MeshView leftEarMeshView = reeti.getLeftEar().getLeftEarMesh();
-    AnimationContentTest animationContentTest = new AnimationContentTest(leftEarMeshView);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(0);
-    animationContentTest.setPivotZ(0);
+    AnimationContent animationContent = new AnimationContent(leftEarMeshView);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
     int movementFactor = berechneMovementFactor(position);
     int movement = (int) (leftEarOldPos - movementFactor);
     leftEarOldPos = position;
-    animationContentTest.setRotationsGradAufZAxis(movement);
-    reeti.getLeftEar().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufZAxis(movement);
+    reeti.getLeftEar().onAnimation(animationContent);
   }
 
   public void rightEar(Reeti reeti, int position, int duration){
     MeshView rightEarMeshView = reeti.getRightEar().getRightEarMesh();
-    AnimationContentTest animationContentTest = new AnimationContentTest(rightEarMeshView);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(0);
-    animationContentTest.setPivotZ(0);
+    AnimationContent animationContent = new AnimationContent(rightEarMeshView);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(0);
+    animationContent.setPivotZ(0);
     int movementFactor = berechneMovementFactor(position);
     int movement = (int) ((rightEarOldPos - movementFactor) * -1);
     rightEarOldPos = position;
-    animationContentTest.setRotationsGradAufZAxis(movement);
-    reeti.getRightEar().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufZAxis(movement);
+    reeti.getRightEar().onAnimation(animationContent);
   }
 
   public void neckRotation(Reeti reeti, int position, int duration) {
     Group headGroup = reeti.getHead().getHeadGroup();
-    AnimationContentTest animationContentTest = new AnimationContentTest(headGroup);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(25);
-    animationContentTest.setPivotZ(-25);
+    AnimationContent animationContent = new AnimationContent(headGroup);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(25);
+    animationContent.setPivotZ(-25);
     int movementFactor = berechneMovementFactor(position);
     int movement = (int) (neckRotatOldPos - movementFactor);
     neckRotatOldPos = position;
-    animationContentTest.setRotationsGradAufYAxis(movement);
-    reeti.getHead().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufYAxis(movement);
+    reeti.getHead().onAnimation(animationContent);
   }
 
   public void neckPan(Reeti reeti, int position, int positionCorrection, int duration) {
     Group headGroup = reeti.getHead().getHeadGroup();
-    AnimationContentTest animationContentTest = new AnimationContentTest(headGroup);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(25);
-    animationContentTest.setPivotZ(-25);
+    AnimationContent animationContent = new AnimationContent(headGroup);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(25);
+    animationContent.setPivotZ(-25);
     int movementFactor = berechneMovementFactor(position);
     int movement = (int) (((neckPanOldPos - movementFactor) * positionCorrection) / 100);
     neckPanOldPos = position;
-    animationContentTest.setRotationsGradAufZAxis(movement);
-    reeti.getHead().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufZAxis(movement);
+    reeti.getHead().onAnimation(animationContent);
   }
 
   public void neckTild(Reeti reeti, int position, int positionCorrection, int duration) {
     Group headGroup = reeti.getHead().getHeadGroup();
-    AnimationContentTest animationContentTest = new AnimationContentTest(headGroup);
-    animationContentTest.setAnimationsDauerInMillisekunden(berechneDuration(duration));
-    animationContentTest.setPivotX(0);
-    animationContentTest.setPivotY(25);
-    animationContentTest.setPivotZ(-25);
+    AnimationContent animationContent = new AnimationContent(headGroup);
+    animationContent.setAnimationsDauerInMillisekunden(berechneDuration(duration));
+    animationContent.setPivotX(0);
+    animationContent.setPivotY(25);
+    animationContent.setPivotZ(-25);
     int movementFactor = berechneMovementFactor(position);
     int movement = (int) (((neckTiltOldPos - movementFactor) * positionCorrection) / 100);
     neckTiltOldPos = position;
-    animationContentTest.setRotationsGradAufXAxis(movement);
-    reeti.getHead().onAnimation(animationContentTest);
+    animationContent.setRotationsGradAufXAxis(movement);
+    reeti.getHead().onAnimation(animationContent);
   }
 
   private int berechneMovementFactor(int position) {

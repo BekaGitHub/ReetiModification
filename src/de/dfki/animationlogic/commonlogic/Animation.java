@@ -1,44 +1,55 @@
 package de.dfki.animationlogic.commonlogic;
 
-import de.dfki.agent.Agent;
-import de.dfki.animationlogic.reeti.AnimationContent;
-import de.dfki.animation.AnimationVisivility;
-import java.util.ArrayList;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
 
 /**
- * Created by EmpaT on 16.07.2017.
+ * Die Klasse ist zuständig, um eine Animation starten/pausieren/stopen.
  */
-public abstract class Animation extends Thread {
+public class Animation {
 
-  protected ArrayList<AnimationContent> animationContents;
-  protected Agent agent;
-  protected Animator animator;
-  protected AnimationVisivility animationVisivility;
-  protected boolean isBlocked;
-  protected int animationDuration;
+  private Timeline timeline;
 
-  public Animation() {
-    init();
+  public void  onAnimation(AnimationContent animationContent) {
+
+    Rotation rotation = new Rotation();
+    Rotate rotateX = rotation.createXRotation(animationContent);
+    Rotate rotateY = rotation.createYRotation(animationContent);
+    Rotate rotateZ = rotation.createZRotation(animationContent);
+
+    animationContent.getKoerperteil().getTransforms().addAll(rotateX, rotateY, rotateZ);
+
+    int animationsDauer = animationContent.getAnimationsDauerInMillisekunden();
+    double rotationsGradAufXAxis = animationContent.getRotationsGradAufXAxis();
+    double rotationsGradAufYAxis = animationContent.getRotationsGradAufYAxis();
+    double rotationsGradAufZAxis = animationContent.getRotationsGradAufZAxis();
+
+    timeline = new Timeline();
+    KeyFrame xZero = new KeyFrame(Duration.ZERO, new KeyValue(rotateX.angleProperty(), 0));
+    KeyFrame xEnd = new KeyFrame(Duration.millis(animationsDauer), new KeyValue(rotateX.angleProperty(), rotationsGradAufXAxis));
+    KeyFrame yZero = new KeyFrame(Duration.ZERO, new KeyValue(rotateY.angleProperty(), 0));
+    KeyFrame yEnd = new KeyFrame(Duration.millis(animationsDauer), new KeyValue(rotateY.angleProperty(), rotationsGradAufYAxis));
+    KeyFrame zZero = new KeyFrame(Duration.ZERO, new KeyValue(rotateZ.angleProperty(), 0));
+    KeyFrame zEnd = new KeyFrame(Duration.millis(animationsDauer), new KeyValue(rotateZ.angleProperty(), rotationsGradAufZAxis));
+
+    timeline.getKeyFrames().addAll(xZero, xEnd, yZero, yEnd, zZero, zEnd);
+
+    int animationCycleCounter = animationContent.getAnimationCycleCounter();
+    if (animationCycleCounter != -1) {
+      timeline.setAutoReverse(true);
+      timeline.setCycleCount(animationCycleCounter);
+    }
+    timeline.play();
   }
 
-  public Animation(Agent agent, int duration, boolean block) {
-    this();
-    this.agent = agent;
-    isBlocked = block;
-    this.animationDuration = duration;
+  public void pauseAnimation() {
+    timeline.pause();
   }
 
-  private void init() {
-    animationContents = new ArrayList<>();
-    animationDuration = -1;
+  public void stopAnimation() {
+    timeline.stop();
   }
-
-  public AnimationVisivility getAnimationVisivility() {
-    return animationVisivility;
-  }
-
-  public void setAnimationVisivility(AnimationVisivility animationVisivility) {
-    this.animationVisivility = animationVisivility;
-  }
-
 }

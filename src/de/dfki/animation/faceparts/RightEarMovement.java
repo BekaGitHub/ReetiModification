@@ -6,32 +6,11 @@
  */
 package de.dfki.animation.faceparts;
 
-import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContent;
-import de.dfki.animationlogic.reeti.AnimationReeti;
-import de.dfki.movement.Move;
-import java.util.ArrayList;
-
 /**
  * @author Beka
  */
-public class RightEarMovement extends AnimationReeti {
+public class RightEarMovement {
 
-
-  int rot;
-
-  public RightEarMovement(Reeti sm, int duration, int pos, boolean block) {
-    super(sm, duration, pos, block);
-    this.rot = pos;
-  }
-
-  @Override
   public void playAnimation() {
-
-    animationContents = new ArrayList<>();
-    animationContents
-        .add(new AnimationContent(((Reeti) agent).getRightEar(), Move.Z_ROTATION, rot));
-    playAnimationPart(animationDuration);
-
   }
 }

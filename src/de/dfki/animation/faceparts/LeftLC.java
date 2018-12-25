@@ -5,31 +5,11 @@
  */
 package de.dfki.animation.faceparts;
 
-import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.reeti.AnimationContent;
-import de.dfki.animationlogic.reeti.AnimationReeti;
-import de.dfki.movement.Move;
-import java.util.ArrayList;
-
 /**
  * @author Beka
  */
-public class LeftLC extends AnimationReeti {
+public class LeftLC {
 
-
-  public LeftLC(Reeti sm, int duration, int pos, boolean block) {
-    super(sm, duration, pos, block);
-  }
-
-  @Override
   public void playAnimation() {
-
-    animationContents = new ArrayList<>();
-    animationContents
-        .add(new AnimationContent(((Reeti) agent).getMouthLeftCorner(), Move.SHAPE,
-            "LEFTCORNERACTION"));
-    playAnimationPart(animationDuration);
-
-
   }
 }

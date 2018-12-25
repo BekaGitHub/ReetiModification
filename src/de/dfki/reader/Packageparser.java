@@ -1,6 +1,5 @@
 package de.dfki.reader;
 
-import de.dfki.animationlogic.reeti.AnimationReeti;
 import de.dfki.animation.AnimationVisivility;
 import java.io.File;
 import java.io.FileFilter;
@@ -61,14 +60,14 @@ public class Packageparser {
 
             Object object = myClass.newInstance();
 
-            AnimationReeti class1 = null;
-            if (object instanceof AnimationReeti) {
-              class1 = (AnimationReeti) object;
-            }
+//            AnimationReeti class1 = null;
+//            if (object instanceof AnimationReeti) {
+//              class1 = (AnimationReeti) object;
+//            }
 
-            if (class1 != null && class1.getAnimationVisivility() == AnimationVisivility.YES) {
-              classNameList.add(className);
-            }
+//            if (class1 != null && class1.getAnimationVisivility() == AnimationVisivility.YES) {
+//              classNameList.add(className);
+//            }
           } catch (Exception e) {
 //						e.printStackTrace();
           }

@@ -1,6 +1,6 @@
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
 import de.dfki.main.Constants;
 import javafx.scene.shape.QuadCurve;
 
@@ -37,8 +37,8 @@ public class MouthDownLip extends Lip {
   }
 
   @Override
-  public void onAnimation(AnimationContentTest animationContentTest) {
-    createTimeline(animationContentTest, downLip.controlYProperty()).play();
+  public void onAnimation(AnimationContent animationContent) {
+    createTimeline(animationContent, downLip.controlYProperty()).play();
   }
 
   double calculateMovementPosition(double position) {

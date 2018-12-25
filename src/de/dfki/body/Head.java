@@ -1,12 +1,11 @@
 package de.dfki.body;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.commonlogic.AnimationContentTest;
-import de.dfki.animationlogic.commonlogic.AnimationTest;
+import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.commonlogic.Animation;
 import de.dfki.movement.bodyparts.Rotation;
 import de.dfki.reader.StlFile;
 import de.dfki.main.Constants;
-import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import javafx.scene.Group;
 import javafx.scene.shape.MeshView;
@@ -19,7 +18,6 @@ public class Head extends BodyPart {
   private static final int START_ROTATION_GRAD = -92;
 
   private Group headGroup;
-  private AnimationTest animationTest;
 
   public Head(Reeti reeti) {
 
@@ -40,13 +38,8 @@ public class Head extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContentTest animationContentTest) {
-    animationTest = new AnimationTest();
-    animationTest.onAnimation(animationContentTest);
-  }
-
-  public void pauseAnimation() {
-    animationTest.pauseAnimation();
+  public void onAnimation(AnimationContent animationContent) {
+    new Animation().onAnimation(animationContent);
   }
 
   public Group getHeadGroup() {
