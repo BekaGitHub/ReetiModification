@@ -7,6 +7,8 @@ import de.dfki.animation.faceparts.BlinkLeftEyelid;
 import de.dfki.animation.faceparts.BlinkRightEyelid;
 import de.dfki.animation.faceparts.LipDown;
 import de.dfki.animation.faceparts.NeckPan;
+import de.dfki.animation.faceparts.NeckRotation;
+import de.dfki.animation.faceparts.NeckTilt;
 
 public class ButtonActionHandler {
 
@@ -39,6 +41,16 @@ public class ButtonActionHandler {
   public void handleNeckPanButton(JFXButton button) {
     NeckPan neckPan = new NeckPan();
     button.setOnMouseClicked(event -> neckPan.playAnimation(reeti));
+  }
+
+  public void handleNeckRotationButton(JFXButton button) {
+    NeckRotation neckRotation = new NeckRotation();
+    button.setOnMouseClicked(event -> neckRotation.playAnimation(reeti));
+  }
+
+  public void handleNeckTiltButton(JFXButton button) {
+    NeckTilt neckTilt = new NeckTilt();
+    button.setOnMouseClicked(event -> neckTilt.playAnimation(reeti));
   }
 
 }

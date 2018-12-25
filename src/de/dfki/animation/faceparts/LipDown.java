@@ -7,7 +7,7 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 
 /**
  * @author Beka

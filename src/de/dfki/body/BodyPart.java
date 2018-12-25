@@ -5,8 +5,9 @@
  */
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 import java.util.logging.Logger;
+import javafx.animation.Timeline;
 import javafx.scene.layout.Pane;
 
 /**
@@ -23,5 +24,5 @@ public abstract class BodyPart extends Pane {
   public synchronized void calculate(int step) {
   }
 
-  public abstract void onAnimation(AnimationContent AnimationContent);
+  public abstract Timeline onAnimation(AnimationContent AnimationContent);
 }

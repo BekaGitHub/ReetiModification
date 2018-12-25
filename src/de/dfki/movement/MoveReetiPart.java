@@ -2,7 +2,7 @@ package de.dfki.movement;
 
 import de.dfki.agent.Agent;
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 import de.dfki.main.Constants;
 import javafx.scene.Group;
 import javafx.scene.shape.MeshView;

@@ -1,6 +1,6 @@
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 import java.util.concurrent.Semaphore;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -31,7 +31,7 @@ public class Mouth extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContent animationContent) {
+  public Timeline onAnimation(AnimationContent animationContent) {
     try {
       SEMAPHORE.acquire();
     } catch (InterruptedException e) {
@@ -52,6 +52,7 @@ public class Mouth extends BodyPart {
         break;
     }
     SEMAPHORE.release();
+    return null;
   }
 
   private void startUpperLipAnimation(AnimationContent animationContent) {

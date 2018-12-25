@@ -3,7 +3,7 @@ package de.dfki.agent;
 import de.dfki.TestAnimation;
 import de.dfki.animation.AgentAnimationTimer;
 import de.dfki.animation.blink.Blinking;
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 import de.dfki.body.Body;
 import de.dfki.body.BodyPart;
 import de.dfki.body.Head;

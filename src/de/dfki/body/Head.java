@@ -1,12 +1,13 @@
 package de.dfki.body;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.commonlogic.AnimationContent;
-import de.dfki.animationlogic.commonlogic.Animation;
+import de.dfki.animationlogic.AnimationContent;
+import de.dfki.animationlogic.Animation;
 import de.dfki.movement.bodyparts.Rotation;
 import de.dfki.reader.StlFile;
 import de.dfki.main.Constants;
 import java.util.logging.Level;
+import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.shape.MeshView;
 
@@ -38,8 +39,8 @@ public class Head extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContent animationContent) {
-    new Animation().onAnimation(animationContent);
+  public Timeline onAnimation(AnimationContent animationContent) {
+    return new Animation().onAnimation(animationContent);
   }
 
   public Group getHeadGroup() {

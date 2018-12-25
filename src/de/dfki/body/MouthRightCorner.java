@@ -1,6 +1,7 @@
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
+import javafx.animation.Timeline;
 
 /**
  * @author Beka Aptsiauri
@@ -19,8 +20,9 @@ public class MouthRightCorner extends Lip {
   }
 
   @Override
-  public void onAnimation(AnimationContent animationContent) {
+  public Timeline onAnimation(AnimationContent animationContent) {
     createTimeline(animationContent, mouthUpperLip.getUpperLip().startYProperty()).play();
+    return null;
   }
 
   double calculateMovementPosition(double position) {

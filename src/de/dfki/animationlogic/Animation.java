@@ -1,4 +1,4 @@
-package de.dfki.animationlogic.commonlogic;
+package de.dfki.animationlogic;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -13,7 +13,7 @@ public class Animation {
 
   private Timeline timeline;
 
-  public void  onAnimation(AnimationContent animationContent) {
+  public Timeline onAnimation(AnimationContent animationContent) {
 
     Rotation rotation = new Rotation();
     Rotate rotateX = rotation.createXRotation(animationContent);
@@ -43,6 +43,7 @@ public class Animation {
       timeline.setCycleCount(animationCycleCounter);
     }
     timeline.play();
+    return timeline;
   }
 
   public void pauseAnimation() {

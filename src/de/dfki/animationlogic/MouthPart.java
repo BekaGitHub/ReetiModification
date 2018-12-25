@@ -1,4 +1,4 @@
-package de.dfki.animationlogic.commonlogic;
+package de.dfki.animationlogic;
 
 public enum MouthPart {
   UPPER_LIP,

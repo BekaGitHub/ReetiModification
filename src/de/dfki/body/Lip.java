@@ -1,6 +1,6 @@
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 import de.dfki.main.Constants;
 import de.dfki.style.Effect;
 import javafx.animation.KeyFrame;

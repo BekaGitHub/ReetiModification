@@ -7,7 +7,7 @@ import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXToggleButton;
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 import de.dfki.movement.bodyparts.mouth.MouthBottomLipMovement;
 import de.dfki.movement.bodyparts.mouth.MouthLeftCornerMovement;
 import de.dfki.movement.bodyparts.mouth.MouthRightCornerMovement;

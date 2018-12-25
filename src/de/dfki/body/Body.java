@@ -1,9 +1,10 @@
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 import de.dfki.reader.DaeFile;
 import de.dfki.main.Constants;
 import java.util.logging.Level;
+import javafx.animation.Timeline;
 import javafx.scene.shape.MeshView;
 
 /**
@@ -23,7 +24,7 @@ public class Body extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContent AnimationContent) {
-
+  public Timeline onAnimation(AnimationContent AnimationContent) {
+    return null;
   }
 }

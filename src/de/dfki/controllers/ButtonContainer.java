@@ -71,12 +71,18 @@ public class ButtonContainer {
   private JFXButton createNeckRotationdButton() {
     JFXButton jfxButton = new JFXButton("Neck Rotation");
     customizeButton(jfxButton);
+
+    buttonActionHandler.handleNeckRotationButton(jfxButton);
+
     return jfxButton;
   }
 
   private JFXButton createNeckTiltButton() {
     JFXButton jfxButton = new JFXButton("Neck Tilt");
     customizeButton(jfxButton);
+
+    buttonActionHandler.handleNeckTiltButton(jfxButton);
+
     return jfxButton;
   }
 

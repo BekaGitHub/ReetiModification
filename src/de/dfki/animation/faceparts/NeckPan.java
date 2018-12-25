@@ -7,7 +7,8 @@
 package de.dfki.animation.faceparts;
 
 import de.dfki.agent.Reeti;
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
+import javafx.animation.Timeline;
 
 /**
  * @author Beka
@@ -22,16 +23,18 @@ public class NeckPan {
     animationContentForLeftPan.setPivotZ(-25);
     animationContentForLeftPan.setRotationsGradAufZAxis(20);
     animationContentForLeftPan.setAnimationCycleCounter(2);
-    reeti.getHead().onAnimation(animationContentForLeftPan);
+    Timeline timeline = reeti.getHead().onAnimation(animationContentForLeftPan);
 
-    AnimationContent animationContentForRightPan = new AnimationContent(reeti.getHead().getHeadGroup());
-    animationContentForRightPan.setAnimationsDauerInMillisekunden(500);
-    animationContentForRightPan.setPivotX(0);
-    animationContentForRightPan.setPivotY(25);
-    animationContentForRightPan.setPivotZ(-25);
-    animationContentForRightPan.setRotationsGradAufZAxis(40);
-    animationContentForRightPan.setAnimationCycleCounter(2);
-    reeti.getHead().onAnimation(animationContentForRightPan);
+    timeline.setOnFinished(event -> {
+      AnimationContent animationContentForRightPan = new AnimationContent(reeti.getHead().getHeadGroup());
+      animationContentForRightPan.setAnimationsDauerInMillisekunden(500);
+      animationContentForRightPan.setPivotX(0);
+      animationContentForRightPan.setPivotY(25);
+      animationContentForRightPan.setPivotZ(-25);
+      animationContentForRightPan.setRotationsGradAufZAxis(-20);
+      animationContentForRightPan.setAnimationCycleCounter(2);
+      reeti.getHead().onAnimation(animationContentForRightPan);
+    });
 
 
   }

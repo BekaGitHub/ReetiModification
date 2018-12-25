@@ -1,6 +1,6 @@
 package de.dfki.agent;
 
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 import de.dfki.body.BodyPart;
 
 /**

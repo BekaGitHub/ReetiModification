@@ -1,4 +1,4 @@
-package de.dfki.animationlogic.commonlogic;
+package de.dfki.animationlogic;
 
 import javafx.scene.transform.Rotate;
 

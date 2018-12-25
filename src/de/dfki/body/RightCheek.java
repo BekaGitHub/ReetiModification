@@ -5,8 +5,9 @@
  */
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContent;
+import de.dfki.animationlogic.AnimationContent;
 import de.dfki.main.Constants;
+import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
@@ -40,8 +41,8 @@ public class RightCheek extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContent AnimationContent) {
-
+  public Timeline onAnimation(AnimationContent AnimationContent) {
+    return null;
   }
 
   public Circle getLed() {

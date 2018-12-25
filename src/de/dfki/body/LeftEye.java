@@ -5,13 +5,14 @@
  */
 package de.dfki.body;
 
-import de.dfki.animationlogic.commonlogic.AnimationContent;
-import de.dfki.animationlogic.commonlogic.Animation;
+import de.dfki.animationlogic.AnimationContent;
+import de.dfki.animationlogic.Animation;
 import de.dfki.movement.bodyparts.Rotation;
 import de.dfki.reader.DaeFile;
 import de.dfki.main.Constants;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
+import javafx.animation.Timeline;
 import javafx.scene.Group;
 
 /**
@@ -43,7 +44,7 @@ public class LeftEye extends BodyPart {
   }
 
   @Override
-  public void onAnimation(AnimationContent animationContent) {
+  public Timeline onAnimation(AnimationContent animationContent) {
     try {
       SEMAPHORE.acquire();
     } catch (InterruptedException e) {
@@ -52,6 +53,7 @@ public class LeftEye extends BodyPart {
     animation = new Animation();
     animation.onAnimation(animationContent);
     SEMAPHORE.release();
+    return null;
   }
 
   public Group getLeftEyeGroup() {
