@@ -23,6 +23,8 @@ public class ButtonContainer {
     listView.getItems().add(createNeckPandButton());
     listView.getItems().add(createNeckRotationdButton());
     listView.getItems().add(createNeckTiltButton());
+    listView.getItems().add(createOpenMouthButton());
+    listView.getItems().add(createCloseMouthButton());
   }
 
   private JFXButton createTestButton() {
@@ -82,6 +84,24 @@ public class ButtonContainer {
     customizeButton(jfxButton);
 
     buttonActionHandler.handleNeckTiltButton(jfxButton);
+
+    return jfxButton;
+  }
+
+  private JFXButton createOpenMouthButton() {
+    JFXButton jfxButton = new JFXButton("Open Mouth");
+    customizeButton(jfxButton);
+
+    buttonActionHandler.handleOpenMouthButton(jfxButton);
+
+    return jfxButton;
+  }
+
+  private JFXButton createCloseMouthButton() {
+    JFXButton jfxButton = new JFXButton("Close Mouth");
+    customizeButton(jfxButton);
+
+    buttonActionHandler.handleCloseMouthButton(jfxButton);
 
     return jfxButton;
   }

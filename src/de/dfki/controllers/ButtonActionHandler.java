@@ -5,10 +5,12 @@ import de.dfki.agent.Reeti;
 import de.dfki.animation.expression.Test;
 import de.dfki.animation.faceparts.BlinkLeftEyelid;
 import de.dfki.animation.faceparts.BlinkRightEyelid;
+import de.dfki.animation.faceparts.CloseMouth;
 import de.dfki.animation.faceparts.LipDown;
 import de.dfki.animation.faceparts.NeckPan;
 import de.dfki.animation.faceparts.NeckRotation;
 import de.dfki.animation.faceparts.NeckTilt;
+import de.dfki.animation.faceparts.OpenMouth;
 
 public class ButtonActionHandler {
 
@@ -51,6 +53,16 @@ public class ButtonActionHandler {
   public void handleNeckTiltButton(JFXButton button) {
     NeckTilt neckTilt = new NeckTilt();
     button.setOnMouseClicked(event -> neckTilt.playAnimation(reeti));
+  }
+
+  public void handleOpenMouthButton(JFXButton button) {
+    OpenMouth openMouth = new OpenMouth();
+    button.setOnMouseClicked(event -> openMouth.playAnimation(reeti));
+  }
+
+  public void handleCloseMouthButton(JFXButton button) {
+    CloseMouth closeMouth = new CloseMouth();
+    button.setOnMouseClicked(event -> closeMouth.playAnimation(reeti));
   }
 
 }
