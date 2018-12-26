@@ -49,7 +49,7 @@ public class Main extends Application {
     //macht Root Element clickbar
     root.setPickOnBounds(false);
     reetiStage.getChildren().add(reeti);
-    scene.getStylesheets().add("de/dfki/main/Style.css");
+    scene.getStylesheets().add("de/dfki/style/Style.css");
     primaryStage.setScene(scene);
     primaryStage.initStyle(StageStyle.UNDECORATED);
     primaryStage.show();

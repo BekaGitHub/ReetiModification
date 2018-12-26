@@ -14,45 +14,14 @@ import de.dfki.animationlogic.AnimationContent;
 public class Test {
 
   public void playAnimation(Reeti reeti) {
-    AnimationContent animationContent = new AnimationContent(reeti.getMouth());
-    animationContent.setAnimationsDauerInMillisekunden(500);
-    animationContent.setPosition(100);
 
-//    animationContent.setMouthPart(MouthPart.UPPER_LIP);
-    animationContent.setAnimationCycleCounter(20);
-    reeti.getMouthRightCorner().onAnimation(animationContent);
+    AnimationContent animationContentForRightEar = new AnimationContent(reeti.getRightEar().getRightEarMesh());
+    animationContentForRightEar.setAnimationsDauerInMillisekunden(500);
+    animationContentForRightEar.setPivotX(0);
+    animationContentForRightEar.setPivotY(0);
+    animationContentForRightEar.setPivotZ(0);
+    animationContentForRightEar.setRotationsGradAufZAxis(20);
+    reeti.getRightEar().onAnimation(animationContentForRightEar);
 
-  }
-
-
-//  AnimationContent animationContentTest = new AnimationContent(reeti.getHead().getHeadGroup());
-//    animationContentTest.setAnimationsDauerInMillisekunden(250);
-//    animationContentTest.setPivotX(0);
-//    animationContentTest.setPivotY(25);
-//    animationContentTest.setPivotZ(-25);
-//    animationContentTest.setRotationsGradAufXAxis(20);
-//    animationContentTest.setRotationsGradAufYAxis(0);
-//    animationContentTest.setRotationsGradAufZAxis(0);
-//
-//    animationContentTest.setAnimationCycleCounter(20);
-//    reeti.getHead().onAnimation(animationContentTest);
-
-  public void onAnimation(Reeti reeti) {
-//    AnimationContent animationContentTest = new AnimationContent(reeti.getHead().getHeadGroup());
-//    animationContentTest.setAnimationsDauerInMillisekunden(5000);
-//    animationContentTest.setPivotX(0);
-//    animationContentTest.setPivotY(25);
-//    animationContentTest.setPivotZ(-25);
-//    animationContentTest.setRotationsGradAufXAxis(0);
-//    animationContentTest.setRotationsGradAufYAxis(0);
-//    animationContentTest.setRotationsGradAufZAxis(360);
-//
-//    animationContentTest.setAnimationCycleCounter(20);
-//    reeti.getHead().onAnimation(animationContentTest);
-    reeti.leftEyeTilt(100, 500);
-  }
-
-  public void pauseAnimation(Reeti reeti) {
-//    reeti.getHead().pauseAnimation();
   }
 }

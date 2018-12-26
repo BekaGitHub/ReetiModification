@@ -3,16 +3,16 @@
 /*}*/
 
 .jfx-list-cell {
-  -fx-background-insets: 10.0;
+  -fx-background-insets: 2.0;
   -fx-alignment: center;
 }
 
 .jfx-list-cell .jfx-rippler {
-  -fx-rippler-fill: BLUE;
+  -fx-rippler-fill: RES;
 }
 
 .jfx-list-cell:hover {
-  -fx-background-color: #1bd79c;
+  -fx-background-color: #686d75;
 }
 
 .jfx-list-view {

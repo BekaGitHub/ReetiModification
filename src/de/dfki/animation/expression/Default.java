@@ -11,5 +11,6 @@ package de.dfki.animation.expression;
 public class Default {
 
   public void playAnimation() {
+
   }
 }

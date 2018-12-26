@@ -2,6 +2,10 @@ package de.dfki.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import de.dfki.agent.Reeti;
+import de.dfki.animation.expression.Grimace;
+import de.dfki.animation.expression.Relaxed;
+import de.dfki.animation.expression.Sad;
+import de.dfki.animation.expression.Smile;
 import de.dfki.animation.expression.Test;
 import de.dfki.animation.faceparts.BlinkLeftEyelid;
 import de.dfki.animation.faceparts.BlinkRightEyelid;
@@ -22,7 +26,7 @@ public class ButtonActionHandler {
 
   public void handleTestButton(JFXButton button) {
     Test test = new Test();
-    button.setOnMouseEntered(event -> test.playAnimation(reeti));
+    button.setOnMouseClicked(event -> test.playAnimation(reeti));
   }
 
   public void handleBlinkLeftEyeLidButton(JFXButton button) {
@@ -63,6 +67,26 @@ public class ButtonActionHandler {
   public void handleCloseMouthButton(JFXButton button) {
     CloseMouth closeMouth = new CloseMouth();
     button.setOnMouseClicked(event -> closeMouth.playAnimation(reeti));
+  }
+
+  public void handleGrimaceButton(JFXButton button) {
+    Grimace closeMouth = new Grimace();
+    button.setOnMouseClicked(event -> closeMouth.playAnimation(reeti));
+  }
+
+  public void handleRelaxedButton(JFXButton button) {
+    Relaxed relaxed = new Relaxed();
+    button.setOnMouseClicked(event -> relaxed.playAnimation(reeti));
+  }
+
+  public void handleSadButton(JFXButton button) {
+    Sad sad = new Sad();
+    button.setOnMouseClicked(event -> sad.playAnimation(reeti));
+  }
+
+  public void handleSmileButton(JFXButton button) {
+    Smile smile = new Smile();
+    button.setOnMouseClicked(event -> smile.playAnimation(reeti));
   }
 
 }

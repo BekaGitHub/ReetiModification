@@ -25,6 +25,10 @@ public class ButtonContainer {
     listView.getItems().add(createNeckTiltButton());
     listView.getItems().add(createOpenMouthButton());
     listView.getItems().add(createCloseMouthButton());
+    listView.getItems().add(createGrimaceButton());
+    listView.getItems().add(createRelaxedButton());
+    listView.getItems().add(createSadButton());
+    listView.getItems().add(createSmileButton());
   }
 
   private JFXButton createTestButton() {
@@ -106,11 +110,49 @@ public class ButtonContainer {
     return jfxButton;
   }
 
+  private JFXButton createGrimaceButton() {
+    JFXButton jfxButton = new JFXButton("Grimace");
+    customizeButton(jfxButton);
+
+    buttonActionHandler.handleGrimaceButton(jfxButton);
+
+    return jfxButton;
+  }
+
+  private JFXButton createRelaxedButton() {
+    JFXButton jfxButton = new JFXButton("Relaxed");
+    customizeButton(jfxButton);
+
+    buttonActionHandler.handleRelaxedButton(jfxButton);
+
+    return jfxButton;
+  }
+
+  private JFXButton createSadButton() {
+    JFXButton jfxButton = new JFXButton("Sad");
+    customizeButton(jfxButton);
+
+    buttonActionHandler.handleSadButton(jfxButton);
+
+    return jfxButton;
+  }
+
+  private JFXButton createSmileButton() {
+    JFXButton jfxButton = new JFXButton("Smile");
+    customizeButton(jfxButton);
+
+    buttonActionHandler.handleSmileButton(jfxButton);
+
+    return jfxButton;
+  }
+
   private void customizeButton(JFXButton button) {
     DropShadow ds = new DropShadow();
     ds.setOffsetY(3.0f);
     ds.setColor(Color.color(0.4f, 0.4f, 0.4f));
-
+    button.setMinWidth(400);
+    button.setMaxWidth(400);
+    button.setPrefWidth(400);
     button.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
     button.setEffect(ds);
     button.setCache(true);

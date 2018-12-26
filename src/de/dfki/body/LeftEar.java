@@ -21,10 +21,7 @@ import javafx.scene.shape.MeshView;
  */
 public class LeftEar extends BodyPart {
 
-  private static final Semaphore SEMAPHORE = new Semaphore(1);
-
   private MeshView leftEarMesh;
-  private Animation animation;
 
   public LeftEar(Head head) {
 
@@ -46,15 +43,7 @@ public class LeftEar extends BodyPart {
 
   @Override
   public Timeline onAnimation(AnimationContent animationContent) {
-    try {
-      SEMAPHORE.acquire();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-    animation = new Animation();
-    animation.onAnimation(animationContent);
-    SEMAPHORE.release();
-    return null;
+    return new Animation().onAnimation(animationContent);
   }
 
   public MeshView getLeftEarMesh() {
