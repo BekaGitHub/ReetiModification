@@ -2,7 +2,7 @@
 <configuration>
   <cereproc-config>
     <cereproc-library-path>C:\Users\Beka\Desktop\CereProc\cerevoice_sdk_4.0.4_windows\cerevoice_sdk\cerevoice_eng\javalib64</cereproc-library-path>
-    <voice-name>C:\Users\Beka\Desktop\CereProc\voices\cerevoice_heather_4.0.0_48k.voice</voice-name>
-    <license-name>C:\Users\Beka\Desktop\CereProc\voices\cerevoice_heather_4.0.0_48k.lic</license-name>
+    <voice-name>C:\Users\Beka\Desktop\CereProc\voices\cerevoice_alex_4.0.0_48k.voice</voice-name>
+    <license-name>C:\Users\Beka\Desktop\CereProc\voices\cerevoice_alex_4.0.0_48k.lic</license-name>
   </cereproc-config>
 </configuration>

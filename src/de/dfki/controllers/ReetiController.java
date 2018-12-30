@@ -12,7 +12,7 @@ import de.dfki.movement.bodyparts.mouth.MouthBottomLipMovement;
 import de.dfki.movement.bodyparts.mouth.MouthLeftCornerMovement;
 import de.dfki.movement.bodyparts.mouth.MouthRightCornerMovement;
 import de.dfki.movement.bodyparts.mouth.MouthUpperLipMovement;
-import de.dfki.speaking.Speak;
+import de.dfki.tts.Speak;
 import de.dfki.movement.CameraMovement;
 import de.dfki.main.Constants;
 import de.dfki.movement.bodyparts.EarMovement;

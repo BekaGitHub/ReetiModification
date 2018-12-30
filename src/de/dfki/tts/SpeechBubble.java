@@ -1,4 +1,4 @@
-package de.dfki.speaking;
+package de.dfki.tts;
 
 import de.dfki.body.Head;
 import de.dfki.main.Constants;

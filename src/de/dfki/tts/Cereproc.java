@@ -22,7 +22,6 @@ public class Cereproc {
   private String javalibPath;
   private String voiceName;
   private String licenseName;
-  private String text;
   private String rateStr;
   private Float rate;
 

@@ -2,21 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66f92e1d-3f37-4dea-abf0-3a05c542b8fa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/TestAnimation.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/agent/Reeti$1.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/agent/Reeti$1.class" />
+      <change beforePath="$PROJECT_DIR$/configFiles/cereproc-config.xml" afterPath="$PROJECT_DIR$/configFiles/cereproc-config.xml" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/configFiles/cereproc-config.xml" afterPath="$PROJECT_DIR$/out/production/ReetiModification/configFiles/cereproc-config.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/agent/Reeti.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/agent/Reeti.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/AgentAnimationTimer.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/controllers/ButtonContainer.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/controllers/ButtonContainer.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/main/Style.css" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/main/Style.css" />
-      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/style/listView.css" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/style/listView.css" />
-      <change beforePath="$PROJECT_DIR$/src/de/dfki/TestAnimation.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Grimace.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/animation/expression/Grimace.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/controllers/ReetiController.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/controllers/ReetiController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/speaking/Speak.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/speaking/SpeechBubble.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/tts/Cereproc.class" afterPath="$PROJECT_DIR$/out/production/ReetiModification/de/dfki/tts/Cereproc.class" />
+      <change beforePath="$PROJECT_DIR$/res/configFiles/cereproc-config.xml" afterPath="$PROJECT_DIR$/res/configFiles/cereproc-config.xml" />
       <change beforePath="$PROJECT_DIR$/src/de/dfki/agent/Reeti.java" afterPath="$PROJECT_DIR$/src/de/dfki/agent/Reeti.java" />
-      <change beforePath="$PROJECT_DIR$/src/de/dfki/animation/AgentAnimationTimer.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/de/dfki/controllers/ButtonContainer.java" afterPath="$PROJECT_DIR$/src/de/dfki/controllers/ButtonContainer.java" />
-      <change beforePath="$PROJECT_DIR$/src/de/dfki/main/Style.css" afterPath="$PROJECT_DIR$/src/de/dfki/main/Style.css" />
-      <change beforePath="$PROJECT_DIR$/src/de/dfki/style/listView.css" afterPath="$PROJECT_DIR$/src/de/dfki/style/listView.css" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/controllers/ReetiController.java" afterPath="$PROJECT_DIR$/src/de/dfki/controllers/ReetiController.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/speaking/Speak.java" afterPath="$PROJECT_DIR$/src/de/dfki/tts/Speak.java" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/speaking/SpeechBubble.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/de/dfki/tts/Cereproc.java" afterPath="$PROJECT_DIR$/src/de/dfki/tts/Cereproc.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,78 +36,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Reeti.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/agent/Reeti.java">
+      <file leaf-file-name="Cereproc.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/dfki/tts/Cereproc.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2400">
+              <caret line="131" column="14" lean-forward="false" selection-start-line="131" selection-start-column="14" selection-end-line="131" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cereproc-config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/configFiles/cereproc-config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="5" column="84" lean-forward="false" selection-start-line="5" selection-start-column="84" selection-end-line="5" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TtsCallback.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/dfki/tts/TtsCallback.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AudioLine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/dfki/tts/AudioLine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XMLParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/dfki/reader/XMLParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReetiController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/dfki/controllers/ReetiController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6930">
+              <caret line="268" column="3" lean-forward="false" selection-start-line="268" selection-start-column="3" selection-end-line="268" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Speak.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/dfki/tts/Speak.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="806">
+              <caret line="54" column="23" lean-forward="false" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
               <folding>
-                <element signature="e#3564#3565#0" expanded="true" />
-                <element signature="e#3635#3636#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveReetiPart.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/movement/MoveReetiPart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="162" column="56" lean-forward="true" selection-start-line="162" selection-start-column="4" selection-end-line="162" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Smile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/expression/Smile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="52" column="60" lean-forward="true" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ButtonContainer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/controllers/ButtonContainer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3634">
-              <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ButtonActionHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/controllers/ButtonActionHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="89" column="3" lean-forward="true" selection-start-line="86" selection-start-column="2" selection-end-line="89" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/expression/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Grimace.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/expression/Grimace.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#983#984#0" expanded="true" />
+                <element signature="e#1009#1010#0" expanded="true" />
+                <element signature="e#1059#1060#0" expanded="true" />
+                <element signature="e#1101#1102#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,6 +133,8 @@
       <find>lid</find>
       <find>eye</find>
       <find>ear</find>
+      <find>spe</find>
+      <find>speak</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\Beka\Desktop\ReetiModification</dir>
@@ -152,12 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/head/TiltLeft.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/head/TiltLeftBack.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/head/TiltLeftEnd.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/head/TiltLeftStart.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/head/TiltRight.java" />
-        <option value="$PROJECT_DIR$/src/de/dfki/animation/head/TiltRightEnd.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/animation/head/TiltRightStart.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/animation/blink/StartBlinking.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/animation/blink/StopBlinking.java" />
@@ -203,6 +197,12 @@
         <option value="$PROJECT_DIR$/src/de/dfki/animation/expression/Default.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/animation/expression/Test.java" />
         <option value="$PROJECT_DIR$/src/de/dfki/animation/expression/Grimace.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/tts/Cereproc.java" />
+        <option value="$PROJECT_DIR$/configFiles/cereproc-config.xml" />
+        <option value="$PROJECT_DIR$/res/configFiles/cereproc-config.xml" />
+        <option value="$PROJECT_DIR$/src/de/dfki/speaking/Speak.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/tts/Speak.java" />
+        <option value="$PROJECT_DIR$/src/de/dfki/tts/SpeechBubble.java" />
       </list>
     </option>
   </component>
@@ -233,9 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -247,6 +244,22 @@
             <path>
               <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
               <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
+              <item name="configFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="configFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -254,59 +267,6 @@
               <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="dfki" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="agent" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="animation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="animation" type="462c0819:PsiDirectoryNode" />
-              <item name="blink" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="animation" type="462c0819:PsiDirectoryNode" />
-              <item name="expression" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="animation" type="462c0819:PsiDirectoryNode" />
-              <item name="faceparts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="animation" type="462c0819:PsiDirectoryNode" />
-              <item name="head" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="body" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
@@ -320,19 +280,15 @@
               <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ReetiModification.bak" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ReetiModification.bak" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dfki" type="462c0819:PsiDirectoryNode" />
-              <item name="style" type="462c0819:PsiDirectoryNode" />
+              <item name="tts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,7 +300,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="SearchEverywhereHistoryKey" value="NeckPa&#9;FILE&#9;file://C:/Users/Beka/Desktop/ReetiModification.bak/src/de/dfki/animation/faceparts/NeckPan.java" />
+    <property name="SearchEverywhereHistoryKey" value="move&#9;FILE&#9;file://C:/Users/Beka/Desktop/ReetiModification.bak/src/de/dfki/movement/MoveReetiPart.java&#10;NeckPa&#9;FILE&#9;file://C:/Users/Beka/Desktop/ReetiModification.bak/src/de/dfki/animation/faceparts/NeckPan.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -524,11 +480,16 @@
       <workItem from="1545643842184" duration="23602000" />
       <workItem from="1545728804644" duration="3311000" />
       <workItem from="1545820516218" duration="9712000" />
+      <workItem from="1545861869196" duration="419000" />
+      <workItem from="1545925454996" duration="28000" />
+      <workItem from="1546082869383" duration="5010000" />
+      <workItem from="1546124463641" duration="592000" />
+      <workItem from="1546181202092" duration="270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154803000" />
+    <option name="totallyTimeSpent" value="161129000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="0" />
@@ -544,18 +505,17 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27357394" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18796992" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20139635" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993015" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.330617" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -564,6 +524,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -617,8 +578,20 @@
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/de/dfki/tts/Speak.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/de/dfki/tts/Cereproc.java</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -659,80 +632,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/faceparts/LipDown.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="20" column="56" lean-forward="false" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/faceparts/BlinkLeftEyelid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="24" column="56" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="24" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/body/BodyPart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/body/LeftCheek.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="43" column="2" lean-forward="false" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/body/RightEye.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="55" column="16" lean-forward="false" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/body/RightEar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="56" column="16" lean-forward="false" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/body/RightEyelid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="48" column="11" lean-forward="false" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/body/RightCheek.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="44" column="16" lean-forward="false" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/body/Mouth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/body/MouthLeftCorner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -751,7 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -772,8 +670,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/body/Head.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="42" column="32" lean-forward="false" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+        <state relative-caret-position="1110">
+          <caret line="48" column="1" lean-forward="false" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -782,7 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="25" column="80" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="25" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,9 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="25" column="85" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="25" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -802,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -810,9 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
           <caret line="25" column="81" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="25" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -820,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="19" column="45" lean-forward="false" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +717,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,90 +724,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-363">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/TestAnimation.java" />
     <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/AgentAnimationTimer.java" />
     <entry file="file://$PROJECT_DIR$/src/de/dfki/view/controlPanelView.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-90">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/jfoenix-8.0.1.jar!/com/jfoenix/controls/JFXListView.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="80" column="14" lean-forward="false" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
-          <folding>
-            <marker date="1523808426986" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1523808426986" expanded="false" signature="144:1394" ph="..." />
-            <marker date="1523808426986" expanded="true" signature="1691:1709" ph="/**...*/" />
-            <marker date="1523808426986" expanded="true" signature="1815:1833" ph="/**...*/" />
-            <marker date="1523808426986" expanded="true" signature="1945:1963" ph="/**...*/" />
-            <marker date="1523808426986" expanded="true" signature="2119:2137" ph="/**...*/" />
-            <marker date="1523808426986" expanded="true" signature="2526:2873" ph="{...}" />
-            <marker date="1523808426986" expanded="false" signature="2914:2921" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="2954:2958" ph=" }" />
-            <marker date="1523808426986" expanded="false" signature="3008:3015" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="3041:3045" ph=" }" />
-            <marker date="1523808426986" expanded="false" signature="3070:3077" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="3118:3122" ph=" }" />
-            <marker date="1523808426986" expanded="true" signature="3157:3164" ph=" { " />
-            <marker date="1523808426986" expanded="true" signature="3194:3198" ph=" }" />
-            <marker date="1523808426986" expanded="true" signature="3254:3325" ph="{...}" />
-            <marker date="1523808426986" expanded="false" signature="3350:3357" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="3417:3421" ph=" }" />
-            <marker date="1523808426986" expanded="false" signature="3448:3455" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="3497:3501" ph=" }" />
-            <marker date="1523808426986" expanded="false" signature="3555:3562" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="3586:3590" ph=" }" />
-            <marker date="1523808426986" expanded="false" signature="3630:3637" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="3677:3681" ph=" }" />
-            <marker date="1523808426986" expanded="true" signature="3739:3793" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="3797:3815" ph="/**...*/" />
-            <marker date="1523808426986" expanded="false" signature="3858:3865" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="3899:3903" ph=" }" />
-            <marker date="1523808426986" expanded="true" signature="3907:3925" ph="/**...*/" />
-            <marker date="1523808426986" expanded="false" signature="3977:3984" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="4009:4013" ph=" }" />
-            <marker date="1523808426986" expanded="true" signature="4017:4035" ph="/**...*/" />
-            <marker date="1523808426986" expanded="true" signature="4114:4179" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="4183:4201" ph="/**...*/" />
-            <marker date="1523808426986" expanded="true" signature="4269:4586" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="4632:6252" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="6282:6704" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="6765:7264" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="7311:7402" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="7437:7511" ph="{...}" />
-            <marker date="1523808426986" expanded="false" signature="7567:7574" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="7598:7602" ph=" }" />
-            <marker date="1523808426986" expanded="false" signature="7644:7651" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="7677:7681" ph=" }" />
-            <marker date="1523808426986" expanded="false" signature="7712:7719" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="7771:7775" ph=" }" />
-            <marker date="1523808426986" expanded="false" signature="7829:7836" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="7857:7861" ph=" }" />
-            <marker date="1523808426986" expanded="false" signature="7906:7913" ph=" { " />
-            <marker date="1523808426986" expanded="false" signature="7941:7945" ph=" }" />
-            <marker date="1523808426986" expanded="true" signature="8022:8375" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="8457:8523" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="8568:9924" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="8739:9029" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="8797:8884" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="8968:9023" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="9201:9516" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="9259:9373" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="9458:9510" ph="{...}" />
-            <marker date="1523808426986" expanded="true" signature="9638:9645" ph="{}" />
-            <marker date="1523808426986" expanded="true" signature="9658:9920" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -927,10 +750,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
           <caret line="75" column="16" lean-forward="false" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="16" />
-          <folding>
-            <element signature="e#2225#2226#0" expanded="false" />
-            <element signature="e#2265#2266#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -938,7 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -946,7 +764,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
           <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -954,7 +771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -962,23 +778,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/animationlogic/Animation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-262">
-          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="540">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/body/LeftEyelid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="47" column="36" lean-forward="false" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="1050">
+          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -986,17 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="26" column="68" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="26" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/controllers/ReetiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10470">
-          <caret line="386" column="25" lean-forward="true" selection-start-line="386" selection-start-column="25" selection-end-line="386" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1004,31 +806,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="18" column="34" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/body/LeftEye.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/dfki/movement/MoveReetiPart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="162" column="56" lean-forward="true" selection-start-line="162" selection-start-column="4" selection-end-line="162" selection-end-column="56" />
-          <folding />
+        <state relative-caret-position="1050">
+          <caret line="47" column="11" lean-forward="false" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/body/LeftEar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1050">
+          <caret line="48" column="11" lean-forward="false" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1036,9 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
           <caret line="56" column="65" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="56" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1046,9 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
           <caret line="72" column="65" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="72" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1056,7 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1064,7 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="89" column="3" lean-forward="true" selection-start-line="86" selection-start-column="2" selection-end-line="89" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1072,9 +855,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="52" column="60" lean-forward="true" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1082,7 +862,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1090,17 +869,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="514" column="22" lean-forward="false" selection-start-line="514" selection-start-column="22" selection-end-line="514" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/animation/expression/Grimace.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="543">
+          <caret line="68" column="3" lean-forward="false" selection-start-line="68" selection-start-column="3" selection-end-line="68" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1109,16 +884,107 @@
         <state relative-caret-position="210">
           <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
           <folding>
-            <element signature="e#3564#3565#0" expanded="true" />
-            <element signature="e#3635#3636#0" expanded="true" />
+            <element signature="e#3564#3565#0" expanded="false" />
+            <element signature="e#3635#3636#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dfki/controllers/ButtonContainer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3634">
-          <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        <state relative-caret-position="600">
+          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/movement/MoveReetiPart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="152" column="25" lean-forward="false" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/reader/Packageparser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/tts/AudioLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/reader/XMLParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/controllers/ReetiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6930">
+          <caret line="268" column="3" lean-forward="false" selection-start-line="268" selection-start-column="3" selection-end-line="268" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configFiles/cereproc-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="84" lean-forward="false" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/tts/TtsCallback.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/tts/SpeechBubble.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/tts/Speak.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="54" column="23" lean-forward="false" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+          <folding>
+            <element signature="e#983#984#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1101#1102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/dfki/tts/Cereproc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="131" column="14" lean-forward="false" selection-start-line="131" selection-start-column="14" selection-end-line="131" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/configFiles/cereproc-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="84" lean-forward="false" selection-start-line="5" selection-start-column="84" selection-end-line="5" selection-end-column="84" />
           <folding />
         </state>
       </provider>
